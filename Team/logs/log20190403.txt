@@ -1,0 +1,40 @@
+2019-04-03 16:26:33.359 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-04-03 16:26:34.961 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-04-03 16:26:35.337 +08:00 [INF] Request finished in 378.3328ms 200 text/html
+2019-04-03 16:26:36.123 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-04-03 16:26:36.286 +08:00 [INF] Request finished in 162.4733ms 200 application/json;charset=utf-8
+2019-04-03 16:26:40.619 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserLoginApi application/json-patch+json 49
+2019-04-03 16:26:40.707 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-04-03 16:26:40.731 +08:00 [INF] Route matched with {action = "UserLoginApi", controller = "Login"}. Executing action Team.Controllers.LoginController.UserLoginApi (Team)
+2019-04-03 16:26:41.366 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoginApi (Team) with arguments (["Team.Model.AutoMappers.UserLoginMap"]) - Validation state: "Valid"
+2019-04-03 16:26:42.093 +08:00 [INF] Entity Framework Core 2.2.3-servicing-35854 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-04-03 16:26:44.546 +08:00 [INF] Executed DbCommand (1,370ms) [Parameters=[@__account_0='?' (Size = 4000), @__password_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Images], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[Sex], [x].[University]
+FROM [Users] AS [x]
+WHERE ([x].[Account] = @__account_0) AND ([x].[Password] = @__password_1)
+2019-04-03 16:26:44.658 +08:00 [INF] 用户 4登陆成功
+2019-04-03 16:26:44.664 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserLoginApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 3280.9641ms.
+2019-04-03 16:26:44.682 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-04-03 16:26:44.693 +08:00 [INF] Executed action Team.Controllers.LoginController.UserLoginApi (Team) in 3956.8769ms
+2019-04-03 16:26:44.696 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-04-03 16:26:44.707 +08:00 [INF] Request finished in 4087.9332ms 200 application/json; charset=utf-8
+2019-04-03 23:27:26.925 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-04-03 23:27:28.419 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-04-03 23:27:28.702 +08:00 [INF] Request finished in 285.35ms 200 text/html
+2019-04-03 23:27:29.273 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-04-03 23:27:29.438 +08:00 [INF] Request finished in 165.0549ms 200 application/json;charset=utf-8
+2019-04-03 23:27:35.501 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserLoginApi application/json-patch+json 49
+2019-04-03 23:27:35.576 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-04-03 23:27:35.597 +08:00 [INF] Route matched with {action = "UserLoginApi", controller = "Login"}. Executing action Team.Controllers.LoginController.UserLoginApi (Team)
+2019-04-03 23:27:36.128 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoginApi (Team) with arguments (["Team.Model.AutoMappers.UserLoginMap"]) - Validation state: "Valid"
+2019-04-03 23:27:36.795 +08:00 [INF] Entity Framework Core 2.2.3-servicing-35854 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-04-03 23:27:37.286 +08:00 [INF] Executed DbCommand (44ms) [Parameters=[@__account_0='?' (Size = 4000), @__password_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Images], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[Sex], [x].[University]
+FROM [Users] AS [x]
+WHERE ([x].[Account] = @__account_0) AND ([x].[Password] = @__password_1)
+2019-04-03 23:27:37.391 +08:00 [INF] 用户 4登陆成功
+2019-04-03 23:27:37.397 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserLoginApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 1254.2743ms.
+2019-04-03 23:27:37.409 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-04-03 23:27:37.421 +08:00 [INF] Executed action Team.Controllers.LoginController.UserLoginApi (Team) in 1819.0191ms
+2019-04-03 23:27:37.424 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-04-03 23:27:37.455 +08:00 [INF] Request finished in 1954.2794ms 200 application/json; charset=utf-8

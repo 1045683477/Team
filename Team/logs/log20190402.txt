@@ -1,0 +1,16 @@
+2019-04-02 20:36:58.699 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-04-02 20:37:00.075 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger  
+2019-04-02 20:37:00.208 +08:00 [INF] Request finished in 137.1381ms 301 
+2019-04-02 20:37:00.212 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-04-02 20:37:00.325 +08:00 [INF] Request finished in 112.9708ms 200 text/html
+2019-04-02 20:37:00.344 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui.css  
+2019-04-02 20:37:00.344 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-bundle.js  
+2019-04-02 20:37:00.349 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-standalone-preset.js  
+2019-04-02 20:37:00.413 +08:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2019-04-02 20:37:00.413 +08:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2019-04-02 20:37:00.421 +08:00 [INF] Request finished in 72.1975ms 200 application/javascript
+2019-04-02 20:37:00.421 +08:00 [INF] Request finished in 77.3385ms 200 text/css
+2019-04-02 20:37:00.435 +08:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2019-04-02 20:37:00.437 +08:00 [INF] Request finished in 92.3083ms 200 application/javascript
+2019-04-02 20:37:01.022 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-04-02 20:37:01.185 +08:00 [INF] Request finished in 163.5826ms 200 application/json;charset=utf-8

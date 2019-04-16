@@ -1,0 +1,177 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Team</name>
+    </assembly>
+    <members>
+        <member name="T:Team.AuthHelper.OverWrite.IJwtHelper">
+            <summary>
+            token 的生成与解密
+            </summary>
+        </member>
+        <member name="M:Team.AuthHelper.OverWrite.IJwtHelper.IssueJWT(Team.AuthHelper.OverWrite.TokenModelJWT)">
+            <summary>
+            颁发 token
+            </summary>
+            <param name="tokenModel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Team.AuthHelper.OverWrite.IJwtHelper.SerizlizeJWT(System.String)">
+            <summary>
+            解析字符串
+            </summary>
+            <param name="jwtStr"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Team.AuthHelper.OverWrite.JwtHelper.IssueJWT(Team.AuthHelper.OverWrite.TokenModelJWT)">
+            <summary>
+            颁发 token
+            </summary>
+            <param name="tokenModel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Team.AuthHelper.OverWrite.JwtHelper.SerizlizeJWT(System.String)">
+            <summary>
+            解析字符串
+            </summary>
+            <param name="jwtStr"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Team.Controllers.LoginController">
+            <summary>
+            登陆,注册，修改密码 API
+            </summary>
+        </member>
+        <member name="M:Team.Controllers.LoginController.UserRegisteredApi(Team.Model.AutoMappers.UserRegisteredMap)">
+            <summary>
+            注册
+            </summary>
+            <param name="userRegistered"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Controllers.LoginController.UserLoginApi(Team.Model.AutoMappers.UserLoginMap)">
+            <summary>
+            登陆
+            </summary>
+            <param name="userLogin">登陆模板</param>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Controllers.LoginController.UserForUpdateApi">
+            <summary>
+            为修改客户数据提供查询接口
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Controllers.LoginController.UserUpdateApi(Team.Model.AutoMappers.UserUpdateMap)">
+            <summary>
+            修改个人资料，密码姓名，省份大学
+            </summary>
+            <param name="update"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Controllers.LoginController.RetrievePasswordApi(System.String)">
+            <summary>
+            找回密码
+            </summary>
+            <param name="account">账号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Controllers.LoginController.HttpRequest">
+            <summary>
+            解析 header 里面的 token
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Team.Controllers.RunController">
+            <summary>
+            跑步 记录与查询
+            </summary>
+        </member>
+        <member name="M:Team.Controllers.RunController.FreeRecordApi(Team.Model.AutoMappers.RunRecordMap)">
+            <summary>
+            跑步记录
+            </summary>
+            <param name="recordMap">记录模板</param>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Controllers.RunController.FreeSearchApi">
+            <summary>
+            查询所有跑步记录
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Controllers.RunController.ExeExerciseApi">
+            <summary>
+            体育锻炼及格次数与记录 要求：4000km 跑步模式
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Controllers.RunController.HttpRequest">
+            <summary>
+            获取token
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Controllers.TeamController.TeamCreateApi(Team.Model.AutoMappers.TeamCreateMap)">
+            <summary>
+            创建运动队伍
+            </summary>
+            <param name="teamCreate">创建队伍模板</param>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Controllers.TeamController.TeamSearchUserCreateAllApi">
+            <summary>
+            查询用户自身所有创建队伍
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Controllers.TeamController.TeamSearchUserJoinAllApi">
+            <summary>
+            查询该用户所有参加记录
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Controllers.TeamController.TeamSearchTeamingApi(Team.Model.Model.Sport)">
+            <summary>
+            查询某个运动所有正在组队队伍,查询同校队伍
+            </summary>
+            <param name="sport">运动类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Controllers.TeamController.TeamSearchByIdTeamingApi(System.Int32)">
+            <summary>
+            查询某个正在组队的团队信息
+            </summary>
+            <param name="teamId">团队 Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Controllers.TeamController.ParticipateInTeamApi(System.Int32)">
+            <summary>
+            参加队伍
+            </summary>
+            <param name="teamId">队伍 Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Controllers.TeamController.HttpRequest">
+            <summary>
+            解析 header 里面的 token
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Team.Validator.TeamCreateValidator">
+            <summary>
+            队伍创建模板验证
+            </summary>
+        </member>
+        <member name="T:Team.Validator.UserRegisteredValidator">
+            <summary>
+            注册模板限制
+            </summary>
+        </member>
+        <member name="T:Team.Validator.UserUpdateValidator">
+            <summary>
+            用户更新限制
+            </summary>
+        </member>
+    </members>
+</doc>
