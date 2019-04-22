@@ -16,6 +16,14 @@ namespace Team.Infrastructure.IRepositories
         void FreeRecord(int userId,Run run);
 
         /// <summary>
+        /// 查询跑步记录统计
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="sport"></param>
+        /// <returns></returns>
+        Statistical FreeAllStatistical(int userId, SportFreeModel sport);
+
+        /// <summary>
         /// 查询所有记录
         /// </summary>
         /// <param name="userId">用户 Id</param>

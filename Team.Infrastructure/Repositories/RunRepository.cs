@@ -26,8 +26,23 @@ namespace Team.Infrastructure.Repositories
         /// <param name="run"></param>
         public void FreeRecord(int userId, Run run)
         {
+            var user = _myContext.Statisticals.SingleOrDefault(x => x.UserId == userId&& x.SportFreeModel==run.SportFreeModel);
+            user.AllTime += (float)(run.EndTime - run.StarTime).TotalMinutes;
+            user.Distance += run.Distance;
+            user.Kcal += run.Kcal;
             run.UserId = userId;
             _myContext.Add(run);
+        }
+
+        /// <summary>
+        /// 查询跑步记录统计
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="sport"></param>
+        /// <returns></returns>
+        public Statistical FreeAllStatistical(int userId,SportFreeModel sport)
+        {
+            return _myContext.Statisticals.SingleOrDefault(x =>x.SportFreeModel==sport &&x.UserId==userId);
         }
 
         /// <summary>
@@ -48,7 +63,7 @@ namespace Team.Infrastructure.Repositories
         public IEnumerable<Run> ExerciseList(int userId)
         {
             return _myContext.Runs.Where(x =>
-                x.UserId == userId && x.SportFreeModel == SportFreeModel.Runing && x.Distance >= 4000).ToList();
+                x.UserId == userId && x.SportFreeModel == SportFreeModel.Running && x.Distance >= 4000).ToList();
         }
     }
 }

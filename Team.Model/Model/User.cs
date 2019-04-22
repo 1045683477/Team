@@ -66,5 +66,10 @@ namespace Team.Model.Model
         /// 跑步记录
         /// </summary>
         public ICollection<Run> Runs { get; set; }
+
+        /// <summary>
+        /// 统计总数据
+        /// </summary>
+        public ICollection<Statistical> Statistical { get; set; }
     }
 }

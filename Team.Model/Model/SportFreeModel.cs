@@ -2,7 +2,13 @@
 {
     public enum SportFreeModel
     {
-        Runing=0,
+        /// <summary>
+        /// 跑步
+        /// </summary>
+        Running=2,
+        /// <summary>
+        /// 骑行
+        /// </summary>
         Riding=1
     }
 }

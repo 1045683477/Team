@@ -84,6 +84,21 @@
             配速
             </summary>
         </member>
+        <member name="P:Team.Model.AutoMappers.StatisticalMap.Distance">
+            <summary>
+            总路程
+            </summary>
+        </member>
+        <member name="P:Team.Model.AutoMappers.StatisticalMap.Kcal">
+            <summary>
+            总消耗卡路里
+            </summary>
+        </member>
+        <member name="P:Team.Model.AutoMappers.StatisticalMap.AllTime">
+            <summary>
+            总消耗时间
+            </summary>
+        </member>
         <member name="T:Team.Model.AutoMappers.TeamCreateMap">
             <summary>
             创建队伍模板
@@ -394,6 +409,41 @@
             跑步
             </summary>
         </member>
+        <member name="F:Team.Model.Model.SportFreeModel.Running">
+            <summary>
+            跑步
+            </summary>
+        </member>
+        <member name="F:Team.Model.Model.SportFreeModel.Riding">
+            <summary>
+            骑行
+            </summary>
+        </member>
+        <member name="T:Team.Model.Model.Statistical">
+            <summary>
+            统计总路程、卡路里、时间
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.Statistical.SportFreeModel">
+            <summary>
+            跑步项目
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.Statistical.Distance">
+            <summary>
+            总路程
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.Statistical.Kcal">
+            <summary>
+            总消耗卡路里
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.Statistical.AllTime">
+            <summary>
+            总消耗时间
+            </summary>
+        </member>
         <member name="T:Team.Model.Model.Team">
             <summary>
             历史约球记录
@@ -502,6 +552,11 @@
         <member name="P:Team.Model.Model.User.Runs">
             <summary>
             跑步记录
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.User.Statistical">
+            <summary>
+            统计总数据
             </summary>
         </member>
     </members>

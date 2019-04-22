@@ -7,7 +7,7 @@ namespace Team.Infrastructure.DbContext
     {
         public MyContext(DbContextOptions<MyContext> options):base(options)
         {
-            
+            Database.EnsureCreated();
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -24,6 +24,11 @@ namespace Team.Infrastructure.DbContext
 
             modelBuilder.Entity<User>()
                 .HasMany(x => x.Runs)
+                .WithOne(x => x.User)
+                .HasForeignKey(x => x.UserId);
+
+            modelBuilder.Entity<User>()
+                .HasMany(x => x.Statistical)
                 .WithOne(x => x.User)
                 .HasForeignKey(x => x.UserId);
 
@@ -123,6 +128,18 @@ namespace Team.Infrastructure.DbContext
                 .Property(x => x.Name).IsRequired();
 
             #endregion
+
+            #region Statistical
+
+            modelBuilder.Entity<Statistical>()
+                .HasKey(x => x.Id);
+
+            modelBuilder.Entity<Statistical>()
+                .HasOne(x => x.User)
+                .WithMany(x => x.Statistical)
+                .HasForeignKey(x => x.UserId);
+
+            #endregion
         }
 
         public DbSet<User> Users { get; set; }
@@ -132,5 +149,7 @@ namespace Team.Infrastructure.DbContext
         public DbSet<Participants> Participantses { get; set; }
 
         public DbSet<Run> Runs { get; set; }
+
+        public DbSet<Statistical> Statisticals { get; set; }
     }
 }

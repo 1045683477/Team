@@ -10,8 +10,8 @@ using Team.Infrastructure.DbContext;
 namespace Team.Infrastructure.Migrations
 {
     [DbContext(typeof(MyContext))]
-    [Migration("20190407120648_addprovince")]
-    partial class addprovince
+    [Migration("20190422110933_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -72,6 +72,29 @@ namespace Team.Infrastructure.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Runs");
+                });
+
+            modelBuilder.Entity("Team.Model.Model.Statistical", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<float>("AllTime");
+
+                    b.Property<float>("Distance");
+
+                    b.Property<float>("Kcal");
+
+                    b.Property<int>("SportFreeModel");
+
+                    b.Property<int>("UserId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Statisticals");
                 });
 
             modelBuilder.Entity("Team.Model.Model.Team", b =>
@@ -146,6 +169,14 @@ namespace Team.Infrastructure.Migrations
                 {
                     b.HasOne("Team.Model.Model.User", "User")
                         .WithMany("Runs")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Team.Model.Model.Statistical", b =>
+                {
+                    b.HasOne("Team.Model.Model.User", "User")
+                        .WithMany("Statistical")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });

@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Team.Infrastructure.Migrations
 {
-    public partial class update1 : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -20,6 +20,7 @@ namespace Team.Infrastructure.Migrations
                     Images = table.Column<string>(nullable: true),
                     Sex = table.Column<int>(nullable: false),
                     Role = table.Column<int>(nullable: false),
+                    Province = table.Column<int>(nullable: false),
                     UniversityId = table.Column<int>(nullable: false),
                     studentId = table.Column<int>(nullable: false)
                 },
@@ -49,6 +50,29 @@ namespace Team.Infrastructure.Migrations
                     table.PrimaryKey("PK_Runs", x => x.Id);
                     table.ForeignKey(
                         name: "FK_Runs_Users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Statisticals",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    SportFreeModel = table.Column<int>(nullable: false),
+                    Distance = table.Column<float>(nullable: false),
+                    Kcal = table.Column<float>(nullable: false),
+                    AllTime = table.Column<float>(nullable: false),
+                    UserId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Statisticals", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Statisticals_Users_UserId",
                         column: x => x.UserId,
                         principalTable: "Users",
                         principalColumn: "Id",
@@ -112,6 +136,11 @@ namespace Team.Infrastructure.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Statisticals_UserId",
+                table: "Statisticals",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Teams_UserId",
                 table: "Teams",
                 column: "UserId");
@@ -124,6 +153,9 @@ namespace Team.Infrastructure.Migrations
 
             migrationBuilder.DropTable(
                 name: "Runs");
+
+            migrationBuilder.DropTable(
+                name: "Statisticals");
 
             migrationBuilder.DropTable(
                 name: "Teams");

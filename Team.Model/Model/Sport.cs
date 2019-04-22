@@ -8,7 +8,7 @@
         /// <summary>
         /// 乒乓球
         /// </summary>
-        PingPongBall=0,
+        PingPongBall=7,
 
         /// <summary>
         /// 羽毛球

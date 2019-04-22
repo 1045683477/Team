@@ -58,6 +58,14 @@ namespace Team.Infrastructure.Repositories
         public async void UserRegisterd(User user)
         {
             user.Role = Role.Client;
+            Statistical statistical1=new Statistical();
+            statistical1.SportFreeModel = SportFreeModel.Running;
+            statistical1.User = user;
+            Statistical statistical2 = new Statistical();
+            statistical2.SportFreeModel = SportFreeModel.Riding;
+            statistical2.User = user;
+            await _myContext.Statisticals.AddAsync(statistical1);
+            await _myContext.Statisticals.AddAsync(statistical2);
             await _myContext.Users.AddAsync(user);
         }
 

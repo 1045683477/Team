@@ -25,6 +25,10 @@ namespace Team.AutoMapper
             CreateMap<User, Participants>(); //参加队伍
 
             CreateMap<Run, RunRecordMap>();//跑步记录
+
+            CreateMap<RunRecordMap, Run>();//跑步记录
+
+            CreateMap<Statistical, StatisticalMap>();//跑步统计
         }
     }
 }

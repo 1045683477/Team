@@ -50,7 +50,7 @@ namespace Team.Controllers
         #endregion
 
         /// <summary>
-        /// 跑步记录
+        /// 跑步数据记录
         /// </summary>
         /// <param name="recordMap">记录模板</param>
         /// <returns></returns>
@@ -81,6 +81,38 @@ namespace Team.Controllers
         }
 
         /// <summary>
+        /// 查询跑步记录统计
+        /// </summary>
+        /// <param name="sport"></param>
+        /// <returns></returns>
+        [HttpPost("FreeAllStatisticalApi",Name = "FreeAllStatisticalApi")]
+        public IActionResult FreeAllStatisticalApi([FromBody] SportFreeModel sport)
+        {
+            CustomStatusCode code;
+            var user = HttpRequest();
+            var record = _runRepository.FreeAllStatistical(user.Id, sport);
+            if (record==null)
+            {
+                _logger.LogInformation($"{user.Id} 用户查询跑步记录统计为空");
+                code=new CustomStatusCode
+                {
+                    Status = "200",
+                    Message = $"{user.Id} 用户查询跑步记录统计为空"
+                };
+                return StatusCode(200, code);
+            }
+            _logger.LogInformation($"{user.Id} 用户查询跑步记录统计成功");
+            var resource = _mapper.Map<StatisticalMap>(record);
+            code = new CustomStatusCode
+            {
+                Status = "200",
+                Message = $"{user.Id} 用户查询跑步记录统计成功",
+                Data = resource
+            };
+            return StatusCode(200, code);
+        }
+
+        /// <summary>
         /// 查询所有跑步记录
         /// </summary>
         /// <returns></returns>
@@ -104,7 +136,7 @@ namespace Team.Controllers
             _logger.LogInformation($"{jwtStr.Id} 查询所有跑步成功");
             code = new CustomStatusCode
             {
-                Status = "404",
+                Status = "200",
                 Message = $"{jwtStr.Id} 查询所有跑步成功",
                 Data = runResource
             };
@@ -142,6 +174,7 @@ namespace Team.Controllers
             };
             return StatusCode(200, code);
         }
+
 
         /// <summary>
         /// 获取token

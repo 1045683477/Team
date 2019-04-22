@@ -89,9 +89,16 @@
         </member>
         <member name="M:Team.Controllers.RunController.FreeRecordApi(Team.Model.AutoMappers.RunRecordMap)">
             <summary>
-            跑步记录
+            跑步数据记录
             </summary>
             <param name="recordMap">记录模板</param>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Controllers.RunController.FreeAllStatisticalApi(Team.Model.Model.SportFreeModel)">
+            <summary>
+            查询跑步记录统计
+            </summary>
+            <param name="sport"></param>
             <returns></returns>
         </member>
         <member name="M:Team.Controllers.RunController.FreeSearchApi">
