@@ -9,6 +9,16 @@ namespace Team.Model.AutoMappers
     public class TeamCreateMap
     {
         /// <summary>
+        /// 队伍名
+        /// </summary>
+        public string Name { get; set; }
+
+        /// <summary>
+        /// 图片
+        /// </summary>
+        public string Images { get; set; }
+
+        /// <summary>
         /// 运动类型
         /// </summary>
         public Sport Sport { get; set; }
@@ -19,9 +29,14 @@ namespace Team.Model.AutoMappers
         public int AllCount { get; set; }
 
         /// <summary>
-        /// 备注地点
+        /// 地址（自己输入地址）
         /// </summary>
-        public string Note { get; set; }
+        public string Address { get; set; }
+
+        /// <summary>
+        /// 队伍简介
+        /// </summary>
+        public string Introduction { get; set; }
 
         /// <summary>
         /// 约定时间

@@ -1960,3 +1960,221 @@ WHERE ([x].[SportFreeModel] = @__sport_0) AND ([x].[UserId] = @__userId_1)
 2019-04-22 19:43:12.597 +08:00 [INF] Executed action Team.Controllers.RunController.FreeAllStatisticalApi (Team) in 1040.0619000000002ms
 2019-04-22 19:43:12.599 +08:00 [INF] Executed endpoint 'Team.Controllers.RunController.FreeAllStatisticalApi (Team)'
 2019-04-22 19:43:12.600 +08:00 [INF] Request finished in 1196.6943ms 200 application/json; charset=utf-8
+2019-04-22 22:39:19.115 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-04-22 22:39:20.548 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-04-22 22:39:20.871 +08:00 [INF] Request finished in 327.2321ms 200 text/html
+2019-04-22 22:39:21.431 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-04-22 22:39:21.579 +08:00 [INF] Request finished in 148.0173ms 200 application/json;charset=utf-8
+2019-04-22 22:39:26.068 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserLoginApi application/json-patch+json 49
+2019-04-22 22:39:26.141 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-04-22 22:39:26.161 +08:00 [INF] Route matched with {action = "UserLoginApi", controller = "Login"}. Executing action Team.Controllers.LoginController.UserLoginApi (Team)
+2019-04-22 22:39:26.428 +08:00 [INF] Entity Framework Core 2.2.3-servicing-35854 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-04-22 22:39:26.730 +08:00 [INF] Executed DbCommand (182ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-04-22 22:39:27.113 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoginApi (Team) with arguments (["Team.Model.AutoMappers.UserLoginMap"]) - Validation state: "Valid"
+2019-04-22 22:39:27.308 +08:00 [INF] Executed DbCommand (66ms) [Parameters=[@__account_0='?' (Size = 4000), @__password_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Images], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[Sex], [x].[UniversityId], [x].[studentId]
+FROM [Users] AS [x]
+WHERE ([x].[Account] = @__account_0) AND ([x].[Password] = @__password_1)
+2019-04-22 22:39:27.387 +08:00 [INF] 用户 1登陆成功
+2019-04-22 22:39:27.393 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserLoginApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 270.33590000000004ms.
+2019-04-22 22:39:27.407 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-04-22 22:39:27.420 +08:00 [INF] Executed action Team.Controllers.LoginController.UserLoginApi (Team) in 1254.9024000000002ms
+2019-04-22 22:39:27.425 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-04-22 22:39:27.434 +08:00 [INF] Request finished in 1365.0296ms 200 application/json; charset=utf-8
+2019-04-22 22:39:44.114 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Run/FreeAllStatisticalApi  0
+2019-04-22 22:39:44.130 +08:00 [INF] Successfully validated the token.
+2019-04-22 22:39:44.134 +08:00 [INF] Executing endpoint 'Team.Controllers.RunController.FreeAllStatisticalApi (Team)'
+2019-04-22 22:39:44.138 +08:00 [INF] Route matched with {action = "FreeAllStatisticalApi", controller = "Run"}. Executing action Team.Controllers.RunController.FreeAllStatisticalApi (Team)
+2019-04-22 22:39:44.150 +08:00 [INF] Authorization was successful.
+2019-04-22 22:39:44.154 +08:00 [INF] Entity Framework Core 2.2.3-servicing-35854 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-04-22 22:39:44.204 +08:00 [INF] Executed DbCommand (37ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-04-22 22:39:44.231 +08:00 [INF] Executing action method Team.Controllers.RunController.FreeAllStatisticalApi (Team) with arguments (["0"]) - Validation state: "Valid"
+2019-04-22 22:39:44.291 +08:00 [INF] Executed DbCommand (39ms) [Parameters=[@__sport_0='?' (DbType = Int32), @__userId_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[AllTime], [x].[Distance], [x].[Kcal], [x].[SportFreeModel], [x].[UserId]
+FROM [Statisticals] AS [x]
+WHERE ([x].[SportFreeModel] = @__sport_0) AND ([x].[UserId] = @__userId_1)
+2019-04-22 22:39:44.298 +08:00 [INF] 1 用户查询跑步记录统计为空
+2019-04-22 22:39:44.299 +08:00 [INF] Executed action method Team.Controllers.RunController.FreeAllStatisticalApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 65.44850000000001ms.
+2019-04-22 22:39:44.301 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-04-22 22:39:44.306 +08:00 [INF] Executed action Team.Controllers.RunController.FreeAllStatisticalApi (Team) in 166.30630000000002ms
+2019-04-22 22:39:44.307 +08:00 [INF] Executed endpoint 'Team.Controllers.RunController.FreeAllStatisticalApi (Team)'
+2019-04-22 22:39:44.310 +08:00 [INF] Request finished in 195.9057ms 200 application/json; charset=utf-8
+2019-04-22 22:40:56.112 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-04-22 22:40:57.378 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-04-22 22:40:57.660 +08:00 [INF] Request finished in 284.4956ms 200 text/html
+2019-04-22 22:40:58.236 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-04-22 22:40:58.402 +08:00 [INF] Request finished in 166.1372ms 200 application/json;charset=utf-8
+2019-04-22 22:41:05.765 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Run/FreeAllStatisticalApi  0
+2019-04-22 22:41:05.850 +08:00 [INF] Successfully validated the token.
+2019-04-22 22:41:05.880 +08:00 [INF] Executing endpoint 'Team.Controllers.RunController.FreeAllStatisticalApi (Team)'
+2019-04-22 22:41:05.908 +08:00 [INF] Route matched with {action = "FreeAllStatisticalApi", controller = "Run"}. Executing action Team.Controllers.RunController.FreeAllStatisticalApi (Team)
+2019-04-22 22:41:05.919 +08:00 [INF] Authorization was successful.
+2019-04-22 22:41:06.184 +08:00 [INF] Entity Framework Core 2.2.3-servicing-35854 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-04-22 22:41:06.380 +08:00 [INF] Executed DbCommand (89ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-04-22 22:41:06.693 +08:00 [INF] Executing action method Team.Controllers.RunController.FreeAllStatisticalApi (Team) with arguments (["0"]) - Validation state: "Valid"
+2019-04-22 22:41:06.848 +08:00 [INF] Executed DbCommand (43ms) [Parameters=[@__sport_0='?' (DbType = Int32), @__userId_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[AllTime], [x].[Distance], [x].[Kcal], [x].[SportFreeModel], [x].[UserId]
+FROM [Statisticals] AS [x]
+WHERE ([x].[SportFreeModel] = @__sport_0) AND ([x].[UserId] = @__userId_1)
+2019-04-22 22:41:06.862 +08:00 [INF] 1 用户查询跑步记录统计为空
+2019-04-22 22:41:06.867 +08:00 [INF] Executed action method Team.Controllers.RunController.FreeAllStatisticalApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 160.39260000000002ms.
+2019-04-22 22:41:06.876 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-04-22 22:41:06.891 +08:00 [INF] Executed action Team.Controllers.RunController.FreeAllStatisticalApi (Team) in 977.5701ms
+2019-04-22 22:41:06.893 +08:00 [INF] Executed endpoint 'Team.Controllers.RunController.FreeAllStatisticalApi (Team)'
+2019-04-22 22:41:06.895 +08:00 [INF] Request finished in 1129.6891ms 200 application/json; charset=utf-8
+2019-04-22 22:41:11.914 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Run/FreeAllStatisticalApi multipart/form-data; boundary=----WebKitFormBoundaryr3mf5zAUmqALfLyt 137
+2019-04-22 22:41:11.917 +08:00 [INF] Successfully validated the token.
+2019-04-22 22:41:11.921 +08:00 [INF] Executing endpoint 'Team.Controllers.RunController.FreeAllStatisticalApi (Team)'
+2019-04-22 22:41:11.923 +08:00 [INF] Route matched with {action = "FreeAllStatisticalApi", controller = "Run"}. Executing action Team.Controllers.RunController.FreeAllStatisticalApi (Team)
+2019-04-22 22:41:11.926 +08:00 [INF] Authorization was successful.
+2019-04-22 22:41:11.929 +08:00 [INF] Entity Framework Core 2.2.3-servicing-35854 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-04-22 22:41:11.965 +08:00 [INF] Executed DbCommand (27ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-04-22 22:41:12.037 +08:00 [INF] Executing action method Team.Controllers.RunController.FreeAllStatisticalApi (Team) with arguments (["Riding"]) - Validation state: "Valid"
+2019-04-22 22:41:12.075 +08:00 [INF] Executed DbCommand (24ms) [Parameters=[@__sport_0='?' (DbType = Int32), @__userId_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[AllTime], [x].[Distance], [x].[Kcal], [x].[SportFreeModel], [x].[UserId]
+FROM [Statisticals] AS [x]
+WHERE ([x].[SportFreeModel] = @__sport_0) AND ([x].[UserId] = @__userId_1)
+2019-04-22 22:41:12.111 +08:00 [INF] 1 用户查询跑步记录统计成功
+2019-04-22 22:41:12.126 +08:00 [INF] Executed action method Team.Controllers.RunController.FreeAllStatisticalApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 85.6623ms.
+2019-04-22 22:41:12.129 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-04-22 22:41:12.134 +08:00 [INF] Executed action Team.Controllers.RunController.FreeAllStatisticalApi (Team) in 207.9413ms
+2019-04-22 22:41:12.136 +08:00 [INF] Executed endpoint 'Team.Controllers.RunController.FreeAllStatisticalApi (Team)'
+2019-04-22 22:41:12.137 +08:00 [INF] Request finished in 223.7686ms 200 application/json; charset=utf-8
+2019-04-22 22:41:32.112 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-04-22 22:41:33.669 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-04-22 22:41:33.960 +08:00 [INF] Request finished in 293.8426ms 200 text/html
+2019-04-22 22:41:34.534 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-04-22 22:41:34.736 +08:00 [INF] Request finished in 201.9464ms 200 application/json;charset=utf-8
+2019-04-22 22:42:15.840 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Run/FreeAllStatisticalApi application/json-patch+json 17
+2019-04-22 22:42:15.953 +08:00 [INF] Successfully validated the token.
+2019-04-22 22:42:15.982 +08:00 [INF] Executing endpoint 'Team.Controllers.RunController.FreeAllStatisticalApi (Team)'
+2019-04-22 22:42:15.999 +08:00 [INF] Route matched with {action = "FreeAllStatisticalApi", controller = "Run"}. Executing action Team.Controllers.RunController.FreeAllStatisticalApi (Team)
+2019-04-22 22:42:16.013 +08:00 [INF] Authorization was successful.
+2019-04-22 22:42:16.278 +08:00 [INF] Entity Framework Core 2.2.3-servicing-35854 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-04-22 22:42:16.480 +08:00 [INF] Executed DbCommand (98ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-04-22 22:42:16.763 +08:00 [INF] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2019-04-22 22:42:16.778 +08:00 [INF] Executed action Team.Controllers.RunController.FreeAllStatisticalApi (Team) in 773.2807ms
+2019-04-22 22:42:16.781 +08:00 [INF] Executed endpoint 'Team.Controllers.RunController.FreeAllStatisticalApi (Team)'
+2019-04-22 22:42:16.783 +08:00 [INF] Request finished in 943.0215ms 400 application/problem+json; charset=utf-8
+2019-04-22 22:42:29.279 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Run/FreeAllStatisticalApi application/json-patch+json 19
+2019-04-22 22:42:29.281 +08:00 [INF] Successfully validated the token.
+2019-04-22 22:42:29.286 +08:00 [INF] Executing endpoint 'Team.Controllers.RunController.FreeAllStatisticalApi (Team)'
+2019-04-22 22:42:29.287 +08:00 [INF] Route matched with {action = "FreeAllStatisticalApi", controller = "Run"}. Executing action Team.Controllers.RunController.FreeAllStatisticalApi (Team)
+2019-04-22 22:42:29.290 +08:00 [INF] Authorization was successful.
+2019-04-22 22:42:29.293 +08:00 [INF] Entity Framework Core 2.2.3-servicing-35854 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-04-22 22:42:29.335 +08:00 [INF] Executed DbCommand (24ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-04-22 22:42:29.343 +08:00 [INF] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2019-04-22 22:42:29.347 +08:00 [INF] Executed action Team.Controllers.RunController.FreeAllStatisticalApi (Team) in 56.706500000000005ms
+2019-04-22 22:42:29.348 +08:00 [INF] Executed endpoint 'Team.Controllers.RunController.FreeAllStatisticalApi (Team)'
+2019-04-22 22:42:29.350 +08:00 [INF] Request finished in 71.3967ms 400 application/problem+json; charset=utf-8
+2019-04-22 22:42:35.948 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Run/FreeAllStatisticalApi application/json-patch+json 1
+2019-04-22 22:42:35.953 +08:00 [INF] Successfully validated the token.
+2019-04-22 22:42:35.956 +08:00 [INF] Executing endpoint 'Team.Controllers.RunController.FreeAllStatisticalApi (Team)'
+2019-04-22 22:42:35.962 +08:00 [INF] Route matched with {action = "FreeAllStatisticalApi", controller = "Run"}. Executing action Team.Controllers.RunController.FreeAllStatisticalApi (Team)
+2019-04-22 22:42:35.965 +08:00 [INF] Authorization was successful.
+2019-04-22 22:42:35.968 +08:00 [INF] Entity Framework Core 2.2.3-servicing-35854 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-04-22 22:42:36.009 +08:00 [INF] Executed DbCommand (29ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-04-22 22:42:36.082 +08:00 [INF] Executing action method Team.Controllers.RunController.FreeAllStatisticalApi (Team) with arguments (["Riding"]) - Validation state: "Valid"
+2019-04-22 22:42:36.225 +08:00 [INF] Executed DbCommand (40ms) [Parameters=[@__sport_0='?' (DbType = Int32), @__userId_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[AllTime], [x].[Distance], [x].[Kcal], [x].[SportFreeModel], [x].[UserId]
+FROM [Statisticals] AS [x]
+WHERE ([x].[SportFreeModel] = @__sport_0) AND ([x].[UserId] = @__userId_1)
+2019-04-22 22:42:36.265 +08:00 [INF] 1 用户查询跑步记录统计成功
+2019-04-22 22:42:36.282 +08:00 [INF] Executed action method Team.Controllers.RunController.FreeAllStatisticalApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 190.0722ms.
+2019-04-22 22:42:36.286 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-04-22 22:42:36.293 +08:00 [INF] Executed action Team.Controllers.RunController.FreeAllStatisticalApi (Team) in 327.86080000000004ms
+2019-04-22 22:42:36.296 +08:00 [INF] Executed endpoint 'Team.Controllers.RunController.FreeAllStatisticalApi (Team)'
+2019-04-22 22:42:36.297 +08:00 [INF] Request finished in 349.2887ms 200 application/json; charset=utf-8
+2019-04-22 22:43:15.884 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-04-22 22:43:17.119 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-04-22 22:43:17.380 +08:00 [INF] Request finished in 264.8607ms 200 text/html
+2019-04-22 22:43:17.961 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-04-22 22:43:18.129 +08:00 [INF] Request finished in 167.2784ms 200 application/json;charset=utf-8
+2019-04-22 22:43:26.905 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Run/FreeAllStatisticalApi/1  0
+2019-04-22 22:43:26.988 +08:00 [INF] Successfully validated the token.
+2019-04-22 22:43:27.019 +08:00 [INF] Executing endpoint 'Team.Controllers.RunController.FreeAllStatisticalApi (Team)'
+2019-04-22 22:43:27.038 +08:00 [INF] Route matched with {action = "FreeAllStatisticalApi", controller = "Run"}. Executing action Team.Controllers.RunController.FreeAllStatisticalApi (Team)
+2019-04-22 22:43:27.048 +08:00 [INF] Authorization was successful.
+2019-04-22 22:43:27.305 +08:00 [INF] Entity Framework Core 2.2.3-servicing-35854 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-04-22 22:43:27.537 +08:00 [INF] Executed DbCommand (93ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-04-22 22:43:27.847 +08:00 [INF] Executing action method Team.Controllers.RunController.FreeAllStatisticalApi (Team) with arguments (["Riding"]) - Validation state: "Valid"
+2019-04-22 22:43:27.997 +08:00 [INF] Executed DbCommand (44ms) [Parameters=[@__sport_0='?' (DbType = Int32), @__userId_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[AllTime], [x].[Distance], [x].[Kcal], [x].[SportFreeModel], [x].[UserId]
+FROM [Statisticals] AS [x]
+WHERE ([x].[SportFreeModel] = @__sport_0) AND ([x].[UserId] = @__userId_1)
+2019-04-22 22:43:28.034 +08:00 [INF] 1 用户查询跑步记录统计成功
+2019-04-22 22:43:28.053 +08:00 [INF] Executed action method Team.Controllers.RunController.FreeAllStatisticalApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 195.661ms.
+2019-04-22 22:43:28.062 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-04-22 22:43:28.075 +08:00 [INF] Executed action Team.Controllers.RunController.FreeAllStatisticalApi (Team) in 1032.1341ms
+2019-04-22 22:43:28.076 +08:00 [INF] Executed endpoint 'Team.Controllers.RunController.FreeAllStatisticalApi (Team)'
+2019-04-22 22:43:28.077 +08:00 [INF] Request finished in 1172.492ms 200 application/json; charset=utf-8
+2019-04-22 22:43:34.564 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Run/FreeAllStatisticalApi/2  0
+2019-04-22 22:43:34.579 +08:00 [INF] Successfully validated the token.
+2019-04-22 22:43:34.583 +08:00 [INF] Executing endpoint 'Team.Controllers.RunController.FreeAllStatisticalApi (Team)'
+2019-04-22 22:43:34.585 +08:00 [INF] Route matched with {action = "FreeAllStatisticalApi", controller = "Run"}. Executing action Team.Controllers.RunController.FreeAllStatisticalApi (Team)
+2019-04-22 22:43:34.587 +08:00 [INF] Authorization was successful.
+2019-04-22 22:43:34.607 +08:00 [INF] Entity Framework Core 2.2.3-servicing-35854 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-04-22 22:43:34.634 +08:00 [INF] Executed DbCommand (24ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-04-22 22:43:34.664 +08:00 [INF] Executing action method Team.Controllers.RunController.FreeAllStatisticalApi (Team) with arguments (["Running"]) - Validation state: "Valid"
+2019-04-22 22:43:34.699 +08:00 [INF] Executed DbCommand (30ms) [Parameters=[@__sport_0='?' (DbType = Int32), @__userId_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[AllTime], [x].[Distance], [x].[Kcal], [x].[SportFreeModel], [x].[UserId]
+FROM [Statisticals] AS [x]
+WHERE ([x].[SportFreeModel] = @__sport_0) AND ([x].[UserId] = @__userId_1)
+2019-04-22 22:43:34.703 +08:00 [INF] 1 用户查询跑步记录统计成功
+2019-04-22 22:43:34.705 +08:00 [INF] Executed action method Team.Controllers.RunController.FreeAllStatisticalApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 36.9791ms.
+2019-04-22 22:43:34.707 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-04-22 22:43:34.708 +08:00 [INF] Executed action Team.Controllers.RunController.FreeAllStatisticalApi (Team) in 121.9608ms
+2019-04-22 22:43:34.710 +08:00 [INF] Executed endpoint 'Team.Controllers.RunController.FreeAllStatisticalApi (Team)'
+2019-04-22 22:43:34.713 +08:00 [INF] Request finished in 148.4326ms 200 application/json; charset=utf-8
+2019-04-22 22:53:42.276 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-04-22 22:53:43.681 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-04-22 22:53:44.011 +08:00 [INF] Request finished in 333.9848ms 200 text/html
+2019-04-22 22:53:44.616 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-04-22 22:53:44.827 +08:00 [INF] Request finished in 211.258ms 200 application/json;charset=utf-8
+2019-04-22 22:53:53.080 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/Run/FreeAllStatisticalApi/1  
+2019-04-22 22:53:53.172 +08:00 [INF] Successfully validated the token.
+2019-04-22 22:53:53.203 +08:00 [INF] Executing endpoint 'Team.Controllers.RunController.FreeAllStatisticalApi (Team)'
+2019-04-22 22:53:53.223 +08:00 [INF] Route matched with {action = "FreeAllStatisticalApi", controller = "Run"}. Executing action Team.Controllers.RunController.FreeAllStatisticalApi (Team)
+2019-04-22 22:53:53.235 +08:00 [INF] Authorization was successful.
+2019-04-22 22:53:53.507 +08:00 [INF] Entity Framework Core 2.2.3-servicing-35854 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-04-22 22:53:53.708 +08:00 [INF] Executed DbCommand (90ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-04-22 22:53:54.006 +08:00 [INF] Executing action method Team.Controllers.RunController.FreeAllStatisticalApi (Team) with arguments (["Riding"]) - Validation state: "Valid"
+2019-04-22 22:53:54.161 +08:00 [INF] Executed DbCommand (43ms) [Parameters=[@__sport_0='?' (DbType = Int32), @__userId_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[AllTime], [x].[Distance], [x].[Kcal], [x].[SportFreeModel], [x].[UserId]
+FROM [Statisticals] AS [x]
+WHERE ([x].[SportFreeModel] = @__sport_0) AND ([x].[UserId] = @__userId_1)
+2019-04-22 22:53:54.200 +08:00 [INF] 1 用户查询跑步记录统计成功
+2019-04-22 22:53:54.219 +08:00 [INF] Executed action method Team.Controllers.RunController.FreeAllStatisticalApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 203.8664ms.
+2019-04-22 22:53:54.229 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-04-22 22:53:54.241 +08:00 [INF] Executed action Team.Controllers.RunController.FreeAllStatisticalApi (Team) in 1013.4338ms
+2019-04-22 22:53:54.243 +08:00 [INF] Executed endpoint 'Team.Controllers.RunController.FreeAllStatisticalApi (Team)'
+2019-04-22 22:53:54.244 +08:00 [INF] Request finished in 1164.9081ms 200 application/json; charset=utf-8
+2019-04-22 22:53:58.525 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/Run/FreeAllStatisticalApi/2  
+2019-04-22 22:53:58.528 +08:00 [INF] Successfully validated the token.
+2019-04-22 22:53:58.548 +08:00 [INF] Executing endpoint 'Team.Controllers.RunController.FreeAllStatisticalApi (Team)'
+2019-04-22 22:53:58.552 +08:00 [INF] Route matched with {action = "FreeAllStatisticalApi", controller = "Run"}. Executing action Team.Controllers.RunController.FreeAllStatisticalApi (Team)
+2019-04-22 22:53:58.554 +08:00 [INF] Authorization was successful.
+2019-04-22 22:53:58.556 +08:00 [INF] Entity Framework Core 2.2.3-servicing-35854 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-04-22 22:53:58.584 +08:00 [INF] Executed DbCommand (24ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-04-22 22:53:58.609 +08:00 [INF] Executing action method Team.Controllers.RunController.FreeAllStatisticalApi (Team) with arguments (["Running"]) - Validation state: "Valid"
+2019-04-22 22:53:58.646 +08:00 [INF] Executed DbCommand (33ms) [Parameters=[@__sport_0='?' (DbType = Int32), @__userId_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[AllTime], [x].[Distance], [x].[Kcal], [x].[SportFreeModel], [x].[UserId]
+FROM [Statisticals] AS [x]
+WHERE ([x].[SportFreeModel] = @__sport_0) AND ([x].[UserId] = @__userId_1)
+2019-04-22 22:53:58.652 +08:00 [INF] 1 用户查询跑步记录统计成功
+2019-04-22 22:53:58.655 +08:00 [INF] Executed action method Team.Controllers.RunController.FreeAllStatisticalApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 43.1447ms.
+2019-04-22 22:53:58.657 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-04-22 22:53:58.658 +08:00 [INF] Executed action Team.Controllers.RunController.FreeAllStatisticalApi (Team) in 104.06800000000001ms
+2019-04-22 22:53:58.659 +08:00 [INF] Executed endpoint 'Team.Controllers.RunController.FreeAllStatisticalApi (Team)'
+2019-04-22 22:53:58.661 +08:00 [INF] Request finished in 135.974ms 200 application/json; charset=utf-8

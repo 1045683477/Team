@@ -59,7 +59,8 @@ namespace Team.Controllers
             var participants=new Participants
             {
                 UserId = user.Id,
-                Name = user.Name
+                Name = user.Name,
+                Sex = user.Sex
             };
             var team = _mapper.Map<Model.Model.Team>(teamCreate);
             bool changed = _teamBall.TeamCreate(participants,team);
@@ -162,7 +163,7 @@ namespace Team.Controllers
         /// </summary>
         /// <param name="sport">运动类型</param>
         /// <returns></returns>
-        [HttpPost("TeamSearchTeamingApi",Name = "TeamSearchTeamingApi")]
+        [HttpGet("TeamSearchTeamingApi",Name = "TeamSearchTeamingApi")]
         public IActionResult TeamSearchTeamingApi(Sport sport)
         {
             CustomStatusCode code;
@@ -184,19 +185,18 @@ namespace Team.Controllers
             code=new CustomStatusCode
             {
                 Status = "200",
-                Message = $"{sport} 运动没有队伍",
+                Message = $"{sport} 运动查询成功",
                 Data = source
             };
             return StatusCode(200, code);
         }
-
 
         /// <summary>
         /// 查询某个正在组队的团队信息
         /// </summary>
         /// <param name="teamId">团队 Id</param>
         /// <returns></returns>
-        [HttpPost("TeamSearchByIdTeamingApi",Name = "TeamSearchByIdTeamingApi")]
+        [HttpGet("TeamSearchByIdTeamingApi",Name = "TeamSearchByIdTeamingApi")]
         public IActionResult TeamSearchByIdTeamingApi(int teamId)
         {
             CustomStatusCode code;
@@ -221,11 +221,44 @@ namespace Team.Controllers
         }
 
         /// <summary>
+        /// 通过队伍名查询正在组队团队
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        [HttpPost("TeamSearchByNameApi",Name = "TeamSearchByNameApi")]
+        public IActionResult TeamSearchByNameApi(string name)
+        {
+            CustomStatusCode code;
+            var user = HttpRequest();
+            var team = _teamBall.TeamSearchByName(name, user.Id);
+            if (team==null)
+            {
+                _logger.LogInformation($"用户 {user.Id} 查询队伍名 {name} 为空");
+                code=new CustomStatusCode
+                {
+                    Status = "404",
+                    Message = $"用户 {user.Id} 查询队伍名 {name} 为空"
+                };
+                return StatusCode(404, code);
+            }
+
+            var resource = _mapper.Map<TeamSearchMap>(team);
+            _logger.LogInformation($"用户 {user.Id} 查询队伍名 {name} 成功");
+            code = new CustomStatusCode
+            {
+                Status = "200",
+                Message = $"用户 {user.Id} 查询队伍名 {name} 成功",
+                Data = resource
+            };
+            return StatusCode(200, code);
+        }
+
+        /// <summary>
         /// 参加队伍
         /// </summary>
         /// <param name="teamId">队伍 Id</param>
         /// <returns></returns>
-        [HttpPost]
+        [HttpGet("ParticipateInTeamApi",Name = "ParticipateInTeamApi")]
         public async Task<IActionResult> ParticipateInTeamApi(int teamId)
         {
             CustomStatusCode code;
@@ -261,6 +294,7 @@ namespace Team.Controllers
             };
             return StatusCode(200, code);
         }
+
 
         /// <summary>
         /// 解析 header 里面的 token

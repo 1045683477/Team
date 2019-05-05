@@ -36,9 +36,9 @@ namespace Team.Infrastructure.IRepositories
         /// 查询某个运动所有正在组队队伍
         /// </summary>
         /// <param name="sport">运动类型</param>
-        /// <param name="universityId">大学编号</param>
+        /// <param name="userId">用户编号</param>
         /// <returns></returns>
-        IEnumerable<Model.Model.Team> TeamSearchTeaming(Sport sport,int universityId);
+        IEnumerable<Model.Model.Team> TeamSearchTeaming(Sport sport,int userId);
 
         /// <summary>
         /// 查询某个正在组队的团队信息
@@ -54,5 +54,13 @@ namespace Team.Infrastructure.IRepositories
         /// <param name="teamId">队伍 Id</param>
         /// <returns></returns>
         bool ParticipateInTeam(User user, int teamId);
+
+        /// <summary>
+        /// 通过队伍名查询正在组队团队
+        /// </summary>
+        /// <param name="name">队伍名</param>
+        /// <param name="userId">用户 ID</param>
+        /// <returns></returns>
+        Model.Model.Team TeamSearchByName(string name,int userId);
     }
 }

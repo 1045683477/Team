@@ -15,6 +15,16 @@ namespace Team.Model.AutoMappers
         public int Id { get; set; }
 
         /// <summary>
+        /// 队伍名
+        /// </summary>
+        public string Name { get; set; }
+
+        /// <summary>
+        /// 队伍图片
+        /// </summary>
+        public string Images { get; set; }
+
+        /// <summary>
         /// 创建队伍时间
         /// </summary>
         public DateTime CreationTime { get; set; }
@@ -25,9 +35,14 @@ namespace Team.Model.AutoMappers
         public DateTime AgreedTime { get; set; }
 
         /// <summary>
-        /// 备注（自己输入地址）
+        /// 地址（自己输入地址）
         /// </summary>
-        public string Note { get; set; }
+        public string Address { get; set; }
+
+        /// <summary>
+        /// 队伍简介
+        /// </summary>
+        public string Introduction { get; set; }
 
         /// <summary>
         /// 总人数

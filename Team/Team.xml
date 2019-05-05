@@ -152,6 +152,13 @@
             <param name="teamId">团队 Id</param>
             <returns></returns>
         </member>
+        <member name="M:Team.Controllers.TeamController.TeamSearchByNameApi(System.String)">
+            <summary>
+            通过队伍名查询正在组队团队
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
         <member name="M:Team.Controllers.TeamController.ParticipateInTeamApi(System.Int32)">
             <summary>
             参加队伍

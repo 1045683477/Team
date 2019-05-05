@@ -55,7 +55,7 @@ namespace Team.Model.Model
         /// <summary>
         /// 学号
         /// </summary>
-        public int studentId { get; set; }
+        public int StudentId { get; set; }
 
         /// <summary>
         /// 组队

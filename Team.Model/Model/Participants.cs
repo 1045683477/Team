@@ -21,6 +21,11 @@
         public string Name { get; set; }
 
         /// <summary>
+        /// 性别
+        /// </summary>
+        public Sex Sex { get; set; }
+
+        /// <summary>
         /// 组队表外键
         /// </summary>
         public int TeamId { get; set; }

@@ -71,10 +71,15 @@ namespace Team.Infrastructure.DbContext
                 .Property(x => x.Count).IsRequired();
 
             modelBuilder.Entity<Model.Model.Team>()
-                .Property(x => x.Note).IsRequired();
+                .Property(x => x.Address).IsRequired();
 
             modelBuilder.Entity<Model.Model.Team>()
                 .Property(x => x.Sport).IsRequired();
+
+            modelBuilder.Entity<Model.Model.Team>()
+                .HasOne(x => x.User)
+                .WithMany(x => x.Teams)
+                .HasForeignKey(x => x.UserId);
 
             #endregion
 

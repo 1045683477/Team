@@ -85,8 +85,8 @@ namespace Team.Controllers
         /// </summary>
         /// <param name="sport"></param>
         /// <returns></returns>
-        [HttpPost("FreeAllStatisticalApi",Name = "FreeAllStatisticalApi")]
-        public IActionResult FreeAllStatisticalApi([FromBody] SportFreeModel sport)
+        [HttpGet("FreeAllStatisticalApi/{sport}",Name = "FreeAllStatisticalApi")]
+        public IActionResult FreeAllStatisticalApi(SportFreeModel sport)
         {
             CustomStatusCode code;
             var user = HttpRequest();

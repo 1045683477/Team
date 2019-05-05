@@ -1,4 +1,6 @@
-﻿namespace Team.Model.AutoMappers
+﻿using Team.Model.Model;
+
+namespace Team.Model.AutoMappers
 {
     /// <summary>
     /// 参加模板
@@ -19,5 +21,10 @@
         /// 姓名
         /// </summary>
         public string Name { get; set; }
+
+        /// <summary>
+        /// 性别
+        /// </summary>
+        public Sex Sex { get; set; }
     }
 }
