@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using System;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
@@ -11,6 +12,12 @@ using Team.Model.Model;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
+using System.IO;
+using System.Linq;
+using Microsoft.AspNetCore.Http;
 
 namespace Team.Controllers
 {
@@ -28,19 +35,22 @@ namespace Team.Controllers
         private readonly IMapper _mapper;
         private readonly IJwtHelper _jwtHelper;
         private readonly ILogger<LoginController> _logger;
+        private readonly IImagesResource _imagesResource;
 
         public LoginController(
             IUserRepository userRepository,
             IUnitOfWork unitOfWork,
             IMapper mapper,
             IJwtHelper jwtHelper,
-            ILogger<LoginController> logger)
+            ILogger<LoginController> logger,
+            IImagesResource imagesResource)
         {
             _userRepository = userRepository;
             _unitOfWork = unitOfWork;
             _mapper = mapper;
             _jwtHelper = jwtHelper;
             _logger = logger;
+            _imagesResource = imagesResource;
         }
 
         #endregion
@@ -189,7 +199,7 @@ namespace Team.Controllers
         /// </summary>
         /// <param name="account">账号</param>
         /// <returns></returns>
-        [HttpPost]
+        [HttpPost("RetrievePasswordApi",Name = "RetrievePasswordApi")]
         public IActionResult RetrievePasswordApi(string account)
         {
             CustomStatusCode code;
@@ -224,6 +234,103 @@ namespace Team.Controllers
         }
 
         /// <summary>
+        /// 上传用户头像
+        /// </summary>
+        /// <param name="formFile"></param>
+        /// <returns></returns>
+        [HttpPost("UserUpLoadPhoto",Name = "UserUpLoadPhoto")]
+        public IActionResult UserUpLoadPhoto(IFormFile formFile)
+        {
+            var user = HttpRequest();
+            CustomStatusCode code;
+            code= _imagesResource.UpLoadPhoto(formFile, "\\Images\\", user.Id);
+            if (code.Status.ToString() == "400")
+            {
+                _logger.LogInformation($"图片 {user.Id} 上传失败，格式错误");
+                return StatusCode(400, code);
+            }
+            _logger.LogInformation($"图片 {user.Id} 上传成功");
+            return StatusCode(200, code);
+
+            #region 成功的可用的
+
+            /*var currentPictureExtension = Path.GetExtension(formFile.FileName).ToUpper();
+            if (LimitPictureType.Contains(currentPictureExtension))
+            {
+                if (Directory.Exists(upload_path)==false)
+                {
+                    Directory.CreateDirectory(upload_path);
+                }
+
+                var fileName = user.Id + ".jpeg";
+                var ImagePath = upload_path + fileName;
+                using (var fs=System.IO.File.Create(ImagePath))
+                {
+                    formFile.CopyTo(fs);
+                    fs.Flush();
+                }
+                _logger.LogInformation($"用户 {user.Id} 上传头像成功");
+                code = new CustomStatusCode
+                {
+                    Status = "200",
+                    Message = $"用户 {user.Id} 上传头像成功"
+                };
+                return StatusCode(200, code);
+            }
+            _logger.LogInformation($"用户 {user.Id} 上传头像失败，格式错误");
+            code = new CustomStatusCode
+            {
+                Status = "400",
+                Message = $"用户 {user.Id} 上传头像失败，格式错误"
+            };
+            return StatusCode(400, code);*/
+
+            #endregion
+
+        }
+
+        /// <summary>
+        /// 加载用户头像
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("UserLoadingPhoto",Name = "UserLoadingPhoto")]
+        public IActionResult UserLoadingPhoto()
+        {
+            var user = HttpRequest();
+
+            var image=_imagesResource.LoadingPhoto("\\Images\\", user.Id);
+            if (image==null)
+            {
+                _logger.LogInformation($"用户 {user.Id} 没有存入头像");
+                var code = new CustomStatusCode
+                {
+                    Status = "404",
+                    Message = $"用户 {user.Id} 没有存入头像"
+                };
+                return StatusCode(404, code);
+            }
+            _logger.LogInformation($"用户 {user.Id} 获取头像成功");
+            return image;
+
+
+            #region 可行代码
+
+            /*string path= Directory.GetCurrentDirectory() + $@"\Images\{user.Id}" + ".jpeg";
+            FileInfo fi=new FileInfo(path);
+            FileStream fs = fi.OpenRead();
+            byte[] buffer=new byte[fi.Length];
+            //读取图片字节流
+            fs.Read(buffer, 0, Convert.ToInt32(fi.Length));
+            var response = File(buffer, "image/jpeg");
+            fs.Close();
+            _logger.LogInformation($"用户 {user.Id} 获取头像成功");
+           
+            return response;*/
+
+            #endregion
+        }
+
+        /// <summary>
         /// 解析 header 里面的 token
         /// </summary>
         /// <returns></returns>
@@ -234,5 +341,40 @@ namespace Team.Controllers
             return _jwtHelper.SerizlizeJWT(jwtStr);
         }
 
+        /// <summary>
+        /// 保存图片名称
+        /// </summary>
+        private static IList<string> path=new List<string>();
+
+        /// <summary>
+        /// 图片格式
+        /// </summary>
+        public static string[] LimitPictureType =
+            {".PNG", ".JPG", ".JPEG", ".BMP", ".GIF", ".ICO"};
+
+
+
+        /// <summary>
+        /// 图片路径
+        /// </summary>
+        private static string upload_path = Directory.GetCurrentDirectory() + "\\Images\\";
+        private static DirectoryInfo di = new DirectoryInfo(Directory.GetCurrentDirectory() + @"\Images\\");
+
+        /// <summary>
+        /// 遍历文件夹文件
+        /// </summary>
+        /// <param name="info"></param>
+        private static void GetFileName(DirectoryInfo info)
+        {
+            //获取该路径下所有的文件列表
+            FileInfo[] fileInfos = info.GetFiles();
+
+            //开始得到图片名称
+            foreach (var subinfo in fileInfos)
+            {
+                string strname = subinfo.Name;
+                path.Add(strname);
+            }
+        }
     }
 }

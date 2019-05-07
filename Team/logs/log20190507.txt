@@ -1,0 +1,1013 @@
+2019-05-07 12:46:22.582 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-07 12:46:24.002 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-05-07 12:46:24.423 +08:00 [INF] Request finished in 424.2737ms 200 text/html
+2019-05-07 12:46:25.243 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-05-07 12:46:25.498 +08:00 [INF] Request finished in 254.9299ms 200 application/json;charset=utf-8
+2019-05-07 12:46:32.220 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserLoginApi application/json-patch+json 49
+2019-05-07 12:46:32.322 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-07 12:46:32.349 +08:00 [INF] Route matched with {action = "UserLoginApi", controller = "Login"}. Executing action Team.Controllers.LoginController.UserLoginApi (Team)
+2019-05-07 12:46:32.809 +08:00 [INF] Entity Framework Core 2.2.3-servicing-35854 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-07 12:46:33.535 +08:00 [INF] Executed DbCommand (533ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-07 12:46:34.015 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoginApi (Team) with arguments (["Team.Model.AutoMappers.UserLoginMap"]) - Validation state: "Valid"
+2019-05-07 12:46:34.249 +08:00 [INF] Executed DbCommand (106ms) [Parameters=[@__account_0='?' (Size = 4000), @__password_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Images], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE ([x].[Account] = @__account_0) AND ([x].[Password] = @__password_1)
+2019-05-07 12:46:34.332 +08:00 [INF] 用户 1登陆成功
+2019-05-07 12:46:34.339 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserLoginApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 312.9493ms.
+2019-05-07 12:46:34.356 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-07 12:46:34.368 +08:00 [INF] Executed action Team.Controllers.LoginController.UserLoginApi (Team) in 2014.6968000000002ms
+2019-05-07 12:46:34.373 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-07 12:46:34.380 +08:00 [INF] Request finished in 2159.6265ms 200 application/json; charset=utf-8
+2019-05-07 12:46:56.396 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserUpLoadPhoto multipart/form-data; boundary=----WebKitFormBoundarycF6Lq0l4x3Y8CzSf 209224
+2019-05-07 12:46:56.428 +08:00 [INF] Successfully validated the token.
+2019-05-07 12:46:56.433 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserUpLoadPhoto (Team)'
+2019-05-07 12:46:56.439 +08:00 [INF] Route matched with {action = "UserUpLoadPhoto", controller = "Login"}. Executing action Team.Controllers.LoginController.UserUpLoadPhoto (Team)
+2019-05-07 12:46:56.452 +08:00 [INF] Entity Framework Core 2.2.3-servicing-35854 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-07 12:46:56.502 +08:00 [INF] Executed DbCommand (32ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-07 12:46:56.594 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserUpLoadPhoto (Team) with arguments (["Microsoft.AspNetCore.Http.Internal.FormFile"]) - Validation state: "Valid"
+2019-05-07 12:46:56.612 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserUpLoadPhoto (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 7.3093ms.
+2019-05-07 12:46:56.616 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-07 12:46:56.618 +08:00 [INF] Executed action Team.Controllers.LoginController.UserUpLoadPhoto (Team) in 177.6591ms
+2019-05-07 12:46:56.621 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserUpLoadPhoto (Team)'
+2019-05-07 12:46:56.624 +08:00 [INF] Request finished in 228.145ms 200 application/json; charset=utf-8
+2019-05-07 12:50:44.003 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-07 12:50:45.227 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-05-07 12:50:45.525 +08:00 [INF] Request finished in 301.0602ms 200 text/html
+2019-05-07 12:50:46.105 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-05-07 12:50:46.283 +08:00 [INF] Request finished in 177.931ms 200 application/json;charset=utf-8
+2019-05-07 12:50:51.440 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserLoginApi application/json-patch+json 49
+2019-05-07 12:50:51.521 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-07 12:50:51.541 +08:00 [INF] Route matched with {action = "UserLoginApi", controller = "Login"}. Executing action Team.Controllers.LoginController.UserLoginApi (Team)
+2019-05-07 12:50:51.831 +08:00 [INF] Entity Framework Core 2.2.3-servicing-35854 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-07 12:50:52.040 +08:00 [INF] Executed DbCommand (87ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-07 12:50:52.414 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoginApi (Team) with arguments (["Team.Model.AutoMappers.UserLoginMap"]) - Validation state: "Valid"
+2019-05-07 12:50:52.584 +08:00 [INF] Executed DbCommand (61ms) [Parameters=[@__account_0='?' (Size = 4000), @__password_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Images], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE ([x].[Account] = @__account_0) AND ([x].[Password] = @__password_1)
+2019-05-07 12:50:52.667 +08:00 [INF] 用户 1登陆成功
+2019-05-07 12:50:52.673 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserLoginApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 249.6053ms.
+2019-05-07 12:50:52.685 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-07 12:50:52.698 +08:00 [INF] Executed action Team.Controllers.LoginController.UserLoginApi (Team) in 1153.0975ms
+2019-05-07 12:50:52.701 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-07 12:50:52.708 +08:00 [INF] Request finished in 1268.3621ms 200 application/json; charset=utf-8
+2019-05-07 12:51:13.697 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Team/TeamYpLoadPhoto?teamId=1 multipart/form-data; boundary=----WebKitFormBoundaryd039C15zeCrtLNWc 346561
+2019-05-07 12:51:13.710 +08:00 [INF] Successfully validated the token.
+2019-05-07 12:51:13.713 +08:00 [INF] Executing endpoint 'Team.Controllers.TeamController.TeamYpLoadPhoto (Team)'
+2019-05-07 12:51:13.716 +08:00 [INF] Route matched with {action = "TeamYpLoadPhoto", controller = "Team"}. Executing action Team.Controllers.TeamController.TeamYpLoadPhoto (Team)
+2019-05-07 12:51:13.728 +08:00 [INF] Authorization was successful.
+2019-05-07 12:51:13.747 +08:00 [INF] Entity Framework Core 2.2.3-servicing-35854 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-07 12:51:13.810 +08:00 [INF] Executed DbCommand (60ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-07 12:51:13.940 +08:00 [INF] Executing action method Team.Controllers.TeamController.TeamYpLoadPhoto (Team) with arguments (["Microsoft.AspNetCore.Http.Internal.FormFile","1"]) - Validation state: "Valid"
+2019-05-07 12:52:46.518 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-07 12:52:47.788 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-05-07 12:52:48.142 +08:00 [INF] Request finished in 367.9871ms 200 text/html
+2019-05-07 12:52:48.711 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-05-07 12:52:48.887 +08:00 [INF] Request finished in 175.9288ms 200 application/json;charset=utf-8
+2019-05-07 12:52:52.143 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserLoginApi application/json-patch+json 49
+2019-05-07 12:52:52.229 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-07 12:52:52.256 +08:00 [INF] Route matched with {action = "UserLoginApi", controller = "Login"}. Executing action Team.Controllers.LoginController.UserLoginApi (Team)
+2019-05-07 12:52:52.577 +08:00 [INF] Entity Framework Core 2.2.3-servicing-35854 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-07 12:52:52.765 +08:00 [INF] Executed DbCommand (86ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-07 12:52:53.140 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoginApi (Team) with arguments (["Team.Model.AutoMappers.UserLoginMap"]) - Validation state: "Valid"
+2019-05-07 12:52:53.312 +08:00 [INF] Executed DbCommand (63ms) [Parameters=[@__account_0='?' (Size = 4000), @__password_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Images], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE ([x].[Account] = @__account_0) AND ([x].[Password] = @__password_1)
+2019-05-07 12:52:53.393 +08:00 [INF] 用户 1登陆成功
+2019-05-07 12:52:53.398 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserLoginApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 249.04340000000002ms.
+2019-05-07 12:52:53.412 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-07 12:52:53.424 +08:00 [INF] Executed action Team.Controllers.LoginController.UserLoginApi (Team) in 1162.3022ms
+2019-05-07 12:52:53.428 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-07 12:52:53.434 +08:00 [INF] Request finished in 1291.2983ms 200 application/json; charset=utf-8
+2019-05-07 12:53:09.462 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Team/TeamYpLoadPhoto?teamId=1 multipart/form-data; boundary=----WebKitFormBoundaryPDziN7RTvAAm27BB 346561
+2019-05-07 12:53:09.484 +08:00 [INF] Successfully validated the token.
+2019-05-07 12:53:09.490 +08:00 [INF] Executing endpoint 'Team.Controllers.TeamController.TeamYpLoadPhoto (Team)'
+2019-05-07 12:53:09.502 +08:00 [INF] Route matched with {action = "TeamYpLoadPhoto", controller = "Team"}. Executing action Team.Controllers.TeamController.TeamYpLoadPhoto (Team)
+2019-05-07 12:53:09.513 +08:00 [INF] Authorization was successful.
+2019-05-07 12:53:09.516 +08:00 [INF] Entity Framework Core 2.2.3-servicing-35854 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-07 12:53:09.595 +08:00 [INF] Executed DbCommand (23ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-07 12:53:09.701 +08:00 [INF] Executing action method Team.Controllers.TeamController.TeamYpLoadPhoto (Team) with arguments (["Microsoft.AspNetCore.Http.Internal.FormFile","1"]) - Validation state: "Valid"
+2019-05-07 12:54:17.836 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-07 12:54:19.183 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-05-07 12:54:19.472 +08:00 [INF] Request finished in 295.4806ms 200 text/html
+2019-05-07 12:54:20.039 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-05-07 12:54:20.207 +08:00 [INF] Request finished in 168.5459ms 200 application/json;charset=utf-8
+2019-05-07 12:54:32.668 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Team/TeamYpLoadPhoto?teamId=1 multipart/form-data; boundary=----WebKitFormBoundaryyFYOGhz2Ip9rOFWT 346561
+2019-05-07 12:54:32.752 +08:00 [INF] Successfully validated the token.
+2019-05-07 12:54:32.784 +08:00 [INF] Executing endpoint 'Team.Controllers.TeamController.TeamYpLoadPhoto (Team)'
+2019-05-07 12:54:32.803 +08:00 [INF] Route matched with {action = "TeamYpLoadPhoto", controller = "Team"}. Executing action Team.Controllers.TeamController.TeamYpLoadPhoto (Team)
+2019-05-07 12:54:32.815 +08:00 [INF] Authorization was successful.
+2019-05-07 12:54:33.086 +08:00 [INF] Entity Framework Core 2.2.3-servicing-35854 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-07 12:54:33.273 +08:00 [INF] Executed DbCommand (81ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-07 12:54:33.689 +08:00 [INF] Executing action method Team.Controllers.TeamController.TeamYpLoadPhoto (Team) with arguments (["Microsoft.AspNetCore.Http.Internal.FormFile","1"]) - Validation state: "Valid"
+2019-05-07 12:54:33.715 +08:00 [INF] 用户 1 上传队伍图片 1 上传成功
+2019-05-07 12:54:33.719 +08:00 [INF] Executed action method Team.Controllers.TeamController.TeamYpLoadPhoto (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 18.6525ms.
+2019-05-07 12:54:33.729 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-07 12:54:33.740 +08:00 [INF] Executed action Team.Controllers.TeamController.TeamYpLoadPhoto (Team) in 931.5185ms
+2019-05-07 12:54:33.744 +08:00 [INF] Executed endpoint 'Team.Controllers.TeamController.TeamYpLoadPhoto (Team)'
+2019-05-07 12:54:33.750 +08:00 [INF] Request finished in 1082.5074ms 200 application/json; charset=utf-8
+2019-05-07 12:59:46.835 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-07 12:59:48.360 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-05-07 12:59:48.678 +08:00 [INF] Request finished in 321.6589ms 200 text/html
+2019-05-07 12:59:49.281 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-05-07 12:59:49.469 +08:00 [INF] Request finished in 187.5197ms 200 application/json;charset=utf-8
+2019-05-07 12:59:56.966 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserLoginApi application/json-patch+json 49
+2019-05-07 12:59:57.043 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-07 12:59:57.065 +08:00 [INF] Route matched with {action = "UserLoginApi", controller = "Login"}. Executing action Team.Controllers.LoginController.UserLoginApi (Team)
+2019-05-07 12:59:57.346 +08:00 [INF] Entity Framework Core 2.2.3-servicing-35854 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-07 12:59:57.551 +08:00 [INF] Executed DbCommand (94ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-07 12:59:57.956 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoginApi (Team) with arguments (["Team.Model.AutoMappers.UserLoginMap"]) - Validation state: "Valid"
+2019-05-07 12:59:58.126 +08:00 [INF] Executed DbCommand (63ms) [Parameters=[@__account_0='?' (Size = 4000), @__password_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Images], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE ([x].[Account] = @__account_0) AND ([x].[Password] = @__password_1)
+2019-05-07 12:59:58.212 +08:00 [INF] 用户 1登陆成功
+2019-05-07 12:59:58.218 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserLoginApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 252.23160000000001ms.
+2019-05-07 12:59:58.231 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-07 12:59:58.244 +08:00 [INF] Executed action Team.Controllers.LoginController.UserLoginApi (Team) in 1173.8253ms
+2019-05-07 12:59:58.247 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-07 12:59:58.255 +08:00 [INF] Request finished in 1288.6355ms 200 application/json; charset=utf-8
+2019-05-07 13:00:15.782 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/Login/UserLoadingPhoto  
+2019-05-07 13:00:15.789 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoadingPhoto (Team)'
+2019-05-07 13:00:15.795 +08:00 [INF] Route matched with {action = "UserLoadingPhoto", controller = "Login"}. Executing action Team.Controllers.LoginController.UserLoadingPhoto (Team)
+2019-05-07 13:00:15.798 +08:00 [INF] Entity Framework Core 2.2.3-servicing-35854 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-07 13:00:15.844 +08:00 [INF] Executed DbCommand (36ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-07 13:00:15.873 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoadingPhoto (Team) - Validation state: "Valid"
+2019-05-07 13:00:32.352 +08:00 [INF] Executed action Team.Controllers.LoginController.UserLoadingPhoto (Team) in 16555.3023ms
+2019-05-07 13:00:32.354 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserLoadingPhoto (Team)'
+2019-05-07 13:00:32.358 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+System.ArgumentOutOfRangeException: startIndex cannot be larger than length of string.
+Parameter name: startIndex
+   at System.String.Substring(Int32 startIndex, Int32 length)
+   at Team.Controllers.LoginController.HttpRequest() in D:\Microsoft VS2017\Word\.net core API\Team\Team\Controllers\LoginController.cs:line 333
+   at Team.Controllers.LoginController.UserLoadingPhoto() in D:\Microsoft VS2017\Word\.net core API\Team\Team\Controllers\LoginController.cs:line 297
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-05-07 13:00:32.534 +08:00 [INF] Request finished in 16751.1775ms 500 text/html; charset=utf-8
+2019-05-07 13:00:53.622 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/Login/UserLoadingPhoto  
+2019-05-07 13:00:53.634 +08:00 [INF] Successfully validated the token.
+2019-05-07 13:00:53.638 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoadingPhoto (Team)'
+2019-05-07 13:00:53.640 +08:00 [INF] Route matched with {action = "UserLoadingPhoto", controller = "Login"}. Executing action Team.Controllers.LoginController.UserLoadingPhoto (Team)
+2019-05-07 13:00:53.646 +08:00 [INF] Entity Framework Core 2.2.3-servicing-35854 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-07 13:00:53.672 +08:00 [INF] Executed DbCommand (24ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-07 13:00:53.699 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoadingPhoto (Team) - Validation state: "Valid"
+2019-05-07 13:02:42.580 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-07 13:02:44.353 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-05-07 13:02:44.610 +08:00 [INF] Request finished in 263.2216ms 200 text/html
+2019-05-07 13:02:45.206 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-05-07 13:02:45.387 +08:00 [INF] Request finished in 180.4103ms 200 application/json;charset=utf-8
+2019-05-07 13:02:48.947 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserLoginApi application/json-patch+json 49
+2019-05-07 13:02:49.031 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-07 13:02:49.052 +08:00 [INF] Route matched with {action = "UserLoginApi", controller = "Login"}. Executing action Team.Controllers.LoginController.UserLoginApi (Team)
+2019-05-07 13:02:49.330 +08:00 [INF] Entity Framework Core 2.2.3-servicing-35854 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-07 13:02:49.534 +08:00 [INF] Executed DbCommand (85ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-07 13:02:49.922 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoginApi (Team) with arguments (["Team.Model.AutoMappers.UserLoginMap"]) - Validation state: "Valid"
+2019-05-07 13:02:50.087 +08:00 [INF] Executed DbCommand (62ms) [Parameters=[@__account_0='?' (Size = 4000), @__password_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Images], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE ([x].[Account] = @__account_0) AND ([x].[Password] = @__password_1)
+2019-05-07 13:02:50.165 +08:00 [INF] 用户 1登陆成功
+2019-05-07 13:02:50.170 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserLoginApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 238.41840000000002ms.
+2019-05-07 13:02:50.184 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-07 13:02:50.197 +08:00 [INF] Executed action Team.Controllers.LoginController.UserLoginApi (Team) in 1138.5132ms
+2019-05-07 13:02:50.202 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-07 13:02:50.213 +08:00 [INF] Request finished in 1265.0948ms 200 application/json; charset=utf-8
+2019-05-07 13:03:02.545 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/Login/UserLoadingPhoto  
+2019-05-07 13:03:02.566 +08:00 [INF] Successfully validated the token.
+2019-05-07 13:03:02.571 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoadingPhoto (Team)'
+2019-05-07 13:03:02.574 +08:00 [INF] Route matched with {action = "UserLoadingPhoto", controller = "Login"}. Executing action Team.Controllers.LoginController.UserLoadingPhoto (Team)
+2019-05-07 13:03:02.580 +08:00 [INF] Entity Framework Core 2.2.3-servicing-35854 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-07 13:03:02.608 +08:00 [INF] Executed DbCommand (24ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-07 13:03:02.636 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoadingPhoto (Team) - Validation state: "Valid"
+2019-05-07 13:10:47.740 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-07 13:10:49.164 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-05-07 13:10:49.441 +08:00 [INF] Request finished in 280.5422ms 200 text/html
+2019-05-07 13:10:50.039 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-05-07 13:10:50.211 +08:00 [INF] Request finished in 172.4589ms 200 application/json;charset=utf-8
+2019-05-07 13:10:54.479 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserLoginApi application/json-patch+json 49
+2019-05-07 13:10:54.555 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-07 13:10:54.577 +08:00 [INF] Route matched with {action = "UserLoginApi", controller = "Login"}. Executing action Team.Controllers.LoginController.UserLoginApi (Team)
+2019-05-07 13:10:54.857 +08:00 [INF] Entity Framework Core 2.2.3-servicing-35854 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-07 13:10:55.058 +08:00 [INF] Executed DbCommand (88ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-07 13:10:55.439 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoginApi (Team) with arguments (["Team.Model.AutoMappers.UserLoginMap"]) - Validation state: "Valid"
+2019-05-07 13:10:55.629 +08:00 [INF] Executed DbCommand (73ms) [Parameters=[@__account_0='?' (Size = 4000), @__password_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Images], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE ([x].[Account] = @__account_0) AND ([x].[Password] = @__password_1)
+2019-05-07 13:10:55.728 +08:00 [INF] 用户 1登陆成功
+2019-05-07 13:10:55.736 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserLoginApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 286.2256ms.
+2019-05-07 13:10:55.749 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-07 13:10:55.763 +08:00 [INF] Executed action Team.Controllers.LoginController.UserLoginApi (Team) in 1181.4754ms
+2019-05-07 13:10:55.767 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-07 13:10:55.776 +08:00 [INF] Request finished in 1296.9236ms 200 application/json; charset=utf-8
+2019-05-07 13:11:09.317 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/Login/UserLoadingPhoto  
+2019-05-07 13:11:09.334 +08:00 [INF] Successfully validated the token.
+2019-05-07 13:11:09.341 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoadingPhoto (Team)'
+2019-05-07 13:11:09.344 +08:00 [INF] Route matched with {action = "UserLoadingPhoto", controller = "Login"}. Executing action Team.Controllers.LoginController.UserLoadingPhoto (Team)
+2019-05-07 13:11:09.348 +08:00 [INF] Entity Framework Core 2.2.3-servicing-35854 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-07 13:11:09.398 +08:00 [INF] Executed DbCommand (35ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-07 13:11:09.430 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoadingPhoto (Team) - Validation state: "Valid"
+2019-05-07 13:11:40.304 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-07 13:11:41.660 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-05-07 13:11:41.937 +08:00 [INF] Request finished in 279.5511ms 200 text/html
+2019-05-07 13:11:42.532 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-05-07 13:11:42.723 +08:00 [INF] Request finished in 190.1841ms 200 application/json;charset=utf-8
+2019-05-07 13:11:49.255 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/Login/UserLoadingPhoto  
+2019-05-07 13:11:49.334 +08:00 [INF] Successfully validated the token.
+2019-05-07 13:11:49.364 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoadingPhoto (Team)'
+2019-05-07 13:11:49.374 +08:00 [INF] Route matched with {action = "UserLoadingPhoto", controller = "Login"}. Executing action Team.Controllers.LoginController.UserLoadingPhoto (Team)
+2019-05-07 13:11:49.657 +08:00 [INF] Entity Framework Core 2.2.3-servicing-35854 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-07 13:11:49.855 +08:00 [INF] Executed DbCommand (85ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-07 13:11:50.154 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoadingPhoto (Team) - Validation state: "Valid"
+2019-05-07 13:11:50.282 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserLoadingPhoto (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 124.2821ms.
+2019-05-07 13:11:50.291 +08:00 [INF] Executing ObjectResult, writing value of type 'System.Drawing.Bitmap'.
+2019-05-07 13:11:50.326 +08:00 [INF] Executed action Team.Controllers.LoginController.UserLoadingPhoto (Team) in 945.9624ms
+2019-05-07 13:11:50.328 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserLoadingPhoto (Team)'
+2019-05-07 13:11:50.329 +08:00 [INF] Request finished in 1073.5078ms 200 application/json; charset=utf-8
+2019-05-07 13:12:16.234 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/Login/UserLoadingPhoto  
+2019-05-07 13:12:16.237 +08:00 [INF] Successfully validated the token.
+2019-05-07 13:12:16.257 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoadingPhoto (Team)'
+2019-05-07 13:12:16.258 +08:00 [INF] Route matched with {action = "UserLoadingPhoto", controller = "Login"}. Executing action Team.Controllers.LoginController.UserLoadingPhoto (Team)
+2019-05-07 13:12:16.261 +08:00 [INF] Entity Framework Core 2.2.3-servicing-35854 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-07 13:12:16.313 +08:00 [INF] Executed DbCommand (45ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-07 13:12:16.358 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoadingPhoto (Team) - Validation state: "Valid"
+2019-05-07 13:23:23.626 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-07 13:23:25.249 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-05-07 13:23:25.530 +08:00 [INF] Request finished in 285.2849ms 200 text/html
+2019-05-07 13:23:26.103 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-05-07 13:23:26.296 +08:00 [INF] Request finished in 193.0258ms 200 application/json;charset=utf-8
+2019-05-07 13:23:36.730 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/Login/UserLoadingPhoto  
+2019-05-07 13:23:36.826 +08:00 [INF] Successfully validated the token.
+2019-05-07 13:23:36.858 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoadingPhoto (Team)'
+2019-05-07 13:23:36.869 +08:00 [INF] Route matched with {action = "UserLoadingPhoto", controller = "Login"}. Executing action Team.Controllers.LoginController.UserLoadingPhoto (Team)
+2019-05-07 13:23:37.141 +08:00 [INF] Entity Framework Core 2.2.3-servicing-35854 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-07 13:23:37.330 +08:00 [INF] Executed DbCommand (85ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-07 13:23:37.601 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoadingPhoto (Team) - Validation state: "Valid"
+2019-05-07 13:24:03.638 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-07 13:24:04.951 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-05-07 13:24:05.199 +08:00 [INF] Request finished in 251.4919ms 200 text/html
+2019-05-07 13:24:05.763 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-05-07 13:24:05.943 +08:00 [INF] Request finished in 179.9873ms 200 application/json;charset=utf-8
+2019-05-07 13:24:10.864 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/Login/UserLoadingPhoto  
+2019-05-07 13:24:10.952 +08:00 [INF] Successfully validated the token.
+2019-05-07 13:24:10.986 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoadingPhoto (Team)'
+2019-05-07 13:24:10.996 +08:00 [INF] Route matched with {action = "UserLoadingPhoto", controller = "Login"}. Executing action Team.Controllers.LoginController.UserLoadingPhoto (Team)
+2019-05-07 13:24:11.307 +08:00 [INF] Entity Framework Core 2.2.3-servicing-35854 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-07 13:24:11.493 +08:00 [INF] Executed DbCommand (83ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-07 13:24:11.820 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoadingPhoto (Team) - Validation state: "Valid"
+2019-05-07 16:34:23.975 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-07 16:34:25.517 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-05-07 16:34:25.791 +08:00 [INF] Request finished in 276.5711ms 200 text/html
+2019-05-07 16:34:26.359 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-05-07 16:34:26.538 +08:00 [INF] Request finished in 178.8496ms 200 application/json;charset=utf-8
+2019-05-07 16:34:36.910 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserLoginApi application/json-patch+json 49
+2019-05-07 16:34:37.028 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-07 16:34:37.053 +08:00 [INF] Route matched with {action = "UserLoginApi", controller = "Login"}. Executing action Team.Controllers.LoginController.UserLoginApi (Team)
+2019-05-07 16:34:37.541 +08:00 [INF] Entity Framework Core 2.2.3-servicing-35854 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-07 16:34:37.874 +08:00 [INF] Executed DbCommand (131ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-07 16:34:38.282 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoginApi (Team) with arguments (["Team.Model.AutoMappers.UserLoginMap"]) - Validation state: "Valid"
+2019-05-07 16:34:38.485 +08:00 [INF] Executed DbCommand (74ms) [Parameters=[@__account_0='?' (Size = 4000), @__password_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Images], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE ([x].[Account] = @__account_0) AND ([x].[Password] = @__password_1)
+2019-05-07 16:34:38.576 +08:00 [INF] 用户 1登陆成功
+2019-05-07 16:34:38.582 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserLoginApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 290.9631ms.
+2019-05-07 16:34:38.595 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-07 16:34:38.610 +08:00 [INF] Executed action Team.Controllers.LoginController.UserLoginApi (Team) in 1552.4981ms
+2019-05-07 16:34:38.612 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-07 16:34:38.621 +08:00 [INF] Request finished in 1710.5928ms 200 application/json; charset=utf-8
+2019-05-07 16:34:59.024 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/Login/UserLoadingPhoto  
+2019-05-07 16:34:59.043 +08:00 [INF] Successfully validated the token.
+2019-05-07 16:34:59.053 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoadingPhoto (Team)'
+2019-05-07 16:34:59.056 +08:00 [INF] Route matched with {action = "UserLoadingPhoto", controller = "Login"}. Executing action Team.Controllers.LoginController.UserLoadingPhoto (Team)
+2019-05-07 16:34:59.072 +08:00 [INF] Entity Framework Core 2.2.3-servicing-35854 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-07 16:34:59.116 +08:00 [INF] Executed DbCommand (41ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-07 16:34:59.146 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoadingPhoto (Team) - Validation state: "Valid"
+2019-05-07 16:34:59.431 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserLoadingPhoto (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 281.1231ms.
+2019-05-07 16:34:59.435 +08:00 [INF] Executing ObjectResult, writing value of type 'System.Drawing.Bitmap'.
+2019-05-07 16:34:59.481 +08:00 [INF] Executed action Team.Controllers.LoginController.UserLoadingPhoto (Team) in 424.65610000000004ms
+2019-05-07 16:34:59.484 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserLoadingPhoto (Team)'
+2019-05-07 16:34:59.485 +08:00 [INF] Request finished in 461.0312ms 200 application/json; charset=utf-8
+2019-05-07 16:36:12.569 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-07 16:36:14.176 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-05-07 16:36:14.460 +08:00 [INF] Request finished in 286.7874ms 200 text/html
+2019-05-07 16:36:15.033 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-05-07 16:36:15.232 +08:00 [INF] Request finished in 198.869ms 200 application/json;charset=utf-8
+2019-05-07 16:36:22.169 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/Login/UserLoadingPhoto  
+2019-05-07 16:36:22.258 +08:00 [INF] Successfully validated the token.
+2019-05-07 16:36:22.291 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoadingPhoto (Team)'
+2019-05-07 16:36:22.301 +08:00 [INF] Route matched with {action = "UserLoadingPhoto", controller = "Login"}. Executing action Team.Controllers.LoginController.UserLoadingPhoto (Team)
+2019-05-07 16:36:22.573 +08:00 [INF] Entity Framework Core 2.2.3-servicing-35854 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-07 16:36:22.764 +08:00 [INF] Executed DbCommand (85ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-07 16:36:23.047 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoadingPhoto (Team) - Validation state: "Valid"
+2019-05-07 16:36:23.128 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserLoadingPhoto (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 77.0065ms.
+2019-05-07 16:36:23.138 +08:00 [INF] Executing ObjectResult, writing value of type 'System.Drawing.Bitmap'.
+2019-05-07 16:36:23.172 +08:00 [INF] Executed action Team.Controllers.LoginController.UserLoadingPhoto (Team) in 865.55950000000007ms
+2019-05-07 16:36:23.174 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserLoadingPhoto (Team)'
+2019-05-07 16:36:23.175 +08:00 [INF] Request finished in 1006.3115ms 200 application/json; charset=utf-8
+2019-05-07 16:38:35.555 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-07 16:38:37.013 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-05-07 16:38:37.277 +08:00 [INF] Request finished in 267.2821ms 200 text/html
+2019-05-07 16:38:37.842 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-05-07 16:38:38.045 +08:00 [INF] Request finished in 202.69ms 200 application/json;charset=utf-8
+2019-05-07 16:39:07.675 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/Login/UserLoadingPhoto  
+2019-05-07 16:39:07.770 +08:00 [INF] Successfully validated the token.
+2019-05-07 16:39:07.809 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoadingPhoto (Team)'
+2019-05-07 16:39:07.819 +08:00 [INF] Route matched with {action = "UserLoadingPhoto", controller = "Login"}. Executing action Team.Controllers.LoginController.UserLoadingPhoto (Team)
+2019-05-07 16:39:08.082 +08:00 [INF] Entity Framework Core 2.2.3-servicing-35854 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-07 16:39:08.267 +08:00 [INF] Executed DbCommand (81ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-07 16:39:08.532 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoadingPhoto (Team) - Validation state: "Valid"
+2019-05-07 16:48:45.787 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-07 16:48:47.217 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-05-07 16:48:47.467 +08:00 [INF] Request finished in 253.0793ms 200 text/html
+2019-05-07 16:48:48.054 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-05-07 16:48:48.236 +08:00 [INF] Request finished in 181.7875ms 200 application/json;charset=utf-8
+2019-05-07 16:49:07.493 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserLoginApi application/json-patch+json 49
+2019-05-07 16:49:07.581 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-07 16:49:07.601 +08:00 [INF] Route matched with {action = "UserLoginApi", controller = "Login"}. Executing action Team.Controllers.LoginController.UserLoginApi (Team)
+2019-05-07 16:49:07.866 +08:00 [INF] Entity Framework Core 2.2.3-servicing-35854 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-07 16:49:08.046 +08:00 [INF] Executed DbCommand (84ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-07 16:49:08.406 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoginApi (Team) with arguments (["Team.Model.AutoMappers.UserLoginMap"]) - Validation state: "Valid"
+2019-05-07 16:49:08.573 +08:00 [INF] Executed DbCommand (60ms) [Parameters=[@__account_0='?' (Size = 4000), @__password_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Images], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE ([x].[Account] = @__account_0) AND ([x].[Password] = @__password_1)
+2019-05-07 16:49:08.653 +08:00 [INF] 用户 1登陆成功
+2019-05-07 16:49:08.659 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserLoginApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 243.31740000000002ms.
+2019-05-07 16:49:08.672 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-07 16:49:08.683 +08:00 [INF] Executed action Team.Controllers.LoginController.UserLoginApi (Team) in 1076.31ms
+2019-05-07 16:49:08.686 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-07 16:49:08.694 +08:00 [INF] Request finished in 1200.4446ms 200 application/json; charset=utf-8
+2019-05-07 16:49:31.798 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/Login/UserLoadingPhoto  
+2019-05-07 16:49:31.813 +08:00 [INF] Successfully validated the token.
+2019-05-07 16:49:31.820 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoadingPhoto (Team)'
+2019-05-07 16:49:31.824 +08:00 [INF] Route matched with {action = "UserLoadingPhoto", controller = "Login"}. Executing action Team.Controllers.LoginController.UserLoadingPhoto (Team)
+2019-05-07 16:49:31.827 +08:00 [INF] Entity Framework Core 2.2.3-servicing-35854 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-07 16:49:31.871 +08:00 [INF] Executed DbCommand (26ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-07 16:49:31.901 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoadingPhoto (Team) - Validation state: "Valid"
+2019-05-07 16:49:35.882 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserLoadingPhoto (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 3977.6077ms.
+2019-05-07 16:49:35.886 +08:00 [INF] Executing ObjectResult, writing value of type 'System.Drawing.Imaging.ImageFormat'.
+2019-05-07 16:49:35.888 +08:00 [INF] Executed action Team.Controllers.LoginController.UserLoadingPhoto (Team) in 4063.1728000000003ms
+2019-05-07 16:49:35.890 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserLoadingPhoto (Team)'
+2019-05-07 16:49:35.892 +08:00 [INF] Request finished in 4093.8814ms 200 application/json; charset=utf-8
+2019-05-07 16:53:28.833 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-07 16:53:30.120 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-05-07 16:53:30.367 +08:00 [INF] Request finished in 249.8582ms 200 text/html
+2019-05-07 16:53:30.947 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-05-07 16:53:31.147 +08:00 [INF] Request finished in 199.9578ms 200 application/json;charset=utf-8
+2019-05-07 16:53:35.154 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserLoginApi application/json-patch+json 49
+2019-05-07 16:53:35.238 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-07 16:53:35.260 +08:00 [INF] Route matched with {action = "UserLoginApi", controller = "Login"}. Executing action Team.Controllers.LoginController.UserLoginApi (Team)
+2019-05-07 16:53:35.547 +08:00 [INF] Entity Framework Core 2.2.3-servicing-35854 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-07 16:53:35.743 +08:00 [INF] Executed DbCommand (83ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-07 16:53:36.162 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoginApi (Team) with arguments (["Team.Model.AutoMappers.UserLoginMap"]) - Validation state: "Valid"
+2019-05-07 16:53:36.340 +08:00 [INF] Executed DbCommand (70ms) [Parameters=[@__account_0='?' (Size = 4000), @__password_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Images], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE ([x].[Account] = @__account_0) AND ([x].[Password] = @__password_1)
+2019-05-07 16:53:36.419 +08:00 [INF] 用户 1登陆成功
+2019-05-07 16:53:36.424 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserLoginApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 253.48850000000002ms.
+2019-05-07 16:53:36.438 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-07 16:53:36.449 +08:00 [INF] Executed action Team.Controllers.LoginController.UserLoginApi (Team) in 1184.6569ms
+2019-05-07 16:53:36.452 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-07 16:53:36.459 +08:00 [INF] Request finished in 1305.296ms 200 application/json; charset=utf-8
+2019-05-07 16:53:47.614 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/Login/UserLoadingPhoto  
+2019-05-07 16:53:47.657 +08:00 [INF] Successfully validated the token.
+2019-05-07 16:53:47.662 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoadingPhoto (Team)'
+2019-05-07 16:53:47.666 +08:00 [INF] Route matched with {action = "UserLoadingPhoto", controller = "Login"}. Executing action Team.Controllers.LoginController.UserLoadingPhoto (Team)
+2019-05-07 16:53:47.672 +08:00 [INF] Entity Framework Core 2.2.3-servicing-35854 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-07 16:53:47.708 +08:00 [INF] Executed DbCommand (24ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-07 16:53:47.738 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoadingPhoto (Team) - Validation state: "Valid"
+2019-05-07 17:00:42.353 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-07 17:00:43.793 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-05-07 17:00:44.058 +08:00 [INF] Request finished in 267.8111ms 200 text/html
+2019-05-07 17:00:44.638 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-05-07 17:00:44.836 +08:00 [INF] Request finished in 197.4739ms 200 application/json;charset=utf-8
+2019-05-07 17:00:48.441 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserLoginApi application/json-patch+json 49
+2019-05-07 17:00:48.518 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-07 17:00:48.538 +08:00 [INF] Route matched with {action = "UserLoginApi", controller = "Login"}. Executing action Team.Controllers.LoginController.UserLoginApi (Team)
+2019-05-07 17:00:48.799 +08:00 [INF] Entity Framework Core 2.2.3-servicing-35854 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-07 17:00:48.975 +08:00 [INF] Executed DbCommand (78ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-07 17:00:49.330 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoginApi (Team) with arguments (["Team.Model.AutoMappers.UserLoginMap"]) - Validation state: "Valid"
+2019-05-07 17:00:49.495 +08:00 [INF] Executed DbCommand (61ms) [Parameters=[@__account_0='?' (Size = 4000), @__password_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Images], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE ([x].[Account] = @__account_0) AND ([x].[Password] = @__password_1)
+2019-05-07 17:00:49.570 +08:00 [INF] 用户 1登陆成功
+2019-05-07 17:00:49.576 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserLoginApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 237.20680000000002ms.
+2019-05-07 17:00:49.589 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-07 17:00:49.600 +08:00 [INF] Executed action Team.Controllers.LoginController.UserLoginApi (Team) in 1057.4472ms
+2019-05-07 17:00:49.602 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-07 17:00:49.608 +08:00 [INF] Request finished in 1166.9842ms 200 application/json; charset=utf-8
+2019-05-07 17:02:09.748 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/Login/UserLoadingPhoto  
+2019-05-07 17:02:09.790 +08:00 [INF] Successfully validated the token.
+2019-05-07 17:02:09.796 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoadingPhoto (Team)'
+2019-05-07 17:02:09.812 +08:00 [INF] Route matched with {action = "UserLoadingPhoto", controller = "Login"}. Executing action Team.Controllers.LoginController.UserLoadingPhoto (Team)
+2019-05-07 17:02:09.826 +08:00 [INF] Entity Framework Core 2.2.3-servicing-35854 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-07 17:02:09.865 +08:00 [INF] Executed DbCommand (35ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-07 17:02:09.895 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoadingPhoto (Team) - Validation state: "Valid"
+2019-05-07 17:02:10.006 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserLoadingPhoto (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 108.863ms.
+2019-05-07 17:02:10.008 +08:00 [INF] Executing ObjectResult, writing value of type 'System.Drawing.Bitmap'.
+2019-05-07 17:02:10.024 +08:00 [INF] Executed action Team.Controllers.LoginController.UserLoadingPhoto (Team) in 209.7752ms
+2019-05-07 17:02:10.027 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserLoadingPhoto (Team)'
+2019-05-07 17:02:10.028 +08:00 [INF] Request finished in 280.4877ms 200 application/json; charset=utf-8
+2019-05-07 17:04:53.776 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/Login/UserLoadingPhoto  
+2019-05-07 17:04:53.779 +08:00 [INF] Successfully validated the token.
+2019-05-07 17:04:53.782 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoadingPhoto (Team)'
+2019-05-07 17:04:53.785 +08:00 [INF] Route matched with {action = "UserLoadingPhoto", controller = "Login"}. Executing action Team.Controllers.LoginController.UserLoadingPhoto (Team)
+2019-05-07 17:04:53.790 +08:00 [INF] Entity Framework Core 2.2.3-servicing-35854 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-07 17:04:53.835 +08:00 [INF] Executed DbCommand (41ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-07 17:04:53.858 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoadingPhoto (Team) - Validation state: "Valid"
+2019-05-07 17:11:14.031 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-07 17:11:15.698 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-05-07 17:11:15.962 +08:00 [INF] Request finished in 265.8654ms 200 text/html
+2019-05-07 17:11:16.530 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-05-07 17:11:16.724 +08:00 [INF] Request finished in 193.9074ms 200 application/json;charset=utf-8
+2019-05-07 17:11:20.264 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserLoginApi application/json-patch+json 49
+2019-05-07 17:11:20.339 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-07 17:11:20.360 +08:00 [INF] Route matched with {action = "UserLoginApi", controller = "Login"}. Executing action Team.Controllers.LoginController.UserLoginApi (Team)
+2019-05-07 17:11:20.655 +08:00 [INF] Entity Framework Core 2.2.3-servicing-35854 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-07 17:11:20.873 +08:00 [INF] Executed DbCommand (96ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-07 17:11:21.254 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoginApi (Team) with arguments (["Team.Model.AutoMappers.UserLoginMap"]) - Validation state: "Valid"
+2019-05-07 17:11:21.444 +08:00 [INF] Executed DbCommand (68ms) [Parameters=[@__account_0='?' (Size = 4000), @__password_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Images], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE ([x].[Account] = @__account_0) AND ([x].[Password] = @__password_1)
+2019-05-07 17:11:21.537 +08:00 [INF] 用户 1登陆成功
+2019-05-07 17:11:21.543 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserLoginApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 279.63800000000003ms.
+2019-05-07 17:11:21.556 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-07 17:11:21.568 +08:00 [INF] Executed action Team.Controllers.LoginController.UserLoginApi (Team) in 1203.24ms
+2019-05-07 17:11:21.572 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-07 17:11:21.583 +08:00 [INF] Request finished in 1318.8851ms 200 application/json; charset=utf-8
+2019-05-07 17:11:33.347 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/Login/UserLoadingPhoto  
+2019-05-07 17:11:33.360 +08:00 [INF] Successfully validated the token.
+2019-05-07 17:11:33.368 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoadingPhoto (Team)'
+2019-05-07 17:11:33.370 +08:00 [INF] Route matched with {action = "UserLoadingPhoto", controller = "Login"}. Executing action Team.Controllers.LoginController.UserLoadingPhoto (Team)
+2019-05-07 17:11:33.372 +08:00 [INF] Entity Framework Core 2.2.3-servicing-35854 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-07 17:11:33.400 +08:00 [INF] Executed DbCommand (26ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-07 17:11:33.447 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoadingPhoto (Team) - Validation state: "Valid"
+2019-05-07 17:11:33.543 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserLoadingPhoto (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 94.1765ms.
+2019-05-07 17:11:33.548 +08:00 [INF] Executing ObjectResult, writing value of type 'System.Drawing.Bitmap'.
+2019-05-07 17:11:33.561 +08:00 [INF] Executed action Team.Controllers.LoginController.UserLoadingPhoto (Team) in 190.1815ms
+2019-05-07 17:11:33.564 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserLoadingPhoto (Team)'
+2019-05-07 17:11:33.565 +08:00 [INF] Request finished in 217.9528ms 200 application/json; charset=utf-8
+2019-05-07 17:12:34.466 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-07 17:12:35.838 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-05-07 17:12:36.066 +08:00 [INF] Request finished in 230.5061ms 200 text/html
+2019-05-07 17:12:36.618 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-05-07 17:12:36.823 +08:00 [INF] Request finished in 204.9385ms 200 application/json;charset=utf-8
+2019-05-07 17:12:45.348 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserLoginApi application/json-patch+json 49
+2019-05-07 17:12:45.429 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-07 17:12:45.449 +08:00 [INF] Route matched with {action = "UserLoginApi", controller = "Login"}. Executing action Team.Controllers.LoginController.UserLoginApi (Team)
+2019-05-07 17:12:45.718 +08:00 [INF] Entity Framework Core 2.2.3-servicing-35854 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-07 17:12:45.905 +08:00 [INF] Executed DbCommand (79ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-07 17:12:46.332 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoginApi (Team) with arguments (["Team.Model.AutoMappers.UserLoginMap"]) - Validation state: "Valid"
+2019-05-07 17:12:46.521 +08:00 [INF] Executed DbCommand (71ms) [Parameters=[@__account_0='?' (Size = 4000), @__password_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Images], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE ([x].[Account] = @__account_0) AND ([x].[Password] = @__password_1)
+2019-05-07 17:12:46.606 +08:00 [INF] 用户 1登陆成功
+2019-05-07 17:12:46.612 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserLoginApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 270.148ms.
+2019-05-07 17:12:46.627 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-07 17:12:46.639 +08:00 [INF] Executed action Team.Controllers.LoginController.UserLoginApi (Team) in 1186.5646000000002ms
+2019-05-07 17:12:46.642 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-07 17:12:46.648 +08:00 [INF] Request finished in 1300.6114ms 200 application/json; charset=utf-8
+2019-05-07 17:12:59.845 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/Login/UserLoadingPhoto  
+2019-05-07 17:12:59.860 +08:00 [INF] Successfully validated the token.
+2019-05-07 17:12:59.866 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoadingPhoto (Team)'
+2019-05-07 17:12:59.871 +08:00 [INF] Route matched with {action = "UserLoadingPhoto", controller = "Login"}. Executing action Team.Controllers.LoginController.UserLoadingPhoto (Team)
+2019-05-07 17:12:59.875 +08:00 [INF] Entity Framework Core 2.2.3-servicing-35854 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-07 17:12:59.906 +08:00 [INF] Executed DbCommand (28ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-07 17:12:59.933 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoadingPhoto (Team) - Validation state: "Valid"
+2019-05-07 17:13:00.039 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserLoadingPhoto (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 103.7035ms.
+2019-05-07 17:13:00.042 +08:00 [INF] Executing ObjectResult, writing value of type 'System.Drawing.Graphics'.
+2019-05-07 17:13:00.092 +08:00 [INF] Executed action Team.Controllers.LoginController.UserLoadingPhoto (Team) in 217.52ms
+2019-05-07 17:13:00.094 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserLoadingPhoto (Team)'
+2019-05-07 17:13:00.096 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+Newtonsoft.Json.JsonSerializationException: Error getting value from 'Clip' on 'System.Drawing.Graphics'. ---> System.ArgumentException: Parameter is not valid.
+   at System.Drawing.Graphics.get_Clip()
+   at Newtonsoft.Json.Serialization.ExpressionValueProvider.GetValue(Object target) in /_/Src/Newtonsoft.Json/Serialization/ExpressionValueProvider.cs:line 111
+   --- End of inner exception stack trace ---
+   at Newtonsoft.Json.Serialization.ExpressionValueProvider.GetValue(Object target) in /_/Src/Newtonsoft.Json/Serialization/ExpressionValueProvider.cs:line 115
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.CalculatePropertyValues(JsonWriter writer, Object value, JsonContainerContract contract, JsonProperty member, JsonProperty property, JsonContract& memberContract, Object& memberValue) in /_/Src/Newtonsoft.Json/Serialization/JsonSerializerInternalWriter.cs:line 520
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty) in /_/Src/Newtonsoft.Json/Serialization/JsonSerializerInternalWriter.cs:line 453
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.Serialize(JsonWriter jsonWriter, Object value, Type objectType) in /_/Src/Newtonsoft.Json/Serialization/JsonSerializerInternalWriter.cs:line 80
+   at Newtonsoft.Json.JsonSerializer.SerializeInternal(JsonWriter jsonWriter, Object value, Type objectType) in /_/Src/Newtonsoft.Json/JsonSerializer.cs:line 1151
+   at Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter.WriteObject(TextWriter writer, Object value)
+   at Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeResultAsync(IActionResult result)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResultFilterAsync[TFilter,TFilterAsync]()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResultExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeResultFilters()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-05-07 17:13:00.258 +08:00 [WRN] The response has already started, the error page middleware will not be executed.
+2019-05-07 17:13:00.259 +08:00 [ERR] Connection id "0HLMIPGIDU8I6", Request id "0HLMIPGIDU8I6:00000004": An unhandled exception was thrown by the application.
+Newtonsoft.Json.JsonSerializationException: Error getting value from 'Clip' on 'System.Drawing.Graphics'. ---> System.ArgumentException: Parameter is not valid.
+   at System.Drawing.Graphics.get_Clip()
+   at Newtonsoft.Json.Serialization.ExpressionValueProvider.GetValue(Object target) in /_/Src/Newtonsoft.Json/Serialization/ExpressionValueProvider.cs:line 111
+   --- End of inner exception stack trace ---
+   at Newtonsoft.Json.Serialization.ExpressionValueProvider.GetValue(Object target) in /_/Src/Newtonsoft.Json/Serialization/ExpressionValueProvider.cs:line 115
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.CalculatePropertyValues(JsonWriter writer, Object value, JsonContainerContract contract, JsonProperty member, JsonProperty property, JsonContract& memberContract, Object& memberValue) in /_/Src/Newtonsoft.Json/Serialization/JsonSerializerInternalWriter.cs:line 520
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty) in /_/Src/Newtonsoft.Json/Serialization/JsonSerializerInternalWriter.cs:line 453
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.Serialize(JsonWriter jsonWriter, Object value, Type objectType) in /_/Src/Newtonsoft.Json/Serialization/JsonSerializerInternalWriter.cs:line 80
+   at Newtonsoft.Json.JsonSerializer.SerializeInternal(JsonWriter jsonWriter, Object value, Type objectType) in /_/Src/Newtonsoft.Json/JsonSerializer.cs:line 1151
+   at Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter.WriteObject(TextWriter writer, Object value)
+   at Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeResultAsync(IActionResult result)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResultFilterAsync[TFilter,TFilterAsync]()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResultExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeResultFilters()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2019-05-07 17:13:00.274 +08:00 [INF] Request finished in 428.8981ms 200 application/json; charset=utf-8
+2019-05-07 17:13:19.859 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/Login/UserLoadingPhoto  
+2019-05-07 17:13:19.860 +08:00 [INF] Successfully validated the token.
+2019-05-07 17:13:19.862 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoadingPhoto (Team)'
+2019-05-07 17:13:19.864 +08:00 [INF] Route matched with {action = "UserLoadingPhoto", controller = "Login"}. Executing action Team.Controllers.LoginController.UserLoadingPhoto (Team)
+2019-05-07 17:13:19.866 +08:00 [INF] Entity Framework Core 2.2.3-servicing-35854 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-07 17:13:19.906 +08:00 [INF] Executed DbCommand (37ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-07 17:13:19.941 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoadingPhoto (Team) - Validation state: "Valid"
+2019-05-07 17:22:05.935 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-07 17:22:07.298 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-05-07 17:22:07.567 +08:00 [INF] Request finished in 271.5611ms 200 text/html
+2019-05-07 17:22:08.138 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-05-07 17:22:08.324 +08:00 [INF] Request finished in 185.2779ms 200 application/json;charset=utf-8
+2019-05-07 17:22:14.455 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/Login/UserLoadingPhoto  
+2019-05-07 17:22:14.539 +08:00 [INF] Successfully validated the token.
+2019-05-07 17:22:14.570 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoadingPhoto (Team)'
+2019-05-07 17:22:14.580 +08:00 [INF] Route matched with {action = "UserLoadingPhoto", controller = "Login"}. Executing action Team.Controllers.LoginController.UserLoadingPhoto (Team)
+2019-05-07 17:22:14.846 +08:00 [INF] Entity Framework Core 2.2.3-servicing-35854 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-07 17:22:15.040 +08:00 [INF] Executed DbCommand (87ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-07 17:22:15.327 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoadingPhoto (Team) - Validation state: "Valid"
+2019-05-07 17:22:15.416 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserLoadingPhoto (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 83.6666ms.
+2019-05-07 17:22:15.424 +08:00 [INF] Executing ObjectResult, writing value of type 'System.IO.FileStream'.
+2019-05-07 17:22:15.447 +08:00 [INF] Executed action Team.Controllers.LoginController.UserLoadingPhoto (Team) in 861.8825ms
+2019-05-07 17:22:15.451 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserLoadingPhoto (Team)'
+2019-05-07 17:22:15.456 +08:00 [INF] Request finished in 1001.0296ms 200 text/plain
+2019-05-07 17:38:31.498 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-07 17:38:32.838 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-05-07 17:38:33.098 +08:00 [INF] Request finished in 265.7518ms 200 text/html
+2019-05-07 17:38:33.667 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-05-07 17:38:33.854 +08:00 [INF] Request finished in 186.6407ms 200 application/json;charset=utf-8
+2019-05-07 17:38:43.031 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/Login/UserLoadingPhoto  
+2019-05-07 17:38:43.116 +08:00 [INF] Successfully validated the token.
+2019-05-07 17:38:43.146 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoadingPhoto (Team)'
+2019-05-07 17:38:43.156 +08:00 [INF] Route matched with {action = "UserLoadingPhoto", controller = "Login"}. Executing action Team.Controllers.LoginController.UserLoadingPhoto (Team)
+2019-05-07 17:38:43.426 +08:00 [INF] Entity Framework Core 2.2.3-servicing-35854 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-07 17:38:43.608 +08:00 [INF] Executed DbCommand (82ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-07 17:38:43.874 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoadingPhoto (Team) - Validation state: "Valid"
+2019-05-07 17:38:43.880 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserLoadingPhoto (Team), returned result Microsoft.AspNetCore.Mvc.FileContentResult in 1.9852ms.
+2019-05-07 17:38:43.890 +08:00 [INF] Executing Microsoft.AspNetCore.Mvc.FileContentResult, sending file with download name '' ...
+2019-05-07 17:38:43.919 +08:00 [INF] Executed action Team.Controllers.LoginController.UserLoadingPhoto (Team) in 758.18670000000009ms
+2019-05-07 17:38:43.923 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserLoadingPhoto (Team)'
+2019-05-07 17:38:43.930 +08:00 [INF] Request finished in 898.6832ms 200 image/jpeg
+2019-05-07 17:42:02.352 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-07 17:42:03.966 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-05-07 17:42:04.230 +08:00 [INF] Request finished in 267.936ms 200 text/html
+2019-05-07 17:42:04.803 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-05-07 17:42:04.991 +08:00 [INF] Request finished in 187.6888ms 200 application/json;charset=utf-8
+2019-05-07 17:42:10.105 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/Login/UserLoadingPhoto  
+2019-05-07 17:42:10.186 +08:00 [INF] Successfully validated the token.
+2019-05-07 17:42:10.218 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoadingPhoto (Team)'
+2019-05-07 17:42:10.228 +08:00 [INF] Route matched with {action = "UserLoadingPhoto", controller = "Login"}. Executing action Team.Controllers.LoginController.UserLoadingPhoto (Team)
+2019-05-07 17:42:10.496 +08:00 [INF] Entity Framework Core 2.2.3-servicing-35854 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-07 17:42:10.686 +08:00 [INF] Executed DbCommand (84ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-07 17:42:10.979 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoadingPhoto (Team) - Validation state: "Valid"
+2019-05-07 17:42:10.986 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserLoadingPhoto (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 2.2577000000000003ms.
+2019-05-07 17:42:10.998 +08:00 [INF] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.FileContentResult'.
+2019-05-07 17:42:11.020 +08:00 [INF] Executed action Team.Controllers.LoginController.UserLoadingPhoto (Team) in 786.8129ms
+2019-05-07 17:42:11.022 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserLoadingPhoto (Team)'
+2019-05-07 17:42:11.023 +08:00 [INF] Request finished in 918.5849ms 200 application/json; charset=utf-8
+2019-05-07 17:45:03.757 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-07 17:45:05.249 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-05-07 17:45:05.519 +08:00 [INF] Request finished in 271.6763ms 200 text/html
+2019-05-07 17:45:06.092 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-05-07 17:45:06.277 +08:00 [INF] Request finished in 184.2724ms 200 application/json;charset=utf-8
+2019-05-07 17:45:19.841 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserRegisteredApi application/json-patch+json 140
+2019-05-07 17:45:19.936 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserRegisteredApi (Team)'
+2019-05-07 17:45:19.956 +08:00 [INF] Route matched with {action = "UserRegisteredApi", controller = "Login"}. Executing action Team.Controllers.LoginController.UserRegisteredApi (Team)
+2019-05-07 17:45:20.257 +08:00 [INF] Entity Framework Core 2.2.3-servicing-35854 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-07 17:45:20.456 +08:00 [INF] Executed DbCommand (84ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-07 17:45:20.889 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserRegisteredApi (Team) with arguments (["Team.Model.AutoMappers.UserRegisteredMap"]) - Validation state: "Valid"
+2019-05-07 17:45:21.072 +08:00 [INF] Executed DbCommand (63ms) [Parameters=[@__account_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Images], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE [x].[Account] = @__account_0
+2019-05-07 17:45:21.138 +08:00 [INF] 注册失败，string 账号已被注册！
+2019-05-07 17:45:21.144 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserRegisteredApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 245.22500000000002ms.
+2019-05-07 17:45:21.158 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-07 17:45:21.170 +08:00 [INF] Executed action Team.Controllers.LoginController.UserRegisteredApi (Team) in 1209.803ms
+2019-05-07 17:45:21.173 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserRegisteredApi (Team)'
+2019-05-07 17:45:21.184 +08:00 [INF] Request finished in 1343.1084ms 409 application/json; charset=utf-8
+2019-05-07 17:45:28.094 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserRegisteredApi application/json-patch+json 141
+2019-05-07 17:45:28.101 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserRegisteredApi (Team)'
+2019-05-07 17:45:28.105 +08:00 [INF] Route matched with {action = "UserRegisteredApi", controller = "Login"}. Executing action Team.Controllers.LoginController.UserRegisteredApi (Team)
+2019-05-07 17:45:28.111 +08:00 [INF] Entity Framework Core 2.2.3-servicing-35854 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-07 17:45:28.146 +08:00 [INF] Executed DbCommand (23ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-07 17:45:28.175 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserRegisteredApi (Team) with arguments (["Team.Model.AutoMappers.UserRegisteredMap"]) - Validation state: "Valid"
+2019-05-07 17:45:28.225 +08:00 [INF] Executed DbCommand (46ms) [Parameters=[@__account_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Images], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE [x].[Account] = @__account_0
+2019-05-07 17:45:28.711 +08:00 [INF] Executed DbCommand (213ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32), @p6='?' (DbType = Int32), @p7='?' (DbType = Int32), @p8='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Users] ([Account], [Images], [Name], [Password], [Province], [Role], [Sex], [StudentId], [UniversityId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8);
+SELECT [Id]
+FROM [Users]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2019-05-07 17:45:28.799 +08:00 [INF] Executed DbCommand (75ms) [Parameters=[@p0='?' (DbType = Single), @p1='?' (DbType = Single), @p2='?' (DbType = Single), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Statisticals] ([AllTime], [Distance], [Kcal], [SportFreeModel], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4);
+SELECT [Id]
+FROM [Statisticals]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2019-05-07 17:45:28.824 +08:00 [INF] Executed DbCommand (19ms) [Parameters=[@p0='?' (DbType = Single), @p1='?' (DbType = Single), @p2='?' (DbType = Single), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Statisticals] ([AllTime], [Distance], [Kcal], [SportFreeModel], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4);
+SELECT [Id]
+FROM [Statisticals]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2019-05-07 17:45:28.858 +08:00 [INF] string1 注册成功
+2019-05-07 17:45:28.860 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserRegisteredApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 682.5393ms.
+2019-05-07 17:45:28.863 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-07 17:45:28.864 +08:00 [INF] Executed action Team.Controllers.LoginController.UserRegisteredApi (Team) in 755.4632ms
+2019-05-07 17:45:28.866 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserRegisteredApi (Team)'
+2019-05-07 17:45:28.867 +08:00 [INF] Request finished in 773.6525ms 200 application/json; charset=utf-8
+2019-05-07 17:45:38.674 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/Login/UserLoadingPhoto  
+2019-05-07 17:45:38.688 +08:00 [INF] Successfully validated the token.
+2019-05-07 17:45:38.690 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoadingPhoto (Team)'
+2019-05-07 17:45:38.692 +08:00 [INF] Route matched with {action = "UserLoadingPhoto", controller = "Login"}. Executing action Team.Controllers.LoginController.UserLoadingPhoto (Team)
+2019-05-07 17:45:38.694 +08:00 [INF] Entity Framework Core 2.2.3-servicing-35854 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-07 17:45:38.720 +08:00 [INF] Executed DbCommand (24ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-07 17:45:38.744 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoadingPhoto (Team) - Validation state: "Valid"
+2019-05-07 17:47:21.032 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-07 17:47:22.148 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-05-07 17:47:22.395 +08:00 [INF] Request finished in 250.4031ms 200 text/html
+2019-05-07 17:47:22.975 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-05-07 17:47:23.165 +08:00 [INF] Request finished in 190.5213ms 200 application/json;charset=utf-8
+2019-05-07 17:47:29.950 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserLoginApi application/json-patch+json 50
+2019-05-07 17:47:30.028 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-07 17:47:30.048 +08:00 [INF] Route matched with {action = "UserLoginApi", controller = "Login"}. Executing action Team.Controllers.LoginController.UserLoginApi (Team)
+2019-05-07 17:47:30.314 +08:00 [INF] Entity Framework Core 2.2.3-servicing-35854 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-07 17:47:30.499 +08:00 [INF] Executed DbCommand (80ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-07 17:47:30.915 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoginApi (Team) with arguments (["Team.Model.AutoMappers.UserLoginMap"]) - Validation state: "Valid"
+2019-05-07 17:47:31.103 +08:00 [INF] Executed DbCommand (67ms) [Parameters=[@__account_0='?' (Size = 4000), @__password_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Images], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE ([x].[Account] = @__account_0) AND ([x].[Password] = @__password_1)
+2019-05-07 17:47:31.193 +08:00 [INF] 用户 2登陆成功
+2019-05-07 17:47:31.200 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserLoginApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 272.65500000000003ms.
+2019-05-07 17:47:31.213 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-07 17:47:31.226 +08:00 [INF] Executed action Team.Controllers.LoginController.UserLoginApi (Team) in 1171.5994ms
+2019-05-07 17:47:31.229 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-07 17:47:31.235 +08:00 [INF] Request finished in 1285.3964ms 200 application/json; charset=utf-8
+2019-05-07 17:47:43.287 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/Login/UserLoadingPhoto  
+2019-05-07 17:47:43.334 +08:00 [INF] Successfully validated the token.
+2019-05-07 17:47:43.339 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoadingPhoto (Team)'
+2019-05-07 17:47:43.351 +08:00 [INF] Route matched with {action = "UserLoadingPhoto", controller = "Login"}. Executing action Team.Controllers.LoginController.UserLoadingPhoto (Team)
+2019-05-07 17:47:43.354 +08:00 [INF] Entity Framework Core 2.2.3-servicing-35854 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-07 17:47:43.380 +08:00 [INF] Executed DbCommand (23ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-07 17:47:43.410 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoadingPhoto (Team) - Validation state: "Valid"
+2019-05-07 17:47:43.416 +08:00 [INF] 用户 2 没有存入头像
+2019-05-07 17:47:43.418 +08:00 [INF] 用户 2 获取头像成功
+2019-05-07 17:47:43.422 +08:00 [INF] Executed action Team.Controllers.LoginController.UserLoadingPhoto (Team) in 68.6464ms
+2019-05-07 17:47:43.423 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserLoadingPhoto (Team)'
+2019-05-07 17:47:43.426 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Cannot return null from an action method with a return type of 'Microsoft.AspNetCore.Mvc.IActionResult'.
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.EnsureActionResultNotNull(ObjectMethodExecutor executor, IActionResult actionResult)
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-05-07 17:47:43.645 +08:00 [INF] Request finished in 358.6889ms 500 text/html; charset=utf-8
+2019-05-07 17:47:54.622 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/Login/UserLoadingPhoto  
+2019-05-07 17:47:54.624 +08:00 [INF] Successfully validated the token.
+2019-05-07 17:47:54.625 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoadingPhoto (Team)'
+2019-05-07 17:47:54.627 +08:00 [INF] Route matched with {action = "UserLoadingPhoto", controller = "Login"}. Executing action Team.Controllers.LoginController.UserLoadingPhoto (Team)
+2019-05-07 17:47:54.629 +08:00 [INF] Entity Framework Core 2.2.3-servicing-35854 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-07 17:47:54.660 +08:00 [INF] Executed DbCommand (27ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-07 17:47:54.684 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoadingPhoto (Team) - Validation state: "Valid"
+2019-05-07 17:48:09.968 +08:00 [INF] 用户 2 没有存入头像
+2019-05-07 17:48:29.875 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-07 17:48:31.519 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-05-07 17:48:31.775 +08:00 [INF] Request finished in 258.1926ms 200 text/html
+2019-05-07 17:48:32.348 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-05-07 17:48:32.539 +08:00 [INF] Request finished in 191.5165ms 200 application/json;charset=utf-8
+2019-05-07 17:48:38.193 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/Login/UserLoadingPhoto  
+2019-05-07 17:48:38.277 +08:00 [INF] Successfully validated the token.
+2019-05-07 17:48:38.308 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoadingPhoto (Team)'
+2019-05-07 17:48:38.317 +08:00 [INF] Route matched with {action = "UserLoadingPhoto", controller = "Login"}. Executing action Team.Controllers.LoginController.UserLoadingPhoto (Team)
+2019-05-07 17:48:38.587 +08:00 [INF] Entity Framework Core 2.2.3-servicing-35854 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-07 17:48:38.779 +08:00 [INF] Executed DbCommand (80ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-07 17:48:39.040 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoadingPhoto (Team) - Validation state: "Valid"
+2019-05-07 17:48:39.046 +08:00 [INF] 用户 2 没有存入头像
+2019-05-07 17:48:39.049 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserLoadingPhoto (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 3.0833ms.
+2019-05-07 17:48:39.057 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-07 17:48:39.067 +08:00 [INF] Executed action Team.Controllers.LoginController.UserLoadingPhoto (Team) in 745.0469ms
+2019-05-07 17:48:39.069 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserLoadingPhoto (Team)'
+2019-05-07 17:48:39.070 +08:00 [INF] Request finished in 877.0764ms 404 application/json; charset=utf-8
+2019-05-07 17:56:46.901 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-07 17:56:48.071 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-05-07 17:56:48.337 +08:00 [INF] Request finished in 268.5637ms 200 text/html
+2019-05-07 17:56:48.946 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-05-07 17:56:49.130 +08:00 [INF] Request finished in 184.6867ms 200 application/json;charset=utf-8
+2019-05-07 17:56:52.890 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserLoginApi application/json-patch+json 49
+2019-05-07 17:56:52.973 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-07 17:56:52.994 +08:00 [INF] Route matched with {action = "UserLoginApi", controller = "Login"}. Executing action Team.Controllers.LoginController.UserLoginApi (Team)
+2019-05-07 17:56:53.257 +08:00 [INF] Entity Framework Core 2.2.3-servicing-35854 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-07 17:56:53.441 +08:00 [INF] Executed DbCommand (81ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-07 17:56:53.807 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoginApi (Team) with arguments (["Team.Model.AutoMappers.UserLoginMap"]) - Validation state: "Valid"
+2019-05-07 17:56:53.988 +08:00 [INF] Executed DbCommand (68ms) [Parameters=[@__account_0='?' (Size = 4000), @__password_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Images], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE ([x].[Account] = @__account_0) AND ([x].[Password] = @__password_1)
+2019-05-07 17:56:54.082 +08:00 [INF] 用户 1登陆成功
+2019-05-07 17:56:54.089 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserLoginApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 269.6709ms.
+2019-05-07 17:56:54.104 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-07 17:56:54.119 +08:00 [INF] Executed action Team.Controllers.LoginController.UserLoginApi (Team) in 1120.9675ms
+2019-05-07 17:56:54.123 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-07 17:56:54.132 +08:00 [INF] Request finished in 1241.9664ms 200 application/json; charset=utf-8
+2019-05-07 17:57:22.079 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Team/TeamYpLoadPhoto?teamId=2 multipart/form-data; boundary=----WebKitFormBoundaryDXYMB1AomRuovQn4 80346
+2019-05-07 17:57:22.101 +08:00 [INF] Successfully validated the token.
+2019-05-07 17:57:22.106 +08:00 [INF] Executing endpoint 'Team.Controllers.TeamController.TeamYpLoadPhoto (Team)'
+2019-05-07 17:57:22.111 +08:00 [INF] Route matched with {action = "TeamYpLoadPhoto", controller = "Team"}. Executing action Team.Controllers.TeamController.TeamYpLoadPhoto (Team)
+2019-05-07 17:57:22.119 +08:00 [INF] Authorization was successful.
+2019-05-07 17:57:22.125 +08:00 [INF] Entity Framework Core 2.2.3-servicing-35854 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-07 17:57:22.163 +08:00 [INF] Executed DbCommand (35ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-07 17:57:22.300 +08:00 [INF] Executing action method Team.Controllers.TeamController.TeamYpLoadPhoto (Team) with arguments (["Microsoft.AspNetCore.Http.Internal.FormFile","2"]) - Validation state: "Valid"
+2019-05-07 17:57:22.328 +08:00 [INF] 用户 1 上传队伍图片 2 上传成功
+2019-05-07 17:57:22.330 +08:00 [INF] Executed action method Team.Controllers.TeamController.TeamYpLoadPhoto (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 26.8599ms.
+2019-05-07 17:57:22.332 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-07 17:57:22.334 +08:00 [INF] Executed action Team.Controllers.TeamController.TeamYpLoadPhoto (Team) in 221.8802ms
+2019-05-07 17:57:22.335 +08:00 [INF] Executed endpoint 'Team.Controllers.TeamController.TeamYpLoadPhoto (Team)'
+2019-05-07 17:57:22.337 +08:00 [INF] Request finished in 257.6713ms 200 application/json; charset=utf-8
+2019-05-07 17:58:34.947 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-07 17:58:36.069 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-05-07 17:58:36.310 +08:00 [INF] Request finished in 244.8662ms 200 text/html
+2019-05-07 17:58:36.886 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-05-07 17:58:37.069 +08:00 [INF] Request finished in 182.8675ms 200 application/json;charset=utf-8
+2019-05-07 17:58:53.138 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Team/IActionResult application/json-patch+json 15
+2019-05-07 17:58:53.236 +08:00 [INF] Successfully validated the token.
+2019-05-07 17:58:53.272 +08:00 [INF] Executing endpoint 'Team.Controllers.TeamController.TeamLoadingPhoto (Team)'
+2019-05-07 17:58:53.288 +08:00 [INF] Route matched with {action = "TeamLoadingPhoto", controller = "Team"}. Executing action Team.Controllers.TeamController.TeamLoadingPhoto (Team)
+2019-05-07 17:58:53.298 +08:00 [INF] Authorization was successful.
+2019-05-07 17:58:53.569 +08:00 [INF] Entity Framework Core 2.2.3-servicing-35854 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-07 17:58:53.797 +08:00 [INF] Executed DbCommand (103ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-07 17:58:54.140 +08:00 [INF] Executing action method Team.Controllers.TeamController.TeamLoadingPhoto (Team) with arguments (["System.Int32[]"]) - Validation state: "Valid"
+2019-05-07 17:58:54.150 +08:00 [INF] Executed action method Team.Controllers.TeamController.TeamLoadingPhoto (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 1.4676ms.
+2019-05-07 17:58:54.158 +08:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Microsoft.AspNetCore.Mvc.FileContentResult, Microsoft.AspNetCore.Mvc.Core, Version=2.2.2.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]]'.
+2019-05-07 17:58:54.181 +08:00 [INF] Executed action Team.Controllers.TeamController.TeamLoadingPhoto (Team) in 888.5841ms
+2019-05-07 17:58:54.182 +08:00 [INF] Executed endpoint 'Team.Controllers.TeamController.TeamLoadingPhoto (Team)'
+2019-05-07 17:58:54.183 +08:00 [INF] Request finished in 1045.6573ms 200 application/json; charset=utf-8
+2019-05-07 18:02:13.822 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-07 18:02:15.457 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-05-07 18:02:15.700 +08:00 [INF] Request finished in 250.2083ms 200 text/html
+2019-05-07 18:02:16.287 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-05-07 18:02:16.479 +08:00 [INF] Request finished in 192.4505ms 200 application/json;charset=utf-8
+2019-05-07 18:02:28.574 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Team/IActionResult application/json-patch+json 13
+2019-05-07 18:02:28.660 +08:00 [INF] Successfully validated the token.
+2019-05-07 18:02:28.691 +08:00 [INF] Executing endpoint 'Team.Controllers.TeamController.TeamLoadingPhoto (Team)'
+2019-05-07 18:02:28.707 +08:00 [INF] Route matched with {action = "TeamLoadingPhoto", controller = "Team"}. Executing action Team.Controllers.TeamController.TeamLoadingPhoto (Team)
+2019-05-07 18:02:28.717 +08:00 [INF] Authorization was successful.
+2019-05-07 18:02:28.992 +08:00 [INF] Entity Framework Core 2.2.3-servicing-35854 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-07 18:02:29.214 +08:00 [INF] Executed DbCommand (90ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-07 18:02:29.547 +08:00 [INF] Executing action method Team.Controllers.TeamController.TeamLoadingPhoto (Team) with arguments (["System.Int32[]"]) - Validation state: "Valid"
+2019-05-07 18:02:29.558 +08:00 [INF] Executed action method Team.Controllers.TeamController.TeamLoadingPhoto (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 1.4126ms.
+2019-05-07 18:02:29.568 +08:00 [INF] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.FileContentResult[]'.
+2019-05-07 18:02:29.591 +08:00 [INF] Executed action Team.Controllers.TeamController.TeamLoadingPhoto (Team) in 879.567ms
+2019-05-07 18:02:29.593 +08:00 [INF] Executed endpoint 'Team.Controllers.TeamController.TeamLoadingPhoto (Team)'
+2019-05-07 18:02:29.594 +08:00 [INF] Request finished in 1020.5637ms 200 application/json; charset=utf-8
+2019-05-07 18:05:58.701 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-07 18:06:00.192 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-05-07 18:06:00.450 +08:00 [INF] Request finished in 261.7488ms 200 text/html
+2019-05-07 18:06:01.032 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-05-07 18:06:01.208 +08:00 [INF] Request finished in 176.503ms 200 application/json;charset=utf-8
+2019-05-07 18:06:17.172 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Team/IActionResult application/json-patch+json 7
+2019-05-07 18:06:17.256 +08:00 [INF] Successfully validated the token.
+2019-05-07 18:06:17.288 +08:00 [INF] Executing endpoint 'Team.Controllers.TeamController.TeamLoadingPhoto (Team)'
+2019-05-07 18:06:17.307 +08:00 [INF] Route matched with {action = "TeamLoadingPhoto", controller = "Team"}. Executing action Team.Controllers.TeamController.TeamLoadingPhoto (Team)
+2019-05-07 18:06:17.317 +08:00 [INF] Authorization was successful.
+2019-05-07 18:06:17.593 +08:00 [INF] Entity Framework Core 2.2.3-servicing-35854 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-07 18:06:17.780 +08:00 [INF] Executed DbCommand (88ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-07 18:06:18.139 +08:00 [INF] Executing action method Team.Controllers.TeamController.TeamLoadingPhoto (Team) with arguments (["System.Int32[]"]) - Validation state: "Valid"
+2019-05-07 18:06:18.150 +08:00 [INF] Executed action method Team.Controllers.TeamController.TeamLoadingPhoto (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 1.2856ms.
+2019-05-07 18:06:18.161 +08:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Microsoft.AspNetCore.Mvc.FileContentResult, Microsoft.AspNetCore.Mvc.Core, Version=2.2.2.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]]'.
+2019-05-07 18:06:18.184 +08:00 [INF] Executed action Team.Controllers.TeamController.TeamLoadingPhoto (Team) in 872.56400000000008ms
+2019-05-07 18:06:18.188 +08:00 [INF] Executed endpoint 'Team.Controllers.TeamController.TeamLoadingPhoto (Team)'
+2019-05-07 18:06:18.189 +08:00 [INF] Request finished in 1017.4933ms 200 application/json; charset=utf-8
+2019-05-07 18:10:05.948 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-07 18:10:07.481 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-05-07 18:10:07.735 +08:00 [INF] Request finished in 256.5867ms 200 text/html
+2019-05-07 18:10:08.353 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-05-07 18:10:08.540 +08:00 [INF] Request finished in 186.8884ms 200 application/json;charset=utf-8
+2019-05-07 18:10:16.465 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserLoginApi application/json-patch+json 49
+2019-05-07 18:10:16.550 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-07 18:10:16.571 +08:00 [INF] Route matched with {action = "UserLoginApi", controller = "Login"}. Executing action Team.Controllers.LoginController.UserLoginApi (Team)
+2019-05-07 18:10:16.851 +08:00 [INF] Entity Framework Core 2.2.3-servicing-35854 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-07 18:10:17.053 +08:00 [INF] Executed DbCommand (95ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-07 18:10:17.464 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoginApi (Team) with arguments (["Team.Model.AutoMappers.UserLoginMap"]) - Validation state: "Valid"
+2019-05-07 18:10:17.637 +08:00 [INF] Executed DbCommand (63ms) [Parameters=[@__account_0='?' (Size = 4000), @__password_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Images], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE ([x].[Account] = @__account_0) AND ([x].[Password] = @__password_1)
+2019-05-07 18:10:17.715 +08:00 [INF] 用户 1登陆成功
+2019-05-07 18:10:17.720 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserLoginApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 247.2221ms.
+2019-05-07 18:10:17.734 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-07 18:10:17.747 +08:00 [INF] Executed action Team.Controllers.LoginController.UserLoginApi (Team) in 1170.3508000000002ms
+2019-05-07 18:10:17.750 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-07 18:10:17.757 +08:00 [INF] Request finished in 1292.7546ms 200 application/json; charset=utf-8
+2019-05-07 18:10:41.687 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Team/IActionResult application/json-patch+json 7
+2019-05-07 18:10:41.713 +08:00 [INF] Successfully validated the token.
+2019-05-07 18:10:41.716 +08:00 [INF] Executing endpoint 'Team.Controllers.TeamController.TeamLoadingPhoto (Team)'
+2019-05-07 18:10:41.721 +08:00 [INF] Route matched with {action = "TeamLoadingPhoto", controller = "Team"}. Executing action Team.Controllers.TeamController.TeamLoadingPhoto (Team)
+2019-05-07 18:10:41.731 +08:00 [INF] Authorization was successful.
+2019-05-07 18:10:41.734 +08:00 [INF] Entity Framework Core 2.2.3-servicing-35854 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-07 18:10:41.773 +08:00 [INF] Executed DbCommand (26ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-07 18:10:41.834 +08:00 [INF] Executing action method Team.Controllers.TeamController.TeamLoadingPhoto (Team) with arguments (["System.Int32[]"]) - Validation state: "Valid"
+2019-05-07 18:10:41.839 +08:00 [INF] Executed action method Team.Controllers.TeamController.TeamLoadingPhoto (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 0.9412ms.
+2019-05-07 18:10:41.841 +08:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.ArrayList'.
+2019-05-07 18:10:41.842 +08:00 [INF] Executed action Team.Controllers.TeamController.TeamLoadingPhoto (Team) in 119.6834ms
+2019-05-07 18:10:41.844 +08:00 [INF] Executed endpoint 'Team.Controllers.TeamController.TeamLoadingPhoto (Team)'
+2019-05-07 18:10:41.845 +08:00 [INF] Request finished in 157.4891ms 200 application/json; charset=utf-8
+2019-05-07 18:10:48.763 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Team/IActionResult application/json-patch+json 7
+2019-05-07 18:10:48.765 +08:00 [INF] Successfully validated the token.
+2019-05-07 18:10:48.768 +08:00 [INF] Executing endpoint 'Team.Controllers.TeamController.TeamLoadingPhoto (Team)'
+2019-05-07 18:10:48.771 +08:00 [INF] Route matched with {action = "TeamLoadingPhoto", controller = "Team"}. Executing action Team.Controllers.TeamController.TeamLoadingPhoto (Team)
+2019-05-07 18:10:48.775 +08:00 [INF] Authorization was successful.
+2019-05-07 18:10:48.776 +08:00 [INF] Entity Framework Core 2.2.3-servicing-35854 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-07 18:10:48.806 +08:00 [INF] Executed DbCommand (26ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-07 18:10:48.828 +08:00 [INF] Executing action method Team.Controllers.TeamController.TeamLoadingPhoto (Team) with arguments (["System.Int32[]"]) - Validation state: "Valid"
+2019-05-07 18:10:48.831 +08:00 [INF] Executed action method Team.Controllers.TeamController.TeamLoadingPhoto (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 0.5849ms.
+2019-05-07 18:10:48.833 +08:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.ArrayList'.
+2019-05-07 18:10:48.849 +08:00 [INF] Executed action Team.Controllers.TeamController.TeamLoadingPhoto (Team) in 74.8655ms
+2019-05-07 18:10:48.851 +08:00 [INF] Executed endpoint 'Team.Controllers.TeamController.TeamLoadingPhoto (Team)'
+2019-05-07 18:10:48.853 +08:00 [INF] Request finished in 90.0234ms 200 application/json; charset=utf-8
+2019-05-07 18:14:57.471 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-07 18:14:59.181 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-05-07 18:14:59.461 +08:00 [INF] Request finished in 282.7048ms 200 text/html
+2019-05-07 18:15:00.057 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-05-07 18:15:00.240 +08:00 [INF] Request finished in 183.6124ms 200 application/json;charset=utf-8
+2019-05-07 18:15:20.713 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-07 18:15:21.700 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-05-07 18:15:21.958 +08:00 [INF] Request finished in 261.2543ms 200 text/html
+2019-05-07 18:15:22.555 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-05-07 18:15:22.732 +08:00 [INF] Request finished in 176.6413ms 200 application/json;charset=utf-8
+2019-05-07 18:15:34.267 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/Team/IActionResult?teamId=1  
+2019-05-07 18:15:34.347 +08:00 [INF] Successfully validated the token.
+2019-05-07 18:15:34.377 +08:00 [INF] Executing endpoint 'Team.Controllers.TeamController.TeamLoadingPhoto (Team)'
+2019-05-07 18:15:34.395 +08:00 [INF] Route matched with {action = "TeamLoadingPhoto", controller = "Team"}. Executing action Team.Controllers.TeamController.TeamLoadingPhoto (Team)
+2019-05-07 18:15:34.404 +08:00 [INF] Authorization was successful.
+2019-05-07 18:15:34.697 +08:00 [INF] Entity Framework Core 2.2.3-servicing-35854 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-07 18:15:34.910 +08:00 [INF] Executed DbCommand (90ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-07 18:15:35.272 +08:00 [INF] Executing action method Team.Controllers.TeamController.TeamLoadingPhoto (Team) with arguments (["1"]) - Validation state: "Valid"
+2019-05-07 18:15:35.279 +08:00 [INF] 获取战队 1 图片成功
+2019-05-07 18:15:35.285 +08:00 [INF] Executed action method Team.Controllers.TeamController.TeamLoadingPhoto (Team), returned result Microsoft.AspNetCore.Mvc.FileContentResult in 4.7796ms.
+2019-05-07 18:15:35.292 +08:00 [INF] Executing Microsoft.AspNetCore.Mvc.FileContentResult, sending file with download name '' ...
+2019-05-07 18:15:35.320 +08:00 [INF] Executed action Team.Controllers.TeamController.TeamLoadingPhoto (Team) in 920.7146ms
+2019-05-07 18:15:35.323 +08:00 [INF] Executed endpoint 'Team.Controllers.TeamController.TeamLoadingPhoto (Team)'
+2019-05-07 18:15:35.331 +08:00 [INF] Request finished in 1063.9793ms 200 image/jpeg
+2019-05-07 18:15:39.604 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/Team/IActionResult?teamId=5  
+2019-05-07 18:15:39.609 +08:00 [INF] Successfully validated the token.
+2019-05-07 18:15:39.617 +08:00 [INF] Executing endpoint 'Team.Controllers.TeamController.TeamLoadingPhoto (Team)'
+2019-05-07 18:15:39.619 +08:00 [INF] Route matched with {action = "TeamLoadingPhoto", controller = "Team"}. Executing action Team.Controllers.TeamController.TeamLoadingPhoto (Team)
+2019-05-07 18:15:39.624 +08:00 [INF] Authorization was successful.
+2019-05-07 18:15:39.627 +08:00 [INF] Entity Framework Core 2.2.3-servicing-35854 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-07 18:15:39.669 +08:00 [INF] Executed DbCommand (38ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-07 18:15:39.697 +08:00 [INF] Executing action method Team.Controllers.TeamController.TeamLoadingPhoto (Team) with arguments (["5"]) - Validation state: "Valid"
+2019-05-07 18:15:39.701 +08:00 [INF] 战队 5 没有存入图片
+2019-05-07 18:15:39.702 +08:00 [INF] Executed action method Team.Controllers.TeamController.TeamLoadingPhoto (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 1.1484ms.
+2019-05-07 18:15:39.709 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-07 18:15:39.728 +08:00 [INF] Executed action Team.Controllers.TeamController.TeamLoadingPhoto (Team) in 105.1408ms
+2019-05-07 18:15:39.730 +08:00 [INF] Executed endpoint 'Team.Controllers.TeamController.TeamLoadingPhoto (Team)'
+2019-05-07 18:15:39.733 +08:00 [INF] Request finished in 128.6398ms 404 application/json; charset=utf-8
+2019-05-07 18:15:59.148 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/Team/IActionResult?teamId=2  
+2019-05-07 18:15:59.150 +08:00 [INF] Successfully validated the token.
+2019-05-07 18:15:59.152 +08:00 [INF] Executing endpoint 'Team.Controllers.TeamController.TeamLoadingPhoto (Team)'
+2019-05-07 18:15:59.154 +08:00 [INF] Route matched with {action = "TeamLoadingPhoto", controller = "Team"}. Executing action Team.Controllers.TeamController.TeamLoadingPhoto (Team)
+2019-05-07 18:15:59.156 +08:00 [INF] Authorization was successful.
+2019-05-07 18:15:59.158 +08:00 [INF] Entity Framework Core 2.2.3-servicing-35854 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-07 18:15:59.188 +08:00 [INF] Executed DbCommand (22ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-07 18:15:59.211 +08:00 [INF] Executing action method Team.Controllers.TeamController.TeamLoadingPhoto (Team) with arguments (["2"]) - Validation state: "Valid"
+2019-05-07 18:15:59.214 +08:00 [INF] 获取战队 2 图片成功
+2019-05-07 18:15:59.215 +08:00 [INF] Executed action method Team.Controllers.TeamController.TeamLoadingPhoto (Team), returned result Microsoft.AspNetCore.Mvc.FileContentResult in 1.2373ms.
+2019-05-07 18:15:59.217 +08:00 [INF] Executing Microsoft.AspNetCore.Mvc.FileContentResult, sending file with download name '' ...
+2019-05-07 18:15:59.219 +08:00 [INF] Executed action Team.Controllers.TeamController.TeamLoadingPhoto (Team) in 63.401ms
+2019-05-07 18:15:59.223 +08:00 [INF] Executed endpoint 'Team.Controllers.TeamController.TeamLoadingPhoto (Team)'
+2019-05-07 18:15:59.224 +08:00 [INF] Request finished in 75.5049ms 200 image/jpeg

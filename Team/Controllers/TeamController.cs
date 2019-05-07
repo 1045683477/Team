@@ -1,10 +1,14 @@
-﻿using AutoMapper;
+﻿using System;
+using System.Collections;
+using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Team.AuthHelper.OverWrite;
 using Team.Infrastructure.IRepositories;
 using Team.Model;
@@ -26,6 +30,7 @@ namespace Team.Controllers
         private readonly IJwtHelper _jwtHelper;
         private readonly ILogger<TeamController> _logger;
         private readonly IMapper _mapper;
+        private readonly IImagesResource _imagesResource;
 
         public TeamController(
             ITeamBall teamBall,
@@ -33,7 +38,8 @@ namespace Team.Controllers
             IUnitOfWork unitOfWork,
             IJwtHelper jwtHelper,
             ILogger<TeamController> logger,
-            IMapper mapper)
+            IMapper mapper,
+            IImagesResource imagesResource)
         {
             _teamBall = teamBall;
             _userRepository = userRepository;
@@ -41,6 +47,7 @@ namespace Team.Controllers
             _jwtHelper = jwtHelper;
             _logger = logger;
             _mapper = mapper;
+            _imagesResource = imagesResource;
         }
 
         #endregion
@@ -225,7 +232,7 @@ namespace Team.Controllers
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
-        [HttpPost("TeamSearchByNameApi",Name = "TeamSearchByNameApi")]
+        [HttpGet("TeamSearchByNameApi",Name = "TeamSearchByNameApi")]
         public IActionResult TeamSearchByNameApi(string name)
         {
             CustomStatusCode code;
@@ -295,6 +302,88 @@ namespace Team.Controllers
             return StatusCode(200, code);
         }
 
+        /// <summary>
+        /// 上传队伍图片
+        /// </summary>
+        /// <param name="formFile">图片</param>
+        /// <param name="teamId">队伍 Id</param>
+        /// <returns></returns>
+        [HttpPost("TeamYpLoadPhoto",Name = "TeamYpLoadPhoto")]
+        public IActionResult TeamYpLoadPhoto(IFormFile formFile,int teamId)
+        {
+            var user = HttpRequest();
+            CustomStatusCode code;
+            code = _imagesResource.UpLoadPhoto(formFile, "\\Team\\", teamId);
+            if (code.Status.ToString() == "400")
+            {
+                _logger.LogInformation($"用户 {user.Id} 上传队伍图片 {teamId} 上传失败，格式错误");
+                return StatusCode(400, code);
+            }
+            _logger.LogInformation($"用户 {user.Id} 上传队伍图片 {teamId} 上传成功");
+            return StatusCode(200, code);
+
+            #region 成功的可用的
+
+            /*var currentPictureExtension = Path.GetExtension(formFile.FileName).ToUpper();
+            if (LoginController.LimitPictureType.Contains(currentPictureExtension))
+            {
+                if (Directory.Exists(upload_path) == false)
+                {
+                    Directory.CreateDirectory(upload_path);
+                }
+
+                var fileName = teamId + ".jpeg";
+                var ImagePath = upload_path + fileName;
+                using (var fs = System.IO.File.Create(ImagePath))
+                {
+                    formFile.CopyTo(fs);
+                    fs.Flush();
+                }
+                _logger.LogInformation($"用户 {user.Id} 上传队伍图片 {teamId} 成功");
+                code = new CustomStatusCode
+                {
+                    Status = "200",
+                    Message = $"用户 {user.Id} 上传队伍图片 {teamId} 成功"
+                };
+                return StatusCode(200, code);
+            }
+            _logger.LogInformation($"用户 {user.Id} 上传队伍图片失败，格式错误");
+            code = new CustomStatusCode
+            {
+                Status = "400",
+                Message = $"用户 {user.Id} 上传队伍图片失败，格式错误"
+            };
+            return StatusCode(400, code);*/
+
+            #endregion
+        }
+
+        /// <summary>
+        /// 加载单个战队图片
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("IActionResult",Name = "IActionResult")]
+        public IActionResult TeamLoadingPhoto(int teamId)
+        {
+            var image = _imagesResource.LoadingPhoto("\\Team\\", teamId);
+            if (image==null)
+            {
+                _logger.LogInformation($"战队 {teamId} 没有存入图片");
+                var code = new CustomStatusCode
+                {
+                    Status = "404",
+                    Message = $"战队 {teamId} 没有存入图片"
+                };
+                return StatusCode(404, code);
+            }
+            _logger.LogInformation($"获取战队 {teamId} 图片成功");
+            return image;
+        }
+
+        /// <summary>
+        /// 图片路径
+        /// </summary>
+        private static string upload_path = Directory.GetCurrentDirectory() + "\\TeamsImage\\";
 
         /// <summary>
         /// 解析 header 里面的 token

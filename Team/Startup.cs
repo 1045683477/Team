@@ -184,6 +184,7 @@ namespace Team
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<ITeamBall, TeamBall>();
             services.AddScoped<IRunRepository, RunRepository>();
+            services.AddScoped<IImagesResource, ImagesResource>();
 
             #endregion
 
