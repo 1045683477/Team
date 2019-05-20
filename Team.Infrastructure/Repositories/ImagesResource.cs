@@ -10,8 +10,11 @@ namespace Team.Infrastructure.Repositories
 {
     public class ImagesResource : ControllerBase,IImagesResource
     {
+        /// <summary>
+        /// 图片格式
+        /// </summary>
         public static string[] LimitPictureType =
-            {".PNG", ".JPG", ".JPEG", ".BMP", ".GIF", ".ICO"};
+            {".PNG", ".JPG", ".JPEG", ".BMP", ".ICO"};
 
         /// <summary>
         /// 加载图片
@@ -19,11 +22,10 @@ namespace Team.Infrastructure.Repositories
         /// <param name="path"></param>
         /// <param name="name"></param>
         /// <returns></returns>
-        
         public FileContentResult LoadingPhoto(string path,int name)
         {
-            string pathSave = Directory.GetCurrentDirectory() + path + name + ".jpeg";
-            FileInfo fi=new FileInfo(pathSave);
+            path = Directory.GetCurrentDirectory() + path + name + ".jpeg";
+            FileInfo fi=new FileInfo(path);
             if (!fi.Exists)
             {
                 return null;
@@ -41,6 +43,7 @@ namespace Team.Infrastructure.Repositories
         /// <summary>
         /// 上传图片
         /// </summary>
+        /// <param name="formFile"></param>
         /// <param name="path">路劲</param>
         /// <param name="name">图片名字</param>
         /// <returns></returns>
@@ -48,17 +51,18 @@ namespace Team.Infrastructure.Repositories
         {
             CustomStatusCode code;
             var currentPictureExtension = Path.GetExtension(formFile.FileName).ToUpper();
-            var ImagePath = Directory.GetCurrentDirectory() + path;
+            var imagePath = Directory.GetCurrentDirectory() + path;
+            
             if (LimitPictureType.Contains(currentPictureExtension))
             {
-                if (Directory.Exists(ImagePath) == false)
+                if (Directory.Exists(imagePath) == false)
                 {
-                    Directory.CreateDirectory(ImagePath);
+                    Directory.CreateDirectory(imagePath);
                 }
 
-                var fileName = name + ".jpeg";
-                ImagePath +=fileName;
-                using (var fs = System.IO.File.Create(ImagePath))
+                name = name + ".jpeg";
+                imagePath +=name;
+                using (var fs = System.IO.File.Create(imagePath))
                 {
                     formFile.CopyTo(fs);
                     fs.Flush();

@@ -10,7 +10,9 @@ using Team.Infrastructure.DbContext;
 using Team.Infrastructure.IRepositories;
 using Team.Model;
 using Team.Model.AutoMappers;
+using Team.Model.AutoMappers.TeamMapper;
 using Team.Model.Model;
+using Team.Model.Model.TeamModel;
 
 namespace Team.Controllers
 {

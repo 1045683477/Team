@@ -1,0 +1,728 @@
+2019-05-17 11:46:23.242 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-17 11:46:25.218 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-05-17 11:46:25.771 +08:00 [INF] Request finished in 553.9261ms 200 text/html
+2019-05-17 11:46:26.932 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-05-17 11:46:27.112 +08:00 [INF] Request finished in 179.8193ms 200 application/json;charset=utf-8
+2019-05-17 11:51:34.095 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-17 11:52:02.537 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-17 11:52:21.141 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-17 11:52:21.605 +08:00 [INF] Executed DbCommand (225ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-05-17 11:52:21.611 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-05-17 11:52:21.722 +08:00 [INF] Executed DbCommand (107ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2019-05-17 11:52:21.725 +08:00 [INF] Applying migration '20190517035202_添加排行榜'.
+2019-05-17 11:52:24.150 +08:00 [INF] Executed DbCommand (2,363ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+EXEC sp_rename N'[Users].[RunTeamState]', N'RunTeamId', N'COLUMN';
+2019-05-17 11:52:24.153 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+EXEC sp_rename N'[Statisticals].[Kcal]', N'Calorie', N'COLUMN';
+2019-05-17 11:52:24.350 +08:00 [INF] Executed DbCommand (197ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [RunTeams] ADD [ApplicationStatus] int NOT NULL DEFAULT 0;
+2019-05-17 11:52:24.413 +08:00 [INF] Executed DbCommand (63ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [RunApplicants] (
+    [Id] int NOT NULL IDENTITY,
+    [UserId] int NOT NULL,
+    [Name] nvarchar(max) NULL,
+    [Sex] int NOT NULL,
+    [ApplicationDate] datetime2 NOT NULL,
+    [RunTeamId] int NOT NULL,
+    CONSTRAINT [PK_RunApplicants] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_RunApplicants_RunTeams_RunTeamId] FOREIGN KEY ([RunTeamId]) REFERENCES [RunTeams] ([Id]) ON DELETE CASCADE
+);
+2019-05-17 11:52:24.418 +08:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [RunTimeDailyChartses] (
+    [Id] int NOT NULL IDENTITY,
+    [Ranking] int NOT NULL,
+    [TeamName] nvarchar(max) NULL,
+    [Introduction] nvarchar(max) NULL,
+    [DateTime] date NOT NULL,
+    [ClockIn] int NOT NULL,
+    [RunTeamId] int NOT NULL,
+    CONSTRAINT [PK_RunTimeDailyChartses] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_RunTimeDailyChartses_RunTeams_RunTeamId] FOREIGN KEY ([RunTeamId]) REFERENCES [RunTeams] ([Id]) ON DELETE CASCADE
+);
+2019-05-17 11:52:24.421 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [RunTimeWeekChartses] (
+    [Id] int NOT NULL IDENTITY,
+    [TeamId] int NOT NULL,
+    [Ranking] int NOT NULL,
+    [TeamName] nvarchar(max) NULL,
+    [Introduction] nvarchar(max) NULL,
+    [ClockIn] int NOT NULL,
+    CONSTRAINT [PK_RunTimeWeekChartses] PRIMARY KEY ([Id])
+);
+2019-05-17 11:52:24.434 +08:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_RunApplicants_RunTeamId] ON [RunApplicants] ([RunTeamId]);
+2019-05-17 11:52:24.435 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_RunTimeDailyChartses_RunTeamId] ON [RunTimeDailyChartses] ([RunTeamId]);
+2019-05-17 11:52:24.457 +08:00 [INF] Executed DbCommand (22ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20190517035202_添加排行榜', N'2.2.4-servicing-10062');
+2019-05-17 11:54:31.019 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-17 11:54:32.448 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-05-17 11:54:32.768 +08:00 [INF] Request finished in 334.8903ms 200 text/html
+2019-05-17 11:54:33.320 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-05-17 11:54:33.530 +08:00 [INF] Request finished in 210.5147ms 200 application/json;charset=utf-8
+2019-05-17 11:54:37.242 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserLoginApi application/json-patch+json 49
+2019-05-17 11:54:37.347 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-17 11:54:37.375 +08:00 [INF] Route matched with {action = "UserLoginApi", controller = "Login"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserLoginApi(Team.Model.AutoMappers.UserMapper.UserLoginMap) on controller Team.Controllers.LoginController (Team).
+2019-05-17 11:54:38.060 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoginApi (Team) - Validation state: "Valid"
+2019-05-17 11:54:38.300 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-17 11:54:38.771 +08:00 [INF] Executed DbCommand (114ms) [Parameters=[@__account_0='?' (Size = 4000), @__password_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE ([x].[Account] = @__account_0) AND ([x].[Password] = @__password_1)
+2019-05-17 11:54:38.853 +08:00 [INF] 用户 1登陆成功
+2019-05-17 11:54:38.859 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserLoginApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 788.8351ms.
+2019-05-17 11:54:38.876 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-17 11:54:38.888 +08:00 [INF] Executed action Team.Controllers.LoginController.UserLoginApi (Team) in 1506.5773000000002ms
+2019-05-17 11:54:38.891 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-17 11:54:38.904 +08:00 [INF] Request finished in 1661.2578ms 200 application/json; charset=utf-8
+2019-05-17 11:55:03.487 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/RunTeam/RunTeamApi application/json-patch+json 50
+2019-05-17 11:55:03.508 +08:00 [INF] Successfully validated the token.
+2019-05-17 11:55:03.514 +08:00 [INF] Executing endpoint 'Team.Controllers.RunTeamController.RunTeamApi (Team)'
+2019-05-17 11:55:03.520 +08:00 [INF] Route matched with {action = "RunTeamApi", controller = "RunTeam"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] RunTeamApi(Team.Model.AutoMappers.RunTeamMapper.RunTeamCreateMap) on controller Team.Controllers.RunTeamController (Team).
+2019-05-17 11:55:03.534 +08:00 [INF] Authorization was successful.
+2019-05-17 11:55:03.572 +08:00 [INF] Executing action method Team.Controllers.RunTeamController.RunTeamApi (Team) - Validation state: "Valid"
+2019-05-17 11:55:03.599 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-17 11:55:03.665 +08:00 [INF] Executed DbCommand (51ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE [x].[Id] = @__userId_0
+2019-05-17 11:55:03.713 +08:00 [INF] Executed DbCommand (28ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE [x].[Id] = @__userId_0
+2019-05-17 11:55:03.795 +08:00 [INF] Executed DbCommand (26ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE [x].[Id] = @__userId_0
+2019-05-17 11:55:03.999 +08:00 [INF] 用户 1 创建跑步队伍成功
+2019-05-17 11:55:04.000 +08:00 [INF] Executed action method Team.Controllers.RunTeamController.RunTeamApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 424.3688ms.
+2019-05-17 11:55:04.003 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-17 11:55:04.004 +08:00 [INF] Executed action Team.Controllers.RunTeamController.RunTeamApi (Team) in 480.5878ms
+2019-05-17 11:55:04.007 +08:00 [INF] Executed endpoint 'Team.Controllers.RunTeamController.RunTeamApi (Team)'
+2019-05-17 11:55:04.015 +08:00 [ERR] Connection id "0HLMQFDF3AOGH", Request id "0HLMQFDF3AOGH:00000004": An unhandled exception was thrown by the application.
+System.InvalidOperationException: The connection does not support MultipleActiveResultSets.
+   at System.Data.SqlClient.SqlInternalConnectionTds.ValidateConnectionForExecute(SqlCommand command)
+   at System.Data.SqlClient.SqlInternalTransaction.Rollback()
+   at System.Data.SqlClient.SqlTransaction.Dispose(Boolean disposing)
+   at System.Data.Common.DbTransaction.Dispose()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalTransaction.Dispose()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.ClearTransactions()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Dispose()
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.Dispose()
+   at Microsoft.EntityFrameworkCore.DbContext.Dispose()
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.Dispose()
+   at Microsoft.AspNetCore.Hosting.Internal.RequestServicesFeature.Dispose()
+   at Microsoft.AspNetCore.Http.HttpResponse.<>c.<.cctor>b__30_1(Object disposable)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.FireOnCompletedAwaited(Stack`1 onCompleted)
+2019-05-17 11:55:04.115 +08:00 [INF] Request finished in 627.9451ms 201 application/json; charset=utf-8
+2019-05-17 11:55:04.452 +08:00 [ERR] Failed executing DbCommand (499ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = DateTime2), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [RunTeams] ([ApplicationStatus], [Count], [CreationTime], [Introduction], [Name], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT [Id]
+FROM [RunTeams]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+System.Data.SqlClient.SqlException (0x80131904): 不能在具有唯一索引“IX_RunTeams_UserId”的对象“dbo.RunTeams”中插入重复键的行。重复键值为 (1)。
+语句已终止。
+   at System.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__122_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteAsync(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues, CancellationToken cancellationToken)
+ClientConnectionId:c8d11d66-31a6-4d79-ba5a-84eb32175e17
+Error Number:2601,State:1,Class:14
+2019-05-17 12:40:56.337 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-17 12:40:57.709 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-05-17 12:40:58.012 +08:00 [INF] Request finished in 304.1851ms 200 text/html
+2019-05-17 12:40:58.541 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-05-17 12:40:58.727 +08:00 [INF] Request finished in 186.369ms 200 application/json;charset=utf-8
+2019-05-17 12:41:02.465 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserLoginApi application/json-patch+json 49
+2019-05-17 12:41:02.554 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-17 12:41:02.580 +08:00 [INF] Route matched with {action = "UserLoginApi", controller = "Login"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserLoginApi(Team.Model.AutoMappers.UserMapper.UserLoginMap) on controller Team.Controllers.LoginController (Team).
+2019-05-17 12:41:03.080 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoginApi (Team) - Validation state: "Valid"
+2019-05-17 12:41:03.341 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-17 12:41:03.639 +08:00 [INF] Executed DbCommand (45ms) [Parameters=[@__account_0='?' (Size = 4000), @__password_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE ([x].[Account] = @__account_0) AND ([x].[Password] = @__password_1)
+2019-05-17 12:41:03.714 +08:00 [INF] 用户 1登陆成功
+2019-05-17 12:41:03.721 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserLoginApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 630.3284ms.
+2019-05-17 12:41:03.737 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-17 12:41:03.751 +08:00 [INF] Executed action Team.Controllers.LoginController.UserLoginApi (Team) in 1165.4298000000001ms
+2019-05-17 12:41:03.755 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-17 12:41:03.765 +08:00 [INF] Request finished in 1299.9864ms 200 application/json; charset=utf-8
+2019-05-17 12:44:24.016 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-17 12:44:25.449 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-05-17 12:44:25.852 +08:00 [INF] Request finished in 404.9045ms 200 text/html
+2019-05-17 12:44:26.395 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-05-17 12:44:26.588 +08:00 [INF] Request finished in 193.5983ms 200 application/json;charset=utf-8
+2019-05-17 12:44:33.403 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserLoginApi application/json-patch+json 49
+2019-05-17 12:44:33.486 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-17 12:44:33.511 +08:00 [INF] Route matched with {action = "UserLoginApi", controller = "Login"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserLoginApi(Team.Model.AutoMappers.UserMapper.UserLoginMap) on controller Team.Controllers.LoginController (Team).
+2019-05-17 12:44:34.142 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoginApi (Team) - Validation state: "Valid"
+2019-05-17 12:44:34.388 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-17 12:44:34.779 +08:00 [INF] Executed DbCommand (50ms) [Parameters=[@__account_0='?' (Size = 4000), @__password_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE ([x].[Account] = @__account_0) AND ([x].[Password] = @__password_1)
+2019-05-17 12:44:34.863 +08:00 [INF] 用户 1登陆成功
+2019-05-17 12:44:34.871 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserLoginApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 717.513ms.
+2019-05-17 12:44:34.886 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-17 12:44:34.900 +08:00 [INF] Executed action Team.Controllers.LoginController.UserLoginApi (Team) in 1378.8829ms
+2019-05-17 12:44:34.904 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-17 12:44:34.910 +08:00 [INF] Request finished in 1507.1958ms 200 application/json; charset=utf-8
+2019-05-17 12:45:23.355 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Run/FreeRecordApi application/json-patch+json 209
+2019-05-17 12:45:23.384 +08:00 [INF] Successfully validated the token.
+2019-05-17 12:45:23.388 +08:00 [INF] Executing endpoint 'Team.Controllers.RunController.FreeRecordApi (Team)'
+2019-05-17 12:45:23.394 +08:00 [INF] Route matched with {action = "FreeRecordApi", controller = "Run"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] FreeRecordApi(Team.Model.AutoMappers.TeamMapper.RunRecordMap) on controller Team.Controllers.RunController (Team).
+2019-05-17 12:45:23.406 +08:00 [INF] Authorization was successful.
+2019-05-17 12:45:23.472 +08:00 [INF] Executing action method Team.Controllers.RunController.FreeRecordApi (Team) - Validation state: "Valid"
+2019-05-17 12:45:23.517 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-17 12:45:23.766 +08:00 [INF] Executed DbCommand (232ms) [Parameters=[@__userId_0='?' (DbType = Int32), @__run_SportFreeModel_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[AllTime], [x].[Calorie], [x].[Distance], [x].[SportFreeModel], [x].[UserId]
+FROM [Statisticals] AS [x]
+WHERE ([x].[UserId] = @__userId_0) AND ([x].[SportFreeModel] = @__run_SportFreeModel_1)
+2019-05-17 12:45:23.847 +08:00 [INF] Executed DbCommand (30ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE [x].[Id] = @__userId_0
+2019-05-17 12:45:24.111 +08:00 [ERR] Failed executing DbCommand (169ms) [Parameters=[@p0='?' (DbType = Single), @p1='?' (DbType = Date), @p2='?' (DbType = Single), @p3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [RunTeamRecords] ([Calories], [DateTime], [Distance], [RunTeamId])
+VALUES (@p0, @p1, @p2, @p3);
+SELECT [Id]
+FROM [RunTeamRecords]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+System.Data.SqlClient.SqlException (0x80131904): INSERT 语句与 FOREIGN KEY 约束"FK_RunTeamRecords_RunTeams_RunTeamId"冲突。该冲突发生于数据库"Team"，表"dbo.RunTeams", column 'Id'。
+语句已终止。
+   at System.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__122_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteAsync(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues, CancellationToken cancellationToken)
+ClientConnectionId:7518e014-5598-400c-bbdc-ca38b7e2444b
+Error Number:547,State:0,Class:16
+2019-05-17 12:45:24.186 +08:00 [ERR] An exception occurred in the database while saving changes for context type 'Team.Infrastructure.DbContext.MyContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details. ---> System.Data.SqlClient.SqlException: INSERT 语句与 FOREIGN KEY 约束"FK_RunTeamRecords_RunTeams_RunTeamId"冲突。该冲突发生于数据库"Team"，表"dbo.RunTeams", column 'Id'。
+语句已终止。
+   at System.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__122_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteAsync(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(DbContext _, ValueTuple`2 parameters, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IReadOnlyList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details. ---> System.Data.SqlClient.SqlException: INSERT 语句与 FOREIGN KEY 约束"FK_RunTeamRecords_RunTeams_RunTeamId"冲突。该冲突发生于数据库"Team"，表"dbo.RunTeams", column 'Id'。
+语句已终止。
+   at System.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__122_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteAsync(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(DbContext _, ValueTuple`2 parameters, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IReadOnlyList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2019-05-17 12:45:24.407 +08:00 [INF] Executed action Team.Controllers.RunController.FreeRecordApi (Team) in 1009.3877ms
+2019-05-17 12:45:24.415 +08:00 [INF] Executed endpoint 'Team.Controllers.RunController.FreeRecordApi (Team)'
+2019-05-17 12:45:24.418 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details. ---> System.Data.SqlClient.SqlException: INSERT 语句与 FOREIGN KEY 约束"FK_RunTeamRecords_RunTeams_RunTeamId"冲突。该冲突发生于数据库"Team"，表"dbo.RunTeams", column 'Id'。
+语句已终止。
+   at System.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__122_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteAsync(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(DbContext _, ValueTuple`2 parameters, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IReadOnlyList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Team.Infrastructure.Repositories.UnitOfWork.SaveChanged() in D:\Microsoft VS2017\Word\.net core API\Team\Team.Infrastructure\Repositories\UnitOfWork.cs:line 22
+   at Team.Controllers.RunController.FreeRecordApi(RunRecordMap recordMap) in D:\Microsoft VS2017\Word\.net core API\Team\Team\Controllers\RunController.cs:line 66
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-05-17 12:45:24.532 +08:00 [INF] Request finished in 1176.8472ms 500 text/html; charset=utf-8
+2019-05-17 12:57:15.510 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-17 12:57:38.173 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-05-17 12:57:38.588 +08:00 [INF] Request finished in 417.3354ms 200 text/html
+2019-05-17 12:57:39.194 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-05-17 12:57:39.384 +08:00 [INF] Request finished in 190.3311ms 200 application/json;charset=utf-8
+2019-05-17 12:58:05.990 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserLoginApi application/json-patch+json 49
+2019-05-17 12:58:06.077 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-17 12:58:06.101 +08:00 [INF] Route matched with {action = "UserLoginApi", controller = "Login"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserLoginApi(Team.Model.AutoMappers.UserMapper.UserLoginMap) on controller Team.Controllers.LoginController (Team).
+2019-05-17 12:58:06.637 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoginApi (Team) - Validation state: "Valid"
+2019-05-17 12:58:06.855 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-17 12:58:07.124 +08:00 [INF] Executed DbCommand (45ms) [Parameters=[@__account_0='?' (Size = 4000), @__password_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE ([x].[Account] = @__account_0) AND ([x].[Password] = @__password_1)
+2019-05-17 12:58:07.199 +08:00 [INF] 用户 1登陆成功
+2019-05-17 12:58:07.206 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserLoginApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 558.8727ms.
+2019-05-17 12:58:07.223 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-17 12:58:07.239 +08:00 [INF] Executed action Team.Controllers.LoginController.UserLoginApi (Team) in 1131.8356ms
+2019-05-17 12:58:07.244 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-17 12:58:07.253 +08:00 [INF] Request finished in 1262.8542ms 200 application/json; charset=utf-8
+2019-05-17 12:58:56.825 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Run/FreeRecordApi application/json-patch+json 209
+2019-05-17 12:58:56.849 +08:00 [INF] Successfully validated the token.
+2019-05-17 12:58:56.855 +08:00 [INF] Executing endpoint 'Team.Controllers.RunController.FreeRecordApi (Team)'
+2019-05-17 12:58:56.862 +08:00 [INF] Route matched with {action = "FreeRecordApi", controller = "Run"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] FreeRecordApi(Team.Model.AutoMappers.TeamMapper.RunRecordMap) on controller Team.Controllers.RunController (Team).
+2019-05-17 12:58:56.878 +08:00 [INF] Authorization was successful.
+2019-05-17 12:58:56.945 +08:00 [INF] Executing action method Team.Controllers.RunController.FreeRecordApi (Team) - Validation state: "Valid"
+2019-05-17 12:58:56.968 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-17 12:58:57.084 +08:00 [INF] Executed DbCommand (74ms) [Parameters=[@__userId_0='?' (DbType = Int32), @__run_SportFreeModel_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[AllTime], [x].[Calorie], [x].[Distance], [x].[SportFreeModel], [x].[UserId]
+FROM [Statisticals] AS [x]
+WHERE ([x].[UserId] = @__userId_0) AND ([x].[SportFreeModel] = @__run_SportFreeModel_1)
+2019-05-17 12:58:57.159 +08:00 [INF] Executed DbCommand (29ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE [x].[Id] = @__userId_0
+2019-05-17 12:58:57.291 +08:00 [INF] Executed DbCommand (47ms) [Parameters=[@p0='?' (DbType = Single), @p1='?' (DbType = Date), @p2='?' (DbType = Single), @p3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [RunTeamRecords] ([Calories], [DateTime], [Distance], [RunTeamId])
+VALUES (@p0, @p1, @p2, @p3);
+SELECT [Id]
+FROM [RunTeamRecords]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2019-05-17 12:58:57.486 +08:00 [INF] Executed DbCommand (177ms) [Parameters=[@p0='?' (DbType = Single), @p1='?' (Size = 4000), @p2='?' (DbType = DateTime2), @p3='?' (DbType = Single), @p4='?' (DbType = Single), @p5='?' (DbType = Int32), @p6='?' (Size = 4000), @p7='?' (DbType = DateTime2), @p8='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Runs] ([Distance], [EndPlace], [EndTime], [Kcal], [Speed], [SportFreeModel], [StarPlace], [StarTime], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8);
+SELECT [Id]
+FROM [Runs]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2019-05-17 12:58:57.591 +08:00 [INF] Executed DbCommand (82ms) [Parameters=[@p2='?' (DbType = Int32), @p0='?' (DbType = Single), @p1='?' (DbType = Single)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [Statisticals] SET [AllTime] = @p0, [Distance] = @p1
+WHERE [Id] = @p2;
+SELECT @@ROWCOUNT;
+2019-05-17 12:58:57.620 +08:00 [INF] 1 跑步保存成功
+2019-05-17 12:58:57.624 +08:00 [INF] Executed action method Team.Controllers.RunController.FreeRecordApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 676.6887ms.
+2019-05-17 12:58:57.634 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-17 12:58:57.636 +08:00 [INF] Executed action Team.Controllers.RunController.FreeRecordApi (Team) in 769.2618ms
+2019-05-17 12:58:57.650 +08:00 [INF] Executed endpoint 'Team.Controllers.RunController.FreeRecordApi (Team)'
+2019-05-17 12:58:57.653 +08:00 [INF] Request finished in 827.912ms 200 application/json; charset=utf-8
+2019-05-17 18:22:53.011 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-17 18:22:56.113 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-05-17 18:22:56.365 +08:00 [INF] Request finished in 253.7803ms 200 text/html
+2019-05-17 18:22:57.242 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-05-17 18:22:57.373 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+System.NotSupportedException: HTTP method "GET" & path "api/RunTeam/SearchTeamApi" overloaded by actions - Team.Controllers.RunTeamController.DeleteTeamApi (Team),Team.Controllers.RunTeamController.SearchTeamApi (Team). Actions require unique method/path combination for Swagger 2.0. Use ConflictingActionsResolver as a workaround
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.CreatePathItem(IEnumerable`1 apiDescriptions, ISchemaRegistry schemaRegistry)
+   at System.Linq.Enumerable.ToDictionary[TSource,TKey,TElement](IEnumerable`1 source, Func`2 keySelector, Func`2 elementSelector, IEqualityComparer`1 comparer)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.CreatePathItems(IEnumerable`1 apiDescriptions, ISchemaRegistry schemaRegistry)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwagger(String documentName, String host, String basePath, String[] schemes)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-05-17 18:22:57.507 +08:00 [INF] Request finished in 265.8892ms 500 text/html; charset=utf-8
+2019-05-17 18:23:47.391 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-17 18:23:49.012 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-05-17 18:23:49.199 +08:00 [INF] Request finished in 188.0424ms 200 text/html
+2019-05-17 18:23:49.785 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-05-17 18:23:49.927 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+System.NotSupportedException: HTTP method "GET" & path "api/RunTeam/SearchTeamApi" overloaded by actions - Team.Controllers.RunTeamController.DeleteTeamApi (Team),Team.Controllers.RunTeamController.SearchTeamApi (Team). Actions require unique method/path combination for Swagger 2.0. Use ConflictingActionsResolver as a workaround
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.CreatePathItem(IEnumerable`1 apiDescriptions, ISchemaRegistry schemaRegistry)
+   at System.Linq.Enumerable.ToDictionary[TSource,TKey,TElement](IEnumerable`1 source, Func`2 keySelector, Func`2 elementSelector, IEqualityComparer`1 comparer)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.CreatePathItems(IEnumerable`1 apiDescriptions, ISchemaRegistry schemaRegistry)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwagger(String documentName, String host, String basePath, String[] schemes)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-05-17 18:23:50.003 +08:00 [INF] Request finished in 218.2096ms 500 text/html; charset=utf-8
+2019-05-17 18:24:43.714 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-17 18:24:45.256 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-05-17 18:24:45.548 +08:00 [INF] Request finished in 296.5904ms 200 text/html
+2019-05-17 18:24:46.095 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-05-17 18:24:46.289 +08:00 [INF] Request finished in 194.2355ms 200 application/json;charset=utf-8
+2019-05-17 18:24:56.144 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserLoginApi application/json-patch+json 49
+2019-05-17 18:24:56.269 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-17 18:24:56.299 +08:00 [INF] Route matched with {action = "UserLoginApi", controller = "Login"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserLoginApi(Team.Model.AutoMappers.UserMapper.UserLoginMap) on controller Team.Controllers.LoginController (Team).
+2019-05-17 18:24:56.937 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoginApi (Team) - Validation state: "Valid"
+2019-05-17 18:24:57.239 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-17 18:24:59.058 +08:00 [INF] Executed DbCommand (924ms) [Parameters=[@__account_0='?' (Size = 4000), @__password_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE ([x].[Account] = @__account_0) AND ([x].[Password] = @__password_1)
+2019-05-17 18:24:59.145 +08:00 [INF] 用户 1登陆成功
+2019-05-17 18:24:59.152 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserLoginApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 2205.6331ms.
+2019-05-17 18:24:59.171 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-17 18:24:59.184 +08:00 [INF] Executed action Team.Controllers.LoginController.UserLoginApi (Team) in 2879.7869ms
+2019-05-17 18:24:59.188 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-17 18:24:59.194 +08:00 [INF] Request finished in 3049.6943ms 200 application/json; charset=utf-8
+2019-05-17 18:25:19.810 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/RunTeam/RunTeamApi application/json-patch+json 50
+2019-05-17 18:25:19.827 +08:00 [INF] Successfully validated the token.
+2019-05-17 18:25:19.834 +08:00 [INF] Executing endpoint 'Team.Controllers.RunTeamController.RunTeamApi (Team)'
+2019-05-17 18:25:19.841 +08:00 [INF] Route matched with {action = "RunTeamApi", controller = "RunTeam"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] RunTeamApi(Team.Model.AutoMappers.RunTeamMapper.RunTeamCreateMap) on controller Team.Controllers.RunTeamController (Team).
+2019-05-17 18:25:19.857 +08:00 [INF] Authorization was successful.
+2019-05-17 18:25:19.896 +08:00 [INF] Executing action method Team.Controllers.RunTeamController.RunTeamApi (Team) - Validation state: "Valid"
+2019-05-17 18:25:19.906 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-17 18:25:20.173 +08:00 [INF] Executed DbCommand (242ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE [x].[Id] = @__userId_0
+2019-05-17 18:25:20.235 +08:00 [INF] Executed DbCommand (39ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE [x].[Id] = @__userId_0
+2019-05-17 18:25:20.241 +08:00 [INF] 用户 1 创建跑步队伍失败
+2019-05-17 18:25:20.242 +08:00 [INF] Executed action method Team.Controllers.RunTeamController.RunTeamApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 342.7436ms.
+2019-05-17 18:25:20.253 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-17 18:25:20.254 +08:00 [INF] Executed action Team.Controllers.RunTeamController.RunTeamApi (Team) in 409.70750000000004ms
+2019-05-17 18:25:20.256 +08:00 [INF] Executed endpoint 'Team.Controllers.RunTeamController.RunTeamApi (Team)'
+2019-05-17 18:25:20.258 +08:00 [INF] Request finished in 448.0889ms 500 application/json; charset=utf-8
+2019-05-17 18:25:59.004 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/RunTeam/UpdateTeamApi application/json-patch+json 88
+2019-05-17 18:25:59.009 +08:00 [INF] Successfully validated the token.
+2019-05-17 18:25:59.014 +08:00 [INF] Executing endpoint 'Team.Controllers.RunTeamController.UpdateTeamApi (Team)'
+2019-05-17 18:25:59.019 +08:00 [INF] Route matched with {action = "UpdateTeamApi", controller = "RunTeam"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UpdateTeamApi(Team.Model.AutoMappers.RunTeamMapper.RunTeamUpdateMap) on controller Team.Controllers.RunTeamController (Team).
+2019-05-17 18:25:59.031 +08:00 [INF] Authorization was successful.
+2019-05-17 18:25:59.063 +08:00 [INF] Executing action method Team.Controllers.RunTeamController.UpdateTeamApi (Team) - Validation state: "Valid"
+2019-05-17 18:25:59.066 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-17 18:25:59.095 +08:00 [INF] Executed DbCommand (26ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE [x].[Id] = @__userId_0
+2019-05-17 18:26:56.659 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-17 18:26:58.110 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-05-17 18:26:58.274 +08:00 [INF] Request finished in 165.8836ms 200 text/html
+2019-05-17 18:26:58.856 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-05-17 18:26:59.045 +08:00 [INF] Request finished in 189.2551ms 200 application/json;charset=utf-8
+2019-05-17 18:27:17.662 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/RunTeam/SearchTeamApi?teamId=12  
+2019-05-17 18:27:17.731 +08:00 [INF] Successfully validated the token.
+2019-05-17 18:27:17.765 +08:00 [INF] Executing endpoint 'Team.Controllers.RunTeamController.SearchTeamApi (Team)'
+2019-05-17 18:27:17.803 +08:00 [INF] Route matched with {action = "SearchTeamApi", controller = "RunTeam"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult SearchTeamApi(Int32) on controller Team.Controllers.RunTeamController (Team).
+2019-05-17 18:27:17.815 +08:00 [INF] Authorization was successful.
+2019-05-17 18:27:18.285 +08:00 [INF] Executing action method Team.Controllers.RunTeamController.SearchTeamApi (Team) - Validation state: "Valid"
+2019-05-17 18:27:18.553 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-17 18:27:19.059 +08:00 [INF] Executed DbCommand (90ms) [Parameters=[@__teamId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[ApplicationStatus], [x].[Count], [x].[CreationTime], [x].[Introduction], [x].[Name], [x].[UserId]
+FROM [RunTeams] AS [x]
+WHERE [x].[Id] = @__teamId_0
+ORDER BY [x].[Id]
+2019-05-17 18:27:19.343 +08:00 [ERR] Failed executing DbCommand (205ms) [Parameters=[@__teamId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [x.RunParticipantses].[Id], [x.RunParticipantses].[ApplicationDate], [x.RunParticipantses].[Name], [x.RunParticipantses].[RunTeamId], [x.RunParticipantses].[Sex], [x.RunParticipantses].[UserId]
+FROM [RunParticipantses] AS [x.RunParticipantses]
+INNER JOIN (
+    SELECT TOP(1) [x0].[Id]
+    FROM [RunTeams] AS [x0]
+    WHERE [x0].[Id] = @__teamId_0
+    ORDER BY [x0].[Id]
+) AS [t] ON [x.RunParticipantses].[RunTeamId] = [t].[Id]
+ORDER BY [t].[Id]
+System.Data.SqlClient.SqlException (0x80131904): 列名 'ApplicationDate' 无效。
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.Execute(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues)
+ClientConnectionId:a4f58cba-7db7-4fa4-9729-a083986cbe0c
+Error Number:207,State:1,Class:16
+2019-05-17 18:27:19.420 +08:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Team.Infrastructure.DbContext.MyContext'.
+System.Data.SqlClient.SqlException (0x80131904): 列名 'ApplicationDate' 无效。
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.Execute(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteReader(IRelationalConnection connection, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.BufferlessMoveNext(DbContext _, Boolean buffer)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryBuffer.IncludeCollection[TEntity,TRelated,TElement](Int32 includeId, INavigation navigation, INavigation inverseNavigation, IEntityType targetEntityType, IClrCollectionAccessor clrCollectionAccessor, IClrPropertySetter inverseClrPropertySetter, Boolean tracking, TEntity entity, Func`1 relatedEntitiesFactory, Func`3 joinPredicate)
+   at lambda_method(Closure , QueryContext , RunTeam , Object[] )
+   at Microsoft.EntityFrameworkCore.Query.Internal.IncludeCompiler._Include[TEntity](QueryContext queryContext, TEntity entity, Object[] included, Action`3 fixup)
+   at lambda_method(Closure , RunTeam )
+   at System.Linq.Enumerable.SelectEnumerableIterator`2.MoveNext()
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ResultEnumerable`1.GetEnumerator()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider._TrackEntities[TOut,TIn](IEnumerable`1 results, QueryContext queryContext, IList`1 entityTrackingInfos, IList`1 entityAccessors)+MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext()
+ClientConnectionId:a4f58cba-7db7-4fa4-9729-a083986cbe0c
+Error Number:207,State:1,Class:16
+System.Data.SqlClient.SqlException (0x80131904): 列名 'ApplicationDate' 无效。
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.Execute(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteReader(IRelationalConnection connection, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.BufferlessMoveNext(DbContext _, Boolean buffer)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryBuffer.IncludeCollection[TEntity,TRelated,TElement](Int32 includeId, INavigation navigation, INavigation inverseNavigation, IEntityType targetEntityType, IClrCollectionAccessor clrCollectionAccessor, IClrPropertySetter inverseClrPropertySetter, Boolean tracking, TEntity entity, Func`1 relatedEntitiesFactory, Func`3 joinPredicate)
+   at lambda_method(Closure , QueryContext , RunTeam , Object[] )
+   at Microsoft.EntityFrameworkCore.Query.Internal.IncludeCompiler._Include[TEntity](QueryContext queryContext, TEntity entity, Object[] included, Action`3 fixup)
+   at lambda_method(Closure , RunTeam )
+   at System.Linq.Enumerable.SelectEnumerableIterator`2.MoveNext()
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ResultEnumerable`1.GetEnumerator()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider._TrackEntities[TOut,TIn](IEnumerable`1 results, QueryContext queryContext, IList`1 entityTrackingInfos, IList`1 entityAccessors)+MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext()
+ClientConnectionId:a4f58cba-7db7-4fa4-9729-a083986cbe0c
+Error Number:207,State:1,Class:16
+2019-05-17 18:27:19.486 +08:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Team.Infrastructure.DbContext.MyContext'.
+System.Data.SqlClient.SqlException (0x80131904): 列名 'ApplicationDate' 无效。
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.Execute(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteReader(IRelationalConnection connection, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.BufferlessMoveNext(DbContext _, Boolean buffer)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryBuffer.IncludeCollection[TEntity,TRelated,TElement](Int32 includeId, INavigation navigation, INavigation inverseNavigation, IEntityType targetEntityType, IClrCollectionAccessor clrCollectionAccessor, IClrPropertySetter inverseClrPropertySetter, Boolean tracking, TEntity entity, Func`1 relatedEntitiesFactory, Func`3 joinPredicate)
+   at lambda_method(Closure , QueryContext , RunTeam , Object[] )
+   at Microsoft.EntityFrameworkCore.Query.Internal.IncludeCompiler._Include[TEntity](QueryContext queryContext, TEntity entity, Object[] included, Action`3 fixup)
+   at lambda_method(Closure , RunTeam )
+   at System.Linq.Enumerable.SelectEnumerableIterator`2.MoveNext()
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ResultEnumerable`1.GetEnumerator()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider._TrackEntities[TOut,TIn](IEnumerable`1 results, QueryContext queryContext, IList`1 entityTrackingInfos, IList`1 entityAccessors)+MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext()
+   at System.Linq.Enumerable.TryGetFirst[TSource](IEnumerable`1 source, Boolean& found)
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.<>c__DisplayClass15_1`1.<CompileQueryCore>b__0(QueryContext qc)
+ClientConnectionId:a4f58cba-7db7-4fa4-9729-a083986cbe0c
+Error Number:207,State:1,Class:16
+System.Data.SqlClient.SqlException (0x80131904): 列名 'ApplicationDate' 无效。
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.Execute(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteReader(IRelationalConnection connection, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.BufferlessMoveNext(DbContext _, Boolean buffer)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryBuffer.IncludeCollection[TEntity,TRelated,TElement](Int32 includeId, INavigation navigation, INavigation inverseNavigation, IEntityType targetEntityType, IClrCollectionAccessor clrCollectionAccessor, IClrPropertySetter inverseClrPropertySetter, Boolean tracking, TEntity entity, Func`1 relatedEntitiesFactory, Func`3 joinPredicate)
+   at lambda_method(Closure , QueryContext , RunTeam , Object[] )
+   at Microsoft.EntityFrameworkCore.Query.Internal.IncludeCompiler._Include[TEntity](QueryContext queryContext, TEntity entity, Object[] included, Action`3 fixup)
+   at lambda_method(Closure , RunTeam )
+   at System.Linq.Enumerable.SelectEnumerableIterator`2.MoveNext()
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ResultEnumerable`1.GetEnumerator()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider._TrackEntities[TOut,TIn](IEnumerable`1 results, QueryContext queryContext, IList`1 entityTrackingInfos, IList`1 entityAccessors)+MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext()
+   at System.Linq.Enumerable.TryGetFirst[TSource](IEnumerable`1 source, Boolean& found)
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.<>c__DisplayClass15_1`1.<CompileQueryCore>b__0(QueryContext qc)
+ClientConnectionId:a4f58cba-7db7-4fa4-9729-a083986cbe0c
+Error Number:207,State:1,Class:16
+2019-05-17 18:28:15.600 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-17 18:31:16.298 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-17 18:31:27.072 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-17 18:31:27.520 +08:00 [INF] Executed DbCommand (309ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-05-17 18:31:27.526 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-05-17 18:31:27.636 +08:00 [INF] Executed DbCommand (108ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2019-05-17 18:31:27.641 +08:00 [INF] Applying migration '20190517103116_添加组队列表'.
+2019-05-17 18:31:29.984 +08:00 [INF] Executed DbCommand (2,286ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+EXEC sp_rename N'[Runs].[Kcal]', N'Calories', N'COLUMN';
+2019-05-17 18:31:30.968 +08:00 [INF] Executed DbCommand (984ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [RunParticipantses] ADD [ApplicationDate] datetime2 NOT NULL DEFAULT '0001-01-01T00:00:00.0000000';
+2019-05-17 18:31:31.309 +08:00 [INF] Executed DbCommand (341ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [TeamLists] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(max) NULL,
+    [CreationTime] datetime2 NOT NULL,
+    [Introduction] nvarchar(max) NULL,
+    [Count] int NOT NULL,
+    [UserId] int NOT NULL,
+    CONSTRAINT [PK_TeamLists] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_TeamLists_Users_UserId] FOREIGN KEY ([UserId]) REFERENCES [Users] ([Id]) ON DELETE CASCADE
+);
+2019-05-17 18:31:31.327 +08:00 [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_TeamLists_UserId] ON [TeamLists] ([UserId]);
+2019-05-17 18:31:31.448 +08:00 [INF] Executed DbCommand (121ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20190517103116_添加组队列表', N'2.2.4-servicing-10062');
+2019-05-17 18:31:39.071 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-17 18:31:40.689 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-05-17 18:31:40.965 +08:00 [INF] Request finished in 279.9148ms 200 text/html
+2019-05-17 18:31:41.707 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-05-17 18:31:41.974 +08:00 [INF] Request finished in 267.8058ms 200 application/json;charset=utf-8
+2019-05-17 18:32:14.343 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/RunTeam/SearchTeamApi?teamId=12  
+2019-05-17 18:32:14.427 +08:00 [INF] Successfully validated the token.
+2019-05-17 18:32:14.460 +08:00 [INF] Executing endpoint 'Team.Controllers.RunTeamController.SearchTeamApi (Team)'
+2019-05-17 18:32:14.481 +08:00 [INF] Route matched with {action = "SearchTeamApi", controller = "RunTeam"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult SearchTeamApi(Int32) on controller Team.Controllers.RunTeamController (Team).
+2019-05-17 18:32:14.492 +08:00 [INF] Authorization was successful.
+2019-05-17 18:32:14.954 +08:00 [INF] Executing action method Team.Controllers.RunTeamController.SearchTeamApi (Team) - Validation state: "Valid"
+2019-05-17 18:32:15.207 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-17 18:32:15.502 +08:00 [INF] Executed DbCommand (43ms) [Parameters=[@__teamId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[ApplicationStatus], [x].[Count], [x].[CreationTime], [x].[Introduction], [x].[Name], [x].[UserId]
+FROM [RunTeams] AS [x]
+WHERE [x].[Id] = @__teamId_0
+ORDER BY [x].[Id]
+2019-05-17 18:32:15.728 +08:00 [INF] Executed DbCommand (172ms) [Parameters=[@__teamId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [x.RunParticipantses].[Id], [x.RunParticipantses].[ApplicationDate], [x.RunParticipantses].[Name], [x.RunParticipantses].[RunTeamId], [x.RunParticipantses].[Sex], [x.RunParticipantses].[UserId]
+FROM [RunParticipantses] AS [x.RunParticipantses]
+INNER JOIN (
+    SELECT TOP(1) [x0].[Id]
+    FROM [RunTeams] AS [x0]
+    WHERE [x0].[Id] = @__teamId_0
+    ORDER BY [x0].[Id]
+) AS [t] ON [x.RunParticipantses].[RunTeamId] = [t].[Id]
+ORDER BY [t].[Id]
+2019-05-17 18:32:15.753 +08:00 [INF] 查询跑步团队 12 成功
+2019-05-17 18:32:15.757 +08:00 [INF] Executed action method Team.Controllers.RunTeamController.SearchTeamApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 792.3853ms.
+2019-05-17 18:32:15.771 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-17 18:32:15.796 +08:00 [INF] Executed action Team.Controllers.RunTeamController.SearchTeamApi (Team) in 1308.8337000000001ms
+2019-05-17 18:32:15.799 +08:00 [INF] Executed endpoint 'Team.Controllers.RunTeamController.SearchTeamApi (Team)'
+2019-05-17 18:32:15.801 +08:00 [INF] Request finished in 1458.6417ms 200 application/json; charset=utf-8
+2019-05-17 18:32:40.980 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/RunTeam/SearchTeamApi?teamId=4  
+2019-05-17 18:32:40.984 +08:00 [INF] Successfully validated the token.
+2019-05-17 18:32:40.988 +08:00 [INF] Executing endpoint 'Team.Controllers.RunTeamController.SearchTeamApi (Team)'
+2019-05-17 18:32:40.992 +08:00 [INF] Route matched with {action = "SearchTeamApi", controller = "RunTeam"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult SearchTeamApi(Int32) on controller Team.Controllers.RunTeamController (Team).
+2019-05-17 18:32:40.997 +08:00 [INF] Authorization was successful.
+2019-05-17 18:32:41.033 +08:00 [INF] Executing action method Team.Controllers.RunTeamController.SearchTeamApi (Team) - Validation state: "Valid"
+2019-05-17 18:32:41.046 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-17 18:32:41.099 +08:00 [INF] Executed DbCommand (33ms) [Parameters=[@__teamId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[ApplicationStatus], [x].[Count], [x].[CreationTime], [x].[Introduction], [x].[Name], [x].[UserId]
+FROM [RunTeams] AS [x]
+WHERE [x].[Id] = @__teamId_0
+ORDER BY [x].[Id]
+2019-05-17 18:32:41.108 +08:00 [INF] 查询跑步团队 4 不存在
+2019-05-17 18:32:41.112 +08:00 [INF] 查询跑步团队 4 成功
+2019-05-17 18:32:41.113 +08:00 [INF] Executed action method Team.Controllers.RunTeamController.SearchTeamApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 67.7803ms.
+2019-05-17 18:32:41.117 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-17 18:32:41.118 +08:00 [INF] Executed action Team.Controllers.RunTeamController.SearchTeamApi (Team) in 122.1734ms
+2019-05-17 18:32:41.123 +08:00 [INF] Executed endpoint 'Team.Controllers.RunTeamController.SearchTeamApi (Team)'
+2019-05-17 18:32:41.130 +08:00 [INF] Request finished in 149.4241ms 200 application/json; charset=utf-8
+2019-05-17 18:33:09.152 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/RunTeam/UpdateTeamApi application/json-patch+json 88
+2019-05-17 18:33:09.158 +08:00 [INF] Successfully validated the token.
+2019-05-17 18:33:09.162 +08:00 [INF] Executing endpoint 'Team.Controllers.RunTeamController.UpdateTeamApi (Team)'
+2019-05-17 18:33:09.166 +08:00 [INF] Route matched with {action = "UpdateTeamApi", controller = "RunTeam"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UpdateTeamApi(Team.Model.AutoMappers.RunTeamMapper.RunTeamUpdateMap) on controller Team.Controllers.RunTeamController (Team).
+2019-05-17 18:33:09.171 +08:00 [INF] Authorization was successful.
+2019-05-17 18:33:09.225 +08:00 [INF] Executing action method Team.Controllers.RunTeamController.UpdateTeamApi (Team) - Validation state: "Valid"
+2019-05-17 18:33:09.459 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-17 18:33:10.406 +08:00 [INF] Executed DbCommand (921ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE [x].[Id] = @__userId_0
+2019-05-17 18:33:10.674 +08:00 [INF] 用户 1 修改队伍 12 成功
+2019-05-17 18:33:10.676 +08:00 [INF] Executed action method Team.Controllers.RunTeamController.UpdateTeamApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 1450.2963ms.
+2019-05-17 18:33:10.681 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-17 18:33:10.683 +08:00 [INF] Executed action Team.Controllers.RunTeamController.UpdateTeamApi (Team) in 1512.2968ms
+2019-05-17 18:33:10.687 +08:00 [INF] Executed endpoint 'Team.Controllers.RunTeamController.UpdateTeamApi (Team)'
+2019-05-17 18:33:10.695 +08:00 [ERR] Connection id "0HLMQMBCEKNVE", Request id "0HLMQMBCEKNVE:00000005": An unhandled exception was thrown by the application.
+System.InvalidOperationException: The connection does not support MultipleActiveResultSets.
+   at System.Data.SqlClient.SqlInternalConnectionTds.ValidateConnectionForExecute(SqlCommand command)
+   at System.Data.SqlClient.SqlInternalTransaction.Rollback()
+   at System.Data.SqlClient.SqlTransaction.Dispose(Boolean disposing)
+   at System.Data.Common.DbTransaction.Dispose()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalTransaction.Dispose()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.ClearTransactions()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Dispose()
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.Dispose()
+   at Microsoft.EntityFrameworkCore.DbContext.Dispose()
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.Dispose()
+   at Microsoft.AspNetCore.Hosting.Internal.RequestServicesFeature.Dispose()
+   at Microsoft.AspNetCore.Http.HttpResponse.<>c.<.cctor>b__30_1(Object disposable)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.FireOnCompletedAwaited(Stack`1 onCompleted)
+2019-05-17 18:33:10.899 +08:00 [INF] Request finished in 1747.1149ms 200 application/json; charset=utf-8
+2019-05-17 18:33:11.568 +08:00 [ERR] Failed executing DbCommand (1,009ms) [Parameters=[@p6='?' (DbType = Int32), @p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = DateTime2), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [RunTeams] SET [ApplicationStatus] = @p0, [Count] = @p1, [CreationTime] = @p2, [Introduction] = @p3, [Name] = @p4, [UserId] = @p5
+WHERE [Id] = @p6;
+SELECT @@ROWCOUNT;
+System.Data.SqlClient.SqlException (0x80131904): UPDATE 语句与 FOREIGN KEY 约束"FK_RunTeams_Users_UserId"冲突。该冲突发生于数据库"Team"，表"dbo.Users", column 'Id'。
+语句已终止。
+   at System.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__122_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteAsync(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues, CancellationToken cancellationToken)
+ClientConnectionId:3c96ec00-5138-4bcb-b6ad-598ebf698a44
+Error Number:547,State:0,Class:16

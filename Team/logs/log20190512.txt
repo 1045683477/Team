@@ -1,0 +1,207 @@
+2019-05-12 22:44:11.879 +08:00 [INF] Entity Framework Core 2.2.3-servicing-35854 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-12 22:44:27.748 +08:00 [INF] Entity Framework Core 2.2.3-servicing-35854 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-12 22:44:46.102 +08:00 [INF] Entity Framework Core 2.2.3-servicing-35854 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-12 22:44:58.409 +08:00 [INF] Executed DbCommand (1,890ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+CREATE DATABASE [Team];
+2019-05-12 22:44:58.983 +08:00 [INF] Executed DbCommand (568ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [Team] SET READ_COMMITTED_SNAPSHOT ON;
+END;
+2019-05-12 22:44:59.071 +08:00 [INF] Executed DbCommand (30ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [__EFMigrationsHistory] (
+    [MigrationId] nvarchar(150) NOT NULL,
+    [ProductVersion] nvarchar(32) NOT NULL,
+    CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+);
+2019-05-12 22:44:59.075 +08:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-05-12 22:44:59.078 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2019-05-12 22:44:59.082 +08:00 [INF] Applying migration '20190512144427_Initial'.
+2019-05-12 22:44:59.123 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Users] (
+    [Id] int NOT NULL IDENTITY,
+    [Account] nvarchar(max) NOT NULL,
+    [Password] nvarchar(max) NOT NULL,
+    [Name] nvarchar(max) NOT NULL,
+    [Sex] int NOT NULL,
+    [Role] int NOT NULL,
+    [Province] int NOT NULL,
+    [UniversityId] int NOT NULL,
+    [StudentId] int NOT NULL,
+    [RunTeamState] int NOT NULL,
+    CONSTRAINT [PK_Users] PRIMARY KEY ([Id])
+);
+2019-05-12 22:44:59.127 +08:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Runs] (
+    [Id] int NOT NULL IDENTITY,
+    [SportFreeModel] int NOT NULL,
+    [StarTime] datetime2 NOT NULL,
+    [EndTime] datetime2 NOT NULL,
+    [StarPlace] nvarchar(max) NOT NULL,
+    [EndPlace] nvarchar(max) NOT NULL,
+    [Distance] real NOT NULL,
+    [Kcal] real NOT NULL,
+    [Speed] real NOT NULL,
+    [UserId] int NOT NULL,
+    CONSTRAINT [PK_Runs] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Runs_Users_UserId] FOREIGN KEY ([UserId]) REFERENCES [Users] ([Id]) ON DELETE CASCADE
+);
+2019-05-12 22:44:59.129 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [RunTeams] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(max) NOT NULL,
+    [CreationTime] datetime2 NOT NULL,
+    [Introduction] nvarchar(max) NULL,
+    [Count] int NOT NULL,
+    [UserId] int NOT NULL,
+    CONSTRAINT [PK_RunTeams] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_RunTeams_Users_UserId] FOREIGN KEY ([UserId]) REFERENCES [Users] ([Id]) ON DELETE CASCADE
+);
+2019-05-12 22:44:59.130 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Statisticals] (
+    [Id] int NOT NULL IDENTITY,
+    [SportFreeModel] int NOT NULL,
+    [Distance] real NOT NULL,
+    [Kcal] real NOT NULL,
+    [AllTime] real NOT NULL,
+    [UserId] int NOT NULL,
+    CONSTRAINT [PK_Statisticals] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Statisticals_Users_UserId] FOREIGN KEY ([UserId]) REFERENCES [Users] ([Id]) ON DELETE CASCADE
+);
+2019-05-12 22:44:59.131 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Teams] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(max) NULL,
+    [CreationTime] datetime2 NOT NULL,
+    [AgreedTime] datetime2 NOT NULL,
+    [Address] nvarchar(max) NOT NULL,
+    [Introduction] nvarchar(max) NULL,
+    [AllCount] int NOT NULL,
+    [Count] int NOT NULL,
+    [Sport] int NOT NULL,
+    [UserId] int NOT NULL,
+    CONSTRAINT [PK_Teams] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Teams_Users_UserId] FOREIGN KEY ([UserId]) REFERENCES [Users] ([Id]) ON DELETE CASCADE
+);
+2019-05-12 22:44:59.133 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [RunParticipantses] (
+    [Id] int NOT NULL IDENTITY,
+    [UserId] int NOT NULL,
+    [Name] nvarchar(max) NULL,
+    [Sex] int NOT NULL,
+    [RunTeamId] int NOT NULL,
+    CONSTRAINT [PK_RunParticipantses] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_RunParticipantses_RunTeams_RunTeamId] FOREIGN KEY ([RunTeamId]) REFERENCES [RunTeams] ([Id]) ON DELETE CASCADE
+);
+2019-05-12 22:44:59.134 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Participantses] (
+    [Id] int NOT NULL IDENTITY,
+    [UserId] int NOT NULL,
+    [Name] nvarchar(max) NOT NULL,
+    [Sex] int NOT NULL,
+    [TeamId] int NOT NULL,
+    CONSTRAINT [PK_Participantses] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Participantses_Teams_TeamId] FOREIGN KEY ([TeamId]) REFERENCES [Teams] ([Id]) ON DELETE CASCADE
+);
+2019-05-12 22:44:59.137 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Participantses_TeamId] ON [Participantses] ([TeamId]);
+2019-05-12 22:44:59.138 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_RunParticipantses_RunTeamId] ON [RunParticipantses] ([RunTeamId]);
+2019-05-12 22:44:59.139 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Runs_UserId] ON [Runs] ([UserId]);
+2019-05-12 22:44:59.139 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [IX_RunTeams_UserId] ON [RunTeams] ([UserId]);
+2019-05-12 22:44:59.140 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Statisticals_UserId] ON [Statisticals] ([UserId]);
+2019-05-12 22:44:59.141 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Teams_UserId] ON [Teams] ([UserId]);
+2019-05-12 22:44:59.157 +08:00 [INF] Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20190512144427_Initial', N'2.2.3-servicing-35854');
+2019-05-12 22:45:23.004 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-12 22:45:24.748 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger  
+2019-05-12 22:45:25.009 +08:00 [INF] Request finished in 265.751ms 301 
+2019-05-12 22:45:25.014 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-05-12 22:45:25.224 +08:00 [INF] Request finished in 210.602ms 200 text/html
+2019-05-12 22:45:25.251 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui.css  
+2019-05-12 22:45:25.251 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-bundle.js  
+2019-05-12 22:45:25.253 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-standalone-preset.js  
+2019-05-12 22:45:25.339 +08:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2019-05-12 22:45:25.340 +08:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2019-05-12 22:45:25.358 +08:00 [INF] Request finished in 105.67ms 200 application/javascript
+2019-05-12 22:45:25.358 +08:00 [INF] Request finished in 107.543ms 200 text/css
+2019-05-12 22:45:25.361 +08:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2019-05-12 22:45:25.363 +08:00 [INF] Request finished in 111.8349ms 200 application/javascript
+2019-05-12 22:45:25.834 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-05-12 22:45:26.008 +08:00 [INF] Request finished in 173.9652ms 200 application/json;charset=utf-8
+2019-05-12 22:45:38.812 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserRegisteredApi application/json-patch+json 140
+2019-05-12 22:45:38.914 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserRegisteredApi (Team)'
+2019-05-12 22:45:38.942 +08:00 [INF] Route matched with {action = "UserRegisteredApi", controller = "Login"}. Executing action Team.Controllers.LoginController.UserRegisteredApi (Team)
+2019-05-12 22:45:39.608 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserRegisteredApi (Team) with arguments (["Team.Model.AutoMappers.UserMapper.UserRegisteredMap"]) - Validation state: "Valid"
+2019-05-12 22:45:39.872 +08:00 [INF] Entity Framework Core 2.2.3-servicing-35854 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-12 22:45:40.278 +08:00 [INF] Executed DbCommand (112ms) [Parameters=[@__account_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamState], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE [x].[Account] = @__account_0
+2019-05-12 22:45:40.624 +08:00 [INF] Executed DbCommand (154ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32), @p6='?' (DbType = Int32), @p7='?' (DbType = Int32), @p8='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Users] ([Account], [Name], [Password], [Province], [Role], [RunTeamState], [Sex], [StudentId], [UniversityId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8);
+SELECT [Id]
+FROM [Users]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2019-05-12 22:45:40.662 +08:00 [INF] Executed DbCommand (23ms) [Parameters=[@p0='?' (DbType = Single), @p1='?' (DbType = Single), @p2='?' (DbType = Single), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Statisticals] ([AllTime], [Distance], [Kcal], [SportFreeModel], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4);
+SELECT [Id]
+FROM [Statisticals]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2019-05-12 22:45:40.687 +08:00 [INF] Executed DbCommand (18ms) [Parameters=[@p0='?' (DbType = Single), @p1='?' (DbType = Single), @p2='?' (DbType = Single), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Statisticals] ([AllTime], [Distance], [Kcal], [SportFreeModel], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4);
+SELECT [Id]
+FROM [Statisticals]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2019-05-12 22:45:40.725 +08:00 [INF] string 注册成功
+2019-05-12 22:45:40.732 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserRegisteredApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 1103.9224000000002ms.
+2019-05-12 22:45:40.748 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-12 22:45:40.761 +08:00 [INF] Executed action Team.Controllers.LoginController.UserRegisteredApi (Team) in 1807.7933ms
+2019-05-12 22:45:40.766 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserRegisteredApi (Team)'
+2019-05-12 22:45:40.770 +08:00 [INF] Request finished in 1958.2807ms 200 application/json; charset=utf-8
+2019-05-12 22:45:56.534 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/RunTeam/RunTeamApi application/json-patch+json 50
+2019-05-12 22:45:56.556 +08:00 [INF] Successfully validated the token.
+2019-05-12 22:45:56.560 +08:00 [INF] Executing endpoint 'Team.Controllers.RunTeamController.RunTeamApi (Team)'
+2019-05-12 22:45:56.567 +08:00 [INF] Route matched with {action = "RunTeamApi", controller = "RunTeam"}. Executing action Team.Controllers.RunTeamController.RunTeamApi (Team)
+2019-05-12 22:45:56.579 +08:00 [INF] Authorization was successful.
+2019-05-12 22:45:56.609 +08:00 [INF] Executing action method Team.Controllers.RunTeamController.RunTeamApi (Team) with arguments (["Team.Model.AutoMappers.RunTeamMapper.RunTeamCreateMap"]) - Validation state: "Valid"
+2019-05-12 22:45:56.619 +08:00 [INF] Entity Framework Core 2.2.3-servicing-35854 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-12 22:45:56.785 +08:00 [INF] Executed DbCommand (148ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamState], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE [x].[Id] = @__userId_0
+2019-05-12 22:45:57.075 +08:00 [INF] Executed DbCommand (245ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = DateTime2), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [RunTeams] ([Count], [CreationTime], [Introduction], [Name], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4);
+SELECT [Id]
+FROM [RunTeams]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2019-05-12 22:45:57.102 +08:00 [INF] Executed DbCommand (19ms) [Parameters=[@p5='?' (Size = 4000), @p6='?' (DbType = Int32), @p7='?' (DbType = Int32), @p8='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [RunParticipantses] ([Name], [RunTeamId], [Sex], [UserId])
+VALUES (@p5, @p6, @p7, @p8);
+SELECT [Id]
+FROM [RunParticipantses]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2019-05-12 22:45:57.111 +08:00 [INF] 用户 1 创建跑步队伍成功
+2019-05-12 22:45:57.114 +08:00 [INF] Executed action method Team.Controllers.RunTeamController.RunTeamApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 500.5803ms.
+2019-05-12 22:45:57.117 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-12 22:45:57.118 +08:00 [INF] Executed action Team.Controllers.RunTeamController.RunTeamApi (Team) in 546.9178ms
+2019-05-12 22:45:57.121 +08:00 [INF] Executed endpoint 'Team.Controllers.RunTeamController.RunTeamApi (Team)'
+2019-05-12 22:45:57.126 +08:00 [INF] Request finished in 591.1895ms 200 application/json; charset=utf-8

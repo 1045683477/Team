@@ -1,0 +1,506 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Team.Infrastructure</name>
+    </assembly>
+    <members>
+        <member name="T:Team.Infrastructure.IRepositories.IImagesResource">
+            <summary>
+            图片处理
+            </summary>
+        </member>
+        <member name="M:Team.Infrastructure.IRepositories.IImagesResource.LoadingPhoto(System.String,System.Int32)">
+            <summary>
+            加载图片
+            </summary>
+            <param name="path">地址</param>
+            <param name="name">图片名</param>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Infrastructure.IRepositories.IImagesResource.UpLoadPhoto(Microsoft.AspNetCore.Http.IFormFile,System.String,System.Object)">
+            <summary>
+            上传图片
+            </summary>
+            <param name="formFile"></param>
+            <param name="path">路劲</param>
+            <param name="name">图片名字</param>
+            <returns></returns>
+        </member>
+        <member name="T:Team.Infrastructure.IRepositories.IRunRepository">
+            <summary>
+            Free Run 服务
+            </summary>
+        </member>
+        <member name="M:Team.Infrastructure.IRepositories.IRunRepository.FreeRecord(System.Int32,Team.Model.Model.TeamModel.Run)">
+            <summary>
+            记录跑步
+            </summary>
+            <param name="userId">用户 Id</param>
+            <param name="run"></param>
+        </member>
+        <member name="M:Team.Infrastructure.IRepositories.IRunRepository.FreeAllStatistical(System.Int32,Team.Model.Model.TeamModel.SportFreeModel)">
+            <summary>
+            查询跑步记录统计
+            </summary>
+            <param name="userId"></param>
+            <param name="sport"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Infrastructure.IRepositories.IRunRepository.FreeSearch(System.Int32)">
+            <summary>
+            查询所有记录
+            </summary>
+            <param name="userId">用户 Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Infrastructure.IRepositories.IRunRepository.ExerciseList(System.Int32)">
+            <summary>
+            达标记录
+            </summary>
+            <param name="userId">用户 Id</param>
+            <returns></returns>
+        </member>
+        <member name="T:Team.Infrastructure.IRepositories.IRunTeamResource">
+            <summary>
+            跑步队伍
+            </summary>
+        </member>
+        <member name="M:Team.Infrastructure.IRepositories.IRunTeamResource.TeamCreate(Team.Model.Model.RunTeamModel.RunParticipants,Team.Model.Model.RunTeamModel.RunTeam,Team.Model.Model.UserModel.User)">
+            <summary>
+            创建队伍,true为创建成功，false为创建失败
+            </summary>
+            <param name="participants">参与者模板</param>
+            <param name="runTeam">团队模板</param>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Infrastructure.IRepositories.IRunTeamResource.DeleteTeamAsync(System.Int32)">
+            <summary>
+            删除自身创建的队伍,true为删除成功，false为删除失败
+            </summary>
+            <param name="userId">创建者 id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Infrastructure.IRepositories.IRunTeamResource.UpdateTeam(Team.Model.AutoMappers.RunTeamMapper.RunTeamUpdateMap)">
+            <summary>
+            更新队伍信息
+            </summary>
+            <param name="runTeam"></param>
+        </member>
+        <member name="M:Team.Infrastructure.IRepositories.IRunTeamResource.RunTeamsSearchAll">
+            <summary>
+            查询所有正在组队的允许参加的队伍
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Infrastructure.IRepositories.IRunTeamResource.TeamSearchByIdTeaming(System.Int32)">
+            <summary>
+            查询某个正在组队的团队信息
+            </summary>
+            <param name="teamId">团队 Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Infrastructure.IRepositories.IRunTeamResource.ParticipateInTeam(Team.Model.Model.RunTeamModel.RunApplicant)">
+            <summary>
+            申请参加队伍
+            </summary>
+            <param name="applicant">申请信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Infrastructure.IRepositories.IRunTeamResource.AgreeWithTheTeam(Team.Model.Model.RunTeamModel.RunParticipants)">
+            <summary>
+            同意入队
+            </summary>
+            <param name="participants"></param>
+        </member>
+        <member name="M:Team.Infrastructure.IRepositories.IRunTeamResource.LeaveTheTeam(System.Int32,System.Int32)">
+            <summary>
+            离开队伍
+            </summary>
+            <param name="userId">用户 Id</param>
+            <param name="teamId">队伍 Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Infrastructure.IRepositories.IRunTeamResource.LevelTeamById(System.Int32)">
+            <summary>
+            查询当前队伍排名 Id
+            </summary>
+            <param name="teamId">队伍 Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Infrastructure.IRepositories.IRunTeamResource.LevelTeam(System.Int32)">
+            <summary>
+            查看当前学校队伍前一百名
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Infrastructure.IRepositories.IRunTeamResource.UpdateUserRunTeamState(Team.Model.Model.UserModel.User,System.Int32)">
+            <summary>
+            修改 user 队伍 Id
+            </summary>
+            <param name="user"></param>
+            <param name="teamId"></param>
+        </member>
+        <member name="T:Team.Infrastructure.IRepositories.ITeamBall">
+            <summary>
+            队伍
+            </summary>
+        </member>
+        <member name="M:Team.Infrastructure.IRepositories.ITeamBall.TeamCreate(Team.Model.Model.TeamModel.Participants,Team.Model.Model.TeamModel.Team)">
+            <summary>
+            创建队伍,true为创建成功，false为创建失败
+            </summary>
+            <param name="participants"></param>
+            <param name="team">创建模板</param>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Infrastructure.IRepositories.ITeamBall.TeamSearchUserCreateAll(System.Int32)">
+            <summary>
+            查询该用户所有创建记录
+            </summary>
+            <param name="userId">用户 Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Infrastructure.IRepositories.ITeamBall.TeamSearchUserJoinAll(System.Int32)">
+            <summary>
+            查询该用户所有参加记录
+            </summary>
+            <param name="userId">用户 Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Infrastructure.IRepositories.ITeamBall.TeamSearchTeaming(Team.Model.Model.TeamModel.Sport,System.Int32)">
+            <summary>
+            查询某个运动所有正在组队队伍
+            </summary>
+            <param name="sport">运动类型</param>
+            <param name="userId">用户编号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Infrastructure.IRepositories.ITeamBall.TeamSearchByIdTeaming(System.Int32)">
+            <summary>
+            查询某个正在组队的团队信息
+            </summary>
+            <param name="teamId">团队 Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Infrastructure.IRepositories.ITeamBall.ParticipateInTeam(Team.Model.Model.UserModel.User,System.Int32)">
+            <summary>
+            参加队伍
+            </summary>
+            <param name="user"></param>
+            <param name="teamId">队伍 Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Infrastructure.IRepositories.ITeamBall.TeamSearchByName(System.String,System.Int32)">
+            <summary>
+            通过队伍名查询正在组队团队
+            </summary>
+            <param name="name">队伍名</param>
+            <param name="userId">用户 ID</param>
+            <returns></returns>
+        </member>
+        <member name="T:Team.Infrastructure.IRepositories.IUnitOfWork">
+            <summary>
+            保存
+            </summary>
+        </member>
+        <member name="T:Team.Infrastructure.IRepositories.IUserRepository">
+            <summary>
+            用户登陆，注册，修改
+            </summary>
+        </member>
+        <member name="M:Team.Infrastructure.IRepositories.IUserRepository.UserLogin(System.String,System.String)">
+            <summary>
+            登陆
+            </summary>
+            <param name="account">账号</param>
+            <param name="password">密码</param>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Infrastructure.IRepositories.IUserRepository.UserAccountExits(System.String)">
+            <summary>
+            判断该账号是否存在，为注册服务,true 表示可注册
+            </summary>
+            <param name="account">账号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Infrastructure.IRepositories.IUserRepository.UserRegisterd(Team.Model.Model.UserModel.User)">
+            <summary>
+            注册
+            </summary>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Infrastructure.IRepositories.IUserRepository.UserUpdate(System.Int32,Team.Model.AutoMappers.UserMapper.UserUpdateMap)">
+            <summary>
+            改用户资料,已经过保存，true为保存成功
+            </summary>
+            <param name="userId">用户Id</param>
+            <param name="userUpdate">修改资料</param>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Infrastructure.IRepositories.IUserRepository.UserSearch(System.Int32)">
+            <summary>
+            查询用户个人数据
+            </summary>
+            <param name="userId">用户 Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Infrastructure.IRepositories.IUserRepository.RetrievePassword(System.String)">
+            <summary>
+            找回密码
+            </summary>
+            <param name="account">账号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Infrastructure.IRepositories.IUserRepository.TeamSearchByUserIdTeaming(System.Int32)">
+            <summary>
+            通过用户 Id 查询某个正在组队的团队信息
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="F:Team.Infrastructure.Repositories.ImagesResource.LimitPictureType">
+            <summary>
+            图片格式
+            </summary>
+        </member>
+        <member name="M:Team.Infrastructure.Repositories.ImagesResource.LoadingPhoto(System.String,System.Int32)">
+            <summary>
+            加载图片
+            </summary>
+            <param name="path"></param>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Infrastructure.Repositories.ImagesResource.UpLoadPhoto(Microsoft.AspNetCore.Http.IFormFile,System.String,System.Object)">
+            <summary>
+            上传图片
+            </summary>
+            <param name="formFile"></param>
+            <param name="path">路劲</param>
+            <param name="name">图片名字</param>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Infrastructure.Repositories.RunRepository.FreeRecord(System.Int32,Team.Model.Model.TeamModel.Run)">
+            <summary>
+            记录跑步
+            </summary>
+            <param name="userId">用户 Id</param>
+            <param name="run"></param>
+        </member>
+        <member name="M:Team.Infrastructure.Repositories.RunRepository.FreeAllStatistical(System.Int32,Team.Model.Model.TeamModel.SportFreeModel)">
+            <summary>
+            查询跑步记录统计
+            </summary>
+            <param name="userId"></param>
+            <param name="sport"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Infrastructure.Repositories.RunRepository.FreeSearch(System.Int32)">
+            <summary>
+            查询所有记录
+            </summary>
+            <param name="userId">用户 Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Infrastructure.Repositories.RunRepository.ExerciseList(System.Int32)">
+            <summary>
+            达标记录
+            </summary>
+            <param name="userId">用户 Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Infrastructure.Repositories.RunRepository.RunTeamRecord(System.Int32,Team.Model.Model.TeamModel.Run)">
+            <summary>
+            记录团队部署
+            </summary>
+        </member>
+        <member name="M:Team.Infrastructure.Repositories.RunTeamResource.TeamCreate(Team.Model.Model.RunTeamModel.RunParticipants,Team.Model.Model.RunTeamModel.RunTeam,Team.Model.Model.UserModel.User)">
+            <summary>
+            创建队伍,true为创建成功，false为创建失败
+            </summary>
+            <param name="participants">参与者模板</param>
+            <param name="runTeam">团队模板</param>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Infrastructure.Repositories.RunTeamResource.DeleteTeamAsync(System.Int32)">
+            <summary>
+            删除自身创建的队伍,true为删除成功，false为删除失败
+            </summary>
+            <param name="userId">创建者 id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Infrastructure.Repositories.RunTeamResource.UpdateTeam(Team.Model.AutoMappers.RunTeamMapper.RunTeamUpdateMap)">
+            <summary>
+            修改自己组队的队伍状态，是否允许扩充
+            </summary>
+            <param name="runTeam"></param>
+        </member>
+        <member name="M:Team.Infrastructure.Repositories.RunTeamResource.RunTeamsSearchAll">
+            <summary>
+            查询所有正在组队的允许参加的队伍
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Infrastructure.Repositories.RunTeamResource.TeamSearchByIdTeaming(System.Int32)">
+            <summary>
+            查询某个正在组队的团队信息
+            </summary>
+            <param name="teamId">团队 Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Infrastructure.Repositories.RunTeamResource.ParticipateInTeam(Team.Model.Model.RunTeamModel.RunApplicant)">
+            <summary>
+            申请参加队伍
+            </summary>
+            <param name="applicant">申请信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Infrastructure.Repositories.RunTeamResource.AgreeWithTheTeam(Team.Model.Model.RunTeamModel.RunParticipants)">
+            <summary>
+            同意入队
+            </summary>
+            <param name="participants"></param>
+        </member>
+        <member name="M:Team.Infrastructure.Repositories.RunTeamResource.LeaveTheTeam(System.Int32,System.Int32)">
+            <summary>
+            离开队伍
+            </summary>
+            <param name="userId">用户 Id</param>
+            <param name="teamId">队伍 Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Infrastructure.Repositories.RunTeamResource.LevelTeamById(System.Int32)">
+            <summary>
+            查询当前队伍排名 Id
+            </summary>
+            <param name="teamId">队伍 Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Infrastructure.Repositories.RunTeamResource.LevelTeam(System.Int32)">
+            <summary>
+            查看当前学校队伍前一百名
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Infrastructure.Repositories.RunTeamResource.UpdateUserRunTeamState(Team.Model.Model.UserModel.User,System.Int32)">
+            <summary>
+            修改 user 队伍 Id
+            </summary>
+        </member>
+        <member name="M:Team.Infrastructure.Repositories.TeamBall.TeamCreate(Team.Model.Model.TeamModel.Participants,Team.Model.Model.TeamModel.Team)">
+            <summary>
+            创建队伍,true为创建成功，false为创建失败
+            </summary>
+            <param name="participants"></param>
+            <param name="team"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Infrastructure.Repositories.TeamBall.TeamSearchUserCreateAll(System.Int32)">
+            <summary>
+            查询该用户所有创建记录
+            </summary>
+            <param name="userId">用户 Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Infrastructure.Repositories.TeamBall.TeamSearchUserJoinAll(System.Int32)">
+            <summary>
+            查询该用户所有参加记录
+            </summary>
+            <param name="userId">用户 Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Infrastructure.Repositories.TeamBall.TeamSearchTeaming(Team.Model.Model.TeamModel.Sport,System.Int32)">
+            <summary>
+            查询某个运动所有正在组队队伍
+            </summary>
+            <param name="sport">运动类型</param>
+            <param name="userId">用户编号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Infrastructure.Repositories.TeamBall.TeamSearchByIdTeaming(System.Int32)">
+            <summary>
+            查询某个正在组队的团队信息
+            </summary>
+            <param name="teamId">团队 Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Infrastructure.Repositories.TeamBall.TeamSearchByName(System.String,System.Int32)">
+            <summary>
+            通过队伍名查询正在组队团队
+            </summary>
+            <param name="name">队伍名</param>
+            <param name="userId">用户 ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Infrastructure.Repositories.TeamBall.ParticipateInTeam(Team.Model.Model.UserModel.User,System.Int32)">
+            <summary>
+            参加队伍
+            </summary>
+            <param name="user"></param>
+            <param name="teamId">队伍 Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Infrastructure.Repositories.UnitOfWork.SaveChanged">
+            <summary>
+            保存
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Infrastructure.Repositories.UserRepository.UserLogin(System.String,System.String)">
+            <summary>
+            登陆
+            </summary>
+            <param name="account">账号</param>
+            <param name="password">密码</param>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Infrastructure.Repositories.UserRepository.UserAccountExits(System.String)">
+            <summary>
+            判断该账号是否存在，为注册服务,true 表示可注册
+            </summary>
+            <param name="account">账号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Infrastructure.Repositories.UserRepository.UserRegisterd(Team.Model.Model.UserModel.User)">
+            <summary>
+            注册
+            </summary>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Infrastructure.Repositories.UserRepository.UserUpdate(System.Int32,Team.Model.AutoMappers.UserMapper.UserUpdateMap)">
+            <summary>
+            修改用户资料,已经过保存，true为保存成功
+            </summary>
+            <param name="userId">用户Id</param>
+            <param name="userUpdate">修改资料</param>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Infrastructure.Repositories.UserRepository.UserSearch(System.Int32)">
+            <summary>
+            查询用户个人数据
+            </summary>
+            <param name="userId">用户 Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Infrastructure.Repositories.UserRepository.RetrievePassword(System.String)">
+            <summary>
+            找回密码
+            </summary>
+            <param name="account"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Infrastructure.Repositories.UserRepository.TeamSearchByUserIdTeaming(System.Int32)">
+            <summary>
+            通过用户 Id 查询某个正在组队的团队信息
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

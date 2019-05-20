@@ -1,23 +1,16 @@
-﻿using System;
-using AutoMapper;
-using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
+﻿using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System.Collections.Generic;
+using System.IO;
+using System.Threading.Tasks;
 using Team.AuthHelper.OverWrite;
 using Team.Infrastructure.IRepositories;
 using Team.Model;
-using Team.Model.AutoMappers;
-using Team.Model.Model;
-using Newtonsoft.Json.Linq;
-using Newtonsoft.Json;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Drawing.Imaging;
-using System.IO;
-using System.Linq;
-using Microsoft.AspNetCore.Http;
+using Team.Model.AutoMappers.UserMapper;
+using Team.Model.Model.UserModel;
 
 namespace Team.Controllers
 {
@@ -167,7 +160,7 @@ namespace Team.Controllers
         /// </summary>
         /// <param name="update"></param>
         /// <returns></returns>
-        [HttpPatch("UserUpdateApi",Name = "UserUpdateApi")]
+        [HttpPost("UserUpdateApi",Name = "UserUpdateApi")]
         [Authorize(Roles = "Client")]
         public async Task<IActionResult> UserUpdateApi([FromBody]UserUpdateMap update)
         {
@@ -243,7 +236,7 @@ namespace Team.Controllers
         {
             var user = HttpRequest();
             CustomStatusCode code;
-            code= _imagesResource.UpLoadPhoto(formFile, "\\Images\\", user.Id);
+            code= _imagesResource.UpLoadPhoto(formFile, "\\Images\\HeadPortrait\\", user.Id);
             if (code.Status.ToString() == "400")
             {
                 _logger.LogInformation($"图片 {user.Id} 上传失败，格式错误");
@@ -298,7 +291,7 @@ namespace Team.Controllers
         {
             var user = HttpRequest();
 
-            var image=_imagesResource.LoadingPhoto("\\Images\\", user.Id);
+            var image=_imagesResource.LoadingPhoto("\\Images\\HeadPortrait\\", user.Id);
             if (image==null)
             {
                 _logger.LogInformation($"用户 {user.Id} 没有存入头像");
@@ -352,13 +345,11 @@ namespace Team.Controllers
         public static string[] LimitPictureType =
             {".PNG", ".JPG", ".JPEG", ".BMP", ".GIF", ".ICO"};
 
-
-
         /// <summary>
         /// 图片路径
         /// </summary>
-        private static string upload_path = Directory.GetCurrentDirectory() + "\\Images\\";
-        private static DirectoryInfo di = new DirectoryInfo(Directory.GetCurrentDirectory() + @"\Images\\");
+        private static string _uploadPath = Directory.GetCurrentDirectory() + "\\Images\\";
+        private static DirectoryInfo _di = new DirectoryInfo(Directory.GetCurrentDirectory() + @"\Images\\");
 
         /// <summary>
         /// 遍历文件夹文件

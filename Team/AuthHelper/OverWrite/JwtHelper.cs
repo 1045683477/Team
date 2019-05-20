@@ -8,6 +8,7 @@ using JwtRegisteredClaimNames = Microsoft.IdentityModel.JsonWebTokens.JwtRegiste
 
 namespace Team.AuthHelper.OverWrite
 {
+
     public class JwtHelper:IJwtHelper
     {
         public static string secretKey { get; set; } = "sdfsdfsrty45634kkhllghtdgdfss345t678fs";

@@ -42,14 +42,14 @@
             登陆,注册，修改密码 API
             </summary>
         </member>
-        <member name="M:Team.Controllers.LoginController.UserRegisteredApi(Team.Model.AutoMappers.UserRegisteredMap)">
+        <member name="M:Team.Controllers.LoginController.UserRegisteredApi(Team.Model.AutoMappers.UserMapper.UserRegisteredMap)">
             <summary>
             注册
             </summary>
             <param name="userRegistered"></param>
             <returns></returns>
         </member>
-        <member name="M:Team.Controllers.LoginController.UserLoginApi(Team.Model.AutoMappers.UserLoginMap)">
+        <member name="M:Team.Controllers.LoginController.UserLoginApi(Team.Model.AutoMappers.UserMapper.UserLoginMap)">
             <summary>
             登陆
             </summary>
@@ -62,7 +62,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Team.Controllers.LoginController.UserUpdateApi(Team.Model.AutoMappers.UserUpdateMap)">
+        <member name="M:Team.Controllers.LoginController.UserUpdateApi(Team.Model.AutoMappers.UserMapper.UserUpdateMap)">
             <summary>
             修改个人资料，密码姓名，省份大学
             </summary>
@@ -105,7 +105,7 @@
             图片格式
             </summary>
         </member>
-        <member name="F:Team.Controllers.LoginController.upload_path">
+        <member name="F:Team.Controllers.LoginController._uploadPath">
             <summary>
             图片路径
             </summary>
@@ -121,14 +121,14 @@
             跑步 记录与查询
             </summary>
         </member>
-        <member name="M:Team.Controllers.RunController.FreeRecordApi(Team.Model.AutoMappers.RunRecordMap)">
+        <member name="M:Team.Controllers.RunController.FreeRecordApi(Team.Model.AutoMappers.TeamMapper.RunRecordMap)">
             <summary>
             跑步数据记录
             </summary>
             <param name="recordMap">记录模板</param>
             <returns></returns>
         </member>
-        <member name="M:Team.Controllers.RunController.FreeAllStatisticalApi(Team.Model.Model.SportFreeModel)">
+        <member name="M:Team.Controllers.RunController.FreeAllStatisticalApi(Team.Model.Model.TeamModel.SportFreeModel)">
             <summary>
             查询跑步记录统计
             </summary>
@@ -153,7 +153,45 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Team.Controllers.TeamController.TeamCreateApi(Team.Model.AutoMappers.TeamCreateMap)">
+        <member name="M:Team.Controllers.RunTeamController.RunTeamCreateApi(Team.Model.AutoMappers.RunTeamMapper.RunTeamCreateMap)">
+            <summary>
+            创建队伍，调用此api后调用UpdateUserRunTeamId
+            </summary>
+            <param name="runTeam">队伍模板</param>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Controllers.RunTeamController.UpdateUserRunTeamId">
+            <summary>
+            修改用户信息 RunTeamId 获取队伍 Id,请务必在调用RunTeamCreateApi之后使用
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Controllers.RunTeamController.DeleteTeamApi">
+            <summary>
+            删除自身创建的队伍
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Controllers.RunTeamController.SearchTeamApi(System.Int32)">
+            <summary>
+            查看某个队伍信息
+            </summary>
+            <param name="teamId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Controllers.RunTeamController.UpdateTeamApi(Team.Model.AutoMappers.RunTeamMapper.RunTeamUpdateMap)">
+            <summary>
+            修改队伍信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Controllers.RunTeamController.HttpRequest">
+            <summary>
+            解析 header 里面的 token
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Controllers.TeamController.TeamCreateApi(Team.Model.AutoMappers.TeamMapper.TeamCreateMap)">
             <summary>
             创建运动队伍
             </summary>
@@ -172,7 +210,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Team.Controllers.TeamController.TeamSearchTeamingApi(Team.Model.Model.Sport)">
+        <member name="M:Team.Controllers.TeamController.TeamSearchTeamingApi(Team.Model.Model.TeamModel.Sport)">
             <summary>
             查询某个运动所有正在组队队伍,查询同校队伍
             </summary>
@@ -225,17 +263,17 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="T:Team.Validator.TeamCreateValidator">
+        <member name="T:Team.Validator.TeamValidator.TeamCreateValidator">
             <summary>
             队伍创建模板验证
             </summary>
         </member>
-        <member name="T:Team.Validator.UserRegisteredValidator">
+        <member name="T:Team.Validator.UserValidator.UserRegisteredValidator">
             <summary>
             注册模板限制
             </summary>
         </member>
-        <member name="T:Team.Validator.UserUpdateValidator">
+        <member name="T:Team.Validator.UserValidator.UserUpdateValidator">
             <summary>
             用户更新限制
             </summary>

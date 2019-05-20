@@ -20,6 +20,7 @@ namespace Team.Infrastructure.IRepositories
         /// <summary>
         /// 上传图片
         /// </summary>
+        /// <param name="formFile"></param>
         /// <param name="path">路劲</param>
         /// <param name="name">图片名字</param>
         /// <returns></returns>

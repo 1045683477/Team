@@ -1,19 +1,18 @@
-﻿using System;
-using System.Collections;
-using AutoMapper;
+﻿using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Team.AuthHelper.OverWrite;
 using Team.Infrastructure.IRepositories;
 using Team.Model;
-using Team.Model.AutoMappers;
+using Team.Model.AutoMappers.TeamMapper;
 using Team.Model.Model;
+using Team.Model.Model.TeamModel;
 
 namespace Team.Controllers
 {
@@ -69,7 +68,7 @@ namespace Team.Controllers
                 Name = user.Name,
                 Sex = user.Sex
             };
-            var team = _mapper.Map<Model.Model.Team>(teamCreate);
+            var team = _mapper.Map<Model.Model.TeamModel.Team>(teamCreate);
             bool changed = _teamBall.TeamCreate(participants,team);
             if (changed==false)
             {
@@ -313,7 +312,7 @@ namespace Team.Controllers
         {
             var user = HttpRequest();
             CustomStatusCode code;
-            code = _imagesResource.UpLoadPhoto(formFile, "\\Team\\", teamId);
+            code = _imagesResource.UpLoadPhoto(formFile, "\\Images\\Team\\", teamId);
             if (code.Status.ToString() == "400")
             {
                 _logger.LogInformation($"用户 {user.Id} 上传队伍图片 {teamId} 上传失败，格式错误");
@@ -365,7 +364,7 @@ namespace Team.Controllers
         [HttpGet("IActionResult",Name = "IActionResult")]
         public IActionResult TeamLoadingPhoto(int teamId)
         {
-            var image = _imagesResource.LoadingPhoto("\\Team\\", teamId);
+            var image = _imagesResource.LoadingPhoto("\\Images\\Team\\", teamId);
             if (image==null)
             {
                 _logger.LogInformation($"战队 {teamId} 没有存入图片");

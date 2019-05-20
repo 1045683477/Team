@@ -7,6 +7,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <NoWarn>1701;1702;1591</NoWarn>
     <DocumentationFile>D:\Microsoft VS2017\Word\.net core API\Team\Team.Model\Team.Model.xml</DocumentationFile>
+    <WarningLevel>4</WarningLevel>
   </PropertyGroup>
 
 </Project>

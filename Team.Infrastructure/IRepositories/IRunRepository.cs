@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Team.Model.Model;
+using Team.Model.Model.TeamModel;
 
 namespace Team.Infrastructure.IRepositories
 {

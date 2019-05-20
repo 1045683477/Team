@@ -4,8 +4,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using Team.Infrastructure.DbContext;
 using Team.Infrastructure.IRepositories;
-using Team.Model.AutoMappers;
-using Team.Model.Model;
+using Team.Model.AutoMappers.UserMapper;
+using Team.Model.Model.RunTeamModel;
+using Team.Model.Model.TeamModel;
+using Team.Model.Model.UserModel;
 
 namespace Team.Infrastructure.Repositories
 {
@@ -59,6 +61,7 @@ namespace Team.Infrastructure.Repositories
         {
             user.Role = Role.Client;
             Statistical statistical1=new Statistical();
+            user.RunTeamId = 0;
             statistical1.SportFreeModel = SportFreeModel.Running;
             statistical1.User = user;
             Statistical statistical2 = new Statistical();
@@ -83,12 +86,13 @@ namespace Team.Infrastructure.Repositories
                 new SqlParameter("Name", userUpdate.Name),
                 new SqlParameter("Sex",userUpdate.Sex),
                 new SqlParameter("UniversityId",userUpdate.UniversityId),
-                new SqlParameter("studentId",userUpdate.studentId),
+                new SqlParameter("studentId",userUpdate.StudentId),
                 new SqlParameter("Province",userUpdate.Province), 
+                new SqlParameter("Id",userId), 
             };
             
             var update = await _myContext.Database.ExecuteSqlCommandAsync(
-                "update Users set Password=@Password,Name=@Name,Sex=@Sex,UniversityId=@UniversityId,studentId=@studentId",
+                "update Users set Password=@Password,Name=@Name,Sex=@Sex,UniversityId=@UniversityId,studentId=@studentId where Id=@Id",
                 parameters);
             if (update>0)
             {
@@ -116,6 +120,16 @@ namespace Team.Infrastructure.Repositories
         public User RetrievePassword(string account)
         {
             return _myContext.Users.SingleOrDefault(x => x.Account == account);
+        }
+
+        /// <summary>
+        /// 通过用户 Id 查询某个正在组队的团队信息
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        public User TeamSearchByUserIdTeaming(int userId)
+        {
+            return _myContext.Users.Include(x=>x.RunTeam).SingleOrDefault(x => x.Id == userId);
         }
     }
 }

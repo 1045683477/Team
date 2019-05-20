@@ -4,7 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using Team.Infrastructure.DbContext;
 using Team.Infrastructure.IRepositories;
-using Team.Model.Model;
+using Team.Model.Model.TeamModel;
+using Team.Model.Model.UserModel;
 
 namespace Team.Infrastructure.Repositories
 {
@@ -24,10 +25,10 @@ namespace Team.Infrastructure.Repositories
         /// <summary>
         /// 创建队伍,true为创建成功，false为创建失败
         /// </summary>
-        /// <param name="userId">创建人 Id</param>
+        /// <param name="participants"></param>
         /// <param name="team"></param>
         /// <returns></returns>
-        public bool TeamCreate(Participants participants, Model.Model.Team team)
+        public bool TeamCreate(Participants participants, Model.Model.TeamModel.Team team)
         {
             #region SQL
 
@@ -73,7 +74,7 @@ namespace Team.Infrastructure.Repositories
         /// </summary>
         /// <param name="userId">用户 Id</param>
         /// <returns></returns>
-        public IEnumerable<Model.Model.Team> TeamSearchUserCreateAll(int userId)
+        public IEnumerable<Model.Model.TeamModel.Team> TeamSearchUserCreateAll(int userId)
         {
             return _myContext.Teams.Where(x => x.UserId == userId).Include(x => x.Participantses).ToList();
         }
@@ -99,7 +100,7 @@ namespace Team.Infrastructure.Repositories
         /// <param name="sport">运动类型</param>
         /// <param name="userId">用户编号</param>
         /// <returns></returns>
-        public IEnumerable<Model.Model.Team> TeamSearchTeaming(Sport sport,int userId)
+        public IEnumerable<Model.Model.TeamModel.Team> TeamSearchTeaming(Sport sport,int userId)
         {
             var user = _myContext.Users.SingleOrDefault(x => x.Id == userId);
             var a=  _myContext.Teams.Where(x => x.AgreedTime > DateTime.Now && x.AllCount > x.Count && x.Sport==sport && x.User.UniversityId==user.UniversityId).ToList();
@@ -113,7 +114,7 @@ namespace Team.Infrastructure.Repositories
         /// </summary>
         /// <param name="teamId">团队 Id</param>
         /// <returns></returns>
-        public Model.Model.Team TeamSearchByIdTeaming(int teamId)
+        public Model.Model.TeamModel.Team TeamSearchByIdTeaming(int teamId)
         {
             return _myContext.Teams.Include(x => x.Participantses).SingleOrDefault(x => x.Id == teamId);
         }
@@ -124,7 +125,7 @@ namespace Team.Infrastructure.Repositories
         /// <param name="name">队伍名</param>
         /// <param name="userId">用户 ID</param>
         /// <returns></returns>
-        public Model.Model.Team TeamSearchByName(string name,int userId)
+        public Model.Model.TeamModel.Team TeamSearchByName(string name,int userId)
         {
             var user = _myContext.Users.SingleOrDefault(x => x.Id == userId);
             return _myContext.Teams.Include(x=>x.Participantses).SingleOrDefault(x => x.Name == name && x.AgreedTime>DateTime.Now && x.User.UniversityId==user.UniversityId);
@@ -133,14 +134,13 @@ namespace Team.Infrastructure.Repositories
         /// <summary>
         /// 参加队伍
         /// </summary>
-        /// <param name="participants">参加者模板</param>
         /// <param name="user"></param>
         /// <param name="teamId">队伍 Id</param>
         /// <returns></returns>
         public bool ParticipateInTeam(User user, int teamId)
         {
             var exits=_myContext.Teams.Include(x=>x.Participantses).SingleOrDefault(x => x.Id == teamId);
-            if (exits == null || (exits.Participantses.SingleOrDefault(s=>s.UserId==user.Id))!=null)
+            if (exits == null || exits.Participantses.SingleOrDefault(s => s.UserId == user.Id) != null)
             {
                 return false;
             }
@@ -150,7 +150,7 @@ namespace Team.Infrastructure.Repositories
             {
                 return false;
             }
-            Participants participants=new Participants
+            var participants=new Participants
             {
                 Name = user.Name,
                 TeamId = teamId,

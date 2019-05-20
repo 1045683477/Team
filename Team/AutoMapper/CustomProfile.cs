@@ -1,6 +1,12 @@
 ﻿using AutoMapper;
 using Team.Model.AutoMappers;
+using Team.Model.AutoMappers.RunTeamMapper;
+using Team.Model.AutoMappers.TeamMapper;
+using Team.Model.AutoMappers.UserMapper;
 using Team.Model.Model;
+using Team.Model.Model.RunTeamModel;
+using Team.Model.Model.TeamModel;
+using Team.Model.Model.UserModel;
 
 namespace Team.AutoMapper
 {
@@ -12,9 +18,9 @@ namespace Team.AutoMapper
 
             CreateMap<User, UserUpdateMap>();//为修改用户数据提供映射
 
-            CreateMap<Model.Model.Team, TeamSearchMap>();//队伍查询模板
+            CreateMap<Model.Model.TeamModel.Team, TeamSearchMap>();//队伍查询模板
 
-            CreateMap<TeamCreateMap, Model.Model.Team>();//创建队伍用
+            CreateMap<TeamCreateMap, Model.Model.TeamModel.Team>();//创建队伍用
 
             CreateMap<Participants, ParticipantsSearchMap>();//查取参与者信息
 
@@ -30,6 +36,19 @@ namespace Team.AutoMapper
 
             CreateMap<Statistical, StatisticalMap>();//跑步统计
 
+            CreateMap<RunTeamCreateMap, RunTeam>();//跑步队伍注册模板
+
+            CreateMap<RunApplicant, RunParticipants>();//同意入队映射
+
+            CreateMap<RunTeamUpdateMap, RunTeam>();//修改队伍信息
+
+            CreateMap<User, RunTeamSuccessCreateUserMapper>();//创建跑步队伍成功返回模板
+
+            CreateMap<RunTeam, RunTeamSuccessCreateMapper>();//创建跑步队伍成功模板
+
+            CreateMap<RunTeam, RunTeamSearch>();//通过 Id 查询队伍模板
+
+            CreateMap<RunParticipants, RunParticipantsMapper>();//参与者查询模板
         }
     }
 }

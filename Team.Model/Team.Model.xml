@@ -4,287 +4,427 @@
         <name>Team.Model</name>
     </assembly>
     <members>
-        <member name="P:Team.Model.AutoMappers.ParticipantsSearchByJoinMap.Id">
+        <member name="P:Team.Model.AutoMappers.RunTeamMapper.RunParticipantsMapper.Id">
             <summary>
             主键 Id
             </summary>
         </member>
-        <member name="P:Team.Model.AutoMappers.ParticipantsSearchByJoinMap.UserId">
+        <member name="P:Team.Model.AutoMappers.RunTeamMapper.RunParticipantsMapper.UserId">
             <summary>
             参加者 Id
             </summary>
         </member>
-        <member name="P:Team.Model.AutoMappers.ParticipantsSearchByJoinMap.Name">
+        <member name="P:Team.Model.AutoMappers.RunTeamMapper.RunParticipantsMapper.Name">
             <summary>
             姓名
             </summary>
         </member>
-        <member name="P:Team.Model.AutoMappers.ParticipantsSearchByJoinMap.TeamId">
-            <summary>
-            组队表外键
-            </summary>
-        </member>
-        <member name="T:Team.Model.AutoMappers.ParticipantsSearchMap">
-            <summary>
-            参加模板
-            </summary>
-        </member>
-        <member name="P:Team.Model.AutoMappers.ParticipantsSearchMap.Id">
-            <summary>
-            主键 Id
-            </summary>
-        </member>
-        <member name="P:Team.Model.AutoMappers.ParticipantsSearchMap.UserId">
-            <summary>
-            参加者 Id
-            </summary>
-        </member>
-        <member name="P:Team.Model.AutoMappers.ParticipantsSearchMap.Name">
-            <summary>
-            姓名
-            </summary>
-        </member>
-        <member name="P:Team.Model.AutoMappers.ParticipantsSearchMap.Sex">
+        <member name="P:Team.Model.AutoMappers.RunTeamMapper.RunParticipantsMapper.Sex">
             <summary>
             性别
             </summary>
         </member>
-        <member name="P:Team.Model.AutoMappers.RunRecordMap.SportFreeModel">
+        <member name="P:Team.Model.AutoMappers.RunTeamMapper.RunParticipantsMapper.ApplicationDate">
             <summary>
-            自由模式
+            申请时间
             </summary>
         </member>
-        <member name="P:Team.Model.AutoMappers.RunRecordMap.StarTime">
-            <summary>
-            开始时间
-            </summary>
-        </member>
-        <member name="P:Team.Model.AutoMappers.RunRecordMap.EndTime">
-            <summary>
-            结束时间
-            </summary>
-        </member>
-        <member name="P:Team.Model.AutoMappers.RunRecordMap.StarPlace">
-            <summary>
-            开始地点
-            </summary>
-        </member>
-        <member name="P:Team.Model.AutoMappers.RunRecordMap.EndPlace">
-            <summary>
-            结束地点
-            </summary>
-        </member>
-        <member name="P:Team.Model.AutoMappers.RunRecordMap.Distance">
-            <summary>
-            跑步长度
-            </summary>
-        </member>
-        <member name="P:Team.Model.AutoMappers.RunRecordMap.Kcal">
-            <summary>
-            消耗能量
-            </summary>
-        </member>
-        <member name="P:Team.Model.AutoMappers.RunRecordMap.Speed">
-            <summary>
-            配速
-            </summary>
-        </member>
-        <member name="P:Team.Model.AutoMappers.StatisticalMap.Distance">
-            <summary>
-            总路程
-            </summary>
-        </member>
-        <member name="P:Team.Model.AutoMappers.StatisticalMap.Kcal">
-            <summary>
-            总消耗卡路里
-            </summary>
-        </member>
-        <member name="P:Team.Model.AutoMappers.StatisticalMap.AllTime">
-            <summary>
-            总消耗时间
-            </summary>
-        </member>
-        <member name="T:Team.Model.AutoMappers.TeamCreateMap">
-            <summary>
-            创建队伍模板
-            </summary>
-        </member>
-        <member name="P:Team.Model.AutoMappers.TeamCreateMap.Name">
+        <member name="P:Team.Model.AutoMappers.RunTeamMapper.RunTeamCreateMap.Name">
             <summary>
             队伍名
             </summary>
         </member>
-        <member name="P:Team.Model.AutoMappers.TeamCreateMap.Images">
-            <summary>
-            图片
-            </summary>
-        </member>
-        <member name="P:Team.Model.AutoMappers.TeamCreateMap.Sport">
-            <summary>
-            运动类型
-            </summary>
-        </member>
-        <member name="P:Team.Model.AutoMappers.TeamCreateMap.AllCount">
-            <summary>
-            参加总人数
-            </summary>
-        </member>
-        <member name="P:Team.Model.AutoMappers.TeamCreateMap.Address">
-            <summary>
-            地址（自己输入地址）
-            </summary>
-        </member>
-        <member name="P:Team.Model.AutoMappers.TeamCreateMap.Introduction">
+        <member name="P:Team.Model.AutoMappers.RunTeamMapper.RunTeamCreateMap.Introduction">
             <summary>
             队伍简介
             </summary>
         </member>
-        <member name="P:Team.Model.AutoMappers.TeamCreateMap.AgreedTime">
-            <summary>
-            约定时间
-            </summary>
-        </member>
-        <member name="T:Team.Model.AutoMappers.TeamSearchMap">
-            <summary>
-            队伍查询模板查询模板
-            </summary>
-        </member>
-        <member name="P:Team.Model.AutoMappers.TeamSearchMap.Id">
+        <member name="P:Team.Model.AutoMappers.RunTeamMapper.RunTeamSearch.Id">
             <summary>
             主键
             </summary>
         </member>
-        <member name="P:Team.Model.AutoMappers.TeamSearchMap.Name">
+        <member name="P:Team.Model.AutoMappers.RunTeamMapper.RunTeamSearch.Name">
             <summary>
             队伍名
             </summary>
         </member>
-        <member name="P:Team.Model.AutoMappers.TeamSearchMap.Images">
-            <summary>
-            队伍图片
-            </summary>
-        </member>
-        <member name="P:Team.Model.AutoMappers.TeamSearchMap.CreationTime">
+        <member name="P:Team.Model.AutoMappers.RunTeamMapper.RunTeamSearch.CreationTime">
             <summary>
             创建队伍时间
             </summary>
         </member>
-        <member name="P:Team.Model.AutoMappers.TeamSearchMap.AgreedTime">
-            <summary>
-            约定时间
-            </summary>
-        </member>
-        <member name="P:Team.Model.AutoMappers.TeamSearchMap.Address">
-            <summary>
-            地址（自己输入地址）
-            </summary>
-        </member>
-        <member name="P:Team.Model.AutoMappers.TeamSearchMap.Introduction">
+        <member name="P:Team.Model.AutoMappers.RunTeamMapper.RunTeamSearch.Introduction">
             <summary>
             队伍简介
             </summary>
         </member>
-        <member name="P:Team.Model.AutoMappers.TeamSearchMap.AllCount">
+        <member name="P:Team.Model.AutoMappers.RunTeamMapper.RunTeamSearch.Count">
             <summary>
             总人数
             </summary>
         </member>
-        <member name="P:Team.Model.AutoMappers.TeamSearchMap.Count">
+        <member name="P:Team.Model.AutoMappers.RunTeamMapper.RunTeamSearch.ApplicationStatus">
             <summary>
-            当前数量
+            队长设置队伍状态，是否允许扩充,yes 1 允许，no 2不允许 ，默认允许
             </summary>
         </member>
-        <member name="P:Team.Model.AutoMappers.TeamSearchMap.Sport">
+        <member name="P:Team.Model.AutoMappers.RunTeamMapper.RunTeamSearch.RunParticipantses">
+            <summary>
+            参与者
+            </summary>
+        </member>
+        <member name="P:Team.Model.AutoMappers.RunTeamMapper.RunTeamSuccessCreateMapper.Id">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="P:Team.Model.AutoMappers.RunTeamMapper.RunTeamSuccessCreateMapper.Name">
+            <summary>
+            队伍名
+            </summary>
+        </member>
+        <member name="P:Team.Model.AutoMappers.RunTeamMapper.RunTeamSuccessCreateMapper.CreationTime">
+            <summary>
+            创建队伍时间
+            </summary>
+        </member>
+        <member name="P:Team.Model.AutoMappers.RunTeamMapper.RunTeamSuccessCreateMapper.Introduction">
+            <summary>
+            队伍简介
+            </summary>
+        </member>
+        <member name="P:Team.Model.AutoMappers.RunTeamMapper.RunTeamSuccessCreateMapper.Count">
+            <summary>
+            总人数
+            </summary>
+        </member>
+        <member name="P:Team.Model.AutoMappers.RunTeamMapper.RunTeamSuccessCreateMapper.ApplicationStatus">
+            <summary>
+            队长设置队伍状态，是否允许扩充,yes 1 允许，no 2不允许 ，默认允许
+            </summary>
+        </member>
+        <member name="P:Team.Model.AutoMappers.RunTeamMapper.RunTeamSuccessCreateMapper.RunParticipantses">
+            <summary>
+            参与者
+            </summary>
+        </member>
+        <member name="P:Team.Model.AutoMappers.RunTeamMapper.RunTeamSuccessCreateUserMapper.Id">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="P:Team.Model.AutoMappers.RunTeamMapper.RunTeamSuccessCreateUserMapper.Account">
+            <summary>
+            账号
+            </summary>
+        </member>
+        <member name="P:Team.Model.AutoMappers.RunTeamMapper.RunTeamSuccessCreateUserMapper.Name">
+            <summary>
+            姓名
+            </summary>
+        </member>
+        <member name="P:Team.Model.AutoMappers.RunTeamMapper.RunTeamSuccessCreateUserMapper.RunTeamId">
+            <summary>
+            跑步队伍 Id
+            </summary>
+        </member>
+        <member name="T:Team.Model.AutoMappers.RunTeamMapper.RunTeamUpdateMap">
+            <summary>
+            跑步队伍修改模板
+            </summary>
+        </member>
+        <member name="P:Team.Model.AutoMappers.RunTeamMapper.RunTeamUpdateMap.TeamId">
+            <summary>
+            队伍 Id 不需要填，后端帮你搞定
+            </summary>
+        </member>
+        <member name="P:Team.Model.AutoMappers.RunTeamMapper.RunTeamUpdateMap.Name">
+            <summary>
+            队伍名
+            </summary>
+        </member>
+        <member name="P:Team.Model.AutoMappers.RunTeamMapper.RunTeamUpdateMap.Introduction">
+            <summary>
+            队伍简介
+            </summary>
+        </member>
+        <member name="P:Team.Model.AutoMappers.RunTeamMapper.RunTeamUpdateMap.ApplicationStatus">
+            <summary>
+            队长设置队伍状态，是否允许扩充,yes 1 允许，no 2不允许 ，默认允许
+            </summary>
+        </member>
+        <member name="P:Team.Model.AutoMappers.TeamMapper.ParticipantsSearchByJoinMap.Id">
+            <summary>
+            主键 Id
+            </summary>
+        </member>
+        <member name="P:Team.Model.AutoMappers.TeamMapper.ParticipantsSearchByJoinMap.UserId">
+            <summary>
+            参加者 Id
+            </summary>
+        </member>
+        <member name="P:Team.Model.AutoMappers.TeamMapper.ParticipantsSearchByJoinMap.Name">
+            <summary>
+            姓名
+            </summary>
+        </member>
+        <member name="P:Team.Model.AutoMappers.TeamMapper.ParticipantsSearchByJoinMap.TeamId">
+            <summary>
+            组队表外键
+            </summary>
+        </member>
+        <member name="T:Team.Model.AutoMappers.TeamMapper.ParticipantsSearchMap">
+            <summary>
+            参加模板
+            </summary>
+        </member>
+        <member name="P:Team.Model.AutoMappers.TeamMapper.ParticipantsSearchMap.Id">
+            <summary>
+            主键 Id
+            </summary>
+        </member>
+        <member name="P:Team.Model.AutoMappers.TeamMapper.ParticipantsSearchMap.UserId">
+            <summary>
+            参加者 Id
+            </summary>
+        </member>
+        <member name="P:Team.Model.AutoMappers.TeamMapper.ParticipantsSearchMap.Name">
+            <summary>
+            姓名
+            </summary>
+        </member>
+        <member name="P:Team.Model.AutoMappers.TeamMapper.ParticipantsSearchMap.Sex">
+            <summary>
+            性别
+            </summary>
+        </member>
+        <member name="P:Team.Model.AutoMappers.TeamMapper.RunRecordMap.SportFreeModel">
+            <summary>
+            自由模式
+            </summary>
+        </member>
+        <member name="P:Team.Model.AutoMappers.TeamMapper.RunRecordMap.StarTime">
+            <summary>
+            开始时间
+            </summary>
+        </member>
+        <member name="P:Team.Model.AutoMappers.TeamMapper.RunRecordMap.EndTime">
+            <summary>
+            结束时间
+            </summary>
+        </member>
+        <member name="P:Team.Model.AutoMappers.TeamMapper.RunRecordMap.StarPlace">
+            <summary>
+            开始地点
+            </summary>
+        </member>
+        <member name="P:Team.Model.AutoMappers.TeamMapper.RunRecordMap.EndPlace">
+            <summary>
+            结束地点
+            </summary>
+        </member>
+        <member name="P:Team.Model.AutoMappers.TeamMapper.RunRecordMap.Distance">
+            <summary>
+            跑步长度
+            </summary>
+        </member>
+        <member name="P:Team.Model.AutoMappers.TeamMapper.RunRecordMap.Calorie">
+            <summary>
+            消耗能量
+            </summary>
+        </member>
+        <member name="P:Team.Model.AutoMappers.TeamMapper.RunRecordMap.Speed">
+            <summary>
+            配速
+            </summary>
+        </member>
+        <member name="P:Team.Model.AutoMappers.TeamMapper.StatisticalMap.Distance">
+            <summary>
+            总路程
+            </summary>
+        </member>
+        <member name="P:Team.Model.AutoMappers.TeamMapper.StatisticalMap.Kcal">
+            <summary>
+            总消耗卡路里
+            </summary>
+        </member>
+        <member name="P:Team.Model.AutoMappers.TeamMapper.StatisticalMap.AllTime">
+            <summary>
+            总消耗时间
+            </summary>
+        </member>
+        <member name="T:Team.Model.AutoMappers.TeamMapper.TeamCreateMap">
+            <summary>
+            创建队伍模板
+            </summary>
+        </member>
+        <member name="P:Team.Model.AutoMappers.TeamMapper.TeamCreateMap.Name">
+            <summary>
+            队伍名
+            </summary>
+        </member>
+        <member name="P:Team.Model.AutoMappers.TeamMapper.TeamCreateMap.Sport">
             <summary>
             运动类型
             </summary>
         </member>
-        <member name="T:Team.Model.AutoMappers.UserLoginMap">
+        <member name="P:Team.Model.AutoMappers.TeamMapper.TeamCreateMap.AllCount">
+            <summary>
+            参加总人数
+            </summary>
+        </member>
+        <member name="P:Team.Model.AutoMappers.TeamMapper.TeamCreateMap.Address">
+            <summary>
+            地址（自己输入地址）
+            </summary>
+        </member>
+        <member name="P:Team.Model.AutoMappers.TeamMapper.TeamCreateMap.Introduction">
+            <summary>
+            队伍简介
+            </summary>
+        </member>
+        <member name="P:Team.Model.AutoMappers.TeamMapper.TeamCreateMap.AgreedTime">
+            <summary>
+            约定时间
+            </summary>
+        </member>
+        <member name="T:Team.Model.AutoMappers.TeamMapper.TeamSearchMap">
+            <summary>
+            队伍查询模板查询模板
+            </summary>
+        </member>
+        <member name="P:Team.Model.AutoMappers.TeamMapper.TeamSearchMap.Id">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="P:Team.Model.AutoMappers.TeamMapper.TeamSearchMap.Name">
+            <summary>
+            队伍名
+            </summary>
+        </member>
+        <member name="P:Team.Model.AutoMappers.TeamMapper.TeamSearchMap.CreationTime">
+            <summary>
+            创建队伍时间
+            </summary>
+        </member>
+        <member name="P:Team.Model.AutoMappers.TeamMapper.TeamSearchMap.AgreedTime">
+            <summary>
+            约定时间
+            </summary>
+        </member>
+        <member name="P:Team.Model.AutoMappers.TeamMapper.TeamSearchMap.Address">
+            <summary>
+            地址（自己输入地址）
+            </summary>
+        </member>
+        <member name="P:Team.Model.AutoMappers.TeamMapper.TeamSearchMap.Introduction">
+            <summary>
+            队伍简介
+            </summary>
+        </member>
+        <member name="P:Team.Model.AutoMappers.TeamMapper.TeamSearchMap.AllCount">
+            <summary>
+            总人数
+            </summary>
+        </member>
+        <member name="P:Team.Model.AutoMappers.TeamMapper.TeamSearchMap.Count">
+            <summary>
+            当前数量
+            </summary>
+        </member>
+        <member name="P:Team.Model.AutoMappers.TeamMapper.TeamSearchMap.Sport">
+            <summary>
+            运动类型
+            </summary>
+        </member>
+        <member name="T:Team.Model.AutoMappers.UserMapper.UserLoginMap">
             <summary>
             登陆模板
             </summary>
         </member>
-        <member name="P:Team.Model.AutoMappers.UserLoginMap.Account">
+        <member name="P:Team.Model.AutoMappers.UserMapper.UserLoginMap.Account">
             <summary>
             账号
             </summary>
         </member>
-        <member name="P:Team.Model.AutoMappers.UserLoginMap.Password">
+        <member name="P:Team.Model.AutoMappers.UserMapper.UserLoginMap.Password">
             <summary>
             密码
             </summary>
         </member>
-        <member name="T:Team.Model.AutoMappers.UserRegisteredMap">
+        <member name="T:Team.Model.AutoMappers.UserMapper.UserRegisteredMap">
             <summary>
             注册模板
             </summary>
         </member>
-        <member name="P:Team.Model.AutoMappers.UserRegisteredMap.Account">
+        <member name="P:Team.Model.AutoMappers.UserMapper.UserRegisteredMap.Account">
             <summary>
             账号
             </summary>
         </member>
-        <member name="P:Team.Model.AutoMappers.UserRegisteredMap.Password">
+        <member name="P:Team.Model.AutoMappers.UserMapper.UserRegisteredMap.Password">
             <summary>
             密码
             </summary>
         </member>
-        <member name="P:Team.Model.AutoMappers.UserRegisteredMap.Name">
+        <member name="P:Team.Model.AutoMappers.UserMapper.UserRegisteredMap.Name">
             <summary>
             姓名
             </summary>
         </member>
-        <member name="P:Team.Model.AutoMappers.UserRegisteredMap.Sex">
+        <member name="P:Team.Model.AutoMappers.UserMapper.UserRegisteredMap.Sex">
             <summary>
             性别，1为男，0为女
             </summary>
         </member>
-        <member name="P:Team.Model.AutoMappers.UserRegisteredMap.Province">
+        <member name="P:Team.Model.AutoMappers.UserMapper.UserRegisteredMap.Province">
             <summary>
             省份
             </summary>
         </member>
-        <member name="P:Team.Model.AutoMappers.UserRegisteredMap.UniversityId">
+        <member name="P:Team.Model.AutoMappers.UserMapper.UserRegisteredMap.UniversityId">
             <summary>
             大学
             </summary>
         </member>
-        <member name="P:Team.Model.AutoMappers.UserRegisteredMap.studentId">
+        <member name="P:Team.Model.AutoMappers.UserMapper.UserRegisteredMap.studentId">
             <summary>
             学号
             </summary>
         </member>
-        <member name="T:Team.Model.AutoMappers.UserUpdateMap">
+        <member name="T:Team.Model.AutoMappers.UserMapper.UserUpdateMap">
             <summary>
             用户修改模板
             </summary>
         </member>
-        <member name="P:Team.Model.AutoMappers.UserUpdateMap.Password">
+        <member name="P:Team.Model.AutoMappers.UserMapper.UserUpdateMap.Password">
             <summary>
             密码
             </summary>
         </member>
-        <member name="P:Team.Model.AutoMappers.UserUpdateMap.Name">
+        <member name="P:Team.Model.AutoMappers.UserMapper.UserUpdateMap.Name">
             <summary>
             姓名
             </summary>
         </member>
-        <member name="P:Team.Model.AutoMappers.UserUpdateMap.Sex">
+        <member name="P:Team.Model.AutoMappers.UserMapper.UserUpdateMap.Sex">
             <summary>
             性别，1为男，0为女
             </summary>
         </member>
-        <member name="P:Team.Model.AutoMappers.UserUpdateMap.Province">
+        <member name="P:Team.Model.AutoMappers.UserMapper.UserUpdateMap.Province">
             <summary>
             省份
             </summary>
         </member>
-        <member name="P:Team.Model.AutoMappers.UserUpdateMap.UniversityId">
+        <member name="P:Team.Model.AutoMappers.UserMapper.UserUpdateMap.UniversityId">
             <summary>
             大学
             </summary>
         </member>
-        <member name="P:Team.Model.AutoMappers.UserUpdateMap.studentId">
+        <member name="P:Team.Model.AutoMappers.UserMapper.UserUpdateMap.StudentId">
             <summary>
             学号
             </summary>
@@ -309,309 +449,579 @@
             数据
             </summary>
         </member>
-        <member name="T:Team.Model.Model.Participants">
+        <member name="T:Team.Model.Model.RunTeamModel.ApplicationStatus">
             <summary>
-            参加者表
+            队长设置队伍状态，是否允许扩充,yes 1 允许，no 2不允许
             </summary>
         </member>
-        <member name="P:Team.Model.Model.Participants.Id">
+        <member name="T:Team.Model.Model.RunTeamModel.RunApplicant">
             <summary>
-            主键 Id
+            申请者名单
             </summary>
         </member>
-        <member name="P:Team.Model.Model.Participants.UserId">
+        <member name="P:Team.Model.Model.RunTeamModel.RunApplicant.Id">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.RunTeamModel.RunApplicant.UserId">
             <summary>
             参加者 Id
             </summary>
         </member>
-        <member name="P:Team.Model.Model.Participants.Name">
+        <member name="P:Team.Model.Model.RunTeamModel.RunApplicant.Name">
             <summary>
             姓名
             </summary>
         </member>
-        <member name="P:Team.Model.Model.Participants.Sex">
+        <member name="P:Team.Model.Model.RunTeamModel.RunApplicant.Sex">
             <summary>
             性别
             </summary>
         </member>
-        <member name="P:Team.Model.Model.Participants.TeamId">
+        <member name="P:Team.Model.Model.RunTeamModel.RunApplicant.ApplicationDate">
+            <summary>
+            申请时间
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.RunTeamModel.RunApplicant.RunTeamId">
             <summary>
             组队表外键
             </summary>
         </member>
-        <member name="F:Team.Model.Model.Role.Client">
+        <member name="T:Team.Model.Model.RunTeamModel.RunParticipants">
             <summary>
-            用户
+            跑步团队成员
             </summary>
         </member>
-        <member name="F:Team.Model.Model.Role.Admin">
+        <member name="P:Team.Model.Model.RunTeamModel.RunParticipants.Id">
             <summary>
-            管理员
+            主键 Id
             </summary>
         </member>
-        <member name="F:Team.Model.Model.Role.SuperAdministrator">
+        <member name="P:Team.Model.Model.RunTeamModel.RunParticipants.UserId">
             <summary>
-            超级管理员
+            参加者 Id
             </summary>
         </member>
-        <member name="T:Team.Model.Model.Run">
-            <summary>
-            跑步记录
-            </summary>
-        </member>
-        <member name="P:Team.Model.Model.Run.Id">
-            <summary>
-            主键
-            </summary>
-        </member>
-        <member name="P:Team.Model.Model.Run.SportFreeModel">
-            <summary>
-            自由模式
-            </summary>
-        </member>
-        <member name="P:Team.Model.Model.Run.StarTime">
-            <summary>
-            开始时间
-            </summary>
-        </member>
-        <member name="P:Team.Model.Model.Run.EndTime">
-            <summary>
-            结束时间
-            </summary>
-        </member>
-        <member name="P:Team.Model.Model.Run.StarPlace">
-            <summary>
-            开始地点
-            </summary>
-        </member>
-        <member name="P:Team.Model.Model.Run.EndPlace">
-            <summary>
-            结束地点
-            </summary>
-        </member>
-        <member name="P:Team.Model.Model.Run.Distance">
-            <summary>
-            跑步长度
-            </summary>
-        </member>
-        <member name="P:Team.Model.Model.Run.Kcal">
-            <summary>
-            消耗能量
-            </summary>
-        </member>
-        <member name="P:Team.Model.Model.Run.Speed">
-            <summary>
-            配速
-            </summary>
-        </member>
-        <member name="P:Team.Model.Model.Run.UserId">
-            <summary>
-            外键
-            </summary>
-        </member>
-        <member name="T:Team.Model.Model.Sport">
-            <summary>
-            运动类
-            </summary>
-        </member>
-        <member name="F:Team.Model.Model.Sport.PingPongBall">
-            <summary>
-            乒乓球
-            </summary>
-        </member>
-        <member name="F:Team.Model.Model.Sport.Badminton">
-            <summary>
-            羽毛球
-            </summary>
-        </member>
-        <member name="F:Team.Model.Model.Sport.Tennis">
-            <summary>
-            网球
-            </summary>
-        </member>
-        <member name="F:Team.Model.Model.Sport.Basketball">
-            <summary>
-            篮球
-            </summary>
-        </member>
-        <member name="F:Team.Model.Model.Sport.Football">
-            <summary>
-            足球
-            </summary>
-        </member>
-        <member name="F:Team.Model.Model.Sport.ClimbingTheMountain">
-            <summary>
-            爬山
-            </summary>
-        </member>
-        <member name="F:Team.Model.Model.Sport.Run">
-            <summary>
-            跑步
-            </summary>
-        </member>
-        <member name="F:Team.Model.Model.SportFreeModel.Running">
-            <summary>
-            跑步
-            </summary>
-        </member>
-        <member name="F:Team.Model.Model.SportFreeModel.Riding">
-            <summary>
-            骑行
-            </summary>
-        </member>
-        <member name="T:Team.Model.Model.Statistical">
-            <summary>
-            统计总路程、卡路里、时间
-            </summary>
-        </member>
-        <member name="P:Team.Model.Model.Statistical.SportFreeModel">
-            <summary>
-            跑步项目
-            </summary>
-        </member>
-        <member name="P:Team.Model.Model.Statistical.Distance">
-            <summary>
-            总路程
-            </summary>
-        </member>
-        <member name="P:Team.Model.Model.Statistical.Kcal">
-            <summary>
-            总消耗卡路里
-            </summary>
-        </member>
-        <member name="P:Team.Model.Model.Statistical.AllTime">
-            <summary>
-            总消耗时间
-            </summary>
-        </member>
-        <member name="T:Team.Model.Model.Team">
-            <summary>
-            历史约球记录
-            </summary>
-        </member>
-        <member name="P:Team.Model.Model.Team.Id">
-            <summary>
-            主键
-            </summary>
-        </member>
-        <member name="P:Team.Model.Model.Team.Name">
-            <summary>
-            队伍名
-            </summary>
-        </member>
-        <member name="P:Team.Model.Model.Team.Images">
-            <summary>
-            队伍图片
-            </summary>
-        </member>
-        <member name="P:Team.Model.Model.Team.CreationTime">
-            <summary>
-            创建队伍时间
-            </summary>
-        </member>
-        <member name="P:Team.Model.Model.Team.AgreedTime">
-            <summary>
-            约定时间
-            </summary>
-        </member>
-        <member name="P:Team.Model.Model.Team.Address">
-            <summary>
-            地址（自己输入地址）
-            </summary>
-        </member>
-        <member name="P:Team.Model.Model.Team.Introduction">
-            <summary>
-            队伍简介
-            </summary>
-        </member>
-        <member name="P:Team.Model.Model.Team.AllCount">
-            <summary>
-            总人数
-            </summary>
-        </member>
-        <member name="P:Team.Model.Model.Team.Count">
-            <summary>
-            当前数量
-            </summary>
-        </member>
-        <member name="P:Team.Model.Model.Team.Sport">
-            <summary>
-            运动类型
-            </summary>
-        </member>
-        <member name="P:Team.Model.Model.Team.UserId">
-            <summary>
-            外键
-            </summary>
-        </member>
-        <member name="T:Team.Model.Model.User">
-            <summary>
-            用户资料
-            </summary>
-        </member>
-        <member name="P:Team.Model.Model.User.Id">
-            <summary>
-            主键
-            </summary>
-        </member>
-        <member name="P:Team.Model.Model.User.Account">
-            <summary>
-            账号
-            </summary>
-        </member>
-        <member name="P:Team.Model.Model.User.Password">
-            <summary>
-            密码
-            </summary>
-        </member>
-        <member name="P:Team.Model.Model.User.Name">
+        <member name="P:Team.Model.Model.RunTeamModel.RunParticipants.Name">
             <summary>
             姓名
             </summary>
         </member>
-        <member name="P:Team.Model.Model.User.Images">
+        <member name="P:Team.Model.Model.RunTeamModel.RunParticipants.Sex">
             <summary>
-            头像
+            性别
             </summary>
         </member>
-        <member name="P:Team.Model.Model.User.Sex">
+        <member name="P:Team.Model.Model.RunTeamModel.RunParticipants.ApplicationDate">
             <summary>
-            性别，1为男，0为女
+            申请时间
             </summary>
         </member>
-        <member name="P:Team.Model.Model.User.Role">
+        <member name="P:Team.Model.Model.RunTeamModel.RunParticipants.RunTeamId">
             <summary>
-            身份
+            组队表外键
             </summary>
         </member>
-        <member name="P:Team.Model.Model.User.Province">
+        <member name="T:Team.Model.Model.RunTeamModel.RunTeam">
             <summary>
-            省份
+            跑步的固定队伍，人数固定为五人
             </summary>
         </member>
-        <member name="P:Team.Model.Model.User.UniversityId">
+        <member name="P:Team.Model.Model.RunTeamModel.RunTeam.Id">
             <summary>
-            大学 Id
+            主键
             </summary>
         </member>
-        <member name="P:Team.Model.Model.User.StudentId">
+        <member name="P:Team.Model.Model.RunTeamModel.RunTeam.Name">
             <summary>
-            学号
+            队伍名
             </summary>
         </member>
-        <member name="P:Team.Model.Model.User.Teams">
+        <member name="P:Team.Model.Model.RunTeamModel.RunTeam.CreationTime">
             <summary>
-            组队
+            创建队伍时间
             </summary>
         </member>
-        <member name="P:Team.Model.Model.User.Runs">
+        <member name="P:Team.Model.Model.RunTeamModel.RunTeam.Introduction">
+            <summary>
+            队伍简介
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.RunTeamModel.RunTeam.Count">
+            <summary>
+            总人数
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.RunTeamModel.RunTeam.ApplicationStatus">
+            <summary>
+            队长设置队伍状态，是否允许扩充,yes 1 允许，no 2不允许 ，默认允许
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.RunTeamModel.RunTeam.RunTeamRecords">
+            <summary>
+            团队跑步记录
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.RunTeamModel.RunTeam.UserId">
+            <summary>
+            外键
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.RunTeamModel.RunTeam.RunParticipantses">
+            <summary>
+            参与者
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.RunTeamModel.RunTeam.RunApplicants">
+            <summary>
+            申请者
+            </summary>
+        </member>
+        <member name="T:Team.Model.Model.RunTeamModel.RunTeamRecord">
+            <summary>
+            团队跑步记录
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.RunTeamModel.RunTeamRecord.Id">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.RunTeamModel.RunTeamRecord.DateTime">
+            <summary>
+            当天时间
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.RunTeamModel.RunTeamRecord.Distance">
+            <summary>
+            跑步长度
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.RunTeamModel.RunTeamRecord.Calories">
+            <summary>
+            消耗能量
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.RunTeamModel.RunTeamRecord.RunTeamId">
+            <summary>
+            外键
+            </summary>
+        </member>
+        <member name="F:Team.Model.Model.RunTeamModel.RunTeamState.No">
+            <summary>
+            没有参队
+            </summary>
+        </member>
+        <member name="F:Team.Model.Model.RunTeamModel.RunTeamState.Yes">
+            <summary>
+            参队
+            </summary>
+        </member>
+        <member name="T:Team.Model.Model.RunTeamModel.RunTimeDailyCharts">
+            <summary>
+            日排行榜
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.RunTeamModel.RunTimeDailyCharts.Ranking">
+            <summary>
+            排名名词
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.RunTeamModel.RunTimeDailyCharts.TeamName">
+            <summary>
+            队伍名
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.RunTeamModel.RunTimeDailyCharts.Introduction">
+            <summary>
+            队伍简介
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.RunTeamModel.RunTimeDailyCharts.DateTime">
+            <summary>
+            当天时间
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.RunTeamModel.RunTimeDailyCharts.ClockIn">
+            <summary>
+            打卡人数
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.RunTeamModel.RunTimeDailyCharts.RunTeamId">
+            <summary>
+            队伍 Id
+            </summary>
+        </member>
+        <member name="T:Team.Model.Model.RunTeamModel.RunTimeWeekCharts">
+            <summary>
+            周排行榜
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.RunTeamModel.RunTimeWeekCharts.TeamId">
+            <summary>
+            队伍 Id
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.RunTeamModel.RunTimeWeekCharts.Ranking">
+            <summary>
+            排名名词
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.RunTeamModel.RunTimeWeekCharts.TeamName">
+            <summary>
+            队伍名
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.RunTeamModel.RunTimeWeekCharts.Introduction">
+            <summary>
+            队伍简介
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.RunTeamModel.RunTimeWeekCharts.ClockIn">
+            <summary>
+            打卡人数总和
+            </summary>
+        </member>
+        <member name="T:Team.Model.Model.RunTeamModel.TeamList">
+            <summary>
+            组队列表
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.RunTeamModel.TeamList.Id">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.RunTeamModel.TeamList.Name">
+            <summary>
+            队伍名
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.RunTeamModel.TeamList.CreationTime">
+            <summary>
+            创建队伍时间
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.RunTeamModel.TeamList.Introduction">
+            <summary>
+            队伍简介
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.RunTeamModel.TeamList.Count">
+            <summary>
+            总人数
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.RunTeamModel.TeamList.UserId">
+            <summary>
+            外键
+            </summary>
+        </member>
+        <member name="T:Team.Model.Model.TeamModel.Participants">
+            <summary>
+            参加者表
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.TeamModel.Participants.Id">
+            <summary>
+            主键 Id
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.TeamModel.Participants.UserId">
+            <summary>
+            参加者 Id
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.TeamModel.Participants.Name">
+            <summary>
+            姓名
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.TeamModel.Participants.Sex">
+            <summary>
+            性别
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.TeamModel.Participants.TeamId">
+            <summary>
+            组队表外键
+            </summary>
+        </member>
+        <member name="T:Team.Model.Model.TeamModel.Run">
             <summary>
             跑步记录
             </summary>
         </member>
-        <member name="P:Team.Model.Model.User.Statistical">
+        <member name="P:Team.Model.Model.TeamModel.Run.Id">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.TeamModel.Run.SportFreeModel">
+            <summary>
+            自由模式
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.TeamModel.Run.StarTime">
+            <summary>
+            开始时间
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.TeamModel.Run.EndTime">
+            <summary>
+            结束时间
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.TeamModel.Run.StarPlace">
+            <summary>
+            开始地点
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.TeamModel.Run.EndPlace">
+            <summary>
+            结束地点
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.TeamModel.Run.Distance">
+            <summary>
+            跑步长度
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.TeamModel.Run.Calories">
+            <summary>
+            消耗能量
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.TeamModel.Run.Speed">
+            <summary>
+            配速
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.TeamModel.Run.UserId">
+            <summary>
+            外键
+            </summary>
+        </member>
+        <member name="T:Team.Model.Model.TeamModel.Sport">
+            <summary>
+            运动类
+            </summary>
+        </member>
+        <member name="F:Team.Model.Model.TeamModel.Sport.PingPongBall">
+            <summary>
+            乒乓球
+            </summary>
+        </member>
+        <member name="F:Team.Model.Model.TeamModel.Sport.Badminton">
+            <summary>
+            羽毛球
+            </summary>
+        </member>
+        <member name="F:Team.Model.Model.TeamModel.Sport.Tennis">
+            <summary>
+            网球
+            </summary>
+        </member>
+        <member name="F:Team.Model.Model.TeamModel.Sport.Basketball">
+            <summary>
+            篮球
+            </summary>
+        </member>
+        <member name="F:Team.Model.Model.TeamModel.Sport.Football">
+            <summary>
+            足球
+            </summary>
+        </member>
+        <member name="F:Team.Model.Model.TeamModel.Sport.ClimbingTheMountain">
+            <summary>
+            爬山
+            </summary>
+        </member>
+        <member name="F:Team.Model.Model.TeamModel.Sport.Run">
+            <summary>
+            跑步
+            </summary>
+        </member>
+        <member name="F:Team.Model.Model.TeamModel.SportFreeModel.Running">
+            <summary>
+            跑步
+            </summary>
+        </member>
+        <member name="F:Team.Model.Model.TeamModel.SportFreeModel.Riding">
+            <summary>
+            骑行
+            </summary>
+        </member>
+        <member name="T:Team.Model.Model.TeamModel.Statistical">
+            <summary>
+            统计总路程、卡路里、时间
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.TeamModel.Statistical.SportFreeModel">
+            <summary>
+            跑步项目
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.TeamModel.Statistical.Distance">
+            <summary>
+            总路程
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.TeamModel.Statistical.Calorie">
+            <summary>
+            总消耗卡路里
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.TeamModel.Statistical.AllTime">
+            <summary>
+            总消耗时间
+            </summary>
+        </member>
+        <member name="T:Team.Model.Model.TeamModel.Team">
+            <summary>
+            历史约球记录
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.TeamModel.Team.Id">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.TeamModel.Team.Name">
+            <summary>
+            队伍名
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.TeamModel.Team.CreationTime">
+            <summary>
+            创建队伍时间
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.TeamModel.Team.AgreedTime">
+            <summary>
+            约定时间
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.TeamModel.Team.Address">
+            <summary>
+            地址（自己输入地址）
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.TeamModel.Team.Introduction">
+            <summary>
+            队伍简介
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.TeamModel.Team.AllCount">
+            <summary>
+            总人数
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.TeamModel.Team.Count">
+            <summary>
+            当前数量
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.TeamModel.Team.Sport">
+            <summary>
+            运动类型
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.TeamModel.Team.UserId">
+            <summary>
+            外键
+            </summary>
+        </member>
+        <member name="F:Team.Model.Model.UserModel.Role.Client">
+            <summary>
+            用户
+            </summary>
+        </member>
+        <member name="F:Team.Model.Model.UserModel.Role.Admin">
+            <summary>
+            管理员
+            </summary>
+        </member>
+        <member name="F:Team.Model.Model.UserModel.Role.SuperAdministrator">
+            <summary>
+            超级管理员
+            </summary>
+        </member>
+        <member name="T:Team.Model.Model.UserModel.User">
+            <summary>
+            用户资料
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.UserModel.User.Id">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.UserModel.User.Account">
+            <summary>
+            账号
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.UserModel.User.Password">
+            <summary>
+            密码
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.UserModel.User.Name">
+            <summary>
+            姓名
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.UserModel.User.Sex">
+            <summary>
+            性别，1为男，0为女
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.UserModel.User.Role">
+            <summary>
+            身份
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.UserModel.User.Province">
+            <summary>
+            省份
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.UserModel.User.UniversityId">
+            <summary>
+            大学 Id
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.UserModel.User.StudentId">
+            <summary>
+            学号
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.UserModel.User.Teams">
+            <summary>
+            组队
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.UserModel.User.Runs">
+            <summary>
+            跑步记录
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.UserModel.User.Statistical">
             <summary>
             统计总数据
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.UserModel.User.RunTeamId">
+            <summary>
+            跑步队伍 Id
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.UserModel.User.RunTeam">
+            <summary>
+            队伍固定数目
             </summary>
         </member>
     </members>

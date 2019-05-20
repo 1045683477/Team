@@ -22,7 +22,12 @@ using Team.Infrastructure.DbContext;
 using Team.Infrastructure.IRepositories;
 using Team.Infrastructure.Repositories;
 using Team.Model.AutoMappers;
+using Team.Model.AutoMappers.TeamMapper;
+using Team.Model.AutoMappers.UserMapper;
 using Team.Validator;
+using Team.Validator.RunValidator;
+using Team.Validator.TeamValidator;
+using Team.Validator.UserValidator;
 
 namespace Team
 {
@@ -185,13 +190,25 @@ namespace Team
             services.AddScoped<ITeamBall, TeamBall>();
             services.AddScoped<IRunRepository, RunRepository>();
             services.AddScoped<IImagesResource, ImagesResource>();
+            services.AddScoped<IRunTeamResource, RunTeamResource>();
 
             #endregion
 
             
 
             services.AddAutoMapper();
+            services.AddTimedJob();
+
+            #region 将Json.NET配置为忽略它在对象图中找到的循环
+
+            services.AddMvc()
+                .AddJsonOptions(
+                    options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+                );
+
+            #endregion
             
+
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2).AddFluentValidation().AddJsonOptions(
                 options=>options.SerializerSettings.ReferenceLoopHandling=Newtonsoft.Json.ReferenceLoopHandling.Ignore);
@@ -203,8 +220,6 @@ namespace Team
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-
-                
             }
             #region Swagger
 
@@ -212,6 +227,9 @@ namespace Team
             app.UseSwaggerUI(s => s.SwaggerEndpoint("/swagger/v1/swagger.json", "v1版本"));
 
             #endregion
+
+            app.UseTimedJob();
+
             app.UseAuthentication();
 
             app.UseMvc();

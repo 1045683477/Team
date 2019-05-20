@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
-using Team.Model.AutoMappers;
-using Team.Model.Model;
+using Team.Model.AutoMappers.UserMapper;
+using Team.Model.Model.UserModel;
 
 namespace Team.Infrastructure.IRepositories
 {
@@ -52,5 +52,12 @@ namespace Team.Infrastructure.IRepositories
         /// <param name="account">账号</param>
         /// <returns></returns>
         User RetrievePassword(string account);
+
+        /// <summary>
+        /// 通过用户 Id 查询某个正在组队的团队信息
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        User TeamSearchByUserIdTeaming(int userId);
     }
 }
