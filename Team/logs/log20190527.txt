@@ -1,0 +1,982 @@
+2019-05-27 17:05:56.314 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-27 17:06:08.836 +08:00 [INF] Executed DbCommand (2,063ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+CREATE DATABASE [Team];
+2019-05-27 17:06:09.379 +08:00 [INF] Executed DbCommand (537ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [Team] SET READ_COMMITTED_SNAPSHOT ON;
+END;
+2019-05-27 17:06:09.562 +08:00 [INF] Executed DbCommand (120ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [RunTimeWeekChartses] (
+    [Id] int NOT NULL IDENTITY,
+    [TeamId] int NOT NULL,
+    [Ranking] int NOT NULL,
+    [TeamName] nvarchar(max) NULL,
+    [Introduction] nvarchar(max) NULL,
+    [ClockIn] int NOT NULL,
+    CONSTRAINT [PK_RunTimeWeekChartses] PRIMARY KEY ([Id])
+);
+2019-05-27 17:06:09.565 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Users] (
+    [Id] int NOT NULL IDENTITY,
+    [Account] nvarchar(max) NOT NULL,
+    [Password] nvarchar(max) NOT NULL,
+    [Name] nvarchar(max) NOT NULL,
+    [Sex] int NOT NULL,
+    [Role] int NOT NULL,
+    [Province] int NOT NULL,
+    [UniversityId] int NOT NULL,
+    [StudentId] int NOT NULL,
+    [RunTeamId] int NOT NULL,
+    CONSTRAINT [PK_Users] PRIMARY KEY ([Id])
+);
+2019-05-27 17:06:09.629 +08:00 [INF] Executed DbCommand (64ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [LatitudeAndLongitudes] (
+    [Id] int NOT NULL IDENTITY,
+    [Latitude] float NOT NULL,
+    [Longitude] float NOT NULL,
+    [Name] nvarchar(max) NULL,
+    [Phone] nvarchar(max) NULL,
+    [UserId] int NOT NULL,
+    CONSTRAINT [PK_LatitudeAndLongitudes] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_LatitudeAndLongitudes_Users_UserId] FOREIGN KEY ([UserId]) REFERENCES [Users] ([Id]) ON DELETE CASCADE
+);
+2019-05-27 17:06:09.664 +08:00 [INF] Executed DbCommand (36ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Runs] (
+    [Id] int NOT NULL IDENTITY,
+    [SportFreeModel] int NOT NULL,
+    [StarTime] datetime2 NOT NULL,
+    [EndTime] datetime2 NOT NULL,
+    [StarPlace] nvarchar(max) NOT NULL,
+    [EndPlace] nvarchar(max) NOT NULL,
+    [Distance] real NOT NULL,
+    [Calories] real NOT NULL,
+    [Speed] real NOT NULL,
+    [UserId] int NOT NULL,
+    CONSTRAINT [PK_Runs] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Runs_Users_UserId] FOREIGN KEY ([UserId]) REFERENCES [Users] ([Id]) ON DELETE CASCADE
+);
+2019-05-27 17:06:09.666 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [RunTeams] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(max) NOT NULL,
+    [CreationTime] datetime2 NOT NULL,
+    [Introduction] nvarchar(max) NULL,
+    [Count] int NOT NULL,
+    [ApplicationStatus] int NOT NULL,
+    [UserId] int NOT NULL,
+    CONSTRAINT [PK_RunTeams] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_RunTeams_Users_UserId] FOREIGN KEY ([UserId]) REFERENCES [Users] ([Id]) ON DELETE CASCADE
+);
+2019-05-27 17:06:09.667 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Statisticals] (
+    [Id] int NOT NULL IDENTITY,
+    [SportFreeModel] int NOT NULL,
+    [Distance] real NOT NULL,
+    [Calorie] real NOT NULL,
+    [AllTime] real NOT NULL,
+    [UserId] int NOT NULL,
+    CONSTRAINT [PK_Statisticals] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Statisticals_Users_UserId] FOREIGN KEY ([UserId]) REFERENCES [Users] ([Id]) ON DELETE CASCADE
+);
+2019-05-27 17:06:09.669 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [TeamLists] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(max) NULL,
+    [CreationTime] datetime2 NOT NULL,
+    [Introduction] nvarchar(max) NULL,
+    [Count] int NOT NULL,
+    [UserId] int NOT NULL,
+    CONSTRAINT [PK_TeamLists] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_TeamLists_Users_UserId] FOREIGN KEY ([UserId]) REFERENCES [Users] ([Id]) ON DELETE CASCADE
+);
+2019-05-27 17:06:09.671 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Teams] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(max) NULL,
+    [CreationTime] datetime2 NOT NULL,
+    [AgreedTime] datetime2 NOT NULL,
+    [Address] nvarchar(max) NOT NULL,
+    [Introduction] nvarchar(max) NULL,
+    [AllCount] int NOT NULL,
+    [Count] int NOT NULL,
+    [Sport] int NOT NULL,
+    [UserId] int NOT NULL,
+    CONSTRAINT [PK_Teams] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Teams_Users_UserId] FOREIGN KEY ([UserId]) REFERENCES [Users] ([Id]) ON DELETE CASCADE
+);
+2019-05-27 17:06:09.697 +08:00 [INF] Executed DbCommand (26ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [RunApplicants] (
+    [Id] int NOT NULL IDENTITY,
+    [UserId] int NOT NULL,
+    [Name] nvarchar(max) NULL,
+    [Sex] int NOT NULL,
+    [ApplicationDate] datetime2 NOT NULL,
+    [RunTeamId] int NOT NULL,
+    CONSTRAINT [PK_RunApplicants] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_RunApplicants_RunTeams_RunTeamId] FOREIGN KEY ([RunTeamId]) REFERENCES [RunTeams] ([Id]) ON DELETE CASCADE
+);
+2019-05-27 17:06:09.715 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [RunParticipantses] (
+    [Id] int NOT NULL IDENTITY,
+    [UserId] int NOT NULL,
+    [Name] nvarchar(max) NULL,
+    [Sex] int NOT NULL,
+    [ApplicationDate] datetime2 NOT NULL,
+    [RunTeamId] int NOT NULL,
+    CONSTRAINT [PK_RunParticipantses] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_RunParticipantses_RunTeams_RunTeamId] FOREIGN KEY ([RunTeamId]) REFERENCES [RunTeams] ([Id]) ON DELETE CASCADE
+);
+2019-05-27 17:06:09.717 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [RunTeamRecords] (
+    [Id] int NOT NULL IDENTITY,
+    [DateTime] date NOT NULL,
+    [Distance] real NOT NULL,
+    [Calories] real NOT NULL,
+    [RunTeamId] int NOT NULL,
+    CONSTRAINT [PK_RunTeamRecords] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_RunTeamRecords_RunTeams_RunTeamId] FOREIGN KEY ([RunTeamId]) REFERENCES [RunTeams] ([Id]) ON DELETE CASCADE
+);
+2019-05-27 17:06:09.718 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [RunTimeDailyChartses] (
+    [Id] int NOT NULL IDENTITY,
+    [Ranking] int NOT NULL,
+    [TeamName] nvarchar(max) NULL,
+    [Introduction] nvarchar(max) NULL,
+    [DateTime] date NOT NULL,
+    [ClockIn] int NOT NULL,
+    [RunTeamId] int NOT NULL,
+    CONSTRAINT [PK_RunTimeDailyChartses] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_RunTimeDailyChartses_RunTeams_RunTeamId] FOREIGN KEY ([RunTeamId]) REFERENCES [RunTeams] ([Id]) ON DELETE CASCADE
+);
+2019-05-27 17:06:09.719 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Participantses] (
+    [Id] int NOT NULL IDENTITY,
+    [UserId] int NOT NULL,
+    [Name] nvarchar(max) NOT NULL,
+    [Sex] int NOT NULL,
+    [TeamId] int NOT NULL,
+    CONSTRAINT [PK_Participantses] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Participantses_Teams_TeamId] FOREIGN KEY ([TeamId]) REFERENCES [Teams] ([Id]) ON DELETE CASCADE
+);
+2019-05-27 17:06:09.731 +08:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [IX_LatitudeAndLongitudes_UserId] ON [LatitudeAndLongitudes] ([UserId]);
+2019-05-27 17:06:09.732 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Participantses_TeamId] ON [Participantses] ([TeamId]);
+2019-05-27 17:06:09.733 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_RunApplicants_RunTeamId] ON [RunApplicants] ([RunTeamId]);
+2019-05-27 17:06:09.734 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_RunParticipantses_RunTeamId] ON [RunParticipantses] ([RunTeamId]);
+2019-05-27 17:06:09.735 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Runs_UserId] ON [Runs] ([UserId]);
+2019-05-27 17:06:09.736 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_RunTeamRecords_RunTeamId] ON [RunTeamRecords] ([RunTeamId]);
+2019-05-27 17:06:09.737 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [IX_RunTeams_UserId] ON [RunTeams] ([UserId]);
+2019-05-27 17:06:09.737 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_RunTimeDailyChartses_RunTeamId] ON [RunTimeDailyChartses] ([RunTeamId]);
+2019-05-27 17:06:09.738 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Statisticals_UserId] ON [Statisticals] ([UserId]);
+2019-05-27 17:06:09.738 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_TeamLists_UserId] ON [TeamLists] ([UserId]);
+2019-05-27 17:06:09.739 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Teams_UserId] ON [Teams] ([UserId]);
+2019-05-27 17:06:23.994 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-27 17:06:24.623 +08:00 [INF] Executed DbCommand (511ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-27 17:06:24.639 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-05-27 17:06:24.686 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [__EFMigrationsHistory] (
+    [MigrationId] nvarchar(150) NOT NULL,
+    [ProductVersion] nvarchar(32) NOT NULL,
+    CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+);
+2019-05-27 17:06:24.687 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-05-27 17:06:24.689 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2019-05-27 17:06:24.696 +08:00 [INF] Applying migration '20190527090612_Initial'.
+2019-05-27 17:06:24.968 +08:00 [ERR] Failed executing DbCommand (206ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [RunTimeWeekChartses] (
+    [Id] int NOT NULL IDENTITY,
+    [TeamId] int NOT NULL,
+    [Ranking] int NOT NULL,
+    [TeamName] nvarchar(max) NULL,
+    [Introduction] nvarchar(max) NULL,
+    [ClockIn] int NOT NULL,
+    CONSTRAINT [PK_RunTimeWeekChartses] PRIMARY KEY ([Id])
+);
+System.Data.SqlClient.SqlException (0x80131904): 数据库中已存在名为 'RunTimeWeekChartses' 的对象。
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite, String methodName)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.Execute(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues)
+ClientConnectionId:df5b2d07-8aab-40f9-b5e4-e2411413c956
+Error Number:2714,State:6,Class:16
+2019-05-27 17:23:07.037 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-27 17:23:09.277 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger  
+2019-05-27 17:23:09.919 +08:00 [INF] Request finished in 646.728ms 301 
+2019-05-27 17:23:09.928 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-05-27 17:23:10.027 +08:00 [INF] Request finished in 99.4127ms 200 text/html
+2019-05-27 17:23:10.087 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-bundle.js  
+2019-05-27 17:23:10.088 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui.css  
+2019-05-27 17:23:10.096 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-standalone-preset.js  
+2019-05-27 17:23:10.175 +08:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2019-05-27 17:23:10.175 +08:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2019-05-27 17:23:10.191 +08:00 [INF] Request finished in 103.9405ms 200 text/css
+2019-05-27 17:23:10.191 +08:00 [INF] Request finished in 95.5792ms 200 application/javascript
+2019-05-27 17:23:10.195 +08:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2019-05-27 17:23:10.197 +08:00 [INF] Request finished in 110.3704ms 200 application/javascript
+2019-05-27 17:23:11.091 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-05-27 17:23:11.180 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+System.NotSupportedException: Ambiguous HTTP method for action - Team.Controllers.LALController.HttpRequest (Team). Actions require an explicit HttpMethod binding for Swagger 2.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.CreatePathItem(IEnumerable`1 apiDescriptions, ISchemaRegistry schemaRegistry)
+   at System.Linq.Enumerable.ToDictionary[TSource,TKey,TElement](IEnumerable`1 source, Func`2 keySelector, Func`2 elementSelector, IEqualityComparer`1 comparer)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.CreatePathItems(IEnumerable`1 apiDescriptions, ISchemaRegistry schemaRegistry)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwagger(String documentName, String host, String basePath, String[] schemes)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-05-27 17:23:11.288 +08:00 [INF] Request finished in 196.9156ms 500 text/html; charset=utf-8
+2019-05-27 17:24:07.219 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-27 17:24:08.906 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-05-27 17:24:09.146 +08:00 [INF] Request finished in 243.4645ms 200 text/html
+2019-05-27 17:24:10.116 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-05-27 17:24:10.205 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+System.NotSupportedException: Ambiguous HTTP method for action - Team.Controllers.LALController.HttpRequest (Team). Actions require an explicit HttpMethod binding for Swagger 2.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.CreatePathItem(IEnumerable`1 apiDescriptions, ISchemaRegistry schemaRegistry)
+   at System.Linq.Enumerable.ToDictionary[TSource,TKey,TElement](IEnumerable`1 source, Func`2 keySelector, Func`2 elementSelector, IEqualityComparer`1 comparer)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.CreatePathItems(IEnumerable`1 apiDescriptions, ISchemaRegistry schemaRegistry)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwagger(String documentName, String host, String basePath, String[] schemes)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-05-27 17:24:10.293 +08:00 [INF] Request finished in 176.1969ms 500 text/html; charset=utf-8
+2019-05-27 17:25:20.991 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-27 17:25:22.757 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-05-27 17:25:22.946 +08:00 [INF] Request finished in 190.7532ms 200 text/html
+2019-05-27 17:25:23.843 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-05-27 17:25:24.014 +08:00 [INF] Request finished in 171.1257ms 200 application/json;charset=utf-8
+2019-05-27 17:25:45.270 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserRegisteredApi application/json-patch+json 140
+2019-05-27 17:25:45.389 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserRegisteredApi (Team)'
+2019-05-27 17:25:45.418 +08:00 [INF] Route matched with {action = "UserRegisteredApi", controller = "Login"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserRegisteredApi(Team.Model.AutoMappers.UserMapper.UserRegisteredMap) on controller Team.Controllers.LoginController (Team).
+2019-05-27 17:25:45.753 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-27 17:25:46.245 +08:00 [INF] Executed DbCommand (367ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-27 17:25:46.656 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserRegisteredApi (Team) - Validation state: "Valid"
+2019-05-27 17:25:47.056 +08:00 [INF] Executed DbCommand (255ms) [Parameters=[@__account_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE [x].[Account] = @__account_0
+2019-05-27 17:25:47.856 +08:00 [ERR] Failed executing DbCommand (604ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [LatitudeAndLongitudes] ([Latitude], [Longitude], [Name], [Phone], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4);
+SELECT [Id]
+FROM [LatitudeAndLongitudes]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+System.Data.SqlClient.SqlException (0x80131904): INSERT 语句与 FOREIGN KEY 约束"FK_LatitudeAndLongitudes_Users_UserId"冲突。该冲突发生于数据库"Team"，表"dbo.Users", column 'Id'。
+语句已终止。
+   at System.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__122_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteAsync(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues, CancellationToken cancellationToken)
+ClientConnectionId:0f8d228e-da9b-479f-8ab7-75ef690078af
+Error Number:547,State:0,Class:16
+2019-05-27 17:25:47.949 +08:00 [ERR] An exception occurred in the database while saving changes for context type 'Team.Infrastructure.DbContext.MyContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details. ---> System.Data.SqlClient.SqlException: INSERT 语句与 FOREIGN KEY 约束"FK_LatitudeAndLongitudes_Users_UserId"冲突。该冲突发生于数据库"Team"，表"dbo.Users", column 'Id'。
+语句已终止。
+   at System.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__122_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteAsync(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(DbContext _, ValueTuple`2 parameters, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IReadOnlyList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details. ---> System.Data.SqlClient.SqlException: INSERT 语句与 FOREIGN KEY 约束"FK_LatitudeAndLongitudes_Users_UserId"冲突。该冲突发生于数据库"Team"，表"dbo.Users", column 'Id'。
+语句已终止。
+   at System.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__122_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteAsync(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(DbContext _, ValueTuple`2 parameters, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IReadOnlyList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2019-05-27 17:25:48.188 +08:00 [INF] Executed action Team.Controllers.LoginController.UserRegisteredApi (Team) in 2763.318ms
+2019-05-27 17:25:48.192 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserRegisteredApi (Team)'
+2019-05-27 17:25:48.201 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details. ---> System.Data.SqlClient.SqlException: INSERT 语句与 FOREIGN KEY 约束"FK_LatitudeAndLongitudes_Users_UserId"冲突。该冲突发生于数据库"Team"，表"dbo.Users", column 'Id'。
+语句已终止。
+   at System.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__122_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteAsync(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(DbContext _, ValueTuple`2 parameters, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IReadOnlyList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Team.Infrastructure.Repositories.UnitOfWork.SaveChanged() in D:\Microsoft VS2017\Word\.net core API\Team\Team.Infrastructure\Repositories\UnitOfWork.cs:line 22
+   at Team.Controllers.LoginController.UserRegisteredApi(UserRegisteredMap userRegistered) in D:\Microsoft VS2017\Word\.net core API\Team\Team\Controllers\LoginController.cs:line 74
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-05-27 17:25:48.310 +08:00 [INF] Request finished in 3039.3267ms 500 text/html; charset=utf-8
+2019-05-27 17:28:32.267 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-27 17:28:33.987 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-05-27 17:28:34.210 +08:00 [INF] Request finished in 224.82ms 200 text/html
+2019-05-27 17:28:35.023 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-05-27 17:28:35.198 +08:00 [INF] Request finished in 175.2058ms 200 application/json;charset=utf-8
+2019-05-27 17:28:46.904 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserRegisteredApi application/json-patch+json 140
+2019-05-27 17:28:46.983 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserRegisteredApi (Team)'
+2019-05-27 17:28:47.008 +08:00 [INF] Route matched with {action = "UserRegisteredApi", controller = "Login"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserRegisteredApi(Team.Model.AutoMappers.UserMapper.UserRegisteredMap) on controller Team.Controllers.LoginController (Team).
+2019-05-27 17:28:47.369 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-27 17:28:47.989 +08:00 [INF] Executed DbCommand (494ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-27 17:28:48.439 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserRegisteredApi (Team) - Validation state: "Valid"
+2019-05-27 17:28:48.640 +08:00 [INF] Executed DbCommand (69ms) [Parameters=[@__account_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE [x].[Account] = @__account_0
+2019-05-27 17:28:49.167 +08:00 [ERR] Failed executing DbCommand (328ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [LatitudeAndLongitudes] ([Latitude], [Longitude], [Name], [Phone], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4);
+SELECT [Id]
+FROM [LatitudeAndLongitudes]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+System.Data.SqlClient.SqlException (0x80131904): INSERT 语句与 FOREIGN KEY 约束"FK_LatitudeAndLongitudes_Users_UserId"冲突。该冲突发生于数据库"Team"，表"dbo.Users", column 'Id'。
+语句已终止。
+   at System.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__122_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteAsync(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues, CancellationToken cancellationToken)
+ClientConnectionId:6c0a3e4e-61a2-4311-918a-c9b9a48b678e
+Error Number:547,State:0,Class:16
+2019-05-27 17:28:49.240 +08:00 [ERR] An exception occurred in the database while saving changes for context type 'Team.Infrastructure.DbContext.MyContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details. ---> System.Data.SqlClient.SqlException: INSERT 语句与 FOREIGN KEY 约束"FK_LatitudeAndLongitudes_Users_UserId"冲突。该冲突发生于数据库"Team"，表"dbo.Users", column 'Id'。
+语句已终止。
+   at System.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__122_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteAsync(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(DbContext _, ValueTuple`2 parameters, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IReadOnlyList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details. ---> System.Data.SqlClient.SqlException: INSERT 语句与 FOREIGN KEY 约束"FK_LatitudeAndLongitudes_Users_UserId"冲突。该冲突发生于数据库"Team"，表"dbo.Users", column 'Id'。
+语句已终止。
+   at System.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__122_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteAsync(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(DbContext _, ValueTuple`2 parameters, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IReadOnlyList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2019-05-27 17:28:49.430 +08:00 [INF] Executed action Team.Controllers.LoginController.UserRegisteredApi (Team) in 2414.3195ms
+2019-05-27 17:28:49.436 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserRegisteredApi (Team)'
+2019-05-27 17:28:49.446 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details. ---> System.Data.SqlClient.SqlException: INSERT 语句与 FOREIGN KEY 约束"FK_LatitudeAndLongitudes_Users_UserId"冲突。该冲突发生于数据库"Team"，表"dbo.Users", column 'Id'。
+语句已终止。
+   at System.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__122_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteAsync(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(DbContext _, ValueTuple`2 parameters, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IReadOnlyList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Team.Infrastructure.Repositories.UnitOfWork.SaveChanged() in D:\Microsoft VS2017\Word\.net core API\Team\Team.Infrastructure\Repositories\UnitOfWork.cs:line 22
+   at Team.Controllers.LoginController.UserRegisteredApi(UserRegisteredMap userRegistered) in D:\Microsoft VS2017\Word\.net core API\Team\Team\Controllers\LoginController.cs:line 74
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-05-27 17:28:49.540 +08:00 [INF] Request finished in 2636.201ms 500 text/html; charset=utf-8
+2019-05-27 17:29:25.655 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-27 17:29:27.399 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-05-27 17:29:27.577 +08:00 [INF] Request finished in 180.0215ms 200 text/html
+2019-05-27 17:29:28.497 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-05-27 17:29:28.649 +08:00 [INF] Request finished in 151.9063ms 200 application/json;charset=utf-8
+2019-05-27 17:29:38.937 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserRegisteredApi application/json-patch+json 140
+2019-05-27 17:29:39.013 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserRegisteredApi (Team)'
+2019-05-27 17:29:39.037 +08:00 [INF] Route matched with {action = "UserRegisteredApi", controller = "Login"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserRegisteredApi(Team.Model.AutoMappers.UserMapper.UserRegisteredMap) on controller Team.Controllers.LoginController (Team).
+2019-05-27 17:29:39.366 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-27 17:29:39.599 +08:00 [INF] Executed DbCommand (94ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-27 17:29:40.095 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserRegisteredApi (Team) - Validation state: "Valid"
+2019-05-27 17:29:40.265 +08:00 [INF] Executed DbCommand (65ms) [Parameters=[@__account_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE [x].[Account] = @__account_0
+2019-05-27 17:29:40.535 +08:00 [INF] Executed DbCommand (63ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32), @p6='?' (DbType = Int32), @p7='?' (DbType = Int32), @p8='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Users] ([Account], [Name], [Password], [Province], [Role], [RunTeamId], [Sex], [StudentId], [UniversityId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8);
+SELECT [Id]
+FROM [Users]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2019-05-27 17:29:40.579 +08:00 [INF] Executed DbCommand (27ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [LatitudeAndLongitudes] ([Latitude], [Longitude], [Name], [Phone], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4);
+SELECT [Id]
+FROM [LatitudeAndLongitudes]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2019-05-27 17:29:40.702 +08:00 [INF] Executed DbCommand (116ms) [Parameters=[@p0='?' (DbType = Single), @p1='?' (DbType = Single), @p2='?' (DbType = Single), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Statisticals] ([AllTime], [Calorie], [Distance], [SportFreeModel], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4);
+SELECT [Id]
+FROM [Statisticals]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2019-05-27 17:29:40.726 +08:00 [INF] Executed DbCommand (17ms) [Parameters=[@p0='?' (DbType = Single), @p1='?' (DbType = Single), @p2='?' (DbType = Single), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Statisticals] ([AllTime], [Calorie], [Distance], [SportFreeModel], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4);
+SELECT [Id]
+FROM [Statisticals]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2019-05-27 17:29:40.782 +08:00 [INF] string 注册成功
+2019-05-27 17:29:40.790 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserRegisteredApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 687.76010000000008ms.
+2019-05-27 17:29:40.819 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-27 17:29:40.836 +08:00 [INF] Executed action Team.Controllers.LoginController.UserRegisteredApi (Team) in 1791.2052ms
+2019-05-27 17:29:40.842 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserRegisteredApi (Team)'
+2019-05-27 17:29:40.851 +08:00 [INF] Request finished in 1914.497ms 200 application/json; charset=utf-8
+2019-05-27 17:31:04.076 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/LAL/UpLoadApi application/json-patch+json 39
+2019-05-27 17:31:04.098 +08:00 [INF] Executing endpoint 'Team.Controllers.LALController.UpLoadApiAsync (Team)'
+2019-05-27 17:31:04.106 +08:00 [INF] Route matched with {action = "UpLoadApiAsync", controller = "LAL"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpLoadApiAsync(Team.Model.AutoMappers.UserMapper.LAndLUpLoadMapper) on controller Team.Controllers.LALController (Team).
+2019-05-27 17:31:04.139 +08:00 [INF] Authorization failed.
+2019-05-27 17:31:04.141 +08:00 [INF] Authorization failed for the request at filter 'Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter'.
+2019-05-27 17:31:04.151 +08:00 [INF] Executing ChallengeResult with authentication schemes ([]).
+2019-05-27 17:31:04.162 +08:00 [INF] AuthenticationScheme: Bearer was challenged.
+2019-05-27 17:31:04.167 +08:00 [INF] Executed action Team.Controllers.LALController.UpLoadApiAsync (Team) in 42.8329ms
+2019-05-27 17:31:04.171 +08:00 [INF] Executed endpoint 'Team.Controllers.LALController.UpLoadApiAsync (Team)'
+2019-05-27 17:31:04.174 +08:00 [INF] Request finished in 97.9781ms 401 
+2019-05-27 17:31:04.177 +08:00 [INF] Connection id "0HLN2GN7T8SDT", Request id "0HLN2GN7T8SDT:00000004": the application completed without reading the entire request body.
+2019-05-27 17:31:22.916 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/LAL/UpLoadApi application/json-patch+json 39
+2019-05-27 17:31:22.933 +08:00 [INF] Successfully validated the token.
+2019-05-27 17:31:22.937 +08:00 [INF] Executing endpoint 'Team.Controllers.LALController.UpLoadApiAsync (Team)'
+2019-05-27 17:31:22.939 +08:00 [INF] Route matched with {action = "UpLoadApiAsync", controller = "LAL"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpLoadApiAsync(Team.Model.AutoMappers.UserMapper.LAndLUpLoadMapper) on controller Team.Controllers.LALController (Team).
+2019-05-27 17:31:22.944 +08:00 [INF] Authorization was successful.
+2019-05-27 17:31:22.947 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-27 17:31:22.998 +08:00 [INF] Executed DbCommand (32ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-27 17:31:23.005 +08:00 [INF] Executed action Team.Controllers.LALController.UpLoadApiAsync (Team) in 62.622800000000005ms
+2019-05-27 17:31:23.010 +08:00 [INF] Executed endpoint 'Team.Controllers.LALController.UpLoadApiAsync (Team)'
+2019-05-27 17:31:23.014 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'Microsoft.Extensions.Logging.ILogger' while attempting to activate 'Team.Controllers.LALController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
+   at lambda_method(Closure , IServiceProvider , Object[] )
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerActivatorProvider.<>c__DisplayClass4_0.<CreateActivator>b__0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass5_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-05-27 17:31:23.129 +08:00 [INF] Request finished in 212.7212ms 500 text/html; charset=utf-8
+2019-05-27 17:31:23.131 +08:00 [INF] Connection id "0HLN2GN7T8SDT", Request id "0HLN2GN7T8SDT:00000005": the application completed without reading the entire request body.
+2019-05-27 17:33:16.016 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-27 17:33:17.481 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-05-27 17:33:17.649 +08:00 [INF] Request finished in 169.1138ms 200 text/html
+2019-05-27 17:33:18.668 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-05-27 17:33:18.858 +08:00 [INF] Request finished in 189.9882ms 200 application/json;charset=utf-8
+2019-05-27 17:33:24.922 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserLoginApi application/json-patch+json 49
+2019-05-27 17:33:25.005 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-27 17:33:25.028 +08:00 [INF] Route matched with {action = "UserLoginApi", controller = "Login"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserLoginApi(Team.Model.AutoMappers.UserMapper.UserLoginMap) on controller Team.Controllers.LoginController (Team).
+2019-05-27 17:33:25.320 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-27 17:33:25.534 +08:00 [INF] Executed DbCommand (90ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-27 17:33:25.933 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoginApi (Team) - Validation state: "Valid"
+2019-05-27 17:33:26.328 +08:00 [INF] Executed DbCommand (290ms) [Parameters=[@__account_0='?' (Size = 4000), @__password_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE ([x].[Account] = @__account_0) AND ([x].[Password] = @__password_1)
+2019-05-27 17:33:26.404 +08:00 [INF] 用户 1登陆成功
+2019-05-27 17:33:26.410 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserLoginApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 471.41490000000005ms.
+2019-05-27 17:33:26.423 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-27 17:33:26.437 +08:00 [INF] Executed action Team.Controllers.LoginController.UserLoginApi (Team) in 1403.0527ms
+2019-05-27 17:33:26.441 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-27 17:33:26.450 +08:00 [INF] Request finished in 1527.6584ms 200 application/json; charset=utf-8
+2019-05-27 17:33:42.689 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/LAL/UpLoadApi application/json-patch+json 39
+2019-05-27 17:33:42.708 +08:00 [INF] Successfully validated the token.
+2019-05-27 17:33:42.714 +08:00 [INF] Executing endpoint 'Team.Controllers.LALController.UpLoadApiAsync (Team)'
+2019-05-27 17:33:42.719 +08:00 [INF] Route matched with {action = "UpLoadApiAsync", controller = "LAL"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpLoadApiAsync(Team.Model.AutoMappers.UserMapper.LAndLUpLoadMapper) on controller Team.Controllers.LALController (Team).
+2019-05-27 17:33:42.731 +08:00 [INF] Authorization was successful.
+2019-05-27 17:33:42.735 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-27 17:33:42.775 +08:00 [INF] Executed DbCommand (25ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-27 17:33:42.818 +08:00 [INF] Executing action method Team.Controllers.LALController.UpLoadApiAsync (Team) - Validation state: "Valid"
+2019-05-27 17:33:42.881 +08:00 [ERR] 用户 1 上传经纬度失败
+2019-05-27 17:33:42.883 +08:00 [INF] Executed action method Team.Controllers.LALController.UpLoadApiAsync (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 61.6944ms.
+2019-05-27 17:33:42.886 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-27 17:33:42.888 +08:00 [INF] Executed action Team.Controllers.LALController.UpLoadApiAsync (Team) in 165.4199ms
+2019-05-27 17:33:42.890 +08:00 [INF] Executed endpoint 'Team.Controllers.LALController.UpLoadApiAsync (Team)'
+2019-05-27 17:33:42.898 +08:00 [INF] Request finished in 209.2344ms 500 application/json; charset=utf-8
+2019-05-27 17:33:42.903 +08:00 [ERR] Failed executing DbCommand (76ms) [Parameters=[Latitude='?' (DbType = Double), Longitude='?' (DbType = Double), UserId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+update LatitudeAndLongitudes set Latitude=@Latitude Longitude=@Longitude where UserId=userId
+System.InvalidOperationException: Invalid operation. The connection is closed.
+   at System.Data.SqlClient.SqlCommand.EndExecuteNonQuery(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteAsync(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues, CancellationToken cancellationToken)
+2019-05-27 17:36:52.935 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-27 17:36:54.585 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-05-27 17:36:54.745 +08:00 [INF] Request finished in 162.8997ms 200 text/html
+2019-05-27 17:36:55.611 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-05-27 17:36:55.788 +08:00 [INF] Request finished in 176.3228ms 200 application/json;charset=utf-8
+2019-05-27 17:37:00.523 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserLoginApi application/json-patch+json 49
+2019-05-27 17:37:00.607 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-27 17:37:00.631 +08:00 [INF] Route matched with {action = "UserLoginApi", controller = "Login"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserLoginApi(Team.Model.AutoMappers.UserMapper.UserLoginMap) on controller Team.Controllers.LoginController (Team).
+2019-05-27 17:37:00.990 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-27 17:37:01.199 +08:00 [INF] Executed DbCommand (88ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-27 17:37:01.565 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoginApi (Team) - Validation state: "Valid"
+2019-05-27 17:37:01.748 +08:00 [INF] Executed DbCommand (84ms) [Parameters=[@__account_0='?' (Size = 4000), @__password_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE ([x].[Account] = @__account_0) AND ([x].[Password] = @__password_1)
+2019-05-27 17:37:01.829 +08:00 [INF] 用户 1登陆成功
+2019-05-27 17:37:01.836 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserLoginApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 266.7122ms.
+2019-05-27 17:37:01.851 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-27 17:37:01.863 +08:00 [INF] Executed action Team.Controllers.LoginController.UserLoginApi (Team) in 1225.1667ms
+2019-05-27 17:37:01.869 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-27 17:37:01.876 +08:00 [INF] Request finished in 1352.2635ms 200 application/json; charset=utf-8
+2019-05-27 17:37:22.297 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/LAL/UpLoadApi application/json-patch+json 45
+2019-05-27 17:37:22.308 +08:00 [INF] Successfully validated the token.
+2019-05-27 17:37:22.317 +08:00 [INF] Executing endpoint 'Team.Controllers.LALController.UpLoadApiAsync (Team)'
+2019-05-27 17:37:22.325 +08:00 [INF] Route matched with {action = "UpLoadApiAsync", controller = "LAL"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpLoadApiAsync(Team.Model.AutoMappers.UserMapper.LAndLUpLoadMapper) on controller Team.Controllers.LALController (Team).
+2019-05-27 17:37:22.349 +08:00 [INF] Authorization was successful.
+2019-05-27 17:37:22.368 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-27 17:37:22.396 +08:00 [INF] Executed DbCommand (23ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-27 17:37:22.432 +08:00 [INF] Executing action method Team.Controllers.LALController.UpLoadApiAsync (Team) - Validation state: "Valid"
+2019-05-27 17:37:22.508 +08:00 [ERR] 用户 1 上传经纬度失败
+2019-05-27 17:37:22.511 +08:00 [INF] Executed action method Team.Controllers.LALController.UpLoadApiAsync (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 75.9263ms.
+2019-05-27 17:37:22.516 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-27 17:37:22.518 +08:00 [INF] Executed action Team.Controllers.LALController.UpLoadApiAsync (Team) in 178.9847ms
+2019-05-27 17:37:22.521 +08:00 [INF] Executed endpoint 'Team.Controllers.LALController.UpLoadApiAsync (Team)'
+2019-05-27 17:37:22.524 +08:00 [INF] Request finished in 226.9883ms 500 application/json; charset=utf-8
+2019-05-27 17:37:22.528 +08:00 [ERR] Failed executing DbCommand (88ms) [Parameters=[Latitude='?' (DbType = Double), Longitude='?' (DbType = Double), UserId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+update LatitudeAndLongitudes set Latitude=@Latitude，Longitude=@Longitude where UserId=userId
+System.InvalidOperationException: Invalid operation. The connection is closed.
+   at System.Data.SqlClient.SqlCommand.EndExecuteNonQuery(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteAsync(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues, CancellationToken cancellationToken)
+2019-05-27 17:37:55.961 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/LAL/UpLoadApi application/json-patch+json 45
+2019-05-27 17:37:55.969 +08:00 [INF] Successfully validated the token.
+2019-05-27 17:37:55.971 +08:00 [INF] Executing endpoint 'Team.Controllers.LALController.UpLoadApiAsync (Team)'
+2019-05-27 17:37:55.976 +08:00 [INF] Route matched with {action = "UpLoadApiAsync", controller = "LAL"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpLoadApiAsync(Team.Model.AutoMappers.UserMapper.LAndLUpLoadMapper) on controller Team.Controllers.LALController (Team).
+2019-05-27 17:37:55.981 +08:00 [INF] Authorization was successful.
+2019-05-27 17:37:55.985 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-27 17:37:56.024 +08:00 [INF] Executed DbCommand (31ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-27 17:37:56.047 +08:00 [INF] Executing action method Team.Controllers.LALController.UpLoadApiAsync (Team) - Validation state: "Valid"
+2019-05-27 17:38:44.294 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-27 17:38:45.925 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-05-27 17:38:46.125 +08:00 [INF] Request finished in 205.0774ms 200 text/html
+2019-05-27 17:38:46.988 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-05-27 17:38:47.164 +08:00 [INF] Request finished in 176.5363ms 200 application/json;charset=utf-8
+2019-05-27 17:38:55.976 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserLoginApi application/json-patch+json 49
+2019-05-27 17:38:56.059 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-27 17:38:56.087 +08:00 [INF] Route matched with {action = "UserLoginApi", controller = "Login"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserLoginApi(Team.Model.AutoMappers.UserMapper.UserLoginMap) on controller Team.Controllers.LoginController (Team).
+2019-05-27 17:38:56.388 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-27 17:38:56.588 +08:00 [INF] Executed DbCommand (88ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-27 17:38:56.944 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoginApi (Team) - Validation state: "Valid"
+2019-05-27 17:38:57.111 +08:00 [INF] Executed DbCommand (64ms) [Parameters=[@__account_0='?' (Size = 4000), @__password_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE ([x].[Account] = @__account_0) AND ([x].[Password] = @__password_1)
+2019-05-27 17:38:57.203 +08:00 [INF] 用户 1登陆成功
+2019-05-27 17:38:57.210 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserLoginApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 261.1847ms.
+2019-05-27 17:38:57.225 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-27 17:38:57.239 +08:00 [INF] Executed action Team.Controllers.LoginController.UserLoginApi (Team) in 1146.5265ms
+2019-05-27 17:38:57.243 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-27 17:38:57.250 +08:00 [INF] Request finished in 1273.618ms 200 application/json; charset=utf-8
+2019-05-27 17:39:26.986 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/LAL/UpLoadApi application/json-patch+json 46
+2019-05-27 17:39:27.021 +08:00 [INF] Successfully validated the token.
+2019-05-27 17:39:27.025 +08:00 [INF] Executing endpoint 'Team.Controllers.LALController.UpLoadApiAsync (Team)'
+2019-05-27 17:39:27.031 +08:00 [INF] Route matched with {action = "UpLoadApiAsync", controller = "LAL"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpLoadApiAsync(Team.Model.AutoMappers.UserMapper.LAndLUpLoadMapper) on controller Team.Controllers.LALController (Team).
+2019-05-27 17:39:27.043 +08:00 [INF] Authorization was successful.
+2019-05-27 17:39:27.060 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-27 17:39:27.122 +08:00 [INF] Executed DbCommand (44ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-27 17:39:27.155 +08:00 [INF] Executing action method Team.Controllers.LALController.UpLoadApiAsync (Team) - Validation state: "Valid"
+2019-05-27 17:39:30.275 +08:00 [ERR] 用户 1 上传经纬度失败
+2019-05-27 17:39:30.276 +08:00 [ERR] Failed executing DbCommand (50ms) [Parameters=[Latitude='?' (DbType = Double), Longitude='?' (DbType = Double), UserId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+update LatitudeAndLongitudes set Latitude=@Latitude，Longitude=@Longitude where UserId=@UserId
+System.Data.SqlClient.SqlException (0x80131904): “，”附近有语法错误。
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader()
+   at System.Data.SqlClient.SqlCommand.EndExecuteNonQueryInternal(IAsyncResult asyncResult)
+   at System.Data.SqlClient.SqlCommand.EndExecuteNonQuery(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteAsync(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues, CancellationToken cancellationToken)
+ClientConnectionId:36e7b140-781f-4c36-bfd2-3bc77d693e72
+Error Number:102,State:1,Class:15
+2019-05-27 17:39:30.278 +08:00 [INF] Executed action method Team.Controllers.LALController.UpLoadApiAsync (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 3120.612ms.
+2019-05-27 17:39:30.369 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-27 17:39:30.371 +08:00 [INF] Executed action Team.Controllers.LALController.UpLoadApiAsync (Team) in 3335.5262000000002ms
+2019-05-27 17:39:30.373 +08:00 [INF] Executed endpoint 'Team.Controllers.LALController.UpLoadApiAsync (Team)'
+2019-05-27 17:39:30.375 +08:00 [INF] Request finished in 3389.0129ms 500 application/json; charset=utf-8
+2019-05-27 17:40:39.612 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-27 17:40:41.309 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-05-27 17:40:41.516 +08:00 [INF] Request finished in 215.4083ms 200 text/html
+2019-05-27 17:40:42.517 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-05-27 17:40:42.677 +08:00 [INF] Request finished in 160.0827ms 200 application/json;charset=utf-8
+2019-05-27 17:40:47.387 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserLoginApi application/json-patch+json 49
+2019-05-27 17:40:47.465 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-27 17:40:47.488 +08:00 [INF] Route matched with {action = "UserLoginApi", controller = "Login"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserLoginApi(Team.Model.AutoMappers.UserMapper.UserLoginMap) on controller Team.Controllers.LoginController (Team).
+2019-05-27 17:40:47.923 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-27 17:40:48.140 +08:00 [INF] Executed DbCommand (82ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-27 17:40:48.623 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoginApi (Team) - Validation state: "Valid"
+2019-05-27 17:40:48.792 +08:00 [INF] Executed DbCommand (66ms) [Parameters=[@__account_0='?' (Size = 4000), @__password_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE ([x].[Account] = @__account_0) AND ([x].[Password] = @__password_1)
+2019-05-27 17:40:48.877 +08:00 [INF] 用户 1登陆成功
+2019-05-27 17:40:48.883 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserLoginApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 256.0057ms.
+2019-05-27 17:40:48.896 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-27 17:40:48.908 +08:00 [INF] Executed action Team.Controllers.LoginController.UserLoginApi (Team) in 1414.6172000000001ms
+2019-05-27 17:40:48.912 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-27 17:40:48.920 +08:00 [INF] Request finished in 1533.7688ms 200 application/json; charset=utf-8
+2019-05-27 17:41:13.755 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/LAL/UpLoadApi application/json-patch+json 46
+2019-05-27 17:41:13.765 +08:00 [INF] Successfully validated the token.
+2019-05-27 17:41:13.784 +08:00 [INF] Executing endpoint 'Team.Controllers.LALController.UpLoadApiAsync (Team)'
+2019-05-27 17:41:13.791 +08:00 [INF] Route matched with {action = "UpLoadApiAsync", controller = "LAL"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpLoadApiAsync(Team.Model.AutoMappers.UserMapper.LAndLUpLoadMapper) on controller Team.Controllers.LALController (Team).
+2019-05-27 17:41:13.807 +08:00 [INF] Authorization was successful.
+2019-05-27 17:41:13.811 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-27 17:41:13.861 +08:00 [INF] Executed DbCommand (34ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-27 17:41:13.894 +08:00 [INF] Executing action method Team.Controllers.LALController.UpLoadApiAsync (Team) - Validation state: "Valid"
+2019-05-27 17:41:13.939 +08:00 [ERR] 用户 1 上传经纬度失败
+2019-05-27 17:41:13.941 +08:00 [INF] Executed action method Team.Controllers.LALController.UpLoadApiAsync (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 44.337ms.
+2019-05-27 17:41:13.944 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-27 17:41:13.946 +08:00 [INF] Executed action Team.Controllers.LALController.UpLoadApiAsync (Team) in 150.44830000000002ms
+2019-05-27 17:41:13.950 +08:00 [INF] Executed endpoint 'Team.Controllers.LALController.UpLoadApiAsync (Team)'
+2019-05-27 17:41:13.953 +08:00 [INF] Request finished in 198.2337ms 500 application/json; charset=utf-8
+2019-05-27 17:41:13.967 +08:00 [ERR] Failed executing DbCommand (64ms) [Parameters=[Latitude='?' (DbType = Double), Longitude='?' (DbType = Double), UserId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+update LatitudeAndLongitudes set Latitude=@Latitude,Longitude=@Longitude where UserId=@UserId
+System.InvalidOperationException: Invalid operation. The connection is closed.
+   at System.Data.SqlClient.SqlCommand.EndExecuteNonQuery(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteAsync(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues, CancellationToken cancellationToken)
+2019-05-27 17:46:09.010 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-27 17:46:10.485 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-05-27 17:46:10.702 +08:00 [INF] Request finished in 218.9647ms 200 text/html
+2019-05-27 17:46:11.556 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-05-27 17:46:11.735 +08:00 [INF] Request finished in 179.3327ms 200 application/json;charset=utf-8
+2019-05-27 17:46:16.804 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserLoginApi application/json-patch+json 49
+2019-05-27 17:46:16.885 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-27 17:46:16.908 +08:00 [INF] Route matched with {action = "UserLoginApi", controller = "Login"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserLoginApi(Team.Model.AutoMappers.UserMapper.UserLoginMap) on controller Team.Controllers.LoginController (Team).
+2019-05-27 17:46:17.316 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-27 17:46:17.506 +08:00 [INF] Executed DbCommand (78ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-27 17:46:17.986 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoginApi (Team) - Validation state: "Valid"
+2019-05-27 17:46:18.154 +08:00 [INF] Executed DbCommand (63ms) [Parameters=[@__account_0='?' (Size = 4000), @__password_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE ([x].[Account] = @__account_0) AND ([x].[Password] = @__password_1)
+2019-05-27 17:46:18.240 +08:00 [INF] 用户 1登陆成功
+2019-05-27 17:46:18.247 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserLoginApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 255.6935ms.
+2019-05-27 17:46:18.263 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-27 17:46:18.273 +08:00 [INF] Executed action Team.Controllers.LoginController.UserLoginApi (Team) in 1358.0788ms
+2019-05-27 17:46:18.278 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-27 17:46:18.285 +08:00 [INF] Request finished in 1481.0345ms 200 application/json; charset=utf-8
+2019-05-27 17:46:37.614 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/LAL/UpLoadApi application/json-patch+json 39
+2019-05-27 17:46:37.626 +08:00 [INF] Successfully validated the token.
+2019-05-27 17:46:37.632 +08:00 [INF] Executing endpoint 'Team.Controllers.LALController.UpLoadApiAsync (Team)'
+2019-05-27 17:46:37.639 +08:00 [INF] Route matched with {action = "UpLoadApiAsync", controller = "LAL"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpLoadApiAsync(Team.Model.AutoMappers.UserMapper.LAndLUpLoadMapper) on controller Team.Controllers.LALController (Team).
+2019-05-27 17:46:37.658 +08:00 [INF] Authorization was successful.
+2019-05-27 17:46:37.664 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-27 17:46:37.701 +08:00 [INF] Executed DbCommand (31ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-27 17:46:37.740 +08:00 [INF] Executing action method Team.Controllers.LALController.UpLoadApiAsync (Team) - Validation state: "Valid"
+2019-05-27 17:46:37.802 +08:00 [ERR] 用户 1 上传经纬度失败
+2019-05-27 17:46:37.805 +08:00 [INF] Executed action method Team.Controllers.LALController.UpLoadApiAsync (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 61.9179ms.
+2019-05-27 17:46:37.810 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-27 17:46:37.813 +08:00 [INF] Executed action Team.Controllers.LALController.UpLoadApiAsync (Team) in 162.9383ms
+2019-05-27 17:46:37.815 +08:00 [INF] Executed endpoint 'Team.Controllers.LALController.UpLoadApiAsync (Team)'
+2019-05-27 17:46:37.820 +08:00 [INF] Request finished in 205.0581ms 500 application/json; charset=utf-8
+2019-05-27 17:46:37.825 +08:00 [ERR] Failed executing DbCommand (73ms) [Parameters=[Latitude='?' (DbType = Double), Longitude='?' (DbType = Double), userId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+update LatitudeAndLongitudes set Latitude=@Latitude,Longitude=@Longitude where UserId=@userId
+System.InvalidOperationException: Invalid operation. The connection is closed.
+   at System.Data.SqlClient.SqlCommand.EndExecuteNonQuery(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteAsync(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues, CancellationToken cancellationToken)
+2019-05-27 17:47:56.413 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-27 17:47:57.948 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-05-27 17:47:58.130 +08:00 [INF] Request finished in 185.5731ms 200 text/html
+2019-05-27 17:47:58.993 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-05-27 17:47:59.159 +08:00 [INF] Request finished in 166.6366ms 200 application/json;charset=utf-8
+2019-05-27 17:48:07.561 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/LAL/UpLoadApi application/json-patch+json 37
+2019-05-27 17:48:07.628 +08:00 [INF] Successfully validated the token.
+2019-05-27 17:48:07.664 +08:00 [INF] Executing endpoint 'Team.Controllers.LALController.UpLoadApiAsync (Team)'
+2019-05-27 17:48:07.689 +08:00 [INF] Route matched with {action = "UpLoadApiAsync", controller = "LAL"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpLoadApiAsync(Team.Model.AutoMappers.UserMapper.LAndLUpLoadMapper) on controller Team.Controllers.LALController (Team).
+2019-05-27 17:48:07.701 +08:00 [INF] Authorization was successful.
+2019-05-27 17:48:08.110 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-27 17:48:08.314 +08:00 [INF] Executed DbCommand (85ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-27 17:48:08.637 +08:00 [INF] Executing action method Team.Controllers.LALController.UpLoadApiAsync (Team) - Validation state: "Valid"
+2019-05-27 17:48:08.731 +08:00 [INF] Executed DbCommand (80ms) [Parameters=[Latitude='?' (DbType = Double), Longitude='?' (DbType = Double), userId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+update LatitudeAndLongitudes set Latitude=@Latitude,Longitude=@Longitude where UserId=@userId
+2019-05-27 17:48:08.741 +08:00 [ERR] 用户 1 上传经纬度失败
+2019-05-27 17:48:08.748 +08:00 [INF] Executed action method Team.Controllers.LALController.UpLoadApiAsync (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 105.7146ms.
+2019-05-27 17:48:08.761 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-27 17:48:08.773 +08:00 [INF] Executed action Team.Controllers.LALController.UpLoadApiAsync (Team) in 1078.2527ms
+2019-05-27 17:48:08.777 +08:00 [INF] Executed endpoint 'Team.Controllers.LALController.UpLoadApiAsync (Team)'
+2019-05-27 17:48:08.785 +08:00 [INF] Request finished in 1223.9044ms 500 application/json; charset=utf-8
+2019-05-27 17:49:14.290 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-27 17:49:15.692 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-05-27 17:49:15.853 +08:00 [INF] Request finished in 164.1624ms 200 text/html
+2019-05-27 17:49:16.809 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-05-27 17:49:16.999 +08:00 [INF] Request finished in 190.3317ms 200 application/json;charset=utf-8
+2019-05-27 17:49:35.066 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/LAL/UpLoadApi application/json-patch+json 50
+2019-05-27 17:49:35.143 +08:00 [INF] Successfully validated the token.
+2019-05-27 17:49:35.177 +08:00 [INF] Executing endpoint 'Team.Controllers.LALController.UpLoadApiAsync (Team)'
+2019-05-27 17:49:35.201 +08:00 [INF] Route matched with {action = "UpLoadApiAsync", controller = "LAL"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpLoadApiAsync(Team.Model.AutoMappers.UserMapper.LAndLUpLoadMapper) on controller Team.Controllers.LALController (Team).
+2019-05-27 17:49:35.212 +08:00 [INF] Authorization was successful.
+2019-05-27 17:49:35.525 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-27 17:49:35.725 +08:00 [INF] Executed DbCommand (85ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-27 17:49:36.050 +08:00 [INF] Executing action method Team.Controllers.LALController.UpLoadApiAsync (Team) - Validation state: "Valid"
+2019-05-27 17:49:36.226 +08:00 [INF] Executed DbCommand (163ms) [Parameters=[Latitude='?' (DbType = Double), Longitude='?' (DbType = Double), userId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+update LatitudeAndLongitudes set Latitude=@Latitude,Longitude=@Longitude where UserId=@userId
+2019-05-27 17:49:36.231 +08:00 [ERR] 用户 1 上传经纬度成功
+2019-05-27 17:49:36.238 +08:00 [INF] Executed action method Team.Controllers.LALController.UpLoadApiAsync (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 181.3146ms.
+2019-05-27 17:49:36.251 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-27 17:49:36.265 +08:00 [INF] Executed action Team.Controllers.LALController.UpLoadApiAsync (Team) in 1058.5205ms
+2019-05-27 17:49:36.271 +08:00 [INF] Executed endpoint 'Team.Controllers.LALController.UpLoadApiAsync (Team)'
+2019-05-27 17:49:36.278 +08:00 [INF] Request finished in 1212.2199ms 200 application/json; charset=utf-8
+2019-05-27 17:49:48.553 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/LAL/ObtainAll  
+2019-05-27 17:49:48.559 +08:00 [INF] Successfully validated the token.
+2019-05-27 17:49:48.562 +08:00 [INF] Executing endpoint 'Team.Controllers.LALController.ObtainAll (Team)'
+2019-05-27 17:49:48.567 +08:00 [INF] Route matched with {action = "ObtainAll", controller = "LAL"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ObtainAll() on controller Team.Controllers.LALController (Team).
+2019-05-27 17:49:48.572 +08:00 [INF] Authorization was successful.
+2019-05-27 17:49:48.575 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-27 17:49:48.636 +08:00 [INF] Executed DbCommand (35ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-27 17:49:48.663 +08:00 [INF] Executing action method Team.Controllers.LALController.ObtainAll (Team) - Validation state: "Valid"
+2019-05-27 17:49:48.768 +08:00 [INF] Executed DbCommand (34ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [l].[Id], [l].[Latitude], [l].[Longitude], [l].[Name], [l].[Phone], [l].[UserId]
+FROM [LatitudeAndLongitudes] AS [l]
+2019-05-27 17:49:48.822 +08:00 [INF] Executed action method Team.Controllers.LALController.ObtainAll (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 155.5233ms.
+2019-05-27 17:49:48.827 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-27 17:49:48.848 +08:00 [INF] Executed action Team.Controllers.LALController.ObtainAll (Team) in 277.1558ms
+2019-05-27 17:49:48.852 +08:00 [INF] Executed endpoint 'Team.Controllers.LALController.ObtainAll (Team)'
+2019-05-27 17:49:48.856 +08:00 [INF] Request finished in 302.4452ms 200 application/json; charset=utf-8
+2019-05-27 17:52:35.484 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-27 17:52:36.958 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-05-27 17:52:37.145 +08:00 [INF] Request finished in 189.0084ms 200 text/html
+2019-05-27 17:52:38.097 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-05-27 17:52:38.280 +08:00 [INF] Request finished in 183.7854ms 200 application/json;charset=utf-8
+2019-05-27 17:52:54.083 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/LAL/UpLoadApi application/json-patch+json 38
+2019-05-27 17:52:54.151 +08:00 [INF] Successfully validated the token.
+2019-05-27 17:52:54.184 +08:00 [INF] Executing endpoint 'Team.Controllers.LALController.UpLoadApiAsync (Team)'
+2019-05-27 17:52:54.209 +08:00 [INF] Route matched with {action = "UpLoadApiAsync", controller = "LAL"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpLoadApiAsync(Team.Model.AutoMappers.UserMapper.LAndLUpLoadMapper) on controller Team.Controllers.LALController (Team).
+2019-05-27 17:52:54.220 +08:00 [INF] Authorization was successful.
+2019-05-27 17:52:54.570 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-27 17:52:54.799 +08:00 [INF] Executed DbCommand (98ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-27 17:52:55.141 +08:00 [INF] Executing action method Team.Controllers.LALController.UpLoadApiAsync (Team) - Validation state: "Valid"
+2019-05-27 17:52:55.232 +08:00 [ERR] Failed executing DbCommand (77ms) [Parameters=[Latitude='?' (DbType = Double), Longitude='?' (DbType = Double), userId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+update LatitudeAndLongitudes set Latitude=@Latitude,Longitude=@Longitude where 111UserId=@userId
+System.Data.SqlClient.SqlException (0x80131904): 在应使用条件的上下文(在 'UserId' 附近)中指定了非布尔类型的表达式。
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader()
+   at System.Data.SqlClient.SqlCommand.EndExecuteNonQueryInternal(IAsyncResult asyncResult)
+   at System.Data.SqlClient.SqlCommand.EndExecuteNonQuery(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteAsync(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues, CancellationToken cancellationToken)
+ClientConnectionId:d7fdcfa2-f8e0-4440-9a3b-9bcc772d619c
+Error Number:4145,State:1,Class:15
+2019-05-27 17:52:55.428 +08:00 [INF] Executed action Team.Controllers.LALController.UpLoadApiAsync (Team) in 1212.1514ms
+2019-05-27 17:52:55.433 +08:00 [INF] Executed endpoint 'Team.Controllers.LALController.UpLoadApiAsync (Team)'
+2019-05-27 17:52:55.441 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+System.Data.SqlClient.SqlException (0x80131904): 在应使用条件的上下文(在 'UserId' 附近)中指定了非布尔类型的表达式。
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader()
+   at System.Data.SqlClient.SqlCommand.EndExecuteNonQueryInternal(IAsyncResult asyncResult)
+   at System.Data.SqlClient.SqlCommand.EndExecuteNonQuery(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteAsync(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions.ExecuteSqlCommandAsync(DatabaseFacade databaseFacade, RawSqlString sql, IEnumerable`1 parameters, CancellationToken cancellationToken)
+   at Team.Infrastructure.Repositories.LatitudeAndLongitudeResource.UpLoadingAsync(LAndLUpLoadMapper lAndLUpLoadMapper, Int32 userId) in D:\Microsoft VS2017\Word\.net core API\Team\Team.Infrastructure\Repositories\LatitudeAndLongitudeResource.cs:line 40
+   at Team.Controllers.LALController.UpLoadApiAsync(LAndLUpLoadMapper lAndLUpLoadMapper) in D:\Microsoft VS2017\Word\.net core API\Team\Team\Controllers\LALController.cs:line 57
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+ClientConnectionId:d7fdcfa2-f8e0-4440-9a3b-9bcc772d619c
+Error Number:4145,State:1,Class:15
+2019-05-27 17:52:55.537 +08:00 [INF] Request finished in 1453.1983ms 500 text/html; charset=utf-8
+2019-05-27 18:00:43.583 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-27 18:00:45.235 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-05-27 18:00:45.449 +08:00 [INF] Request finished in 216.7611ms 200 text/html
+2019-05-27 18:00:46.410 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-05-27 18:00:46.587 +08:00 [INF] Request finished in 177.3521ms 200 application/json;charset=utf-8
+2019-05-27 18:01:05.183 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/LAL/UpLoadApi application/json-patch+json 42
+2019-05-27 18:01:05.266 +08:00 [INF] Successfully validated the token.
+2019-05-27 18:01:05.300 +08:00 [INF] Executing endpoint 'Team.Controllers.LALController.UpLoadApiAsync (Team)'
+2019-05-27 18:01:05.325 +08:00 [INF] Route matched with {action = "UpLoadApiAsync", controller = "LAL"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpLoadApiAsync(Team.Model.AutoMappers.UserMapper.LAndLUpLoadMapper) on controller Team.Controllers.LALController (Team).
+2019-05-27 18:01:05.338 +08:00 [INF] Authorization was successful.
+2019-05-27 18:01:05.705 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-27 18:01:05.905 +08:00 [INF] Executed DbCommand (84ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-27 18:01:06.332 +08:00 [INF] Executing action method Team.Controllers.LALController.UpLoadApiAsync (Team) - Validation state: "Valid"
+2019-05-27 18:01:06.424 +08:00 [INF] Executed DbCommand (78ms) [Parameters=[Latitude='?' (DbType = Double), Longitude='?' (DbType = Double), userId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+update LatitudeAndLongitudes set Latitude=@Latitude,Longitude=@Longitude where UserId=@userId
+2019-05-27 18:01:06.431 +08:00 [INF] 用户 1 上传经纬度成功
+2019-05-27 18:01:06.436 +08:00 [INF] Executed action method Team.Controllers.LALController.UpLoadApiAsync (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 97.78070000000001ms.
+2019-05-27 18:01:06.449 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-27 18:01:06.461 +08:00 [INF] Executed action Team.Controllers.LALController.UpLoadApiAsync (Team) in 1128.3738ms
+2019-05-27 18:01:06.465 +08:00 [INF] Executed endpoint 'Team.Controllers.LALController.UpLoadApiAsync (Team)'
+2019-05-27 18:01:06.472 +08:00 [INF] Request finished in 1288.0895ms 200 application/json; charset=utf-8
+2019-05-27 18:01:26.636 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/LAL/UpLoadApi application/json-patch+json 41
+2019-05-27 18:01:26.640 +08:00 [INF] Successfully validated the token.
+2019-05-27 18:01:26.643 +08:00 [INF] Executing endpoint 'Team.Controllers.LALController.UpLoadApiAsync (Team)'
+2019-05-27 18:01:26.645 +08:00 [INF] Route matched with {action = "UpLoadApiAsync", controller = "LAL"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpLoadApiAsync(Team.Model.AutoMappers.UserMapper.LAndLUpLoadMapper) on controller Team.Controllers.LALController (Team).
+2019-05-27 18:01:26.652 +08:00 [INF] Authorization was successful.
+2019-05-27 18:01:26.681 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-27 18:01:26.711 +08:00 [INF] Executed DbCommand (25ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-27 18:01:26.742 +08:00 [INF] Executing action method Team.Controllers.LALController.UpLoadApiAsync (Team) - Validation state: "Valid"
+2019-05-27 18:01:26.774 +08:00 [INF] Executed DbCommand (29ms) [Parameters=[Latitude='?' (DbType = Double), Longitude='?' (DbType = Double), userId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+update LatitudeAndLongitudes set Latitude=@Latitude,Longitude=@Longitude where UserId=@userId
+2019-05-27 18:01:26.779 +08:00 [INF] 用户 1 上传经纬度成功
+2019-05-27 18:01:26.780 +08:00 [INF] Executed action method Team.Controllers.LALController.UpLoadApiAsync (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 35.6984ms.
+2019-05-27 18:01:26.783 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-27 18:01:26.786 +08:00 [INF] Executed action Team.Controllers.LALController.UpLoadApiAsync (Team) in 134.6929ms
+2019-05-27 18:01:26.788 +08:00 [INF] Executed endpoint 'Team.Controllers.LALController.UpLoadApiAsync (Team)'
+2019-05-27 18:01:26.790 +08:00 [INF] Request finished in 153.5616ms 200 application/json; charset=utf-8

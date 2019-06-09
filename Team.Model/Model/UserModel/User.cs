@@ -78,5 +78,10 @@ namespace Team.Model.Model.UserModel
         /// 队伍固定数目
         /// </summary>
         public RunTeam RunTeam { get; set; }
+
+        /// <summary>
+        /// 经纬度
+        /// </summary>
+        public LatitudeAndLongitude LatitudeAndLongitude { get; set; }
     }
 }

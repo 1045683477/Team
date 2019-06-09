@@ -25,7 +25,7 @@ namespace Team.Infrastructure.IRepositories
         /// </summary>
         /// <param name="userId">创建者 id</param>
         /// <returns></returns>
-        Task<bool> DeleteTeamAsync(int userId);
+        bool DeleteTeamAsync(int userId);
 
         /// <summary>
         /// 更新队伍信息
@@ -46,13 +46,25 @@ namespace Team.Infrastructure.IRepositories
         /// <returns></returns>
         RunTeam TeamSearchByIdTeaming(int teamId);
 
-
         /// <summary>
         /// 申请参加队伍
         /// </summary>
         /// <param name="applicant">申请信息</param>
         /// <returns></returns>
         void ParticipateInTeam(RunApplicant applicant);
+
+        /// <summary>
+        /// 查询所有申请者信息
+        /// </summary>
+        /// <param name="teamId">申请者 Id</param>
+        IEnumerable<RunApplicant> SearchAllParticipate(int teamId);
+
+        /// <summary>
+        /// 查询单个 申请者信息
+        /// </summary>
+        /// <param name="UserId"></param>
+        /// <returns></returns>
+        RunApplicant SearchByIdApplicant(int UserId);
 
         /// <summary>
         /// 同意入队

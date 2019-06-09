@@ -2,15 +2,17 @@
 
 namespace Team.Model.AutoMappers.UserMapper
 {
-    /// <summary>
-    /// 用户修改模板
-    /// </summary>
-    public class UserUpdateMap
+    public class UserSearchMapper
     {
         /// <summary>
-        /// 密码
+        /// 主键
         /// </summary>
-        public string Password { get; set; }
+        public int Id { get; set; }
+
+        /// <summary>
+        /// 账号
+        /// </summary>
+        public string Account { get; set; }
 
         /// <summary>
         /// 姓名
@@ -28,7 +30,7 @@ namespace Team.Model.AutoMappers.UserMapper
         public int Province { get; set; }
 
         /// <summary>
-        /// 大学
+        /// 大学 Id
         /// </summary>
         public int UniversityId { get; set; }
 
@@ -36,5 +38,10 @@ namespace Team.Model.AutoMappers.UserMapper
         /// 学号
         /// </summary>
         public int StudentId { get; set; }
+
+        /// <summary>
+        /// 跑步队伍 Id
+        /// </summary>
+        public int RunTeamId { get; set; }
     }
 }

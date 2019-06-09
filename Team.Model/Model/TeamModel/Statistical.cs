@@ -22,7 +22,7 @@ namespace Team.Model.Model.TeamModel
         /// <summary>
         /// 总消耗卡路里
         /// </summary>
-        public float Calorie { get; set; }
+        public float Calories { get; set; }
 
         /// <summary>
         /// 总消耗时间

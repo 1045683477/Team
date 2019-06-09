@@ -8,13 +8,18 @@
         Client=0,
 
         /// <summary>
+        /// 跑步队伍队长
+        /// </summary>
+        Captain= 1,
+
+        /// <summary>
         /// 管理员
         /// </summary>
-        Admin=1,
+        Admin =2,
 
         /// <summary>
         /// 超级管理员
         /// </summary>
-        SuperAdministrator=2
+        SuperAdministrator=3
     }
 }

@@ -38,7 +38,7 @@ namespace Team.Model.AutoMappers.TeamMapper
         /// <summary>
         /// 消耗能量
         /// </summary>
-        public float Calorie { get; set; }
+        public float Calories { get; set; }
 
         /// <summary>
         /// 配速

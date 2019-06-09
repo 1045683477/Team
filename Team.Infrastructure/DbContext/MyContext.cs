@@ -210,8 +210,6 @@ namespace Team.Infrastructure.DbContext
 
             modelBuilder.Entity<RunTimeDailyCharts>()
                 .HasKey(x => x.Id);
-            modelBuilder.Entity<RunTimeDailyCharts>()
-                .Property(x => x.DateTime).HasColumnType("date");
 
             #endregion
 
@@ -219,6 +217,18 @@ namespace Team.Infrastructure.DbContext
 
             modelBuilder.Entity<RunTimeWeekCharts>()
                 .HasKey(x => x.Id);
+
+            #endregion
+
+            #region LatitudeAndLongitude
+
+            modelBuilder.Entity<LatitudeAndLongitude>()
+                .HasKey(x => x.Id);
+            modelBuilder.Entity<LatitudeAndLongitude>()
+                .HasOne(x => x.User)
+                .WithOne(x => x.LatitudeAndLongitude)
+                .HasForeignKey<LatitudeAndLongitude>(x => x.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
 
             #endregion
         }
@@ -247,11 +257,13 @@ namespace Team.Infrastructure.DbContext
 
         public DbSet<RunTimeWeekCharts> RunTimeWeekChartses { get; set; }
 
+        public DbSet<RunTeamWeekChartBuffer> RunTeamWeekChartBuffers { get; set; }
+
         public  DbSet<TeamList> TeamLists { get; set; }
 
         #endregion
 
-
+        public DbSet<LatitudeAndLongitude> LatitudeAndLongitudes { get; set; }
         
     }
 }

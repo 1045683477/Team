@@ -18,6 +18,8 @@ namespace Team.AutoMapper
 
             CreateMap<User, UserUpdateMap>();//为修改用户数据提供映射
 
+            CreateMap<User, UserSearchMapper>();//查询用户模板
+
             CreateMap<Model.Model.TeamModel.Team, TeamSearchMap>();//队伍查询模板
 
             CreateMap<TeamCreateMap, Model.Model.TeamModel.Team>();//创建队伍用
@@ -49,6 +51,12 @@ namespace Team.AutoMapper
             CreateMap<RunTeam, RunTeamSearch>();//通过 Id 查询队伍模板
 
             CreateMap<RunParticipants, RunParticipantsMapper>();//参与者查询模板
-        }
+
+            CreateMap<RunApplicant, RunApplicantMapper>();//申请者查询模板
+
+            CreateMap<RunApplicant, RunParticipants>();//加入队伍
+
+            CreateMap<LatitudeAndLongitude, LAndLSearchMapper>();
+        } 
     }
 }

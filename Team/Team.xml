@@ -37,6 +37,58 @@
             <param name="jwtStr"></param>
             <returns></returns>
         </member>
+        <member name="M:Team.AutoTimedJob.AutoDailyChartJob.UpdateRunTimeDailyChart">
+            <summary>
+            更新跑团每日排行榜
+            </summary>
+        </member>
+        <member name="M:Team.AutoTimedJob.AutoTeamListJob.UpdateRunTeamList">
+            <summary>
+            跑团组队列表每十分钟更新一次
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Team.AutoTimedJob.AutoWeekChartJob.UpdateRunTimeWeekBufferChart">
+            <summary>
+            将每日跑团的信息加入周排行缓冲表中
+            </summary>
+        </member>
+        <member name="M:Team.AutoTimedJob.AutoWeekChartJob.UpdateRunTimeWeekChart">
+            <summary>
+            刷新周榜单
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Team.Controllers.LALController">
+            <summary>
+            经纬度上传
+            </summary>
+        </member>
+        <member name="M:Team.Controllers.LALController.UpLoadApiAsync(Team.Model.AutoMappers.UserMapper.LAndLUpLoadMapper)">
+            <summary>
+            经纬度上传
+            </summary>
+            <param name="lAndLUpLoadMapper"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Controllers.LALController.ObtainAll">
+            <summary>
+            获取所有用户的经纬度
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Controllers.ListController.SearchDailyList">
+            <summary>
+            查询每日前一百战队榜单
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Controllers.ListController.SearchWeekList">
+            <summary>
+            查询每周前一百战队榜单
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:Team.Controllers.LoginController">
             <summary>
             登陆,注册，修改密码 API
@@ -95,27 +147,6 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="F:Team.Controllers.LoginController.path">
-            <summary>
-            保存图片名称
-            </summary>
-        </member>
-        <member name="F:Team.Controllers.LoginController.LimitPictureType">
-            <summary>
-            图片格式
-            </summary>
-        </member>
-        <member name="F:Team.Controllers.LoginController._uploadPath">
-            <summary>
-            图片路径
-            </summary>
-        </member>
-        <member name="M:Team.Controllers.LoginController.GetFileName(System.IO.DirectoryInfo)">
-            <summary>
-            遍历文件夹文件
-            </summary>
-            <param name="info"></param>
-        </member>
         <member name="T:Team.Controllers.RunController">
             <summary>
             跑步 记录与查询
@@ -123,7 +154,7 @@
         </member>
         <member name="M:Team.Controllers.RunController.FreeRecordApi(Team.Model.AutoMappers.TeamMapper.RunRecordMap)">
             <summary>
-            跑步数据记录
+            跑步数据记录保存
             </summary>
             <param name="recordMap">记录模板</param>
             <returns></returns>
@@ -153,22 +184,28 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Team.Controllers.RunTeamController.RunTeamCreateApi(Team.Model.AutoMappers.RunTeamMapper.RunTeamCreateMap)">
+        <member name="M:Team.Controllers.RunTeamController.RunTeamCreateApiAsync(Team.Model.AutoMappers.RunTeamMapper.RunTeamCreateMap)">
             <summary>
-            创建队伍，调用此api后调用UpdateUserRunTeamId
+            创建队伍，调用此api后调用UpdateUserRunTeamId  唯有非队长才可调用此api
             </summary>
             <param name="runTeam">队伍模板</param>
             <returns></returns>
         </member>
-        <member name="M:Team.Controllers.RunTeamController.UpdateUserRunTeamId">
+        <member name="M:Team.Controllers.RunTeamController.UpdateUserRunTeamIdAsync">
             <summary>
             修改用户信息 RunTeamId 获取队伍 Id,请务必在调用RunTeamCreateApi之后使用
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Team.Controllers.RunTeamController.DeleteTeamApi">
+        <member name="M:Team.Controllers.RunTeamController.SearchRunTeamId">
             <summary>
-            删除自身创建的队伍
+            查询自身跑步队伍 Id
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Controllers.RunTeamController.DeleteTeamApiAsync">
+            <summary>
+            删除自身创建的队伍,队长权限，删除后请重新登陆
             </summary>
             <returns></returns>
         </member>
@@ -181,8 +218,41 @@
         </member>
         <member name="M:Team.Controllers.RunTeamController.UpdateTeamApi(Team.Model.AutoMappers.RunTeamMapper.RunTeamUpdateMap)">
             <summary>
-            修改队伍信息
+            修改队伍信息,队长权限
             </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Controllers.RunTeamController.UpLoadPhoto(Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            上传队伍图片,队长权限
+            </summary>
+            <param name="file">图片</param>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Controllers.RunTeamController.LoadingPhoto(System.Int32)">
+            <summary>
+            加载自身战队图片
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Controllers.RunTeamController.ApplyToJoinTeamApiAsync(System.Int32)">
+            <summary>
+            申请加入队伍
+            </summary>
+            <param name="teamId">队伍 Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Controllers.RunTeamController.SearchAllApplicant">
+            <summary>
+            获取队伍所有申请者列表,队长权限
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Controllers.RunTeamController.AgreeWithTheTeamApi(System.Int32)">
+            <summary>
+            同意入队,队长权限
+            </summary>
+            <param name="userId">申请者 Id</param>
             <returns></returns>
         </member>
         <member name="M:Team.Controllers.RunTeamController.HttpRequest">

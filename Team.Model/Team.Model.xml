@@ -4,6 +4,36 @@
         <name>Team.Model</name>
     </assembly>
     <members>
+        <member name="T:Team.Model.AutoMappers.RunTeamMapper.RunApplicantMapper">
+            <summary>
+            申请者模板
+            </summary>
+        </member>
+        <member name="P:Team.Model.AutoMappers.RunTeamMapper.RunApplicantMapper.Id">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="P:Team.Model.AutoMappers.RunTeamMapper.RunApplicantMapper.UserId">
+            <summary>
+            参加者 Id
+            </summary>
+        </member>
+        <member name="P:Team.Model.AutoMappers.RunTeamMapper.RunApplicantMapper.Name">
+            <summary>
+            姓名
+            </summary>
+        </member>
+        <member name="P:Team.Model.AutoMappers.RunTeamMapper.RunApplicantMapper.Sex">
+            <summary>
+            性别
+            </summary>
+        </member>
+        <member name="P:Team.Model.AutoMappers.RunTeamMapper.RunApplicantMapper.ApplicationDate">
+            <summary>
+            申请时间
+            </summary>
+        </member>
         <member name="P:Team.Model.AutoMappers.RunTeamMapper.RunParticipantsMapper.Id">
             <summary>
             主键 Id
@@ -229,7 +259,7 @@
             跑步长度
             </summary>
         </member>
-        <member name="P:Team.Model.AutoMappers.TeamMapper.RunRecordMap.Calorie">
+        <member name="P:Team.Model.AutoMappers.TeamMapper.RunRecordMap.Calories">
             <summary>
             消耗能量
             </summary>
@@ -244,7 +274,7 @@
             总路程
             </summary>
         </member>
-        <member name="P:Team.Model.AutoMappers.TeamMapper.StatisticalMap.Kcal">
+        <member name="P:Team.Model.AutoMappers.TeamMapper.StatisticalMap.Calories">
             <summary>
             总消耗卡路里
             </summary>
@@ -339,6 +369,46 @@
             运动类型
             </summary>
         </member>
+        <member name="T:Team.Model.AutoMappers.UserMapper.LAndLSearchMapper">
+            <summary>
+            查看经纬度模板
+            </summary>
+        </member>
+        <member name="P:Team.Model.AutoMappers.UserMapper.LAndLSearchMapper.Name">
+            <summary>
+            姓名
+            </summary>
+        </member>
+        <member name="P:Team.Model.AutoMappers.UserMapper.LAndLSearchMapper.Phone">
+            <summary>
+            电话
+            </summary>
+        </member>
+        <member name="P:Team.Model.AutoMappers.UserMapper.LAndLSearchMapper.Latitude">
+            <summary>
+            经度
+            </summary>
+        </member>
+        <member name="P:Team.Model.AutoMappers.UserMapper.LAndLSearchMapper.Longitude">
+            <summary>
+            纬度
+            </summary>
+        </member>
+        <member name="T:Team.Model.AutoMappers.UserMapper.LAndLUpLoadMapper">
+            <summary>
+            经纬度上传模板
+            </summary>
+        </member>
+        <member name="P:Team.Model.AutoMappers.UserMapper.LAndLUpLoadMapper.Latitude">
+            <summary>
+            经度
+            </summary>
+        </member>
+        <member name="P:Team.Model.AutoMappers.UserMapper.LAndLUpLoadMapper.Longitude">
+            <summary>
+            纬度
+            </summary>
+        </member>
         <member name="T:Team.Model.AutoMappers.UserMapper.UserLoginMap">
             <summary>
             登陆模板
@@ -394,6 +464,46 @@
             学号
             </summary>
         </member>
+        <member name="P:Team.Model.AutoMappers.UserMapper.UserSearchMapper.Id">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="P:Team.Model.AutoMappers.UserMapper.UserSearchMapper.Account">
+            <summary>
+            账号
+            </summary>
+        </member>
+        <member name="P:Team.Model.AutoMappers.UserMapper.UserSearchMapper.Name">
+            <summary>
+            姓名
+            </summary>
+        </member>
+        <member name="P:Team.Model.AutoMappers.UserMapper.UserSearchMapper.Sex">
+            <summary>
+            性别，1为男，0为女
+            </summary>
+        </member>
+        <member name="P:Team.Model.AutoMappers.UserMapper.UserSearchMapper.Province">
+            <summary>
+            省份
+            </summary>
+        </member>
+        <member name="P:Team.Model.AutoMappers.UserMapper.UserSearchMapper.UniversityId">
+            <summary>
+            大学 Id
+            </summary>
+        </member>
+        <member name="P:Team.Model.AutoMappers.UserMapper.UserSearchMapper.StudentId">
+            <summary>
+            学号
+            </summary>
+        </member>
+        <member name="P:Team.Model.AutoMappers.UserMapper.UserSearchMapper.RunTeamId">
+            <summary>
+            跑步队伍 Id
+            </summary>
+        </member>
         <member name="T:Team.Model.AutoMappers.UserMapper.UserUpdateMap">
             <summary>
             用户修改模板
@@ -447,6 +557,66 @@
         <member name="F:Team.Model.CustomStatusCode.Data">
             <summary>
             数据
+            </summary>
+        </member>
+        <member name="T:Team.Model.Model.RunTeamModel.RunTimeDailyCharts">
+            <summary>
+            日排行榜
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.RunTeamModel.RunTimeDailyCharts.Ranking">
+            <summary>
+            排名名词
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.RunTeamModel.RunTimeDailyCharts.TeamName">
+            <summary>
+            队伍名
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.RunTeamModel.RunTimeDailyCharts.Introduction">
+            <summary>
+            队伍简介
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.RunTeamModel.RunTimeDailyCharts.Distance">
+            <summary>
+            跑步长度
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.RunTeamModel.RunTimeDailyCharts.RunTeamId">
+            <summary>
+            队伍 Id
+            </summary>
+        </member>
+        <member name="T:Team.Model.Model.RunTeamModel.RunTimeWeekCharts">
+            <summary>
+            周排行榜
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.RunTeamModel.RunTimeWeekCharts.Ranking">
+            <summary>
+            排名名词
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.RunTeamModel.RunTimeWeekCharts.TeamName">
+            <summary>
+            队伍名
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.RunTeamModel.RunTimeWeekCharts.Introduction">
+            <summary>
+            队伍简介
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.RunTeamModel.RunTimeWeekCharts.Distance">
+            <summary>
+            跑步长度
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.RunTeamModel.RunTimeWeekCharts.RunTeamId">
+            <summary>
+            队伍 Id
             </summary>
         </member>
         <member name="T:Team.Model.Model.RunTeamModel.ApplicationStatus">
@@ -619,69 +789,29 @@
             参队
             </summary>
         </member>
-        <member name="T:Team.Model.Model.RunTeamModel.RunTimeDailyCharts">
+        <member name="T:Team.Model.Model.RunTeamModel.RunTeamWeekChartBuffer">
             <summary>
-            日排行榜
+            每周刷新排行榜的缓存表
             </summary>
         </member>
-        <member name="P:Team.Model.Model.RunTeamModel.RunTimeDailyCharts.Ranking">
-            <summary>
-            排名名词
-            </summary>
-        </member>
-        <member name="P:Team.Model.Model.RunTeamModel.RunTimeDailyCharts.TeamName">
+        <member name="P:Team.Model.Model.RunTeamModel.RunTeamWeekChartBuffer.TeamName">
             <summary>
             队伍名
             </summary>
         </member>
-        <member name="P:Team.Model.Model.RunTeamModel.RunTimeDailyCharts.Introduction">
+        <member name="P:Team.Model.Model.RunTeamModel.RunTeamWeekChartBuffer.Introduction">
             <summary>
             队伍简介
             </summary>
         </member>
-        <member name="P:Team.Model.Model.RunTeamModel.RunTimeDailyCharts.DateTime">
+        <member name="P:Team.Model.Model.RunTeamModel.RunTeamWeekChartBuffer.Distance">
             <summary>
-            当天时间
+            跑步长度
             </summary>
         </member>
-        <member name="P:Team.Model.Model.RunTeamModel.RunTimeDailyCharts.ClockIn">
-            <summary>
-            打卡人数
-            </summary>
-        </member>
-        <member name="P:Team.Model.Model.RunTeamModel.RunTimeDailyCharts.RunTeamId">
+        <member name="P:Team.Model.Model.RunTeamModel.RunTeamWeekChartBuffer.RunTeamId">
             <summary>
             队伍 Id
-            </summary>
-        </member>
-        <member name="T:Team.Model.Model.RunTeamModel.RunTimeWeekCharts">
-            <summary>
-            周排行榜
-            </summary>
-        </member>
-        <member name="P:Team.Model.Model.RunTeamModel.RunTimeWeekCharts.TeamId">
-            <summary>
-            队伍 Id
-            </summary>
-        </member>
-        <member name="P:Team.Model.Model.RunTeamModel.RunTimeWeekCharts.Ranking">
-            <summary>
-            排名名词
-            </summary>
-        </member>
-        <member name="P:Team.Model.Model.RunTeamModel.RunTimeWeekCharts.TeamName">
-            <summary>
-            队伍名
-            </summary>
-        </member>
-        <member name="P:Team.Model.Model.RunTeamModel.RunTimeWeekCharts.Introduction">
-            <summary>
-            队伍简介
-            </summary>
-        </member>
-        <member name="P:Team.Model.Model.RunTeamModel.RunTimeWeekCharts.ClockIn">
-            <summary>
-            打卡人数总和
             </summary>
         </member>
         <member name="T:Team.Model.Model.RunTeamModel.TeamList">
@@ -869,7 +999,7 @@
             总路程
             </summary>
         </member>
-        <member name="P:Team.Model.Model.TeamModel.Statistical.Calorie">
+        <member name="P:Team.Model.Model.TeamModel.Statistical.Calories">
             <summary>
             总消耗卡路里
             </summary>
@@ -934,9 +1064,44 @@
             外键
             </summary>
         </member>
+        <member name="T:Team.Model.Model.UserModel.LatitudeAndLongitude">
+            <summary>
+            经纬度
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.UserModel.LatitudeAndLongitude.Id">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.UserModel.LatitudeAndLongitude.Latitude">
+            <summary>
+            经度
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.UserModel.LatitudeAndLongitude.Longitude">
+            <summary>
+            纬度
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.UserModel.LatitudeAndLongitude.Name">
+            <summary>
+            姓名
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.UserModel.LatitudeAndLongitude.Phone">
+            <summary>
+            电话
+            </summary>
+        </member>
         <member name="F:Team.Model.Model.UserModel.Role.Client">
             <summary>
             用户
+            </summary>
+        </member>
+        <member name="F:Team.Model.Model.UserModel.Role.Captain">
+            <summary>
+            跑步队伍队长
             </summary>
         </member>
         <member name="F:Team.Model.Model.UserModel.Role.Admin">
@@ -1022,6 +1187,11 @@
         <member name="P:Team.Model.Model.UserModel.User.RunTeam">
             <summary>
             队伍固定数目
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.UserModel.User.LatitudeAndLongitude">
+            <summary>
+            经纬度
             </summary>
         </member>
     </members>

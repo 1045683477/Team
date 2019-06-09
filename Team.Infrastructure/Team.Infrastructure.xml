@@ -26,6 +26,31 @@
             <param name="name">图片名字</param>
             <returns></returns>
         </member>
+        <member name="M:Team.Infrastructure.IRepositories.ILatitudeAndLongitudeResource.UpLoadingAsync(Team.Model.AutoMappers.UserMapper.LAndLUpLoadMapper,System.Int32)">
+            <summary>
+            上传经纬度
+            </summary>
+            <param name="lAndLUpLoadMapper"></param>
+            <param name="userId"></param>
+        </member>
+        <member name="M:Team.Infrastructure.IRepositories.ILatitudeAndLongitudeResource.LAndLSearchAll">
+            <summary>
+            查看全部
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Infrastructure.IRepositories.IListResource.SearchAllDailyCharts">
+            <summary>
+            查询每日前一百战队榜单
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Infrastructure.IRepositories.IListResource.SearchAllWeekCharts">
+            <summary>
+            查询每周榜单
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:Team.Infrastructure.IRepositories.IRunRepository">
             <summary>
             Free Run 服务
@@ -105,6 +130,19 @@
             申请参加队伍
             </summary>
             <param name="applicant">申请信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Infrastructure.IRepositories.IRunTeamResource.SearchAllParticipate(System.Int32)">
+            <summary>
+            查询所有申请者信息
+            </summary>
+            <param name="teamId">申请者 Id</param>
+        </member>
+        <member name="M:Team.Infrastructure.IRepositories.IRunTeamResource.SearchByIdApplicant(System.Int32)">
+            <summary>
+            查询单个 申请者信息
+            </summary>
+            <param name="UserId"></param>
             <returns></returns>
         </member>
         <member name="M:Team.Infrastructure.IRepositories.IRunTeamResource.AgreeWithTheTeam(Team.Model.Model.RunTeamModel.RunParticipants)">
@@ -283,6 +321,19 @@
             <param name="name">图片名字</param>
             <returns></returns>
         </member>
+        <member name="M:Team.Infrastructure.Repositories.LatitudeAndLongitudeResource.UpLoadingAsync(Team.Model.AutoMappers.UserMapper.LAndLUpLoadMapper,System.Int32)">
+            <summary>
+            上传经纬度
+            </summary>
+            <param name="lAndLUpLoadMapper"></param>
+            <param name="userId"></param>
+        </member>
+        <member name="M:Team.Infrastructure.Repositories.LatitudeAndLongitudeResource.LAndLSearchAll">
+            <summary>
+            查看全部
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:Team.Infrastructure.Repositories.RunRepository.FreeRecord(System.Int32,Team.Model.Model.TeamModel.Run)">
             <summary>
             记录跑步
@@ -357,6 +408,19 @@
             申请参加队伍
             </summary>
             <param name="applicant">申请信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Infrastructure.Repositories.RunTeamResource.SearchAllParticipate(System.Int32)">
+            <summary>
+            所有查询申请者信息
+            </summary>
+            <param name="teamId">申请者 Id</param>
+        </member>
+        <member name="M:Team.Infrastructure.Repositories.RunTeamResource.SearchByIdApplicant(System.Int32)">
+            <summary>
+            查询单个 申请者信息
+            </summary>
+            <param name="UserId"></param>
             <returns></returns>
         </member>
         <member name="M:Team.Infrastructure.Repositories.RunTeamResource.AgreeWithTheTeam(Team.Model.Model.RunTeamModel.RunParticipants)">

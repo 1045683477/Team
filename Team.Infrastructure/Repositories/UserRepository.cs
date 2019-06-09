@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using Team.Infrastructure.DbContext;
 using Team.Infrastructure.IRepositories;
 using Team.Model.AutoMappers.UserMapper;
-using Team.Model.Model.RunTeamModel;
 using Team.Model.Model.TeamModel;
 using Team.Model.Model.UserModel;
 
@@ -64,12 +63,22 @@ namespace Team.Infrastructure.Repositories
             user.RunTeamId = 0;
             statistical1.SportFreeModel = SportFreeModel.Running;
             statistical1.User = user;
-            Statistical statistical2 = new Statistical();
-            statistical2.SportFreeModel = SportFreeModel.Riding;
-            statistical2.User = user;
+            Statistical statistical2 = new Statistical
+            {
+                SportFreeModel = SportFreeModel.Riding,
+                User = user
+            };
+            LatitudeAndLongitude latitudeAndLongitude=new LatitudeAndLongitude
+            {
+                Name = user.Name,
+                Phone = user.Account,
+                User = user
+            };
+
             await _myContext.Statisticals.AddAsync(statistical1);
             await _myContext.Statisticals.AddAsync(statistical2);
             await _myContext.Users.AddAsync(user);
+            await _myContext.LatitudeAndLongitudes.AddAsync(latitudeAndLongitude);
         }
 
         /// <summary>
@@ -93,6 +102,9 @@ namespace Team.Infrastructure.Repositories
             
             var update = await _myContext.Database.ExecuteSqlCommandAsync(
                 "update Users set Password=@Password,Name=@Name,Sex=@Sex,UniversityId=@UniversityId,studentId=@studentId where Id=@Id",
+                parameters);
+            await _myContext.Database.ExecuteSqlCommandAsync(
+                "update LatitudeAndLongitude set Name=@Name where Id=@Id",
                 parameters);
             if (update>0)
             {
@@ -127,9 +139,13 @@ namespace Team.Infrastructure.Repositories
         /// </summary>
         /// <param name="userId"></param>
         /// <returns></returns>
-        public User TeamSearchByUserIdTeaming(int userId)
+        public int TeamSearchByUserIdTeaming(int userId)
         {
-            return _myContext.Users.Include(x=>x.RunTeam).SingleOrDefault(x => x.Id == userId);
+            var result = from user in _myContext.Users
+                join team in _myContext.RunTeams on user.Id equals team.UserId
+                select team.Id;
+            return result.FirstOrDefault();
+            //return _myContext.Users.Include(x=>x.RunTeam).SingleOrDefault(x => x.Id == userId);
         }
     }
 }

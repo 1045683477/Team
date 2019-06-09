@@ -58,6 +58,6 @@ namespace Team.Infrastructure.IRepositories
         /// </summary>
         /// <param name="userId"></param>
         /// <returns></returns>
-        User TeamSearchByUserIdTeaming(int userId);
+        int TeamSearchByUserIdTeaming(int userId);
     }
 }

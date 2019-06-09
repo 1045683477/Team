@@ -11,13 +11,12 @@ using Team.AuthHelper.OverWrite;
 using Team.Infrastructure.IRepositories;
 using Team.Model;
 using Team.Model.AutoMappers.TeamMapper;
-using Team.Model.Model;
 using Team.Model.Model.TeamModel;
 
 namespace Team.Controllers
 {
     [ApiController]
-    [Authorize(Roles = "Client,Admin,SuperAdministrator")]
+    [Authorize(Roles = "Client,Captain,Admin,SuperAdministrator")]
     [Route("api/[controller]")]
     public class TeamController:Controller
     {

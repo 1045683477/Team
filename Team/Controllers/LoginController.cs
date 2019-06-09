@@ -3,8 +3,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using System.Collections.Generic;
-using System.IO;
 using System.Threading.Tasks;
 using Team.AuthHelper.OverWrite;
 using Team.Infrastructure.IRepositories;
@@ -84,9 +82,11 @@ namespace Team.Controllers
                 return StatusCode(500, code);
             }
 
-            TokenModelJWT tokenModel=new TokenModelJWT();
-            tokenModel.Id = user.Id;
-            tokenModel.Role = user.Role.ToString();
+            TokenModelJWT tokenModel = new TokenModelJWT
+            {
+                Id = user.Id,
+                Role = user.Role.ToString()
+            };
             string jwtStr = _jwtHelper.IssueJWT(tokenModel);
             _logger.LogInformation($"{userRegistered.Account} 注册成功");
             code=new CustomStatusCode
@@ -119,9 +119,11 @@ namespace Team.Controllers
                 };
                 return StatusCode(404, code);
             }
-            TokenModelJWT tokenModel=new TokenModelJWT();
-            tokenModel.Id = user.Id;
-            tokenModel.Role = user.Role.ToString();
+            TokenModelJWT tokenModel = new TokenModelJWT
+            {
+                Id = user.Id,
+                Role = user.Role.ToString()
+            };
             var jwtStr = _jwtHelper.IssueJWT(tokenModel);
             _logger.LogInformation($"用户 {user.Id}登陆成功");
              code =new CustomStatusCode
@@ -138,13 +140,13 @@ namespace Team.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet("UserForUpdateApi",Name = "UserForUpdateApi")]
-        [Authorize(Roles = "Client")]
+        [Authorize(Policy  = "ClientOrCaptain")]
         public IActionResult UserForUpdateApi()
         {
             CustomStatusCode code;
             var jwtStr = HttpRequest();
             var user = _userRepository.UserSearch(jwtStr.Id);
-            var userResource = _mapper.Map<UserUpdateMap>(user);
+            var userResource = _mapper.Map<UserSearchMapper>(user);
             _logger.LogInformation($"用户 {user.Id} 获取对应修改信息成功！");
             code =new CustomStatusCode
             {
@@ -161,7 +163,7 @@ namespace Team.Controllers
         /// <param name="update"></param>
         /// <returns></returns>
         [HttpPost("UserUpdateApi",Name = "UserUpdateApi")]
-        [Authorize(Roles = "Client")]
+        [Authorize(Policy = "ClientOrCaptain")]
         public async Task<IActionResult> UserUpdateApi([FromBody]UserUpdateMap update)
         {
             CustomStatusCode code;
@@ -232,11 +234,12 @@ namespace Team.Controllers
         /// <param name="formFile"></param>
         /// <returns></returns>
         [HttpPost("UserUpLoadPhoto",Name = "UserUpLoadPhoto")]
+        [Authorize(Policy = "ClientOrCaptain")]
         public IActionResult UserUpLoadPhoto(IFormFile formFile)
         {
             var user = HttpRequest();
             CustomStatusCode code;
-            code= _imagesResource.UpLoadPhoto(formFile, "\\Images\\HeadPortrait\\", user.Id);
+            code= _imagesResource.UpLoadPhoto(formFile, "\\Images\\User\\", user.Id);
             if (code.Status.ToString() == "400")
             {
                 _logger.LogInformation($"图片 {user.Id} 上传失败，格式错误");
@@ -287,11 +290,12 @@ namespace Team.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet("UserLoadingPhoto",Name = "UserLoadingPhoto")]
+        [Authorize(Policy = "ClientOrCaptain")]
         public IActionResult UserLoadingPhoto()
         {
             var user = HttpRequest();
 
-            var image=_imagesResource.LoadingPhoto("\\Images\\HeadPortrait\\", user.Id);
+            var image=_imagesResource.LoadingPhoto("\\Images\\User\\", user.Id);
             if (image==null)
             {
                 _logger.LogInformation($"用户 {user.Id} 没有存入头像");
@@ -334,7 +338,7 @@ namespace Team.Controllers
             return _jwtHelper.SerizlizeJWT(jwtStr);
         }
 
-        /// <summary>
+        /*/// <summary>
         /// 保存图片名称
         /// </summary>
         private static IList<string> path=new List<string>();
@@ -366,6 +370,6 @@ namespace Team.Controllers
                 string strname = subinfo.Name;
                 path.Add(strname);
             }
-        }
+        }*/
     }
 }

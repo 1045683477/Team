@@ -1,16 +1,13 @@
-﻿namespace Team.Model.Model.RunTeamModel
+﻿using System;
+
+namespace Team.Model.Model.RunTeamModel
 {
     /// <summary>
-    /// 周排行榜
+    /// 日排行榜
     /// </summary>
-    public class RunTimeWeekCharts
+    public class RunTimeDailyCharts
     {
         public int Id { get; set; }
-
-        /// <summary>
-        /// 队伍 Id
-        /// </summary>
-        public int TeamId { get; set; }
 
         /// <summary>
         /// 排名名词
@@ -28,8 +25,15 @@
         public string Introduction { get; set; }
 
         /// <summary>
-        /// 打卡人数总和
+        /// 跑步长度
         /// </summary>
-        public int ClockIn { get; set; }
+        public float Distance { get; set; }
+
+        /// <summary>
+        /// 队伍 Id
+        /// </summary>
+        public int RunTeamId { get; set; }
+
+        public RunTeam RunTeam { get; set; }
     }
 }

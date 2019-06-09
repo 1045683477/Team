@@ -21,10 +21,8 @@ using Team.AuthHelper.OverWrite;
 using Team.Infrastructure.DbContext;
 using Team.Infrastructure.IRepositories;
 using Team.Infrastructure.Repositories;
-using Team.Model.AutoMappers;
 using Team.Model.AutoMappers.TeamMapper;
 using Team.Model.AutoMappers.UserMapper;
-using Team.Validator;
 using Team.Validator.RunValidator;
 using Team.Validator.TeamValidator;
 using Team.Validator.UserValidator;
@@ -41,6 +39,7 @@ namespace Team
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
+        [Obsolete]
         public void ConfigureServices(IServiceCollection services)
         {
             #region Serilog
@@ -74,7 +73,7 @@ namespace Team
                     {
                         Name = "醉人",
                         Email = "1045683477@qq.com",
-                        Url= "https://www.sanfengyun.com"
+                        Url= "https://www.zuiren.xyz"
                     }
                 });
 
@@ -126,9 +125,11 @@ namespace Team
 
             services.AddAuthorization(options =>
             {
-                options.AddPolicy("Client", policy => policy.RequireRole("Client").Build());
+                options.AddPolicy("Client", policy => policy.RequireRole("Client").Build());//.Build()
+                options.AddPolicy("Captain", policy => policy.RequireRole("Captain").Build());
                 options.AddPolicy("Admin", policy => policy.RequireRole("Admin").Build());
                 options.AddPolicy("SuperAdministrator", policy => policy.RequireRole("SuperAdministrator").Build());
+                options.AddPolicy("ClientOrCaptain", policy => policy.RequireRole("Captain", "Client"));
             });
 
             #endregion
@@ -191,10 +192,12 @@ namespace Team
             services.AddScoped<IRunRepository, RunRepository>();
             services.AddScoped<IImagesResource, ImagesResource>();
             services.AddScoped<IRunTeamResource, RunTeamResource>();
+            services.AddScoped<ILatitudeAndLongitudeResource, LatitudeAndLongitudeResource>();
+            services.AddScoped<IListResource, ListResource>();
 
             #endregion
 
-            
+
 
             services.AddAutoMapper();
             services.AddTimedJob();

@@ -1,5 +1,4 @@
-﻿using Team.Model.Model;
-using Team.Model.Model.TeamModel;
+﻿using Team.Model.Model.TeamModel;
 
 namespace Team.Model.AutoMappers.TeamMapper
 {
@@ -15,7 +14,7 @@ namespace Team.Model.AutoMappers.TeamMapper
         /// <summary>
         /// 总消耗卡路里
         /// </summary>
-        public float Kcal { get; set; }
+        public float Calories { get; set; }
 
         /// <summary>
         /// 总消耗时间

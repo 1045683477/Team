@@ -10,8 +10,8 @@ using Team.Infrastructure.DbContext;
 namespace Team.Infrastructure.Migrations
 {
     [DbContext(typeof(MyContext))]
-    [Migration("20190517103116_添加组队列表")]
-    partial class 添加组队列表
+    [Migration("20190529150236_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -116,16 +116,34 @@ namespace Team.Infrastructure.Migrations
                     b.ToTable("RunTeamRecords");
                 });
 
+            modelBuilder.Entity("Team.Model.Model.RunTeamModel.RunTeamWeekChartBuffer", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<float>("Distance");
+
+                    b.Property<string>("Introduction");
+
+                    b.Property<int>("RunTeamId");
+
+                    b.Property<string>("TeamName");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RunTeamId");
+
+                    b.ToTable("RunTeamWeekChartBuffers");
+                });
+
             modelBuilder.Entity("Team.Model.Model.RunTeamModel.RunTimeDailyCharts", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("ClockIn");
-
-                    b.Property<DateTime>("DateTime")
-                        .HasColumnType("date");
+                    b.Property<float>("Distance");
 
                     b.Property<string>("Introduction");
 
@@ -148,17 +166,19 @@ namespace Team.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("ClockIn");
+                    b.Property<float>("Distance");
 
                     b.Property<string>("Introduction");
 
                     b.Property<int>("Ranking");
 
-                    b.Property<int>("TeamId");
+                    b.Property<int>("RunTeamId");
 
                     b.Property<string>("TeamName");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("RunTeamId");
 
                     b.ToTable("RunTimeWeekChartses");
                 });
@@ -249,7 +269,7 @@ namespace Team.Infrastructure.Migrations
 
                     b.Property<float>("AllTime");
 
-                    b.Property<float>("Calorie");
+                    b.Property<float>("Calories");
 
                     b.Property<float>("Distance");
 
@@ -294,6 +314,30 @@ namespace Team.Infrastructure.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Teams");
+                });
+
+            modelBuilder.Entity("Team.Model.Model.UserModel.LatitudeAndLongitude", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<double>("Latitude");
+
+                    b.Property<double>("Longitude");
+
+                    b.Property<string>("Name");
+
+                    b.Property<string>("Phone");
+
+                    b.Property<int>("UserId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId")
+                        .IsUnique();
+
+                    b.ToTable("LatitudeAndLongitudes");
                 });
 
             modelBuilder.Entity("Team.Model.Model.UserModel.User", b =>
@@ -360,10 +404,26 @@ namespace Team.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
+            modelBuilder.Entity("Team.Model.Model.RunTeamModel.RunTeamWeekChartBuffer", b =>
+                {
+                    b.HasOne("Team.Model.Model.RunTeamModel.RunTeam", "RunTeam")
+                        .WithMany()
+                        .HasForeignKey("RunTeamId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
             modelBuilder.Entity("Team.Model.Model.RunTeamModel.RunTimeDailyCharts", b =>
                 {
                     b.HasOne("Team.Model.Model.RunTeamModel.RunTeam", "RunTeam")
-                        .WithMany("RunTimeDailyCharts")
+                        .WithMany()
+                        .HasForeignKey("RunTeamId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Team.Model.Model.RunTeamModel.RunTimeWeekCharts", b =>
+                {
+                    b.HasOne("Team.Model.Model.RunTeamModel.RunTeam", "RunTeam")
+                        .WithMany()
                         .HasForeignKey("RunTeamId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
@@ -405,6 +465,14 @@ namespace Team.Infrastructure.Migrations
                     b.HasOne("Team.Model.Model.UserModel.User", "User")
                         .WithMany("Teams")
                         .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Team.Model.Model.UserModel.LatitudeAndLongitude", b =>
+                {
+                    b.HasOne("Team.Model.Model.UserModel.User", "User")
+                        .WithOne("LatitudeAndLongitude")
+                        .HasForeignKey("Team.Model.Model.UserModel.LatitudeAndLongitude", "UserId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618

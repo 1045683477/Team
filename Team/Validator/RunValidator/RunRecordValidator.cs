@@ -25,7 +25,7 @@ namespace Team.Validator.RunValidator
             RuleFor(x => x.EndTime)
                 .NotEmpty().WithName("{结束时间}").WithMessage("{PropertyName}不可为空");
 
-            RuleFor(x => x.Calorie)
+            RuleFor(x => x.Calories)
                 .NotEmpty().WithName("{消耗能量}").WithMessage("{PropertyName}不可为空");
 
             RuleFor(x => x.Speed)

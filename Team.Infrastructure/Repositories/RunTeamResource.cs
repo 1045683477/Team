@@ -42,24 +42,22 @@ namespace Team.Infrastructure.Repositories
         /// <returns></returns>
         public bool TeamCreate(RunParticipants participants, RunTeam runTeam, User user)
         {
-            runTeam.UserId = participants.UserId;
-            runTeam.CreationTime = DateTime.Now;
-            runTeam.Count++;
-            participants.ApplicationDate=DateTime.Now;
-
-            // ReSharper disable once SuspiciousTypeConversion.Global
-            if (user.RunTeamId!=0)
+            if (user.RunTeamId != 0)
             {
                 return false;
             }
 
-            var teamChanged = _myContext.RunTeams.Add(runTeam);
+            runTeam.UserId = participants.UserId;
+            runTeam.CreationTime = DateTime.Now;
+            runTeam.Count++;
+            runTeam.ApplicationStatus = ApplicationStatus.Yes;
+            participants.ApplicationDate=DateTime.Now;
+
+            _myContext.RunTeams.Add(runTeam);
 
             participants.RunTeamId = runTeam.Id;
 
-            var partChanged = _myContext.RunParticipantses.Add(participants);
-
-            _unitOfWork.SaveChanged();
+            _myContext.RunParticipantses.Add(participants);
 
             return true;
         }
@@ -69,20 +67,17 @@ namespace Team.Infrastructure.Repositories
         /// </summary>
         /// <param name="userId">创建者 id</param>
         /// <returns></returns>
-        public async Task<bool> DeleteTeamAsync(int userId)
+        public bool DeleteTeamAsync(int userId)
         {
             var runTeam = _myContext.RunTeams.SingleOrDefault(x => x.UserId == userId);
             var user = _myContext.Users.SingleOrDefault(x => x.Id == userId);
             if (runTeam!=null)
             {
                 user.RunTeamId = 0;
+                user.Role = Role.Client;
                 _myContext.Users.Update(user);
                 _myContext.Remove(runTeam);
-                if (!await _unitOfWork.SaveChanged())
-                {
-                    return false;
-                }
-                
+
                 return true;
             }
             return false;
@@ -143,6 +138,30 @@ namespace Team.Infrastructure.Repositories
         }
 
         /// <summary>
+        /// 所有查询申请者信息
+        /// </summary>
+        /// <param name="teamId">申请者 Id</param>
+        public IEnumerable<RunApplicant> SearchAllParticipate(int teamId)
+        {
+            return _myContext.RunApplicants.Where(x => x.RunTeamId == teamId).ToList();
+        }
+
+        /// <summary>
+        /// 查询单个 申请者信息
+        /// </summary>
+        /// <param name="UserId"></param>
+        /// <returns></returns>
+        public RunApplicant SearchByIdApplicant(int UserId)
+        {
+            var user=_userRepository.UserSearch(UserId);
+            if (user.RunTeamId != 0)
+            {
+                return null;
+            }
+            return _myContext.RunApplicants.SingleOrDefault(x => x.UserId == UserId);
+        }
+
+        /// <summary>
         /// 同意入队
         /// </summary>
         /// <param name="participants"></param>
@@ -151,7 +170,6 @@ namespace Team.Infrastructure.Repositories
             _myContext.RunParticipantses.Add(participants);
             var user=_userRepository.UserSearch(participants.UserId);
             user.RunTeamId = participants.RunTeamId;
-            _unitOfWork.SaveChanged();
         }
 
         /// <summary>
@@ -196,8 +214,8 @@ namespace Team.Infrastructure.Repositories
         public void UpdateUserRunTeamState(User user, int teamId)
         {
             user.RunTeamId = teamId;
+            user.Role = Role.Captain;
             _myContext.Update(user);
-            _unitOfWork.SaveChanged();
         }
     }
 }

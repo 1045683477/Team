@@ -1,17 +1,15 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Team.AuthHelper.OverWrite;
 using Team.Infrastructure.DbContext;
 using Team.Infrastructure.IRepositories;
 using Team.Model;
-using Team.Model.AutoMappers;
 using Team.Model.AutoMappers.TeamMapper;
-using Team.Model.Model;
 using Team.Model.Model.TeamModel;
 
 namespace Team.Controllers
@@ -20,7 +18,7 @@ namespace Team.Controllers
     /// 跑步 记录与查询
     /// </summary>
     [ApiController]
-    [Authorize(Roles = "Client,Admin,SuperAdministrator")]
+    [Authorize(Roles = "Client,Captain,Admin,SuperAdministrator")]
     [Route("api/[controller]")]
     public class RunController:Controller
     {
@@ -52,7 +50,7 @@ namespace Team.Controllers
         #endregion
 
         /// <summary>
-        /// 跑步数据记录
+        /// 跑步数据记录保存
         /// </summary>
         /// <param name="recordMap">记录模板</param>
         /// <returns></returns>

@@ -20,7 +20,7 @@ namespace Team.AuthHelper.OverWrite
         /// <returns></returns>
         public string IssueJWT(TokenModelJWT tokenModel)
         {
-            var dataTime = DateTime.UtcNow;
+            //var dataTime = DateTime.UtcNow;
 
             var claims = new Claim[]
             {

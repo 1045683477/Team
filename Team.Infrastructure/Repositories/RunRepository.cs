@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore.Internal;
+using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Linq;
 using Team.Infrastructure.DbContext;
 using Team.Infrastructure.IRepositories;
@@ -36,9 +36,9 @@ namespace Team.Infrastructure.Repositories
             var user = _myContext.Statisticals.SingleOrDefault(x => x.UserId == userId&& x.SportFreeModel==run.SportFreeModel);
             user.AllTime += (float)(run.EndTime - run.StarTime).TotalMinutes;
             user.Distance += run.Distance;
-            user.Calorie += run.Calories;
+            user.Calories += run.Calories;
             run.UserId = userId;
-            _myContext.Add(run);
+            _myContext.Runs.Add(run);
             if (run.SportFreeModel==SportFreeModel.Running)
             {
                 RunTeamRecord(userId, run);
@@ -54,7 +54,7 @@ namespace Team.Infrastructure.Repositories
         /// <returns></returns>
         public Statistical FreeAllStatistical(int userId,SportFreeModel sport)
         {
-            return _myContext.Statisticals.SingleOrDefault(x =>x.SportFreeModel==sport &&x.UserId==userId);
+            return _myContext.Statisticals.SingleOrDefault(x => x.SportFreeModel == sport && x.UserId == userId);
         }
 
         /// <summary>
@@ -87,15 +87,31 @@ namespace Team.Infrastructure.Repositories
             //先判断是否参团
             if (user.RunTeamId!=0)
             {
-                var record=new RunTeamRecord
-                {
-                    Calories = run.Calories,
-                    DateTime = DateTime.Now,
-                    Distance = run.Distance,
-                    RunTeamId = user.RunTeamId,
-                };
                 //判断今日队伍数据是否存在
-                _myContext.RunTeamRecords.Add(record);
+                var exit = from s in _myContext.RunTeamRecords
+                    where s.DateTime == DateTime.Today && s.RunTeamId == user.RunTeamId
+                    select s;
+                //不存在
+                if (!exit.Any())
+                {
+                    var record = new RunTeamRecord
+                    {
+                        Calories = run.Calories,
+                        DateTime = DateTime.Now,
+                        Distance = run.Distance,
+                        RunTeamId = user.RunTeamId,
+                    };
+                    _myContext.RunTeamRecords.Add(record);
+                }
+                else
+                {
+                    //存在
+                    var one = exit.FirstOrDefault();
+                    one.Calories += run.Calories;
+                    one.Distance += run.Distance;
+                    _myContext.RunTeamRecords.Update(one);
+                }
+                
             }
         }
     }

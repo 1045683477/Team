@@ -1,0 +1,1159 @@
+2019-05-22 17:25:27.240 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-22 17:25:28.920 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-05-22 17:25:29.275 +08:00 [INF] Request finished in 356.3855ms 200 text/html
+2019-05-22 17:25:29.911 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-05-22 17:25:29.960 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/favicon-32x32.png  
+2019-05-22 17:25:29.982 +08:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2019-05-22 17:25:29.986 +08:00 [INF] Request finished in 26.2469ms 200 image/png
+2019-05-22 17:25:30.083 +08:00 [INF] Request finished in 172.331ms 200 application/json;charset=utf-8
+2019-05-22 17:26:34.919 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserLoginApi application/json-patch+json 49
+2019-05-22 17:26:35.003 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-22 17:26:35.030 +08:00 [INF] Route matched with {action = "UserLoginApi", controller = "Login"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserLoginApi(Team.Model.AutoMappers.UserMapper.UserLoginMap) on controller Team.Controllers.LoginController (Team).
+2019-05-22 17:26:35.529 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-22 17:26:36.432 +08:00 [INF] Executed DbCommand (727ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-22 17:26:36.814 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoginApi (Team) - Validation state: "Valid"
+2019-05-22 17:26:37.045 +08:00 [INF] Executed DbCommand (112ms) [Parameters=[@__account_0='?' (Size = 4000), @__password_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE ([x].[Account] = @__account_0) AND ([x].[Password] = @__password_1)
+2019-05-22 17:26:37.123 +08:00 [INF] 用户 1登陆成功
+2019-05-22 17:26:37.129 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserLoginApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 310.2246ms.
+2019-05-22 17:26:37.145 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-22 17:26:37.156 +08:00 [INF] Executed action Team.Controllers.LoginController.UserLoginApi (Team) in 2121.1476000000002ms
+2019-05-22 17:26:37.161 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-22 17:26:37.168 +08:00 [INF] Request finished in 2249.1046ms 200 application/json; charset=utf-8
+2019-05-22 17:27:20.119 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/RunTeam/UpdateTeamApi application/json-patch+json 85
+2019-05-22 17:27:20.143 +08:00 [INF] Successfully validated the token.
+2019-05-22 17:27:20.147 +08:00 [INF] Executing endpoint 'Team.Controllers.RunTeamController.UpdateTeamApi (Team)'
+2019-05-22 17:27:20.152 +08:00 [INF] Route matched with {action = "UpdateTeamApi", controller = "RunTeam"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateTeamApi(Team.Model.AutoMappers.RunTeamMapper.RunTeamUpdateMap) on controller Team.Controllers.RunTeamController (Team).
+2019-05-22 17:27:20.163 +08:00 [INF] Authorization failed.
+2019-05-22 17:27:20.166 +08:00 [INF] Authorization failed for the request at filter 'Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter'.
+2019-05-22 17:27:20.173 +08:00 [INF] Executing ForbidResult with authentication schemes ([]).
+2019-05-22 17:27:20.178 +08:00 [INF] AuthenticationScheme: Bearer was forbidden.
+2019-05-22 17:27:20.179 +08:00 [INF] Executed action Team.Controllers.RunTeamController.UpdateTeamApi (Team) in 23.203100000000003ms
+2019-05-22 17:27:20.182 +08:00 [INF] Executed endpoint 'Team.Controllers.RunTeamController.UpdateTeamApi (Team)'
+2019-05-22 17:27:20.185 +08:00 [INF] Request finished in 65.9485ms 403 
+2019-05-22 17:27:20.188 +08:00 [INF] Connection id "0HLMUITMS0U1V", Request id "0HLMUITMS0U1V:00000004": the application completed without reading the entire request body.
+2019-05-22 17:27:41.789 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/RunTeam/RunTeamCreateApi application/json-patch+json 50
+2019-05-22 17:27:41.793 +08:00 [INF] Successfully validated the token.
+2019-05-22 17:27:41.796 +08:00 [INF] Executing endpoint 'Team.Controllers.RunTeamController.RunTeamCreateApi (Team)'
+2019-05-22 17:27:41.798 +08:00 [INF] Route matched with {action = "RunTeamCreateApi", controller = "RunTeam"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult RunTeamCreateApi(Team.Model.AutoMappers.RunTeamMapper.RunTeamCreateMap) on controller Team.Controllers.RunTeamController (Team).
+2019-05-22 17:27:41.804 +08:00 [INF] Authorization was successful.
+2019-05-22 17:27:41.818 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-22 17:27:42.140 +08:00 [INF] Executed DbCommand (301ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-22 17:27:42.166 +08:00 [INF] Executing action method Team.Controllers.RunTeamController.RunTeamCreateApi (Team) - Validation state: "Valid"
+2019-05-22 17:27:42.217 +08:00 [INF] Executed DbCommand (37ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE [x].[Id] = @__userId_0
+2019-05-22 17:27:42.235 +08:00 [INF] 用户 1 创建跑步队伍失败
+2019-05-22 17:27:42.237 +08:00 [INF] Executed action method Team.Controllers.RunTeamController.RunTeamCreateApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 68.9576ms.
+2019-05-22 17:27:42.240 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-22 17:27:42.241 +08:00 [INF] Executed action Team.Controllers.RunTeamController.RunTeamCreateApi (Team) in 437.81080000000003ms
+2019-05-22 17:27:42.243 +08:00 [INF] Executed endpoint 'Team.Controllers.RunTeamController.RunTeamCreateApi (Team)'
+2019-05-22 17:27:42.246 +08:00 [INF] Request finished in 456.692ms 500 application/json; charset=utf-8
+2019-05-22 17:30:55.894 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-22 17:30:57.327 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-05-22 17:30:57.505 +08:00 [INF] Request finished in 185.2399ms 200 text/html
+2019-05-22 17:30:58.161 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-05-22 17:30:58.322 +08:00 [INF] Request finished in 160.2916ms 200 application/json;charset=utf-8
+2019-05-22 17:33:01.601 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserLoginApi application/json-patch+json 49
+2019-05-22 17:33:01.720 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-22 17:33:01.745 +08:00 [INF] Route matched with {action = "UserLoginApi", controller = "Login"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserLoginApi(Team.Model.AutoMappers.UserMapper.UserLoginMap) on controller Team.Controllers.LoginController (Team).
+2019-05-22 17:33:02.077 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-22 17:33:02.454 +08:00 [INF] Executed DbCommand (244ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-22 17:33:02.841 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoginApi (Team) - Validation state: "Valid"
+2019-05-22 17:33:03.008 +08:00 [INF] Executed DbCommand (64ms) [Parameters=[@__account_0='?' (Size = 4000), @__password_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE ([x].[Account] = @__account_0) AND ([x].[Password] = @__password_1)
+2019-05-22 17:33:03.098 +08:00 [INF] 用户 1登陆成功
+2019-05-22 17:33:03.104 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserLoginApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 256.9078ms.
+2019-05-22 17:33:03.118 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-22 17:33:03.129 +08:00 [INF] Executed action Team.Controllers.LoginController.UserLoginApi (Team) in 1378.0688ms
+2019-05-22 17:33:03.133 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-22 17:33:03.140 +08:00 [INF] Request finished in 1539.6284ms 200 application/json; charset=utf-8
+2019-05-22 17:34:04.601 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/RetrievePasswordApi?account=string  0
+2019-05-22 17:34:04.629 +08:00 [INF] Successfully validated the token.
+2019-05-22 17:34:04.635 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.RetrievePasswordApi (Team)'
+2019-05-22 17:34:04.643 +08:00 [INF] Route matched with {action = "RetrievePasswordApi", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult RetrievePasswordApi(System.String) on controller Team.Controllers.LoginController (Team).
+2019-05-22 17:34:04.676 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-22 17:34:04.716 +08:00 [INF] Executed DbCommand (35ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-22 17:34:04.748 +08:00 [INF] Executing action method Team.Controllers.LoginController.RetrievePasswordApi (Team) - Validation state: "Valid"
+2019-05-22 17:34:04.805 +08:00 [INF] Executed DbCommand (38ms) [Parameters=[@__account_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE [x].[Account] = @__account_0
+2019-05-22 17:34:04.814 +08:00 [INF] string 账号验证成功,返回密码与token
+2019-05-22 17:34:04.816 +08:00 [INF] Executed action method Team.Controllers.LoginController.RetrievePasswordApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 64.5299ms.
+2019-05-22 17:34:04.821 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-22 17:34:04.824 +08:00 [INF] Executed action Team.Controllers.LoginController.RetrievePasswordApi (Team) in 178.60160000000002ms
+2019-05-22 17:34:04.827 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.RetrievePasswordApi (Team)'
+2019-05-22 17:34:04.828 +08:00 [INF] Request finished in 226.8351ms 200 application/json; charset=utf-8
+2019-05-22 17:34:58.729 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserUpdateApi application/json-patch+json 117
+2019-05-22 17:34:58.731 +08:00 [INF] Successfully validated the token.
+2019-05-22 17:34:58.733 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserUpdateApi (Team)'
+2019-05-22 17:34:58.742 +08:00 [INF] Route matched with {action = "UserUpdateApi", controller = "Login"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserUpdateApi(Team.Model.AutoMappers.UserMapper.UserUpdateMap) on controller Team.Controllers.LoginController (Team).
+2019-05-22 17:34:58.756 +08:00 [INF] Authorization failed.
+2019-05-22 17:34:58.759 +08:00 [INF] Authorization failed for the request at filter 'Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter'.
+2019-05-22 17:34:58.766 +08:00 [INF] Executing ForbidResult with authentication schemes ([]).
+2019-05-22 17:34:58.771 +08:00 [INF] AuthenticationScheme: Bearer was forbidden.
+2019-05-22 17:34:58.773 +08:00 [INF] Executed action Team.Controllers.LoginController.UserUpdateApi (Team) in 24.3066ms
+2019-05-22 17:34:58.775 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserUpdateApi (Team)'
+2019-05-22 17:34:58.779 +08:00 [INF] Request finished in 50.0829ms 403 
+2019-05-22 17:34:58.784 +08:00 [INF] Connection id "0HLMUJ0OOF1FR", Request id "0HLMUJ0OOF1FR:00000005": the application completed without reading the entire request body.
+2019-05-22 17:38:05.152 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-22 17:38:06.481 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-05-22 17:38:06.660 +08:00 [INF] Request finished in 182.138ms 200 text/html
+2019-05-22 17:38:07.319 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-05-22 17:38:07.474 +08:00 [INF] Request finished in 154.8328ms 200 application/json;charset=utf-8
+2019-05-22 17:38:20.286 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserLoginApi application/json-patch+json 49
+2019-05-22 17:38:20.366 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-22 17:38:20.392 +08:00 [INF] Route matched with {action = "UserLoginApi", controller = "Login"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserLoginApi(Team.Model.AutoMappers.UserMapper.UserLoginMap) on controller Team.Controllers.LoginController (Team).
+2019-05-22 17:38:20.707 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-22 17:38:20.912 +08:00 [INF] Executed DbCommand (87ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-22 17:38:21.320 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoginApi (Team) - Validation state: "Valid"
+2019-05-22 17:38:21.510 +08:00 [INF] Executed DbCommand (66ms) [Parameters=[@__account_0='?' (Size = 4000), @__password_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE ([x].[Account] = @__account_0) AND ([x].[Password] = @__password_1)
+2019-05-22 17:38:21.592 +08:00 [INF] 用户 1登陆成功
+2019-05-22 17:38:21.599 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserLoginApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 273.2282ms.
+2019-05-22 17:38:21.612 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-22 17:38:21.625 +08:00 [INF] Executed action Team.Controllers.LoginController.UserLoginApi (Team) in 1227.6165ms
+2019-05-22 17:38:21.628 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-22 17:38:21.637 +08:00 [INF] Request finished in 1350.7248ms 200 application/json; charset=utf-8
+2019-05-22 17:38:40.708 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/Login/UserForUpdateApi  
+2019-05-22 17:38:40.720 +08:00 [INF] Successfully validated the token.
+2019-05-22 17:38:40.726 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserForUpdateApi (Team)'
+2019-05-22 17:38:40.730 +08:00 [INF] Route matched with {action = "UserForUpdateApi", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UserForUpdateApi() on controller Team.Controllers.LoginController (Team).
+2019-05-22 17:38:40.746 +08:00 [INF] Authorization failed.
+2019-05-22 17:38:40.747 +08:00 [INF] Authorization failed for the request at filter 'Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter'.
+2019-05-22 17:38:40.754 +08:00 [INF] Executing ForbidResult with authentication schemes ([]).
+2019-05-22 17:38:40.760 +08:00 [INF] AuthenticationScheme: Bearer was forbidden.
+2019-05-22 17:38:40.761 +08:00 [INF] Executed action Team.Controllers.LoginController.UserForUpdateApi (Team) in 25.2803ms
+2019-05-22 17:38:40.763 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserForUpdateApi (Team)'
+2019-05-22 17:38:40.769 +08:00 [INF] Request finished in 60.674ms 403 
+2019-05-22 17:42:28.923 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-22 17:42:30.528 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-05-22 17:42:30.715 +08:00 [INF] Request finished in 190.9915ms 200 text/html
+2019-05-22 17:42:31.513 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-05-22 17:42:31.677 +08:00 [INF] Request finished in 164.3476ms 200 application/json;charset=utf-8
+2019-05-22 17:42:41.813 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserLoginApi application/json-patch+json 49
+2019-05-22 17:42:41.900 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-22 17:42:41.923 +08:00 [INF] Route matched with {action = "UserLoginApi", controller = "Login"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserLoginApi(Team.Model.AutoMappers.UserMapper.UserLoginMap) on controller Team.Controllers.LoginController (Team).
+2019-05-22 17:42:42.266 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-22 17:42:42.481 +08:00 [INF] Executed DbCommand (84ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-22 17:42:42.843 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoginApi (Team) - Validation state: "Valid"
+2019-05-22 17:42:43.016 +08:00 [INF] Executed DbCommand (66ms) [Parameters=[@__account_0='?' (Size = 4000), @__password_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE ([x].[Account] = @__account_0) AND ([x].[Password] = @__password_1)
+2019-05-22 17:42:43.095 +08:00 [INF] 用户 1登陆成功
+2019-05-22 17:42:43.101 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserLoginApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 253.098ms.
+2019-05-22 17:42:43.114 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-22 17:42:43.127 +08:00 [INF] Executed action Team.Controllers.LoginController.UserLoginApi (Team) in 1197.8711ms
+2019-05-22 17:42:43.130 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-22 17:42:43.137 +08:00 [INF] Request finished in 1324.3983ms 200 application/json; charset=utf-8
+2019-05-22 17:42:58.948 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/Login/UserForUpdateApi  
+2019-05-22 17:42:58.970 +08:00 [INF] Successfully validated the token.
+2019-05-22 17:42:58.977 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserForUpdateApi (Team)'
+2019-05-22 17:42:58.981 +08:00 [INF] Route matched with {action = "UserForUpdateApi", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UserForUpdateApi() on controller Team.Controllers.LoginController (Team).
+2019-05-22 17:42:58.994 +08:00 [INF] Authorization failed.
+2019-05-22 17:42:58.997 +08:00 [INF] Authorization failed for the request at filter 'Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter'.
+2019-05-22 17:42:59.006 +08:00 [INF] Executing ForbidResult with authentication schemes ([]).
+2019-05-22 17:42:59.011 +08:00 [INF] AuthenticationScheme: Bearer was forbidden.
+2019-05-22 17:42:59.013 +08:00 [INF] Executed action Team.Controllers.LoginController.UserForUpdateApi (Team) in 25.954800000000002ms
+2019-05-22 17:42:59.016 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserForUpdateApi (Team)'
+2019-05-22 17:42:59.019 +08:00 [INF] Request finished in 71.1894ms 403 
+2019-05-22 17:46:35.617 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-22 17:46:37.220 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-05-22 17:46:37.363 +08:00 [INF] Request finished in 147.0971ms 200 text/html
+2019-05-22 17:46:38.028 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-05-22 17:46:38.198 +08:00 [INF] Request finished in 170.6849ms 200 application/json;charset=utf-8
+2019-05-22 17:46:57.659 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/Login/UserForUpdateApi  
+2019-05-22 17:46:57.726 +08:00 [INF] Successfully validated the token.
+2019-05-22 17:46:57.759 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserForUpdateApi (Team)'
+2019-05-22 17:46:57.772 +08:00 [INF] Route matched with {action = "UserForUpdateApi", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UserForUpdateApi() on controller Team.Controllers.LoginController (Team).
+2019-05-22 17:46:57.784 +08:00 [INF] Authorization failed.
+2019-05-22 17:46:57.787 +08:00 [INF] Authorization failed for the request at filter 'Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter'.
+2019-05-22 17:46:57.796 +08:00 [INF] Executing ForbidResult with authentication schemes ([]).
+2019-05-22 17:46:57.803 +08:00 [INF] AuthenticationScheme: Bearer was forbidden.
+2019-05-22 17:46:57.808 +08:00 [INF] Executed action Team.Controllers.LoginController.UserForUpdateApi (Team) in 29.8825ms
+2019-05-22 17:46:57.813 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserForUpdateApi (Team)'
+2019-05-22 17:46:57.815 +08:00 [INF] Request finished in 156.2572ms 403 
+2019-05-22 17:47:03.480 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserLoginApi application/json-patch+json 49
+2019-05-22 17:47:03.484 +08:00 [INF] Successfully validated the token.
+2019-05-22 17:47:03.490 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-22 17:47:03.509 +08:00 [INF] Route matched with {action = "UserLoginApi", controller = "Login"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserLoginApi(Team.Model.AutoMappers.UserMapper.UserLoginMap) on controller Team.Controllers.LoginController (Team).
+2019-05-22 17:47:03.842 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-22 17:47:04.055 +08:00 [INF] Executed DbCommand (86ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-22 17:47:04.416 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoginApi (Team) - Validation state: "Valid"
+2019-05-22 17:47:04.580 +08:00 [INF] Executed DbCommand (63ms) [Parameters=[@__account_0='?' (Size = 4000), @__password_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE ([x].[Account] = @__account_0) AND ([x].[Password] = @__password_1)
+2019-05-22 17:47:04.659 +08:00 [INF] 用户 1登陆成功
+2019-05-22 17:47:04.665 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserLoginApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 243.1045ms.
+2019-05-22 17:47:04.675 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-22 17:47:04.684 +08:00 [INF] Executed action Team.Controllers.LoginController.UserLoginApi (Team) in 1145.814ms
+2019-05-22 17:47:04.688 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-22 17:47:04.694 +08:00 [INF] Request finished in 1214.7825ms 200 application/json; charset=utf-8
+2019-05-22 17:47:16.546 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/Login/UserForUpdateApi  
+2019-05-22 17:47:16.549 +08:00 [INF] Successfully validated the token.
+2019-05-22 17:47:16.551 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserForUpdateApi (Team)'
+2019-05-22 17:47:16.552 +08:00 [INF] Route matched with {action = "UserForUpdateApi", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UserForUpdateApi() on controller Team.Controllers.LoginController (Team).
+2019-05-22 17:47:16.557 +08:00 [INF] Authorization failed.
+2019-05-22 17:47:16.558 +08:00 [INF] Authorization failed for the request at filter 'Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter'.
+2019-05-22 17:47:16.559 +08:00 [INF] Executing ForbidResult with authentication schemes ([]).
+2019-05-22 17:47:16.561 +08:00 [INF] AuthenticationScheme: Bearer was forbidden.
+2019-05-22 17:47:16.562 +08:00 [INF] Executed action Team.Controllers.LoginController.UserForUpdateApi (Team) in 5.274ms
+2019-05-22 17:47:16.563 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserForUpdateApi (Team)'
+2019-05-22 17:47:16.565 +08:00 [INF] Request finished in 18.731ms 403 
+2019-05-22 17:49:10.307 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-22 17:49:11.766 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-05-22 17:49:11.923 +08:00 [INF] Request finished in 159.5005ms 200 text/html
+2019-05-22 17:49:12.625 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-05-22 17:49:12.813 +08:00 [INF] Request finished in 188.5378ms 200 application/json;charset=utf-8
+2019-05-22 17:49:17.418 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserLoginApi application/json-patch+json 49
+2019-05-22 17:49:17.504 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-22 17:49:17.528 +08:00 [INF] Route matched with {action = "UserLoginApi", controller = "Login"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserLoginApi(Team.Model.AutoMappers.UserMapper.UserLoginMap) on controller Team.Controllers.LoginController (Team).
+2019-05-22 17:49:18.010 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-22 17:49:18.212 +08:00 [INF] Executed DbCommand (90ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-22 17:49:18.589 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoginApi (Team) - Validation state: "Valid"
+2019-05-22 17:49:18.763 +08:00 [INF] Executed DbCommand (60ms) [Parameters=[@__account_0='?' (Size = 4000), @__password_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE ([x].[Account] = @__account_0) AND ([x].[Password] = @__password_1)
+2019-05-22 17:49:18.848 +08:00 [INF] 用户 1登陆成功
+2019-05-22 17:49:18.855 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserLoginApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 261.8252ms.
+2019-05-22 17:49:18.869 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-22 17:49:18.879 +08:00 [INF] Executed action Team.Controllers.LoginController.UserLoginApi (Team) in 1248.6397ms
+2019-05-22 17:49:18.883 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-22 17:49:18.890 +08:00 [INF] Request finished in 1472.757ms 200 application/json; charset=utf-8
+2019-05-22 17:49:32.976 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/Login/UserForUpdateApi  
+2019-05-22 17:49:32.988 +08:00 [INF] Successfully validated the token.
+2019-05-22 17:49:32.994 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserForUpdateApi (Team)'
+2019-05-22 17:49:32.998 +08:00 [INF] Route matched with {action = "UserForUpdateApi", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UserForUpdateApi() on controller Team.Controllers.LoginController (Team).
+2019-05-22 17:49:33.011 +08:00 [INF] Authorization failed.
+2019-05-22 17:49:33.013 +08:00 [INF] Authorization failed for the request at filter 'Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter'.
+2019-05-22 17:49:33.021 +08:00 [INF] Executing ForbidResult with authentication schemes ([]).
+2019-05-22 17:49:33.027 +08:00 [INF] AuthenticationScheme: Bearer was forbidden.
+2019-05-22 17:49:33.029 +08:00 [INF] Executed action Team.Controllers.LoginController.UserForUpdateApi (Team) in 24.581400000000002ms
+2019-05-22 17:49:33.032 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserForUpdateApi (Team)'
+2019-05-22 17:49:33.035 +08:00 [INF] Request finished in 59.6342ms 403 
+2019-05-22 17:49:57.812 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserLoginApi application/json-patch+json 49
+2019-05-22 17:49:57.816 +08:00 [INF] Successfully validated the token.
+2019-05-22 17:49:57.820 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-22 17:49:57.823 +08:00 [INF] Route matched with {action = "UserLoginApi", controller = "Login"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserLoginApi(Team.Model.AutoMappers.UserMapper.UserLoginMap) on controller Team.Controllers.LoginController (Team).
+2019-05-22 17:49:57.845 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-22 17:49:57.886 +08:00 [INF] Executed DbCommand (26ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-22 17:49:57.915 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoginApi (Team) - Validation state: "Valid"
+2019-05-22 17:49:57.968 +08:00 [INF] Executed DbCommand (48ms) [Parameters=[@__account_0='?' (Size = 4000), @__password_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE ([x].[Account] = @__account_0) AND ([x].[Password] = @__password_1)
+2019-05-22 17:49:57.973 +08:00 [INF] 用户 1登陆成功
+2019-05-22 17:49:57.974 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserLoginApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 55.964400000000005ms.
+2019-05-22 17:49:57.983 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-22 17:49:57.985 +08:00 [INF] Executed action Team.Controllers.LoginController.UserLoginApi (Team) in 158.8607ms
+2019-05-22 17:49:57.987 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-22 17:49:57.990 +08:00 [INF] Request finished in 177.9898ms 200 application/json; charset=utf-8
+2019-05-22 17:50:08.182 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/Login/UserForUpdateApi  
+2019-05-22 17:50:08.184 +08:00 [INF] Successfully validated the token.
+2019-05-22 17:50:08.186 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserForUpdateApi (Team)'
+2019-05-22 17:50:08.188 +08:00 [INF] Route matched with {action = "UserForUpdateApi", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UserForUpdateApi() on controller Team.Controllers.LoginController (Team).
+2019-05-22 17:50:08.202 +08:00 [INF] Authorization failed.
+2019-05-22 17:50:08.210 +08:00 [INF] Authorization failed for the request at filter 'Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter'.
+2019-05-22 17:50:08.220 +08:00 [INF] Executing ForbidResult with authentication schemes ([]).
+2019-05-22 17:50:08.223 +08:00 [INF] AuthenticationScheme: Bearer was forbidden.
+2019-05-22 17:50:08.224 +08:00 [INF] Executed action Team.Controllers.LoginController.UserForUpdateApi (Team) in 23.4238ms
+2019-05-22 17:50:08.227 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserForUpdateApi (Team)'
+2019-05-22 17:50:08.230 +08:00 [INF] Request finished in 47.664ms 403 
+2019-05-22 17:50:10.378 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/Login/UserForUpdateApi  
+2019-05-22 17:50:10.381 +08:00 [INF] Successfully validated the token.
+2019-05-22 17:50:10.382 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserForUpdateApi (Team)'
+2019-05-22 17:50:10.384 +08:00 [INF] Route matched with {action = "UserForUpdateApi", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UserForUpdateApi() on controller Team.Controllers.LoginController (Team).
+2019-05-22 17:50:10.392 +08:00 [INF] Authorization failed.
+2019-05-22 17:50:10.395 +08:00 [INF] Authorization failed for the request at filter 'Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter'.
+2019-05-22 17:50:10.407 +08:00 [INF] Executing ForbidResult with authentication schemes ([]).
+2019-05-22 17:50:10.409 +08:00 [INF] AuthenticationScheme: Bearer was forbidden.
+2019-05-22 17:50:10.419 +08:00 [INF] Executed action Team.Controllers.LoginController.UserForUpdateApi (Team) in 26.1136ms
+2019-05-22 17:50:10.421 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserForUpdateApi (Team)'
+2019-05-22 17:50:10.423 +08:00 [INF] Request finished in 44.6233ms 403 
+2019-05-22 17:50:12.169 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/Login/UserForUpdateApi  
+2019-05-22 17:50:12.171 +08:00 [INF] Successfully validated the token.
+2019-05-22 17:50:12.172 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserForUpdateApi (Team)'
+2019-05-22 17:50:12.173 +08:00 [INF] Route matched with {action = "UserForUpdateApi", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UserForUpdateApi() on controller Team.Controllers.LoginController (Team).
+2019-05-22 17:50:12.181 +08:00 [INF] Authorization failed.
+2019-05-22 17:50:12.183 +08:00 [INF] Authorization failed for the request at filter 'Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter'.
+2019-05-22 17:50:12.184 +08:00 [INF] Executing ForbidResult with authentication schemes ([]).
+2019-05-22 17:50:12.186 +08:00 [INF] AuthenticationScheme: Bearer was forbidden.
+2019-05-22 17:50:12.188 +08:00 [INF] Executed action Team.Controllers.LoginController.UserForUpdateApi (Team) in 6.6391ms
+2019-05-22 17:50:12.190 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserForUpdateApi (Team)'
+2019-05-22 17:50:12.192 +08:00 [INF] Request finished in 23.3387ms 403 
+2019-05-22 17:50:48.769 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-22 17:50:49.758 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-05-22 17:50:49.944 +08:00 [INF] Request finished in 187.9526ms 200 text/html
+2019-05-22 17:50:50.660 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-05-22 17:50:50.849 +08:00 [INF] Request finished in 189.4631ms 200 application/json;charset=utf-8
+2019-05-22 17:50:54.219 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserLoginApi application/json-patch+json 49
+2019-05-22 17:50:54.312 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-22 17:50:54.338 +08:00 [INF] Route matched with {action = "UserLoginApi", controller = "Login"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserLoginApi(Team.Model.AutoMappers.UserMapper.UserLoginMap) on controller Team.Controllers.LoginController (Team).
+2019-05-22 17:50:54.704 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-22 17:50:54.936 +08:00 [INF] Executed DbCommand (110ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-22 17:50:55.372 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoginApi (Team) - Validation state: "Valid"
+2019-05-22 17:50:55.563 +08:00 [INF] Executed DbCommand (68ms) [Parameters=[@__account_0='?' (Size = 4000), @__password_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE ([x].[Account] = @__account_0) AND ([x].[Password] = @__password_1)
+2019-05-22 17:50:55.648 +08:00 [INF] 用户 1登陆成功
+2019-05-22 17:50:55.655 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserLoginApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 276.0215ms.
+2019-05-22 17:50:55.669 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-22 17:50:55.681 +08:00 [INF] Executed action Team.Controllers.LoginController.UserLoginApi (Team) in 1336.5638000000001ms
+2019-05-22 17:50:55.684 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-22 17:50:55.694 +08:00 [INF] Request finished in 1474.6581ms 200 application/json; charset=utf-8
+2019-05-22 17:51:05.892 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/Login/UserForUpdateApi  
+2019-05-22 17:51:05.903 +08:00 [INF] Successfully validated the token.
+2019-05-22 17:51:05.911 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserForUpdateApi (Team)'
+2019-05-22 17:51:05.915 +08:00 [INF] Route matched with {action = "UserForUpdateApi", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UserForUpdateApi() on controller Team.Controllers.LoginController (Team).
+2019-05-22 17:51:05.930 +08:00 [INF] Authorization failed.
+2019-05-22 17:51:05.932 +08:00 [INF] Authorization failed for the request at filter 'Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter'.
+2019-05-22 17:51:05.938 +08:00 [INF] Executing ForbidResult with authentication schemes ([]).
+2019-05-22 17:51:05.945 +08:00 [INF] AuthenticationScheme: Bearer was forbidden.
+2019-05-22 17:51:05.947 +08:00 [INF] Executed action Team.Controllers.LoginController.UserForUpdateApi (Team) in 28.0404ms
+2019-05-22 17:51:05.950 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserForUpdateApi (Team)'
+2019-05-22 17:51:05.953 +08:00 [INF] Request finished in 61.1423ms 403 
+2019-05-22 17:51:55.625 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/RunTeam/RunTeamCreateApi application/json-patch+json 50
+2019-05-22 17:51:55.628 +08:00 [INF] Successfully validated the token.
+2019-05-22 17:51:55.629 +08:00 [INF] Executing endpoint 'Team.Controllers.RunTeamController.RunTeamCreateApi (Team)'
+2019-05-22 17:51:55.635 +08:00 [INF] Route matched with {action = "RunTeamCreateApi", controller = "RunTeam"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult RunTeamCreateApi(Team.Model.AutoMappers.RunTeamMapper.RunTeamCreateMap) on controller Team.Controllers.RunTeamController (Team).
+2019-05-22 17:51:55.641 +08:00 [INF] Authorization failed.
+2019-05-22 17:51:55.642 +08:00 [INF] Authorization failed for the request at filter 'Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter'.
+2019-05-22 17:51:55.644 +08:00 [INF] Executing ForbidResult with authentication schemes ([]).
+2019-05-22 17:51:55.645 +08:00 [INF] AuthenticationScheme: Bearer was forbidden.
+2019-05-22 17:51:55.649 +08:00 [INF] Executed action Team.Controllers.RunTeamController.RunTeamCreateApi (Team) in 7.9796000000000005ms
+2019-05-22 17:51:55.652 +08:00 [INF] Executed endpoint 'Team.Controllers.RunTeamController.RunTeamCreateApi (Team)'
+2019-05-22 17:51:55.658 +08:00 [INF] Request finished in 33.126ms 403 
+2019-05-22 17:51:55.661 +08:00 [INF] Connection id "0HLMUJBS5LULQ", Request id "0HLMUJBS5LULQ:00000005": the application completed without reading the entire request body.
+2019-05-22 17:52:10.934 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-22 17:52:12.611 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-05-22 17:52:12.812 +08:00 [INF] Request finished in 202.7136ms 200 text/html
+2019-05-22 17:52:13.605 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-05-22 17:52:13.809 +08:00 [INF] Request finished in 203.7015ms 200 application/json;charset=utf-8
+2019-05-22 17:52:17.682 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserLoginApi application/json-patch+json 49
+2019-05-22 17:52:17.767 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-22 17:52:17.791 +08:00 [INF] Route matched with {action = "UserLoginApi", controller = "Login"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserLoginApi(Team.Model.AutoMappers.UserMapper.UserLoginMap) on controller Team.Controllers.LoginController (Team).
+2019-05-22 17:52:18.123 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-22 17:52:18.307 +08:00 [INF] Executed DbCommand (78ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-22 17:52:18.658 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoginApi (Team) - Validation state: "Valid"
+2019-05-22 17:52:18.844 +08:00 [INF] Executed DbCommand (74ms) [Parameters=[@__account_0='?' (Size = 4000), @__password_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE ([x].[Account] = @__account_0) AND ([x].[Password] = @__password_1)
+2019-05-22 17:52:18.936 +08:00 [INF] 用户 1登陆成功
+2019-05-22 17:52:18.941 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserLoginApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 277.7769ms.
+2019-05-22 17:52:18.955 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-22 17:52:18.967 +08:00 [INF] Executed action Team.Controllers.LoginController.UserLoginApi (Team) in 1168.8277ms
+2019-05-22 17:52:18.970 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-22 17:52:18.977 +08:00 [INF] Request finished in 1294.7767ms 200 application/json; charset=utf-8
+2019-05-22 17:52:30.173 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/Login/UserForUpdateApi  
+2019-05-22 17:52:30.184 +08:00 [INF] Successfully validated the token.
+2019-05-22 17:52:30.190 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserForUpdateApi (Team)'
+2019-05-22 17:52:30.196 +08:00 [INF] Route matched with {action = "UserForUpdateApi", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UserForUpdateApi() on controller Team.Controllers.LoginController (Team).
+2019-05-22 17:52:30.208 +08:00 [INF] Authorization failed.
+2019-05-22 17:52:30.211 +08:00 [INF] Authorization failed for the request at filter 'Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter'.
+2019-05-22 17:52:30.219 +08:00 [INF] Executing ForbidResult with authentication schemes ([]).
+2019-05-22 17:52:30.224 +08:00 [INF] AuthenticationScheme: Bearer was forbidden.
+2019-05-22 17:52:30.228 +08:00 [INF] Executed action Team.Controllers.LoginController.UserForUpdateApi (Team) in 26.782700000000002ms
+2019-05-22 17:52:30.232 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserForUpdateApi (Team)'
+2019-05-22 17:52:30.234 +08:00 [INF] Request finished in 61.1644ms 403 
+2019-05-22 17:52:45.029 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/Login/UserForUpdateApi  
+2019-05-22 17:52:45.032 +08:00 [INF] Successfully validated the token.
+2019-05-22 17:52:45.034 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserForUpdateApi (Team)'
+2019-05-22 17:52:45.035 +08:00 [INF] Route matched with {action = "UserForUpdateApi", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UserForUpdateApi() on controller Team.Controllers.LoginController (Team).
+2019-05-22 17:52:45.038 +08:00 [INF] Authorization failed.
+2019-05-22 17:52:45.042 +08:00 [INF] Authorization failed for the request at filter 'Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter'.
+2019-05-22 17:52:45.044 +08:00 [INF] Executing ForbidResult with authentication schemes ([]).
+2019-05-22 17:52:45.045 +08:00 [INF] AuthenticationScheme: Bearer was forbidden.
+2019-05-22 17:52:45.047 +08:00 [INF] Executed action Team.Controllers.LoginController.UserForUpdateApi (Team) in 9.2098000000000013ms
+2019-05-22 17:52:45.049 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserForUpdateApi (Team)'
+2019-05-22 17:52:45.050 +08:00 [INF] Request finished in 21.2799ms 403 
+2019-05-22 17:52:50.094 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/Login/UserForUpdateApi  
+2019-05-22 17:52:50.096 +08:00 [INF] Successfully validated the token.
+2019-05-22 17:52:50.097 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserForUpdateApi (Team)'
+2019-05-22 17:52:50.099 +08:00 [INF] Route matched with {action = "UserForUpdateApi", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UserForUpdateApi() on controller Team.Controllers.LoginController (Team).
+2019-05-22 17:52:50.106 +08:00 [INF] Authorization failed.
+2019-05-22 17:52:50.107 +08:00 [INF] Authorization failed for the request at filter 'Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter'.
+2019-05-22 17:52:50.110 +08:00 [INF] Executing ForbidResult with authentication schemes ([]).
+2019-05-22 17:52:50.112 +08:00 [INF] AuthenticationScheme: Bearer was forbidden.
+2019-05-22 17:52:50.113 +08:00 [INF] Executed action Team.Controllers.LoginController.UserForUpdateApi (Team) in 7.6919ms
+2019-05-22 17:52:50.115 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserForUpdateApi (Team)'
+2019-05-22 17:52:50.116 +08:00 [INF] Request finished in 22.2139ms 403 
+2019-05-22 18:56:03.446 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-22 18:56:05.102 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-05-22 18:56:05.458 +08:00 [INF] Request finished in 361.621ms 200 text/html
+2019-05-22 18:56:06.107 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-05-22 18:56:06.275 +08:00 [INF] Request finished in 168.5834ms 200 application/json;charset=utf-8
+2019-05-22 18:56:25.149 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserLoginApi application/json-patch+json 49
+2019-05-22 18:56:25.272 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-22 18:56:25.298 +08:00 [INF] Route matched with {action = "UserLoginApi", controller = "Login"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserLoginApi(Team.Model.AutoMappers.UserMapper.UserLoginMap) on controller Team.Controllers.LoginController (Team).
+2019-05-22 18:56:25.792 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-22 18:56:26.350 +08:00 [INF] Executed DbCommand (337ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-22 18:56:26.739 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoginApi (Team) - Validation state: "Valid"
+2019-05-22 18:56:26.938 +08:00 [INF] Executed DbCommand (65ms) [Parameters=[@__account_0='?' (Size = 4000), @__password_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE ([x].[Account] = @__account_0) AND ([x].[Password] = @__password_1)
+2019-05-22 18:56:27.034 +08:00 [INF] 用户 1登陆成功
+2019-05-22 18:56:27.041 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserLoginApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 295.2482ms.
+2019-05-22 18:56:27.057 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-22 18:56:27.070 +08:00 [INF] Executed action Team.Controllers.LoginController.UserLoginApi (Team) in 1765.8252ms
+2019-05-22 18:56:27.074 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-22 18:56:27.083 +08:00 [INF] Request finished in 1933.9227ms 200 application/json; charset=utf-8
+2019-05-22 18:57:21.378 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/Login/UserForUpdateApi  
+2019-05-22 18:57:21.393 +08:00 [INF] Successfully validated the token.
+2019-05-22 18:57:21.400 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserForUpdateApi (Team)'
+2019-05-22 18:57:21.407 +08:00 [INF] Route matched with {action = "UserForUpdateApi", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UserForUpdateApi() on controller Team.Controllers.LoginController (Team).
+2019-05-22 18:57:21.419 +08:00 [INF] Authorization was successful.
+2019-05-22 18:57:21.445 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-22 18:57:21.588 +08:00 [INF] Executed DbCommand (129ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-22 18:57:21.614 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserForUpdateApi (Team) - Validation state: "Valid"
+2019-05-22 18:57:21.683 +08:00 [INF] Executed DbCommand (45ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE [x].[Id] = @__userId_0
+2019-05-22 18:57:21.711 +08:00 [INF] 用户 1 获取对应修改信息成功！
+2019-05-22 18:57:21.713 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserForUpdateApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 96.4984ms.
+2019-05-22 18:57:21.719 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-22 18:57:21.725 +08:00 [INF] Executed action Team.Controllers.LoginController.UserForUpdateApi (Team) in 313.9151ms
+2019-05-22 18:57:21.727 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserForUpdateApi (Team)'
+2019-05-22 18:57:21.730 +08:00 [INF] Request finished in 353.0802ms 200 application/json; charset=utf-8
+2019-05-22 18:58:44.614 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-22 18:58:45.779 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-05-22 18:58:45.956 +08:00 [INF] Request finished in 184.9252ms 200 text/html
+2019-05-22 18:58:46.660 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-05-22 18:58:46.853 +08:00 [INF] Request finished in 192.9533ms 200 application/json;charset=utf-8
+2019-05-22 18:58:53.185 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserLoginApi application/json-patch+json 49
+2019-05-22 18:58:53.266 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-22 18:58:53.291 +08:00 [INF] Route matched with {action = "UserLoginApi", controller = "Login"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserLoginApi(Team.Model.AutoMappers.UserMapper.UserLoginMap) on controller Team.Controllers.LoginController (Team).
+2019-05-22 18:58:53.593 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-22 18:58:53.783 +08:00 [INF] Executed DbCommand (82ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-22 18:58:54.179 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoginApi (Team) - Validation state: "Valid"
+2019-05-22 18:58:54.349 +08:00 [INF] Executed DbCommand (65ms) [Parameters=[@__account_0='?' (Size = 4000), @__password_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE ([x].[Account] = @__account_0) AND ([x].[Password] = @__password_1)
+2019-05-22 18:58:54.433 +08:00 [INF] 用户 1登陆成功
+2019-05-22 18:58:54.439 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserLoginApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 255.51510000000002ms.
+2019-05-22 18:58:54.452 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-22 18:58:54.464 +08:00 [INF] Executed action Team.Controllers.LoginController.UserLoginApi (Team) in 1167.0363ms
+2019-05-22 18:58:54.467 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-22 18:58:54.474 +08:00 [INF] Request finished in 1288.6731ms 200 application/json; charset=utf-8
+2019-05-22 18:59:12.660 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/Login/UserForUpdateApi  
+2019-05-22 18:59:12.683 +08:00 [INF] Successfully validated the token.
+2019-05-22 18:59:12.690 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserForUpdateApi (Team)'
+2019-05-22 18:59:12.696 +08:00 [INF] Route matched with {action = "UserForUpdateApi", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UserForUpdateApi() on controller Team.Controllers.LoginController (Team).
+2019-05-22 18:59:12.712 +08:00 [INF] Authorization failed.
+2019-05-22 18:59:12.714 +08:00 [INF] Authorization failed for the request at filter 'Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter'.
+2019-05-22 18:59:12.720 +08:00 [INF] Executing ForbidResult with authentication schemes ([]).
+2019-05-22 18:59:12.728 +08:00 [INF] AuthenticationScheme: Bearer was forbidden.
+2019-05-22 18:59:12.729 +08:00 [INF] Executed action Team.Controllers.LoginController.UserForUpdateApi (Team) in 27.991300000000003ms
+2019-05-22 18:59:12.731 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserForUpdateApi (Team)'
+2019-05-22 18:59:12.733 +08:00 [INF] Request finished in 73.4264ms 403 
+2019-05-22 19:08:39.198 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-22 19:08:40.472 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-05-22 19:08:40.615 +08:00 [INF] Request finished in 146.5068ms 200 text/html
+2019-05-22 19:08:41.320 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-05-22 19:08:41.496 +08:00 [INF] Request finished in 175.931ms 200 application/json;charset=utf-8
+2019-05-22 19:09:30.059 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserLoginApi application/json-patch+json 49
+2019-05-22 19:09:30.200 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-22 19:09:30.222 +08:00 [INF] Route matched with {action = "UserLoginApi", controller = "Login"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserLoginApi(Team.Model.AutoMappers.UserMapper.UserLoginMap) on controller Team.Controllers.LoginController (Team).
+2019-05-22 19:09:30.529 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-22 19:09:30.725 +08:00 [INF] Executed DbCommand (82ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-22 19:09:31.094 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoginApi (Team) - Validation state: "Valid"
+2019-05-22 19:09:31.275 +08:00 [INF] Executed DbCommand (73ms) [Parameters=[@__account_0='?' (Size = 4000), @__password_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE ([x].[Account] = @__account_0) AND ([x].[Password] = @__password_1)
+2019-05-22 19:09:31.369 +08:00 [INF] 用户 1登陆成功
+2019-05-22 19:09:31.375 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserLoginApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 275.0344ms.
+2019-05-22 19:09:31.389 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-22 19:09:31.401 +08:00 [INF] Executed action Team.Controllers.LoginController.UserLoginApi (Team) in 1172.5336ms
+2019-05-22 19:09:31.403 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-22 19:09:31.412 +08:00 [INF] Request finished in 1352.4534ms 200 application/json; charset=utf-8
+2019-05-22 19:09:49.367 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/Login/UserForUpdateApi  
+2019-05-22 19:09:49.380 +08:00 [INF] Successfully validated the token.
+2019-05-22 19:09:49.386 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserForUpdateApi (Team)'
+2019-05-22 19:09:49.392 +08:00 [INF] Route matched with {action = "UserForUpdateApi", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UserForUpdateApi() on controller Team.Controllers.LoginController (Team).
+2019-05-22 19:09:49.403 +08:00 [INF] Authorization failed.
+2019-05-22 19:09:49.407 +08:00 [INF] Authorization failed for the request at filter 'Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter'.
+2019-05-22 19:09:49.413 +08:00 [INF] Executing ForbidResult with authentication schemes ([]).
+2019-05-22 19:09:49.419 +08:00 [INF] AuthenticationScheme: Bearer was forbidden.
+2019-05-22 19:09:49.422 +08:00 [INF] Executed action Team.Controllers.LoginController.UserForUpdateApi (Team) in 26.971700000000002ms
+2019-05-22 19:09:49.426 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserForUpdateApi (Team)'
+2019-05-22 19:09:49.429 +08:00 [INF] Request finished in 62.0501ms 403 
+2019-05-22 19:26:03.453 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-22 19:26:04.593 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-05-22 19:26:04.884 +08:00 [INF] Request finished in 294.6517ms 200 text/html
+2019-05-22 19:26:05.582 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-05-22 19:26:05.752 +08:00 [INF] Request finished in 170.2913ms 200 application/json;charset=utf-8
+2019-05-22 19:27:36.801 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserLoginApi application/json-patch+json 49
+2019-05-22 19:27:36.952 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-22 19:27:36.983 +08:00 [INF] Route matched with {action = "UserLoginApi", controller = "Login"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserLoginApi(Team.Model.AutoMappers.UserMapper.UserLoginMap) on controller Team.Controllers.LoginController (Team).
+2019-05-22 19:27:37.375 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-22 19:27:37.576 +08:00 [INF] Executed DbCommand (79ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-22 19:27:37.965 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoginApi (Team) - Validation state: "Valid"
+2019-05-22 19:27:38.130 +08:00 [INF] Executed DbCommand (61ms) [Parameters=[@__account_0='?' (Size = 4000), @__password_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE ([x].[Account] = @__account_0) AND ([x].[Password] = @__password_1)
+2019-05-22 19:27:38.214 +08:00 [INF] 用户 1登陆成功
+2019-05-22 19:27:38.220 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserLoginApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 250.3579ms.
+2019-05-22 19:27:38.234 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-22 19:27:38.247 +08:00 [INF] Executed action Team.Controllers.LoginController.UserLoginApi (Team) in 1254.5725ms
+2019-05-22 19:27:38.263 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-22 19:27:38.271 +08:00 [INF] Request finished in 1470.0243ms 200 application/json; charset=utf-8
+2019-05-22 19:27:51.553 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/Login/UserForUpdateApi  
+2019-05-22 19:27:51.563 +08:00 [INF] Successfully validated the token.
+2019-05-22 19:27:51.578 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserForUpdateApi (Team)'
+2019-05-22 19:27:51.587 +08:00 [INF] Route matched with {action = "UserForUpdateApi", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UserForUpdateApi() on controller Team.Controllers.LoginController (Team).
+2019-05-22 19:27:51.601 +08:00 [INF] Authorization failed.
+2019-05-22 19:27:51.604 +08:00 [INF] Authorization failed for the request at filter 'Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter'.
+2019-05-22 19:27:51.610 +08:00 [INF] Executing ForbidResult with authentication schemes ([]).
+2019-05-22 19:27:51.619 +08:00 [INF] AuthenticationScheme: Bearer was forbidden.
+2019-05-22 19:27:51.623 +08:00 [INF] Executed action Team.Controllers.LoginController.UserForUpdateApi (Team) in 31.7531ms
+2019-05-22 19:27:51.625 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserForUpdateApi (Team)'
+2019-05-22 19:27:51.627 +08:00 [INF] Request finished in 74.0018ms 403 
+2019-05-22 19:29:26.997 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/Login/UserForUpdateApi  
+2019-05-22 19:29:27.000 +08:00 [INF] Successfully validated the token.
+2019-05-22 19:29:27.003 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserForUpdateApi (Team)'
+2019-05-22 19:29:27.005 +08:00 [INF] Route matched with {action = "UserForUpdateApi", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UserForUpdateApi() on controller Team.Controllers.LoginController (Team).
+2019-05-22 19:29:27.009 +08:00 [INF] Authorization failed.
+2019-05-22 19:29:27.020 +08:00 [INF] Authorization failed for the request at filter 'Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter'.
+2019-05-22 19:29:27.026 +08:00 [INF] Executing ForbidResult with authentication schemes ([]).
+2019-05-22 19:29:27.029 +08:00 [INF] AuthenticationScheme: Bearer was forbidden.
+2019-05-22 19:29:27.030 +08:00 [INF] Executed action Team.Controllers.LoginController.UserForUpdateApi (Team) in 22.1753ms
+2019-05-22 19:29:27.032 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserForUpdateApi (Team)'
+2019-05-22 19:29:27.033 +08:00 [INF] Request finished in 35.7349ms 403 
+2019-05-22 19:30:46.098 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-22 19:30:47.685 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-05-22 19:30:47.870 +08:00 [INF] Request finished in 188.4501ms 200 text/html
+2019-05-22 19:30:48.577 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-05-22 19:30:48.778 +08:00 [INF] Request finished in 200.5204ms 200 application/json;charset=utf-8
+2019-05-22 19:30:52.515 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserLoginApi application/json-patch+json 49
+2019-05-22 19:30:52.603 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-22 19:30:52.631 +08:00 [INF] Route matched with {action = "UserLoginApi", controller = "Login"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserLoginApi(Team.Model.AutoMappers.UserMapper.UserLoginMap) on controller Team.Controllers.LoginController (Team).
+2019-05-22 19:30:52.994 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-22 19:30:53.183 +08:00 [INF] Executed DbCommand (81ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-22 19:30:53.540 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoginApi (Team) - Validation state: "Valid"
+2019-05-22 19:30:53.705 +08:00 [INF] Executed DbCommand (61ms) [Parameters=[@__account_0='?' (Size = 4000), @__password_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE ([x].[Account] = @__account_0) AND ([x].[Password] = @__password_1)
+2019-05-22 19:30:53.789 +08:00 [INF] 用户 1登陆成功
+2019-05-22 19:30:53.796 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserLoginApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 250.7178ms.
+2019-05-22 19:30:53.812 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-22 19:30:53.825 +08:00 [INF] Executed action Team.Controllers.LoginController.UserLoginApi (Team) in 1187.5983ms
+2019-05-22 19:30:53.829 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-22 19:30:53.836 +08:00 [INF] Request finished in 1320.7194ms 200 application/json; charset=utf-8
+2019-05-22 19:31:10.169 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/Login/UserForUpdateApi  
+2019-05-22 19:31:10.180 +08:00 [INF] Successfully validated the token.
+2019-05-22 19:31:10.187 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserForUpdateApi (Team)'
+2019-05-22 19:31:10.193 +08:00 [INF] Route matched with {action = "UserForUpdateApi", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UserForUpdateApi() on controller Team.Controllers.LoginController (Team).
+2019-05-22 19:31:10.204 +08:00 [INF] Authorization was successful.
+2019-05-22 19:31:10.209 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-22 19:31:10.244 +08:00 [INF] Executed DbCommand (30ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-22 19:31:10.281 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserForUpdateApi (Team) - Validation state: "Valid"
+2019-05-22 19:31:10.343 +08:00 [INF] Executed DbCommand (43ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE [x].[Id] = @__userId_0
+2019-05-22 19:31:10.362 +08:00 [INF] 用户 1 获取对应修改信息成功！
+2019-05-22 19:31:10.365 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserForUpdateApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 80.034500000000008ms.
+2019-05-22 19:31:10.367 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-22 19:31:10.370 +08:00 [INF] Executed action Team.Controllers.LoginController.UserForUpdateApi (Team) in 173.31230000000002ms
+2019-05-22 19:31:10.373 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserForUpdateApi (Team)'
+2019-05-22 19:31:10.375 +08:00 [INF] Request finished in 206.4582ms 200 application/json; charset=utf-8
+2019-05-22 19:31:41.031 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserLoginApi application/json-patch+json 49
+2019-05-22 19:31:41.034 +08:00 [INF] Successfully validated the token.
+2019-05-22 19:31:41.036 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-22 19:31:41.042 +08:00 [INF] Route matched with {action = "UserLoginApi", controller = "Login"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserLoginApi(Team.Model.AutoMappers.UserMapper.UserLoginMap) on controller Team.Controllers.LoginController (Team).
+2019-05-22 19:31:41.046 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-22 19:31:41.075 +08:00 [INF] Executed DbCommand (27ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-22 19:31:41.099 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoginApi (Team) - Validation state: "Valid"
+2019-05-22 19:31:41.147 +08:00 [INF] Executed DbCommand (42ms) [Parameters=[@__account_0='?' (Size = 4000), @__password_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE ([x].[Account] = @__account_0) AND ([x].[Password] = @__password_1)
+2019-05-22 19:31:41.153 +08:00 [INF] 用户 1登陆成功
+2019-05-22 19:31:41.154 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserLoginApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 51.105700000000006ms.
+2019-05-22 19:31:41.156 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-22 19:31:41.158 +08:00 [INF] Executed action Team.Controllers.LoginController.UserLoginApi (Team) in 112.53190000000001ms
+2019-05-22 19:31:41.159 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-22 19:31:41.161 +08:00 [INF] Request finished in 129.6461ms 200 application/json; charset=utf-8
+2019-05-22 19:31:53.723 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/Login/UserForUpdateApi  
+2019-05-22 19:31:53.726 +08:00 [INF] Successfully validated the token.
+2019-05-22 19:31:53.728 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserForUpdateApi (Team)'
+2019-05-22 19:31:53.731 +08:00 [INF] Route matched with {action = "UserForUpdateApi", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UserForUpdateApi() on controller Team.Controllers.LoginController (Team).
+2019-05-22 19:31:53.737 +08:00 [INF] Authorization failed.
+2019-05-22 19:31:53.738 +08:00 [INF] Authorization failed for the request at filter 'Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter'.
+2019-05-22 19:31:53.743 +08:00 [INF] Executing ForbidResult with authentication schemes ([]).
+2019-05-22 19:31:53.749 +08:00 [INF] AuthenticationScheme: Bearer was forbidden.
+2019-05-22 19:31:53.752 +08:00 [INF] Executed action Team.Controllers.LoginController.UserForUpdateApi (Team) in 16.346600000000002ms
+2019-05-22 19:31:53.755 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserForUpdateApi (Team)'
+2019-05-22 19:31:53.757 +08:00 [INF] Request finished in 33.9176ms 403 
+2019-05-22 19:32:30.228 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-22 19:32:31.577 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-05-22 19:32:31.718 +08:00 [INF] Request finished in 142.2228ms 200 text/html
+2019-05-22 19:32:32.455 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-05-22 19:32:32.640 +08:00 [INF] Request finished in 185.3467ms 200 application/json;charset=utf-8
+2019-05-22 19:32:40.453 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserLoginApi application/json-patch+json 49
+2019-05-22 19:32:40.531 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-22 19:32:40.557 +08:00 [INF] Route matched with {action = "UserLoginApi", controller = "Login"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserLoginApi(Team.Model.AutoMappers.UserMapper.UserLoginMap) on controller Team.Controllers.LoginController (Team).
+2019-05-22 19:32:40.903 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-22 19:32:41.101 +08:00 [INF] Executed DbCommand (80ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-22 19:32:41.489 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoginApi (Team) - Validation state: "Valid"
+2019-05-22 19:32:41.680 +08:00 [INF] Executed DbCommand (65ms) [Parameters=[@__account_0='?' (Size = 4000), @__password_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE ([x].[Account] = @__account_0) AND ([x].[Password] = @__password_1)
+2019-05-22 19:32:41.770 +08:00 [INF] 用户 1登陆成功
+2019-05-22 19:32:41.776 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserLoginApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 282.0004ms.
+2019-05-22 19:32:41.790 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-22 19:32:41.803 +08:00 [INF] Executed action Team.Controllers.LoginController.UserLoginApi (Team) in 1238.2672ms
+2019-05-22 19:32:41.807 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-22 19:32:41.817 +08:00 [INF] Request finished in 1364.4684ms 200 application/json; charset=utf-8
+2019-05-22 19:32:53.543 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/Login/UserForUpdateApi  
+2019-05-22 19:32:53.554 +08:00 [INF] Successfully validated the token.
+2019-05-22 19:32:53.561 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserForUpdateApi (Team)'
+2019-05-22 19:32:53.567 +08:00 [INF] Route matched with {action = "UserForUpdateApi", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UserForUpdateApi() on controller Team.Controllers.LoginController (Team).
+2019-05-22 19:32:53.580 +08:00 [INF] Authorization was successful.
+2019-05-22 19:32:53.586 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-22 19:32:53.638 +08:00 [INF] Executed DbCommand (23ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-22 19:32:53.664 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserForUpdateApi (Team) - Validation state: "Valid"
+2019-05-22 19:32:53.723 +08:00 [INF] Executed DbCommand (39ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE [x].[Id] = @__userId_0
+2019-05-22 19:32:53.742 +08:00 [INF] 用户 1 获取对应修改信息成功！
+2019-05-22 19:32:53.744 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserForUpdateApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 76.2449ms.
+2019-05-22 19:32:53.747 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-22 19:32:53.750 +08:00 [INF] Executed action Team.Controllers.LoginController.UserForUpdateApi (Team) in 179.9151ms
+2019-05-22 19:32:53.754 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserForUpdateApi (Team)'
+2019-05-22 19:32:53.756 +08:00 [INF] Request finished in 212.5796ms 200 application/json; charset=utf-8
+2019-05-22 19:33:15.139 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/Login/UserForUpdateApi  
+2019-05-22 19:33:15.143 +08:00 [INF] Successfully validated the token.
+2019-05-22 19:33:15.146 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserForUpdateApi (Team)'
+2019-05-22 19:33:15.148 +08:00 [INF] Route matched with {action = "UserForUpdateApi", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UserForUpdateApi() on controller Team.Controllers.LoginController (Team).
+2019-05-22 19:33:15.152 +08:00 [INF] Authorization failed.
+2019-05-22 19:33:15.153 +08:00 [INF] Authorization failed for the request at filter 'Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter'.
+2019-05-22 19:33:15.160 +08:00 [INF] Executing ForbidResult with authentication schemes ([]).
+2019-05-22 19:33:15.165 +08:00 [INF] AuthenticationScheme: Bearer was forbidden.
+2019-05-22 19:33:15.166 +08:00 [INF] Executed action Team.Controllers.LoginController.UserForUpdateApi (Team) in 14.9711ms
+2019-05-22 19:33:15.169 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserForUpdateApi (Team)'
+2019-05-22 19:33:15.171 +08:00 [INF] Request finished in 32.5332ms 403 
+2019-05-22 19:34:33.171 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-22 19:34:34.887 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-05-22 19:34:35.032 +08:00 [INF] Request finished in 147.8475ms 200 text/html
+2019-05-22 19:34:35.688 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-05-22 19:34:35.857 +08:00 [INF] Request finished in 169.4941ms 200 application/json;charset=utf-8
+2019-05-22 19:34:59.781 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/Login/UserForUpdateApi  
+2019-05-22 19:34:59.854 +08:00 [INF] Successfully validated the token.
+2019-05-22 19:34:59.895 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserForUpdateApi (Team)'
+2019-05-22 19:34:59.907 +08:00 [INF] Route matched with {action = "UserForUpdateApi", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UserForUpdateApi() on controller Team.Controllers.LoginController (Team).
+2019-05-22 19:34:59.920 +08:00 [INF] Authorization failed.
+2019-05-22 19:34:59.923 +08:00 [INF] Authorization failed for the request at filter 'Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter'.
+2019-05-22 19:34:59.931 +08:00 [INF] Executing ForbidResult with authentication schemes ([]).
+2019-05-22 19:34:59.939 +08:00 [INF] AuthenticationScheme: Bearer was forbidden.
+2019-05-22 19:34:59.944 +08:00 [INF] Executed action Team.Controllers.LoginController.UserForUpdateApi (Team) in 29.2679ms
+2019-05-22 19:34:59.950 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserForUpdateApi (Team)'
+2019-05-22 19:34:59.952 +08:00 [INF] Request finished in 170.8435ms 403 
+2019-05-22 19:36:01.348 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/Login/UserForUpdateApi  
+2019-05-22 19:36:01.351 +08:00 [INF] Successfully validated the token.
+2019-05-22 19:36:01.357 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserForUpdateApi (Team)'
+2019-05-22 19:36:01.359 +08:00 [INF] Route matched with {action = "UserForUpdateApi", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UserForUpdateApi() on controller Team.Controllers.LoginController (Team).
+2019-05-22 19:36:01.361 +08:00 [INF] Authorization failed.
+2019-05-22 19:36:01.363 +08:00 [INF] Authorization failed for the request at filter 'Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter'.
+2019-05-22 19:36:01.364 +08:00 [INF] Executing ForbidResult with authentication schemes ([]).
+2019-05-22 19:36:01.366 +08:00 [INF] AuthenticationScheme: Bearer was forbidden.
+2019-05-22 19:36:01.367 +08:00 [INF] Executed action Team.Controllers.LoginController.UserForUpdateApi (Team) in 6.0407ms
+2019-05-22 19:36:01.369 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserForUpdateApi (Team)'
+2019-05-22 19:36:01.371 +08:00 [INF] Request finished in 23.5664ms 403 
+2019-05-22 19:36:43.441 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-22 19:36:44.987 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-05-22 19:36:45.136 +08:00 [INF] Request finished in 151.0171ms 200 text/html
+2019-05-22 19:36:45.930 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-05-22 19:36:46.168 +08:00 [INF] Request finished in 237.4612ms 200 application/json;charset=utf-8
+2019-05-22 19:36:55.713 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/Login/UserForUpdateApi  
+2019-05-22 19:36:55.787 +08:00 [INF] Successfully validated the token.
+2019-05-22 19:36:55.825 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserForUpdateApi (Team)'
+2019-05-22 19:36:55.840 +08:00 [INF] Route matched with {action = "UserForUpdateApi", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UserForUpdateApi() on controller Team.Controllers.LoginController (Team).
+2019-05-22 19:36:55.856 +08:00 [INF] Authorization failed.
+2019-05-22 19:36:55.858 +08:00 [INF] Authorization failed for the request at filter 'Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter'.
+2019-05-22 19:36:55.867 +08:00 [INF] Executing ForbidResult with authentication schemes ([]).
+2019-05-22 19:36:55.874 +08:00 [INF] AuthenticationScheme: Bearer was forbidden.
+2019-05-22 19:36:55.881 +08:00 [INF] Executed action Team.Controllers.LoginController.UserForUpdateApi (Team) in 30.9799ms
+2019-05-22 19:36:55.887 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserForUpdateApi (Team)'
+2019-05-22 19:36:55.889 +08:00 [INF] Request finished in 176.6847ms 403 
+2019-05-22 19:36:58.135 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/Login/UserForUpdateApi  
+2019-05-22 19:36:58.148 +08:00 [INF] Successfully validated the token.
+2019-05-22 19:36:58.152 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserForUpdateApi (Team)'
+2019-05-22 19:36:58.154 +08:00 [INF] Route matched with {action = "UserForUpdateApi", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UserForUpdateApi() on controller Team.Controllers.LoginController (Team).
+2019-05-22 19:36:58.156 +08:00 [INF] Authorization failed.
+2019-05-22 19:36:58.157 +08:00 [INF] Authorization failed for the request at filter 'Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter'.
+2019-05-22 19:36:58.158 +08:00 [INF] Executing ForbidResult with authentication schemes ([]).
+2019-05-22 19:36:58.160 +08:00 [INF] AuthenticationScheme: Bearer was forbidden.
+2019-05-22 19:36:58.163 +08:00 [INF] Executed action Team.Controllers.LoginController.UserForUpdateApi (Team) in 6.6632000000000007ms
+2019-05-22 19:36:58.166 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserForUpdateApi (Team)'
+2019-05-22 19:36:58.167 +08:00 [INF] Request finished in 32.3715ms 403 
+2019-05-22 19:38:04.732 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-22 19:38:05.802 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-05-22 19:38:06.006 +08:00 [INF] Request finished in 206.575ms 200 text/html
+2019-05-22 19:38:06.738 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-05-22 19:38:06.908 +08:00 [INF] Request finished in 170.5528ms 200 application/json;charset=utf-8
+2019-05-22 19:38:17.768 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/Login/UserForUpdateApi  
+2019-05-22 19:38:17.854 +08:00 [INF] Successfully validated the token.
+2019-05-22 19:38:17.895 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserForUpdateApi (Team)'
+2019-05-22 19:38:17.908 +08:00 [INF] Route matched with {action = "UserForUpdateApi", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UserForUpdateApi() on controller Team.Controllers.LoginController (Team).
+2019-05-22 19:38:17.919 +08:00 [INF] Authorization failed.
+2019-05-22 19:38:17.922 +08:00 [INF] Authorization failed for the request at filter 'Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter'.
+2019-05-22 19:38:17.929 +08:00 [INF] Executing ForbidResult with authentication schemes ([]).
+2019-05-22 19:38:17.936 +08:00 [INF] AuthenticationScheme: Bearer was forbidden.
+2019-05-22 19:38:17.940 +08:00 [INF] Executed action Team.Controllers.LoginController.UserForUpdateApi (Team) in 26.239700000000003ms
+2019-05-22 19:38:17.946 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserForUpdateApi (Team)'
+2019-05-22 19:38:17.949 +08:00 [INF] Request finished in 181.1365ms 403 
+2019-05-22 19:47:01.729 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-22 19:47:03.315 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-05-22 19:47:03.467 +08:00 [INF] Request finished in 152.8022ms 200 text/html
+2019-05-22 19:47:04.226 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-05-22 19:47:04.448 +08:00 [INF] Request finished in 221.7708ms 200 application/json;charset=utf-8
+2019-05-22 19:47:21.080 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserLoginApi application/json-patch+json 49
+2019-05-22 19:47:21.161 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-22 19:47:21.184 +08:00 [INF] Route matched with {action = "UserLoginApi", controller = "Login"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserLoginApi(Team.Model.AutoMappers.UserMapper.UserLoginMap) on controller Team.Controllers.LoginController (Team).
+2019-05-22 19:47:21.196 +08:00 [INF] Authorization failed.
+2019-05-22 19:47:21.199 +08:00 [INF] Authorization failed for the request at filter 'Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter'.
+2019-05-22 19:47:21.213 +08:00 [INF] Executing ChallengeResult with authentication schemes ([]).
+2019-05-22 19:47:21.223 +08:00 [INF] AuthenticationScheme: Bearer was challenged.
+2019-05-22 19:47:21.227 +08:00 [INF] Executed action Team.Controllers.LoginController.UserLoginApi (Team) in 37.2949ms
+2019-05-22 19:47:21.233 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-22 19:47:21.236 +08:00 [INF] Request finished in 156.4989ms 401 
+2019-05-22 19:47:21.248 +08:00 [INF] Connection id "0HLMULCQCINRT", Request id "0HLMULCQCINRT:00000003": the application completed without reading the entire request body.
+2019-05-22 19:47:50.702 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-22 19:47:52.174 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-05-22 19:47:52.310 +08:00 [INF] Request finished in 149.3585ms 200 text/html
+2019-05-22 19:47:53.106 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-05-22 19:47:53.368 +08:00 [INF] Request finished in 262.3137ms 200 application/json;charset=utf-8
+2019-05-22 19:48:11.305 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/Login/UserForUpdateApi  
+2019-05-22 19:48:11.368 +08:00 [INF] Successfully validated the token.
+2019-05-22 19:48:11.399 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserForUpdateApi (Team)'
+2019-05-22 19:48:11.414 +08:00 [INF] Route matched with {action = "UserForUpdateApi", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UserForUpdateApi() on controller Team.Controllers.LoginController (Team).
+2019-05-22 19:48:11.425 +08:00 [INF] Authorization failed.
+2019-05-22 19:48:11.428 +08:00 [INF] Authorization failed for the request at filter 'Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter'.
+2019-05-22 19:48:11.434 +08:00 [INF] Executing ForbidResult with authentication schemes ([]).
+2019-05-22 19:48:11.442 +08:00 [INF] AuthenticationScheme: Bearer was forbidden.
+2019-05-22 19:48:11.446 +08:00 [INF] Executed action Team.Controllers.LoginController.UserForUpdateApi (Team) in 27.39ms
+2019-05-22 19:48:11.451 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserForUpdateApi (Team)'
+2019-05-22 19:48:11.453 +08:00 [INF] Request finished in 147.5356ms 403 
+2019-05-22 19:54:29.133 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-22 19:54:30.381 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-05-22 19:54:30.542 +08:00 [INF] Request finished in 162.0615ms 200 text/html
+2019-05-22 19:54:31.278 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-05-22 19:54:31.455 +08:00 [INF] Request finished in 177.4468ms 200 application/json;charset=utf-8
+2019-05-22 19:55:01.405 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserLoginApi application/json-patch+json 49
+2019-05-22 19:55:01.481 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-22 19:55:01.504 +08:00 [INF] Route matched with {action = "UserLoginApi", controller = "Login"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserLoginApi(Team.Model.AutoMappers.UserMapper.UserLoginMap) on controller Team.Controllers.LoginController (Team).
+2019-05-22 19:55:01.869 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-22 19:55:02.057 +08:00 [INF] Executed DbCommand (79ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-22 19:55:02.434 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoginApi (Team) - Validation state: "Valid"
+2019-05-22 19:55:02.613 +08:00 [INF] Executed DbCommand (62ms) [Parameters=[@__account_0='?' (Size = 4000), @__password_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE ([x].[Account] = @__account_0) AND ([x].[Password] = @__password_1)
+2019-05-22 19:55:02.696 +08:00 [INF] 用户 1登陆成功
+2019-05-22 19:55:02.701 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserLoginApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 262.6222ms.
+2019-05-22 19:55:02.715 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-22 19:55:02.728 +08:00 [INF] Executed action Team.Controllers.LoginController.UserLoginApi (Team) in 1216.2022ms
+2019-05-22 19:55:02.731 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-22 19:55:02.737 +08:00 [INF] Request finished in 1332.4702ms 200 application/json; charset=utf-8
+2019-05-22 19:55:15.004 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/Login/UserForUpdateApi  
+2019-05-22 19:55:15.016 +08:00 [INF] Successfully validated the token.
+2019-05-22 19:55:15.028 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserForUpdateApi (Team)'
+2019-05-22 19:55:15.033 +08:00 [INF] Route matched with {action = "UserForUpdateApi", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UserForUpdateApi() on controller Team.Controllers.LoginController (Team).
+2019-05-22 19:55:15.050 +08:00 [INF] Authorization was successful.
+2019-05-22 19:55:15.066 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-22 19:55:15.119 +08:00 [INF] Executed DbCommand (25ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-22 19:55:15.147 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserForUpdateApi (Team) - Validation state: "Valid"
+2019-05-22 19:55:15.208 +08:00 [INF] Executed DbCommand (37ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE [x].[Id] = @__userId_0
+2019-05-22 19:55:15.229 +08:00 [INF] 用户 1 获取对应修改信息成功！
+2019-05-22 19:55:15.231 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserForUpdateApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 80.9623ms.
+2019-05-22 19:55:15.234 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-22 19:55:15.238 +08:00 [INF] Executed action Team.Controllers.LoginController.UserForUpdateApi (Team) in 199.96890000000002ms
+2019-05-22 19:55:15.242 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserForUpdateApi (Team)'
+2019-05-22 19:55:15.246 +08:00 [INF] Request finished in 241.8435ms 200 application/json; charset=utf-8
+2019-05-22 19:57:23.363 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-22 19:57:24.739 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-05-22 19:57:24.911 +08:00 [INF] Request finished in 172.833ms 200 text/html
+2019-05-22 19:57:25.646 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-05-22 19:57:25.818 +08:00 [INF] Request finished in 171.9948ms 200 application/json;charset=utf-8
+2019-05-22 19:57:36.365 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserLoginApi application/json-patch+json 49
+2019-05-22 19:57:36.451 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-22 19:57:36.477 +08:00 [INF] Route matched with {action = "UserLoginApi", controller = "Login"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserLoginApi(Team.Model.AutoMappers.UserMapper.UserLoginMap) on controller Team.Controllers.LoginController (Team).
+2019-05-22 19:57:36.808 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-22 19:57:37.010 +08:00 [INF] Executed DbCommand (84ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-22 19:57:37.387 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoginApi (Team) - Validation state: "Valid"
+2019-05-22 19:57:37.552 +08:00 [INF] Executed DbCommand (61ms) [Parameters=[@__account_0='?' (Size = 4000), @__password_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE ([x].[Account] = @__account_0) AND ([x].[Password] = @__password_1)
+2019-05-22 19:57:37.640 +08:00 [INF] 用户 1登陆成功
+2019-05-22 19:57:37.646 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserLoginApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 254.25660000000002ms.
+2019-05-22 19:57:37.659 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-22 19:57:37.671 +08:00 [INF] Executed action Team.Controllers.LoginController.UserLoginApi (Team) in 1188.5504ms
+2019-05-22 19:57:37.675 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-22 19:57:37.681 +08:00 [INF] Request finished in 1315.9901ms 200 application/json; charset=utf-8
+2019-05-22 19:57:57.333 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/RunTeam/UpdateTeamApi application/json-patch+json 91
+2019-05-22 19:57:57.345 +08:00 [INF] Successfully validated the token.
+2019-05-22 19:57:57.350 +08:00 [INF] Executing endpoint 'Team.Controllers.RunTeamController.UpdateTeamApi (Team)'
+2019-05-22 19:57:57.358 +08:00 [INF] Route matched with {action = "UpdateTeamApi", controller = "RunTeam"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateTeamApi(Team.Model.AutoMappers.RunTeamMapper.RunTeamUpdateMap) on controller Team.Controllers.RunTeamController (Team).
+2019-05-22 19:57:57.372 +08:00 [INF] Authorization failed.
+2019-05-22 19:57:57.374 +08:00 [INF] Authorization failed for the request at filter 'Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter'.
+2019-05-22 19:57:57.379 +08:00 [INF] Executing ForbidResult with authentication schemes ([]).
+2019-05-22 19:57:57.388 +08:00 [INF] AuthenticationScheme: Bearer was forbidden.
+2019-05-22 19:57:57.391 +08:00 [INF] Executed action Team.Controllers.RunTeamController.UpdateTeamApi (Team) in 29.8169ms
+2019-05-22 19:57:57.394 +08:00 [INF] Executed endpoint 'Team.Controllers.RunTeamController.UpdateTeamApi (Team)'
+2019-05-22 19:57:57.396 +08:00 [INF] Request finished in 63.6654ms 403 
+2019-05-22 19:57:57.400 +08:00 [INF] Connection id "0HLMULIJLDKD6", Request id "0HLMULIJLDKD6:00000004": the application completed without reading the entire request body.
+2019-05-22 20:17:23.499 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-22 20:17:24.960 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-05-22 20:17:25.127 +08:00 [INF] Request finished in 168.7015ms 200 text/html
+2019-05-22 20:17:25.868 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-05-22 20:17:26.033 +08:00 [INF] Request finished in 165.3534ms 200 application/json;charset=utf-8
+2019-05-22 20:18:05.766 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserLoginApi application/json-patch+json 49
+2019-05-22 20:18:05.891 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-22 20:18:05.920 +08:00 [INF] Route matched with {action = "UserLoginApi", controller = "Login"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserLoginApi(Team.Model.AutoMappers.UserMapper.UserLoginMap) on controller Team.Controllers.LoginController (Team).
+2019-05-22 20:18:06.435 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-22 20:18:06.731 +08:00 [INF] Executed DbCommand (119ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-22 20:18:07.122 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoginApi (Team) - Validation state: "Valid"
+2019-05-22 20:18:07.345 +08:00 [INF] Executed DbCommand (78ms) [Parameters=[@__account_0='?' (Size = 4000), @__password_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE ([x].[Account] = @__account_0) AND ([x].[Password] = @__password_1)
+2019-05-22 20:18:07.438 +08:00 [INF] 用户 1登陆成功
+2019-05-22 20:18:07.444 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserLoginApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 318.0357ms.
+2019-05-22 20:18:07.460 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-22 20:18:07.471 +08:00 [INF] Executed action Team.Controllers.LoginController.UserLoginApi (Team) in 1544.8718000000001ms
+2019-05-22 20:18:07.475 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-22 20:18:07.484 +08:00 [INF] Request finished in 1718.142ms 200 application/json; charset=utf-8
+2019-05-22 20:18:33.395 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/RunTeam/RunTeamCreateApi application/json-patch+json 50
+2019-05-22 20:18:33.414 +08:00 [INF] Successfully validated the token.
+2019-05-22 20:18:33.419 +08:00 [INF] Executing endpoint 'Team.Controllers.RunTeamController.RunTeamCreateApi (Team)'
+2019-05-22 20:18:33.426 +08:00 [INF] Route matched with {action = "RunTeamCreateApi", controller = "RunTeam"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult RunTeamCreateApi(Team.Model.AutoMappers.RunTeamMapper.RunTeamCreateMap) on controller Team.Controllers.RunTeamController (Team).
+2019-05-22 20:18:33.441 +08:00 [INF] Authorization failed.
+2019-05-22 20:18:33.446 +08:00 [INF] Authorization failed for the request at filter 'Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter'.
+2019-05-22 20:18:33.452 +08:00 [INF] Executing ForbidResult with authentication schemes ([]).
+2019-05-22 20:18:33.460 +08:00 [INF] AuthenticationScheme: Bearer was forbidden.
+2019-05-22 20:18:33.462 +08:00 [INF] Executed action Team.Controllers.RunTeamController.RunTeamCreateApi (Team) in 29.934900000000003ms
+2019-05-22 20:18:33.465 +08:00 [INF] Executed endpoint 'Team.Controllers.RunTeamController.RunTeamCreateApi (Team)'
+2019-05-22 20:18:33.468 +08:00 [INF] Request finished in 72.352ms 403 
+2019-05-22 20:18:33.472 +08:00 [INF] Connection id "0HLMULTP8LFKU", Request id "0HLMULTP8LFKU:00000004": the application completed without reading the entire request body.
+2019-05-22 20:19:25.643 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/RunTeam/RunTeamCreateApi application/json-patch+json 50
+2019-05-22 20:19:25.647 +08:00 [INF] Successfully validated the token.
+2019-05-22 20:19:25.652 +08:00 [INF] Executing endpoint 'Team.Controllers.RunTeamController.RunTeamCreateApi (Team)'
+2019-05-22 20:19:25.656 +08:00 [INF] Route matched with {action = "RunTeamCreateApi", controller = "RunTeam"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult RunTeamCreateApi(Team.Model.AutoMappers.RunTeamMapper.RunTeamCreateMap) on controller Team.Controllers.RunTeamController (Team).
+2019-05-22 20:19:25.661 +08:00 [INF] Authorization failed.
+2019-05-22 20:19:25.665 +08:00 [INF] Authorization failed for the request at filter 'Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter'.
+2019-05-22 20:19:25.669 +08:00 [INF] Executing ForbidResult with authentication schemes ([]).
+2019-05-22 20:19:25.678 +08:00 [INF] AuthenticationScheme: Bearer was forbidden.
+2019-05-22 20:19:25.681 +08:00 [INF] Executed action Team.Controllers.RunTeamController.RunTeamCreateApi (Team) in 20.0956ms
+2019-05-22 20:19:25.689 +08:00 [INF] Executed endpoint 'Team.Controllers.RunTeamController.RunTeamCreateApi (Team)'
+2019-05-22 20:19:25.694 +08:00 [INF] Request finished in 51.7441ms 403 
+2019-05-22 20:19:25.697 +08:00 [INF] Connection id "0HLMULTP8LFKU", Request id "0HLMULTP8LFKU:00000005": the application completed without reading the entire request body.
+2019-05-22 20:19:52.300 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserLoginApi application/json-patch+json 49
+2019-05-22 20:19:52.303 +08:00 [INF] Successfully validated the token.
+2019-05-22 20:19:52.309 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-22 20:19:52.312 +08:00 [INF] Route matched with {action = "UserLoginApi", controller = "Login"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserLoginApi(Team.Model.AutoMappers.UserMapper.UserLoginMap) on controller Team.Controllers.LoginController (Team).
+2019-05-22 20:19:52.359 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-22 20:19:52.399 +08:00 [INF] Executed DbCommand (34ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-22 20:19:52.431 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoginApi (Team) - Validation state: "Valid"
+2019-05-22 20:19:52.501 +08:00 [INF] Executed DbCommand (64ms) [Parameters=[@__account_0='?' (Size = 4000), @__password_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE ([x].[Account] = @__account_0) AND ([x].[Password] = @__password_1)
+2019-05-22 20:19:52.508 +08:00 [INF] 用户 1登陆成功
+2019-05-22 20:19:52.509 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserLoginApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 75.2693ms.
+2019-05-22 20:19:52.515 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-22 20:19:52.518 +08:00 [INF] Executed action Team.Controllers.LoginController.UserLoginApi (Team) in 198.913ms
+2019-05-22 20:19:52.521 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-22 20:19:52.525 +08:00 [INF] Request finished in 224.8604ms 200 application/json; charset=utf-8
+2019-05-22 20:20:04.840 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/RunTeam/RunTeamCreateApi application/json-patch+json 50
+2019-05-22 20:20:04.843 +08:00 [INF] Successfully validated the token.
+2019-05-22 20:20:04.845 +08:00 [INF] Executing endpoint 'Team.Controllers.RunTeamController.RunTeamCreateApi (Team)'
+2019-05-22 20:20:04.849 +08:00 [INF] Route matched with {action = "RunTeamCreateApi", controller = "RunTeam"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult RunTeamCreateApi(Team.Model.AutoMappers.RunTeamMapper.RunTeamCreateMap) on controller Team.Controllers.RunTeamController (Team).
+2019-05-22 20:20:04.857 +08:00 [INF] Authorization failed.
+2019-05-22 20:20:04.861 +08:00 [INF] Authorization failed for the request at filter 'Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter'.
+2019-05-22 20:20:04.864 +08:00 [INF] Executing ForbidResult with authentication schemes ([]).
+2019-05-22 20:20:04.868 +08:00 [INF] AuthenticationScheme: Bearer was forbidden.
+2019-05-22 20:20:04.873 +08:00 [INF] Executed action Team.Controllers.RunTeamController.RunTeamCreateApi (Team) in 16.0773ms
+2019-05-22 20:20:04.875 +08:00 [INF] Executed endpoint 'Team.Controllers.RunTeamController.RunTeamCreateApi (Team)'
+2019-05-22 20:20:04.876 +08:00 [INF] Request finished in 36.1755ms 403 
+2019-05-22 20:20:04.880 +08:00 [INF] Connection id "0HLMULTP8LFKU", Request id "0HLMULTP8LFKU:00000007": the application completed without reading the entire request body.
+2019-05-22 20:21:04.887 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-22 20:21:06.225 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-05-22 20:21:06.381 +08:00 [INF] Request finished in 161.9835ms 200 text/html
+2019-05-22 20:21:07.065 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-05-22 20:21:07.210 +08:00 [INF] Request finished in 144.808ms 200 application/json;charset=utf-8
+2019-05-22 20:21:29.348 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/RunTeam/RunTeamCreateApi application/json-patch+json 50
+2019-05-22 20:21:29.414 +08:00 [INF] Successfully validated the token.
+2019-05-22 20:21:29.447 +08:00 [INF] Executing endpoint 'Team.Controllers.RunTeamController.RunTeamCreateApi (Team)'
+2019-05-22 20:21:29.470 +08:00 [INF] Route matched with {action = "RunTeamCreateApi", controller = "RunTeam"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult RunTeamCreateApi(Team.Model.AutoMappers.RunTeamMapper.RunTeamCreateMap) on controller Team.Controllers.RunTeamController (Team).
+2019-05-22 20:21:29.481 +08:00 [INF] Authorization failed.
+2019-05-22 20:21:29.485 +08:00 [INF] Authorization failed for the request at filter 'Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter'.
+2019-05-22 20:21:29.492 +08:00 [INF] Executing ForbidResult with authentication schemes ([]).
+2019-05-22 20:21:29.500 +08:00 [INF] AuthenticationScheme: Bearer was forbidden.
+2019-05-22 20:21:29.506 +08:00 [INF] Executed action Team.Controllers.RunTeamController.RunTeamCreateApi (Team) in 29.701600000000003ms
+2019-05-22 20:21:29.511 +08:00 [INF] Executed endpoint 'Team.Controllers.RunTeamController.RunTeamCreateApi (Team)'
+2019-05-22 20:21:29.513 +08:00 [INF] Request finished in 164.2814ms 403 
+2019-05-22 20:21:29.523 +08:00 [INF] Connection id "0HLMULVR9406V", Request id "0HLMULVR9406V:00000003": the application completed without reading the entire request body.
+2019-05-22 20:22:45.106 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/Login/UserForUpdateApi  
+2019-05-22 20:22:45.120 +08:00 [INF] Successfully validated the token.
+2019-05-22 20:22:45.124 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserForUpdateApi (Team)'
+2019-05-22 20:22:45.128 +08:00 [INF] Route matched with {action = "UserForUpdateApi", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UserForUpdateApi() on controller Team.Controllers.LoginController (Team).
+2019-05-22 20:22:45.131 +08:00 [INF] Authorization was successful.
+2019-05-22 20:22:45.467 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-22 20:22:45.674 +08:00 [INF] Executed DbCommand (81ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-22 20:22:45.944 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserForUpdateApi (Team) - Validation state: "Valid"
+2019-05-22 20:22:46.091 +08:00 [INF] Executed DbCommand (43ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE [x].[Id] = @__userId_0
+2019-05-22 20:22:46.155 +08:00 [INF] 用户 1 获取对应修改信息成功！
+2019-05-22 20:22:46.161 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserForUpdateApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 210.0641ms.
+2019-05-22 20:22:46.168 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-22 20:22:46.177 +08:00 [INF] Executed action Team.Controllers.LoginController.UserForUpdateApi (Team) in 1046.5858ms
+2019-05-22 20:22:46.181 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserForUpdateApi (Team)'
+2019-05-22 20:22:46.183 +08:00 [INF] Request finished in 1077.1627ms 200 application/json; charset=utf-8
+2019-05-22 20:26:34.162 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-22 20:26:35.550 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-05-22 20:26:35.694 +08:00 [INF] Request finished in 148.9841ms 200 text/html
+2019-05-22 20:26:36.426 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-05-22 20:26:36.631 +08:00 [INF] Request finished in 205.3044ms 200 application/json;charset=utf-8
+2019-05-22 20:26:40.651 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserLoginApi application/json-patch+json 49
+2019-05-22 20:26:40.742 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-22 20:26:40.769 +08:00 [INF] Route matched with {action = "UserLoginApi", controller = "Login"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserLoginApi(Team.Model.AutoMappers.UserMapper.UserLoginMap) on controller Team.Controllers.LoginController (Team).
+2019-05-22 20:26:41.094 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-22 20:26:41.281 +08:00 [INF] Executed DbCommand (82ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-22 20:26:41.718 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoginApi (Team) - Validation state: "Valid"
+2019-05-22 20:26:41.879 +08:00 [INF] Executed DbCommand (57ms) [Parameters=[@__account_0='?' (Size = 4000), @__password_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE ([x].[Account] = @__account_0) AND ([x].[Password] = @__password_1)
+2019-05-22 20:26:41.961 +08:00 [INF] 用户 1登陆成功
+2019-05-22 20:26:41.967 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserLoginApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 244.66910000000001ms.
+2019-05-22 20:26:41.982 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-22 20:26:41.994 +08:00 [INF] Executed action Team.Controllers.LoginController.UserLoginApi (Team) in 1218.0294000000001ms
+2019-05-22 20:26:41.997 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-22 20:26:42.005 +08:00 [INF] Request finished in 1354.4278ms 200 application/json; charset=utf-8
+2019-05-22 20:26:53.275 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserLoginApi application/json-patch+json 49
+2019-05-22 20:26:53.281 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-22 20:26:53.284 +08:00 [INF] Route matched with {action = "UserLoginApi", controller = "Login"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserLoginApi(Team.Model.AutoMappers.UserMapper.UserLoginMap) on controller Team.Controllers.LoginController (Team).
+2019-05-22 20:26:53.289 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-22 20:26:53.329 +08:00 [INF] Executed DbCommand (34ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-22 20:26:53.373 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoginApi (Team) - Validation state: "Valid"
+2019-05-22 20:26:53.420 +08:00 [INF] Executed DbCommand (42ms) [Parameters=[@__account_0='?' (Size = 4000), @__password_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE ([x].[Account] = @__account_0) AND ([x].[Password] = @__password_1)
+2019-05-22 20:26:53.425 +08:00 [INF] 用户 1登陆成功
+2019-05-22 20:26:53.426 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserLoginApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 49.5141ms.
+2019-05-22 20:26:53.430 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-22 20:26:53.431 +08:00 [INF] Executed action Team.Controllers.LoginController.UserLoginApi (Team) in 143.3189ms
+2019-05-22 20:26:53.433 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-22 20:26:53.437 +08:00 [INF] Request finished in 162.0069ms 200 application/json; charset=utf-8
+2019-05-22 20:27:10.512 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/RunTeam/RunTeamCreateApi application/json-patch+json 50
+2019-05-22 20:27:10.520 +08:00 [INF] Successfully validated the token.
+2019-05-22 20:27:10.526 +08:00 [INF] Executing endpoint 'Team.Controllers.RunTeamController.RunTeamCreateApi (Team)'
+2019-05-22 20:27:10.532 +08:00 [INF] Route matched with {action = "RunTeamCreateApi", controller = "RunTeam"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult RunTeamCreateApi(Team.Model.AutoMappers.RunTeamMapper.RunTeamCreateMap) on controller Team.Controllers.RunTeamController (Team).
+2019-05-22 20:27:10.545 +08:00 [INF] Authorization was successful.
+2019-05-22 20:27:10.547 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-22 20:27:10.573 +08:00 [INF] Executed DbCommand (24ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-22 20:27:10.599 +08:00 [INF] Executing action method Team.Controllers.RunTeamController.RunTeamCreateApi (Team) - Validation state: "Valid"
+2019-05-22 20:27:10.652 +08:00 [INF] Executed DbCommand (38ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE [x].[Id] = @__userId_0
+2019-05-22 20:27:10.671 +08:00 [INF] 用户 1 创建跑步队伍失败
+2019-05-22 20:27:10.674 +08:00 [INF] Executed action method Team.Controllers.RunTeamController.RunTeamCreateApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 71.790500000000009ms.
+2019-05-22 20:27:10.677 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-22 20:27:10.678 +08:00 [INF] Executed action Team.Controllers.RunTeamController.RunTeamCreateApi (Team) in 142.7897ms
+2019-05-22 20:27:10.681 +08:00 [INF] Executed endpoint 'Team.Controllers.RunTeamController.RunTeamCreateApi (Team)'
+2019-05-22 20:27:10.684 +08:00 [INF] Request finished in 172.135ms 500 application/json; charset=utf-8
+2019-05-22 20:27:23.852 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/RunTeam/UpdateUserRunTeamId  
+2019-05-22 20:27:23.855 +08:00 [INF] Successfully validated the token.
+2019-05-22 20:27:23.860 +08:00 [INF] Executing endpoint 'Team.Controllers.RunTeamController.UpdateUserRunTeamId (Team)'
+2019-05-22 20:27:23.863 +08:00 [INF] Route matched with {action = "UpdateUserRunTeamId", controller = "RunTeam"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UpdateUserRunTeamId() on controller Team.Controllers.RunTeamController (Team).
+2019-05-22 20:27:23.867 +08:00 [INF] Authorization was successful.
+2019-05-22 20:27:23.869 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-22 20:27:23.899 +08:00 [INF] Executed DbCommand (25ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-22 20:27:23.922 +08:00 [INF] Executing action method Team.Controllers.RunTeamController.UpdateUserRunTeamId (Team) - Validation state: "Valid"
+2019-05-22 20:27:23.952 +08:00 [INF] Executed DbCommand (25ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE [x].[Id] = @__userId_0
+2019-05-22 20:27:24.421 +08:00 [INF] Executed DbCommand (427ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId], [x.RunTeam].[Id], [x.RunTeam].[ApplicationStatus], [x.RunTeam].[Count], [x.RunTeam].[CreationTime], [x.RunTeam].[Introduction], [x.RunTeam].[Name], [x.RunTeam].[UserId]
+FROM [Users] AS [x]
+LEFT JOIN [RunTeams] AS [x.RunTeam] ON [x].[Id] = [x.RunTeam].[UserId]
+WHERE [x].[Id] = @__userId_0
+2019-05-22 20:27:24.636 +08:00 [INF] 用户 1 修改自己跑步队伍 Id 成功
+2019-05-22 20:27:24.639 +08:00 [INF] Executed action method Team.Controllers.RunTeamController.UpdateUserRunTeamId (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 712.8755ms.
+2019-05-22 20:27:24.642 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-22 20:27:24.644 +08:00 [INF] Executed action Team.Controllers.RunTeamController.UpdateUserRunTeamId (Team) in 776.8363ms
+2019-05-22 20:27:24.646 +08:00 [INF] Executed endpoint 'Team.Controllers.RunTeamController.UpdateUserRunTeamId (Team)'
+2019-05-22 20:27:24.652 +08:00 [ERR] Connection id "0HLMUM2TDONCM", Request id "0HLMUM2TDONCM:00000006": An unhandled exception was thrown by the application.
+System.InvalidOperationException: The connection does not support MultipleActiveResultSets.
+   at System.Data.SqlClient.SqlInternalConnectionTds.ValidateConnectionForExecute(SqlCommand command)
+   at System.Data.SqlClient.SqlInternalTransaction.Rollback()
+   at System.Data.SqlClient.SqlTransaction.Dispose(Boolean disposing)
+   at System.Data.Common.DbTransaction.Dispose()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalTransaction.Dispose()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.ClearTransactions()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Dispose()
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.Dispose()
+   at Microsoft.EntityFrameworkCore.DbContext.Dispose()
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.Dispose()
+   at Microsoft.AspNetCore.Hosting.Internal.RequestServicesFeature.Dispose()
+   at Microsoft.AspNetCore.Http.HttpResponse.<>c.<.cctor>b__30_1(Object disposable)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.FireOnCompletedAwaited(Stack`1 onCompleted)
+2019-05-22 20:27:24.685 +08:00 [INF] Executed DbCommand (95ms) [Parameters=[@p9='?' (DbType = Int32), @p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32), @p6='?' (DbType = Int32), @p7='?' (DbType = Int32), @p8='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [Users] SET [Account] = @p0, [Name] = @p1, [Password] = @p2, [Province] = @p3, [Role] = @p4, [RunTeamId] = @p5, [Sex] = @p6, [StudentId] = @p7, [UniversityId] = @p8
+WHERE [Id] = @p9;
+SELECT @@ROWCOUNT;
+2019-05-22 20:27:24.766 +08:00 [INF] Request finished in 913.5963ms 200 application/json; charset=utf-8
+2019-05-22 20:28:20.197 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserLoginApi application/json-patch+json 49
+2019-05-22 20:28:20.201 +08:00 [INF] Successfully validated the token.
+2019-05-22 20:28:20.203 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-22 20:28:20.205 +08:00 [INF] Route matched with {action = "UserLoginApi", controller = "Login"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserLoginApi(Team.Model.AutoMappers.UserMapper.UserLoginMap) on controller Team.Controllers.LoginController (Team).
+2019-05-22 20:28:20.210 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-22 20:28:20.249 +08:00 [INF] Executed DbCommand (29ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-22 20:28:20.273 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoginApi (Team) - Validation state: "Valid"
+2019-05-22 20:28:20.305 +08:00 [INF] Executed DbCommand (29ms) [Parameters=[@__account_0='?' (Size = 4000), @__password_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE ([x].[Account] = @__account_0) AND ([x].[Password] = @__password_1)
+2019-05-22 20:28:20.309 +08:00 [INF] 用户 1登陆成功
+2019-05-22 20:28:20.310 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserLoginApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 34.328900000000004ms.
+2019-05-22 20:28:20.312 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-22 20:28:20.314 +08:00 [INF] Executed action Team.Controllers.LoginController.UserLoginApi (Team) in 104.0188ms
+2019-05-22 20:28:20.316 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-22 20:28:20.318 +08:00 [INF] Request finished in 121.3867ms 200 application/json; charset=utf-8
+2019-05-22 20:28:21.377 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserLoginApi application/json-patch+json 49
+2019-05-22 20:28:21.380 +08:00 [INF] Successfully validated the token.
+2019-05-22 20:28:21.381 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-22 20:28:21.383 +08:00 [INF] Route matched with {action = "UserLoginApi", controller = "Login"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserLoginApi(Team.Model.AutoMappers.UserMapper.UserLoginMap) on controller Team.Controllers.LoginController (Team).
+2019-05-22 20:28:21.388 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-22 20:28:21.420 +08:00 [INF] Executed DbCommand (26ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-22 20:28:21.444 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoginApi (Team) - Validation state: "Valid"
+2019-05-22 20:28:21.479 +08:00 [INF] Executed DbCommand (30ms) [Parameters=[@__account_0='?' (Size = 4000), @__password_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE ([x].[Account] = @__account_0) AND ([x].[Password] = @__password_1)
+2019-05-22 20:28:21.484 +08:00 [INF] 用户 1登陆成功
+2019-05-22 20:28:21.485 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserLoginApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 37.182700000000004ms.
+2019-05-22 20:28:21.487 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-22 20:28:21.489 +08:00 [INF] Executed action Team.Controllers.LoginController.UserLoginApi (Team) in 101.1907ms
+2019-05-22 20:28:21.490 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-05-22 20:28:21.492 +08:00 [INF] Request finished in 115.1983ms 200 application/json; charset=utf-8
+2019-05-22 20:28:34.841 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/RunTeam/UpdateUserRunTeamId  
+2019-05-22 20:28:34.855 +08:00 [INF] Successfully validated the token.
+2019-05-22 20:28:34.856 +08:00 [INF] Executing endpoint 'Team.Controllers.RunTeamController.UpdateUserRunTeamId (Team)'
+2019-05-22 20:28:34.858 +08:00 [INF] Route matched with {action = "UpdateUserRunTeamId", controller = "RunTeam"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UpdateUserRunTeamId() on controller Team.Controllers.RunTeamController (Team).
+2019-05-22 20:28:34.861 +08:00 [INF] Authorization was successful.
+2019-05-22 20:28:34.863 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-05-22 20:28:34.888 +08:00 [INF] Executed DbCommand (21ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-05-22 20:28:34.913 +08:00 [INF] Executing action method Team.Controllers.RunTeamController.UpdateUserRunTeamId (Team) - Validation state: "Valid"
+2019-05-22 20:28:34.939 +08:00 [INF] Executed DbCommand (22ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE [x].[Id] = @__userId_0
+2019-05-22 20:28:34.966 +08:00 [INF] Executed DbCommand (23ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId], [x.RunTeam].[Id], [x.RunTeam].[ApplicationStatus], [x.RunTeam].[Count], [x.RunTeam].[CreationTime], [x.RunTeam].[Introduction], [x.RunTeam].[Name], [x.RunTeam].[UserId]
+FROM [Users] AS [x]
+LEFT JOIN [RunTeams] AS [x.RunTeam] ON [x].[Id] = [x.RunTeam].[UserId]
+WHERE [x].[Id] = @__userId_0
+2019-05-22 20:28:34.997 +08:00 [INF] 用户 1 修改自己跑步队伍 Id 成功
+2019-05-22 20:28:34.999 +08:00 [INF] Executed action method Team.Controllers.RunTeamController.UpdateUserRunTeamId (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 82.7752ms.
+2019-05-22 20:28:35.001 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-05-22 20:28:35.002 +08:00 [INF] Executed action Team.Controllers.RunTeamController.UpdateUserRunTeamId (Team) in 141.9383ms
+2019-05-22 20:28:35.005 +08:00 [INF] Executed endpoint 'Team.Controllers.RunTeamController.UpdateUserRunTeamId (Team)'
+2019-05-22 20:28:35.006 +08:00 [ERR] Connection id "0HLMUM2TDONCM", Request id "0HLMUM2TDONCM:00000009": An unhandled exception was thrown by the application.
+System.InvalidOperationException: The connection does not support MultipleActiveResultSets.
+   at System.Data.SqlClient.SqlInternalConnectionTds.ValidateConnectionForExecute(SqlCommand command)
+   at System.Data.SqlClient.SqlInternalTransaction.Rollback()
+   at System.Data.SqlClient.SqlTransaction.Dispose(Boolean disposing)
+   at System.Data.Common.DbTransaction.Dispose()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalTransaction.Dispose()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.ClearTransactions()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Dispose()
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.Dispose()
+   at Microsoft.EntityFrameworkCore.DbContext.Dispose()
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.Dispose()
+   at Microsoft.AspNetCore.Hosting.Internal.RequestServicesFeature.Dispose()
+   at Microsoft.AspNetCore.Http.HttpResponse.<>c.<.cctor>b__30_1(Object disposable)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.FireOnCompletedAwaited(Stack`1 onCompleted)
+2019-05-22 20:28:35.017 +08:00 [INF] Request finished in 176.7413ms 200 application/json; charset=utf-8
+2019-05-22 20:28:35.100 +08:00 [INF] Executed DbCommand (128ms) [Parameters=[@p9='?' (DbType = Int32), @p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32), @p6='?' (DbType = Int32), @p7='?' (DbType = Int32), @p8='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [Users] SET [Account] = @p0, [Name] = @p1, [Password] = @p2, [Province] = @p3, [Role] = @p4, [RunTeamId] = @p5, [Sex] = @p6, [StudentId] = @p7, [UniversityId] = @p8
+WHERE [Id] = @p9;
+SELECT @@ROWCOUNT;
+2019-05-22 20:28:56.182 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/RunTeam/DeleteTeamApi  
+2019-05-22 20:28:56.185 +08:00 [INF] Successfully validated the token.
+2019-05-22 20:28:56.186 +08:00 [INF] Executing endpoint 'Team.Controllers.RunTeamController.DeleteTeamApi (Team)'
+2019-05-22 20:28:56.192 +08:00 [INF] Route matched with {action = "DeleteTeamApi", controller = "RunTeam"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult DeleteTeamApi() on controller Team.Controllers.RunTeamController (Team).
+2019-05-22 20:28:56.198 +08:00 [INF] Authorization was successful.
+2019-05-22 20:28:56.200 +08:00 [INF] Authorization failed.
+2019-05-22 20:28:56.201 +08:00 [INF] Authorization failed for the request at filter 'Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter'.
+2019-05-22 20:28:56.206 +08:00 [INF] Executing ForbidResult with authentication schemes ([]).
+2019-05-22 20:28:56.216 +08:00 [INF] AuthenticationScheme: Bearer was forbidden.
+2019-05-22 20:28:56.218 +08:00 [INF] Executed action Team.Controllers.RunTeamController.DeleteTeamApi (Team) in 20.5932ms
+2019-05-22 20:28:56.220 +08:00 [INF] Executed endpoint 'Team.Controllers.RunTeamController.DeleteTeamApi (Team)'
+2019-05-22 20:28:56.222 +08:00 [INF] Request finished in 40.7843ms 403 
