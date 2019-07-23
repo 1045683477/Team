@@ -1,0 +1,172 @@
+2019-06-09 09:54:56.707 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-06-09 09:54:58.565 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger  
+2019-06-09 09:54:58.937 +08:00 [INF] Request finished in 374.3585ms 301 
+2019-06-09 09:54:58.945 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-06-09 09:54:59.106 +08:00 [INF] Request finished in 160.8114ms 200 text/html
+2019-06-09 09:54:59.152 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-bundle.js  
+2019-06-09 09:54:59.146 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui.css  
+2019-06-09 09:54:59.175 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-standalone-preset.js  
+2019-06-09 09:54:59.254 +08:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2019-06-09 09:54:59.256 +08:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2019-06-09 09:54:59.265 +08:00 [INF] Request finished in 118.9614ms 200 text/css
+2019-06-09 09:54:59.266 +08:00 [INF] Request finished in 90.6873ms 200 application/javascript
+2019-06-09 09:54:59.288 +08:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2019-06-09 09:54:59.291 +08:00 [INF] Request finished in 138.9616ms 200 application/javascript
+2019-06-09 09:55:00.021 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-06-09 09:55:00.192 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/favicon-32x32.png  
+2019-06-09 09:55:00.194 +08:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2019-06-09 09:55:00.196 +08:00 [INF] Request finished in 4.1215ms 200 image/png
+2019-06-09 09:55:00.249 +08:00 [INF] Request finished in 228.7215ms 200 application/json;charset=utf-8
+2019-06-09 12:17:13.242 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-06-09 12:17:15.083 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-06-09 12:17:15.359 +08:00 [INF] Request finished in 279.3517ms 200 text/html
+2019-06-09 12:17:16.210 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-06-09 12:17:16.229 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+System.NotSupportedException: Ambiguous HTTP method for action - Team.Controllers.ChildController.AddChildrenAsyncApi (Team). Actions require an explicit HttpMethod binding for Swagger 2.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.CreatePathItem(IEnumerable`1 apiDescriptions, ISchemaRegistry schemaRegistry)
+   at System.Linq.Enumerable.ToDictionary[TSource,TKey,TElement](IEnumerable`1 source, Func`2 keySelector, Func`2 elementSelector, IEqualityComparer`1 comparer)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.CreatePathItems(IEnumerable`1 apiDescriptions, ISchemaRegistry schemaRegistry)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwagger(String documentName, String host, String basePath, String[] schemes)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-06-09 12:17:16.362 +08:00 [INF] Request finished in 152.4699ms 500 text/html; charset=utf-8
+2019-06-09 12:18:29.188 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-06-09 12:18:30.511 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-06-09 12:18:30.681 +08:00 [INF] Request finished in 171.1668ms 200 text/html
+2019-06-09 12:18:31.489 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-06-09 12:18:31.700 +08:00 [INF] Request finished in 211.5359ms 200 application/json;charset=utf-8
+2019-06-09 12:19:32.139 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-06-09 12:19:33.233 +08:00 [INF] Executed DbCommand (898ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-06-09 12:19:43.781 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-06-09 12:19:43.903 +08:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-06-09 12:19:54.347 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-06-09 12:19:54.480 +08:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-06-09 12:19:54.625 +08:00 [INF] Executed DbCommand (136ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-06-09 12:19:54.626 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-06-09 12:19:54.774 +08:00 [INF] Executed DbCommand (146ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2019-06-09 12:19:54.779 +08:00 [INF] Applying migration '20190529150236_Initial'.
+2019-06-09 12:19:55.222 +08:00 [ERR] Failed executing DbCommand (379ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Users] (
+    [Id] int NOT NULL IDENTITY,
+    [Account] nvarchar(max) NOT NULL,
+    [Password] nvarchar(max) NOT NULL,
+    [Name] nvarchar(max) NOT NULL,
+    [Sex] int NOT NULL,
+    [Role] int NOT NULL,
+    [Province] int NOT NULL,
+    [UniversityId] int NOT NULL,
+    [StudentId] int NOT NULL,
+    [RunTeamId] int NOT NULL,
+    CONSTRAINT [PK_Users] PRIMARY KEY ([Id])
+);
+System.Data.SqlClient.SqlException (0x80131904): 数据库中已存在名为 'Users' 的对象。
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite, String methodName)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.Execute(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues)
+ClientConnectionId:6f94316c-bdb4-421b-8177-40e3e629ec2b
+Error Number:2714,State:6,Class:16
+2019-06-09 21:37:42.265 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-06-09 21:37:46.129 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger  
+2019-06-09 21:37:46.637 +08:00 [INF] Request finished in 515.556ms 301 
+2019-06-09 21:37:46.685 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-06-09 21:37:47.157 +08:00 [INF] Request finished in 472.9423ms 200 text/html
+2019-06-09 21:37:48.870 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui.css  
+2019-06-09 21:37:48.871 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-bundle.js  
+2019-06-09 21:37:48.872 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-standalone-preset.js  
+2019-06-09 21:37:48.934 +08:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2019-06-09 21:37:48.938 +08:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2019-06-09 21:37:48.946 +08:00 [INF] Request finished in 73.6267ms 200 application/javascript
+2019-06-09 21:37:48.946 +08:00 [INF] Request finished in 75.0725ms 200 text/css
+2019-06-09 21:37:48.959 +08:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2019-06-09 21:37:48.966 +08:00 [INF] Request finished in 95.1474ms 200 application/javascript
+2019-06-09 21:37:49.387 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-06-09 21:37:49.669 +08:00 [INF] Request finished in 282.1331ms 200 application/json;charset=utf-8
+2019-06-09 21:38:07.007 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserLoginApi application/json-patch+json 49
+2019-06-09 21:38:07.096 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-06-09 21:38:07.230 +08:00 [INF] Route matched with {action = "UserLoginApi", controller = "Login"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserLoginApi(Team.Model.AutoMappers.UserMapper.UserLoginMap) on controller Team.Controllers.LoginController (Team).
+2019-06-09 21:38:07.616 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-06-09 21:38:27.858 +08:00 [INF] Executed action Team.Controllers.LoginController.UserLoginApi (Team) in 20617.5245ms
+2019-06-09 21:38:27.871 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-06-09 21:38:27.876 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+System.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server) ---> System.ComponentModel.Win32Exception (2): 系统找不到指定的文件。
+   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken)
+   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerDatabaseCreator.<>c__DisplayClass18_0.<Exists>b__0(DateTime giveUp)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.<>c__DisplayClass12_0`2.<Execute>b__0(DbContext c, TState s)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.Execute[TState,TResult](IExecutionStrategy strategy, Func`2 operation, Func`2 verifySucceeded, TState state)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.Execute[TState,TResult](IExecutionStrategy strategy, TState state, Func`2 operation)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerDatabaseCreator.Exists(Boolean retryOnNotExists)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerDatabaseCreator.Exists()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabaseCreator.EnsureCreated()
+   at Microsoft.EntityFrameworkCore.Infrastructure.DatabaseFacade.EnsureCreated()
+   at Team.Infrastructure.DbContext.MyContext..ctor(DbContextOptions`1 options) in D:\Microsoft VS2017\Word\.net core API\Team\Team.Infrastructure\DbContext\MyContext.cs:line 13
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(IServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitScoped(ScopedCallSite scopedCallSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(IServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(IServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitScoped(ScopedCallSite scopedCallSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(IServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.DynamicServiceProviderEngine.<>c__DisplayClass1_0.<RealizeService>b__0(ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.GetService(Type serviceType, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
+   at lambda_method(Closure , IServiceProvider , Object[] )
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerActivatorProvider.<>c__DisplayClass4_0.<CreateActivator>b__0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass5_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:2,State:0,Class:20
+2019-06-09 21:38:28.196 +08:00 [INF] Request finished in 21189.7084ms 500 text/html; charset=utf-8
+2019-06-09 21:38:28.208 +08:00 [INF] Connection id "0HLNCRUJ1PVK6", Request id "0HLNCRUJ1PVK6:00000003": the application completed without reading the entire request body.
+2019-06-09 22:13:40.694 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-06-09 22:13:42.668 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-06-09 22:13:42.999 +08:00 [INF] Request finished in 335.4818ms 200 text/html
+2019-06-09 22:13:44.054 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-06-09 22:13:44.266 +08:00 [INF] Request finished in 212.9193ms 200 application/json;charset=utf-8
+2019-06-09 22:16:21.918 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-06-09 22:16:23.457 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-06-09 22:16:23.726 +08:00 [INF] Request finished in 279.5627ms 200 text/html
+2019-06-09 22:16:24.441 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-06-09 22:16:24.664 +08:00 [INF] Request finished in 222.3623ms 200 application/json;charset=utf-8

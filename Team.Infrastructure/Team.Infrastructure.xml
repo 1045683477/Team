@@ -33,7 +33,7 @@
             <param name="lAndLUpLoadMapper"></param>
             <param name="userId"></param>
         </member>
-        <member name="M:Team.Infrastructure.IRepositories.ILatitudeAndLongitudeResource.LAndLSearchAll">
+        <member name="M:Team.Infrastructure.IRepositories.ILatitudeAndLongitudeResource.LAndLSearchAll(System.Int32)">
             <summary>
             查看全部
             </summary>
@@ -49,6 +49,29 @@
             <summary>
             查询每周榜单
             </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Infrastructure.IRepositories.IParentResource.Binding(System.String,System.Int32,Team.Model.Model.ParentModel.RelationShip)">
+            <summary>
+            绑定
+            </summary>
+            <param name="account"></param>
+            <param name="parentId">父母 Id</param>
+            <param name="relationShip"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Infrastructure.IRepositories.IParentResource.SearchChildrenLal(System.Int32)">
+            <summary>
+            查询绑定的某个前十个经纬度
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Infrastructure.IRepositories.IParentResource.SearchAllChildren(System.Int32)">
+            <summary>
+            查询用户所有绑定的孩子
+            </summary>
+            <param name="userId"></param>
             <returns></returns>
         </member>
         <member name="T:Team.Infrastructure.IRepositories.IRunRepository">
@@ -299,6 +322,24 @@
             <param name="userId"></param>
             <returns></returns>
         </member>
+        <member name="M:Team.Infrastructure.IRepositories.IUserRepository.UserLoadingCommunicationId(System.Int32,System.String)">
+            <summary>
+            上传通信 id
+            </summary>
+            <param name="userId"></param>
+            <param name="communicationId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Infrastructure.LocationUtils.GetDistance(System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            求取经纬度,结果单位为公里
+            </summary>
+            <param name="lat1"></param>
+            <param name="lng1"></param>
+            <param name="lat2"></param>
+            <param name="lng2"></param>
+            <returns></returns>
+        </member>
         <member name="F:Team.Infrastructure.Repositories.ImagesResource.LimitPictureType">
             <summary>
             图片格式
@@ -328,10 +369,33 @@
             <param name="lAndLUpLoadMapper"></param>
             <param name="userId"></param>
         </member>
-        <member name="M:Team.Infrastructure.Repositories.LatitudeAndLongitudeResource.LAndLSearchAll">
+        <member name="M:Team.Infrastructure.Repositories.LatitudeAndLongitudeResource.LAndLSearchAll(System.Int32)">
             <summary>
             查看全部
             </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Infrastructure.Repositories.ParentResource.Binding(System.String,System.Int32,Team.Model.Model.ParentModel.RelationShip)">
+            <summary>
+            绑定
+            </summary>
+            <param name="account"></param>
+            <param name="parentId">父母 Id</param>
+            <param name="relationShip"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Infrastructure.Repositories.ParentResource.SearchChildrenLal(System.Int32)">
+            <summary>
+            查询绑定的某个前十个经纬度
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Infrastructure.Repositories.ParentResource.SearchAllChildren(System.Int32)">
+            <summary>
+            查询用户所有绑定的孩子
+            </summary>
+            <param name="userId"></param>
             <returns></returns>
         </member>
         <member name="M:Team.Infrastructure.Repositories.RunRepository.FreeRecord(System.Int32,Team.Model.Model.TeamModel.Run)">
@@ -564,6 +628,14 @@
             通过用户 Id 查询某个正在组队的团队信息
             </summary>
             <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Infrastructure.Repositories.UserRepository.UserLoadingCommunicationId(System.Int32,System.String)">
+            <summary>
+            上传通信 id
+            </summary>
+            <param name="userId"></param>
+            <param name="communicationId"></param>
             <returns></returns>
         </member>
     </members>

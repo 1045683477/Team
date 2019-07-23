@@ -18,6 +18,6 @@ namespace Team.Infrastructure.IRepositories
         /// 查看全部
         /// </summary>
         /// <returns></returns>
-        IEnumerable<LatitudeAndLongitude> LAndLSearchAll();
+        IEnumerable<LatitudeAndLongitude> LAndLSearchAll(int userId);
     }
 }

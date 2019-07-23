@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using System.Linq;
+using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -65,6 +66,21 @@ namespace Team.Controllers
                 {
                     Status = "409",
                     Message = $"{userRegistered.Account} 该账号已被注册"
+                };
+                return StatusCode(409, code);
+            }
+
+            var sss =  userRegistered.StudentId.Skip(2).Take(2).ToList();
+            //int s = int.Parse(sss.Take(1).ToString())*10+ int.Parse(sss.TakeLast(1).ToString());
+            int s = int.Parse(sss[0].ToString())*10 + int.Parse(sss[1].ToString());
+
+            if (!(userRegistered.StudentId.StartsWith("20") && s > 10 && userRegistered.StudentId.Length>10 && userRegistered.StudentId.Length < 13))
+            {
+                _logger.LogInformation($"注册失败，{userRegistered.StudentId} 学号不符合规范！");
+                code = new CustomStatusCode
+                {
+                    Status = "409",
+                    Message = $"{userRegistered.StudentId} 学号不符合规范！"
                 };
                 return StatusCode(409, code);
             }
@@ -168,8 +184,8 @@ namespace Team.Controllers
         {
             CustomStatusCode code;
             var jwtStr = HttpRequest();
-            var changed=await _userRepository.UserUpdate(jwtStr.Id, update);
-            if (changed==false)
+            _userRepository.UserUpdate(jwtStr.Id, update);
+            if (!await _unitOfWork.SaveChanged())
             {
                 _logger.LogInformation($"用户 {jwtStr.Id} 修改个人资料失败");
                 code=new CustomStatusCode
@@ -233,7 +249,7 @@ namespace Team.Controllers
         /// </summary>
         /// <param name="formFile"></param>
         /// <returns></returns>
-        [HttpPost("UserUpLoadPhoto",Name = "UserUpLoadPhoto")]
+        [HttpGet("UserUpLoadPhoto",Name = "UserUpLoadPhoto")]
         [Authorize(Policy = "ClientOrCaptain")]
         public IActionResult UserUpLoadPhoto(IFormFile formFile)
         {
@@ -325,6 +341,37 @@ namespace Team.Controllers
             return response;*/
 
             #endregion
+        }
+
+        /// <summary>
+        /// 添加通信 ID
+        /// </summary>
+        /// <param name="communicationId"></param>
+        /// <returns></returns>
+        [HttpGet("UserUpLoadCommunicationIdAsync", Name = "UserUpLoadCommunicationIdAsync")]
+        [Authorize(Policy = "ClientOrCaptain")]
+        public async Task<IActionResult> UserUpLoadCommunicationIdAsync(string communicationId)
+        {
+            CustomStatusCode code;
+            var jwt = HttpRequest();
+            _userRepository.UserLoadingCommunicationId(jwt.Id,communicationId);
+            if (!await _unitOfWork.SaveChanged())
+            {
+                _logger.LogInformation($"用户 {jwt.Id} 上传通信Id失败");
+                code = new CustomStatusCode
+                {
+                    Status = "404",
+                    Message = $"用户 {jwt.Id} 上传通信Id失败"
+                };
+                return StatusCode(404, code);
+            }
+            _logger.LogInformation($"用户 {jwt.Id} 上传通信Id成功");
+            code = new CustomStatusCode
+            {
+                Status = "200",
+                Message = $"用户 {jwt.Id} 上传通信Id成功"
+            };
+            return StatusCode(200, code);
         }
 
         /// <summary>

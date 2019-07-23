@@ -24,5 +24,15 @@
         /// 纬度
         /// </summary>
         public double Longitude { get; set; }
+
+        /// <summary>
+        /// 距离
+        /// </summary>
+        public double Distance { get; set; }
+
+        /// <summary>
+        /// 通信编号
+        /// </summary>
+        public string CommunicationId { get; set; }
     }
 }

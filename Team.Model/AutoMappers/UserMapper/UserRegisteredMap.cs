@@ -41,6 +41,6 @@ namespace Team.Model.AutoMappers.UserMapper
         /// <summary>
         /// 学号
         /// </summary>
-        public int studentId { get; set; }
+        public string StudentId { get; set; }
     }
 }

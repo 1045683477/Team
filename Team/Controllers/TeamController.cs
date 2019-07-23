@@ -4,14 +4,21 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Linq;
+using System.Net.Mime;
+using System.Text;
+using System.Text.Encodings.Web;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc.Routing;
 using Team.AuthHelper.OverWrite;
+using Team.Infrastructure;
 using Team.Infrastructure.IRepositories;
 using Team.Model;
 using Team.Model.AutoMappers.TeamMapper;
 using Team.Model.Model.TeamModel;
+using static System.Web.HttpUtility;
 
 namespace Team.Controllers
 {
@@ -230,7 +237,7 @@ namespace Team.Controllers
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
-        [HttpGet("TeamSearchByNameApi",Name = "TeamSearchByNameApi")]
+        [HttpGet("TeamSearchByNameApi", Name = "TeamSearchByNameApi")]
         public IActionResult TeamSearchByNameApi(string name)
         {
             CustomStatusCode code;
@@ -299,6 +306,8 @@ namespace Team.Controllers
             };
             return StatusCode(200, code);
         }
+
+
 
         /// <summary>
         /// 上传队伍图片

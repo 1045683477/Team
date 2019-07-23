@@ -37,7 +37,7 @@ namespace Team.Infrastructure.IRepositories
         /// <param name="userId">用户Id</param>
         /// <param name="userUpdate">修改资料</param>
         /// <returns></returns>
-        Task<bool> UserUpdate(int userId, UserUpdateMap userUpdate);
+        void UserUpdate(int userId, UserUpdateMap userUpdate);
 
         /// <summary>
         /// 查询用户个人数据
@@ -59,5 +59,14 @@ namespace Team.Infrastructure.IRepositories
         /// <param name="userId"></param>
         /// <returns></returns>
         int TeamSearchByUserIdTeaming(int userId);
+
+
+        /// <summary>
+        /// 上传通信 id
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="communicationId"></param>
+        /// <returns></returns>
+        void UserLoadingCommunicationId(int userId,string communicationId);
     }
 }

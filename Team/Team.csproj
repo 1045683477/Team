@@ -38,4 +38,14 @@
     </None>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Validator\ChildValidator\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="CCPRestSDK">
+      <HintPath>..\..\..\代码\CCP_REST_DEMO_CSharp_v2.6r\CCP_REST_DEMO_CSharp_v2.6r1\CCP_REST_DEMO_CSharp_v2.6r1\CCPRestDemo\SDK\CCPRestSDK\bin\Release\CCPRestSDK.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

@@ -9,6 +9,23 @@ namespace Team.Infrastructure.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "Children",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Name = table.Column<string>(nullable: true),
+                    Account = table.Column<string>(nullable: true),
+                    RelationShip = table.Column<int>(nullable: false),
+                    SonId = table.Column<int>(nullable: false),
+                    ParentId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Children", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Users",
                 columns: table => new
                 {
@@ -21,7 +38,7 @@ namespace Team.Infrastructure.Migrations
                     Role = table.Column<int>(nullable: false),
                     Province = table.Column<int>(nullable: false),
                     UniversityId = table.Column<int>(nullable: false),
-                    StudentId = table.Column<int>(nullable: false),
+                    StudentId = table.Column<string>(nullable: true),
                     RunTeamId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
@@ -39,6 +56,7 @@ namespace Team.Infrastructure.Migrations
                     Longitude = table.Column<double>(nullable: false),
                     Name = table.Column<string>(nullable: true),
                     Phone = table.Column<string>(nullable: true),
+                    CommunicationId = table.Column<string>(nullable: true),
                     UserId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
@@ -404,6 +422,9 @@ namespace Team.Infrastructure.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Children");
+
             migrationBuilder.DropTable(
                 name: "LatitudeAndLongitudes");
 

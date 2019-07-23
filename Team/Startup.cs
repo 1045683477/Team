@@ -194,6 +194,7 @@ namespace Team
             services.AddScoped<IRunTeamResource, RunTeamResource>();
             services.AddScoped<ILatitudeAndLongitudeResource, LatitudeAndLongitudeResource>();
             services.AddScoped<IListResource, ListResource>();
+            services.AddScoped<IParentResource, ParentResource>();
 
             #endregion
 

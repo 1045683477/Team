@@ -47,9 +47,14 @@ namespace Team.Infrastructure.Repositories
         /// 查看全部
         /// </summary>
         /// <returns></returns>
-        public IEnumerable<LatitudeAndLongitude> LAndLSearchAll()
+        public IEnumerable<LatitudeAndLongitude> LAndLSearchAll(int userId)
         {
-            return _myContext.LatitudeAndLongitudes.ToList();
+            var result = from s in _myContext.LatitudeAndLongitudes
+                orderby s.Id descending
+                where s.UserId != userId
+                select s;
+
+            return result;
         }
     }
 }

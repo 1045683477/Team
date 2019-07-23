@@ -1,0 +1,970 @@
+2019-07-14 18:59:15.186 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-07-14 18:59:18.858 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger  
+2019-07-14 18:59:19.036 +08:00 [INF] Request finished in 180.4644ms 301 
+2019-07-14 18:59:19.126 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-07-14 18:59:19.410 +08:00 [INF] Request finished in 283.0658ms 200 text/html
+2019-07-14 18:59:21.555 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-07-14 18:59:21.812 +08:00 [INF] Request finished in 257.378ms 200 application/json;charset=utf-8
+2019-07-14 18:59:34.565 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserLoginApi application/json-patch+json 49
+2019-07-14 18:59:34.660 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-07-14 18:59:34.785 +08:00 [INF] Route matched with {action = "UserLoginApi", controller = "Login"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserLoginApi(Team.Model.AutoMappers.UserMapper.UserLoginMap) on controller Team.Controllers.LoginController (Team).
+2019-07-14 18:59:35.238 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-07-14 18:59:35.961 +08:00 [INF] Executed DbCommand (525ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-07-14 18:59:36.399 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoginApi (Team) - Validation state: "Valid"
+2019-07-14 18:59:36.684 +08:00 [INF] Executed DbCommand (167ms) [Parameters=[@__account_0='?' (Size = 4000), @__password_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE ([x].[Account] = @__account_0) AND ([x].[Password] = @__password_1)
+2019-07-14 18:59:36.767 +08:00 [INF] 用户 1登陆成功
+2019-07-14 18:59:36.774 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserLoginApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 371.00390000000004ms.
+2019-07-14 18:59:36.789 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-07-14 18:59:36.799 +08:00 [INF] Executed action Team.Controllers.LoginController.UserLoginApi (Team) in 2008.4762ms
+2019-07-14 18:59:36.802 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-07-14 18:59:36.808 +08:00 [INF] Request finished in 2243.3642ms 200 application/json; charset=utf-8
+2019-07-14 19:00:00.035 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-07-14 19:00:00.035 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-07-14 19:00:00.066 +08:00 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-07-14 19:00:00.081 +08:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-07-14 19:00:00.173 +08:00 [INF] Executed DbCommand (88ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+delete TeamLists;
+2019-07-14 19:00:00.172 +08:00 [INF] Executed DbCommand (69ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+delete RunTimeDailyChartses;
+2019-07-14 19:00:00.258 +08:00 [INF] Executed DbCommand (68ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[ApplicationStatus], [s].[Count], [s].[CreationTime], [s].[Introduction], [s].[Name], [s].[UserId]
+FROM [RunTeams] AS [s]
+WHERE ([s].[ApplicationStatus] = 1) AND ([s].[Count] > 5)
+2019-07-14 19:00:00.263 +08:00 [INF] 时间 2019/7/14 19:00:00 更新跑团组队列表
+2019-07-14 19:00:00.348 +08:00 [INF] Executed DbCommand (129ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_0) [r].[RunTeamId], [b].[Name], [b].[Introduction], [r].[Distance]
+FROM [RunTeamRecords] AS [r]
+CROSS JOIN [RunTeams] AS [b]
+WHERE ([b].[Id] = [r].[RunTeamId]) AND ([r].[DateTime] = CONVERT(date, GETDATE()))
+ORDER BY [r].[Distance] DESC
+2019-07-14 19:00:00.352 +08:00 [INF] 时间 2019/7/14 19:00:00 更新跑团每日排行榜
+2019-07-14 19:40:46.010 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-07-14 19:40:47.763 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-07-14 19:40:48.078 +08:00 [INF] Request finished in 316.9649ms 200 text/html
+2019-07-14 19:40:48.763 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-07-14 19:40:48.875 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+System.NotSupportedException: Ambiguous HTTP method for action - Team.Controllers.LoginController.UserUpLoadCommunicationIdAsync (Team). Actions require an explicit HttpMethod binding for Swagger 2.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.CreatePathItem(IEnumerable`1 apiDescriptions, ISchemaRegistry schemaRegistry)
+   at System.Linq.Enumerable.ToDictionary[TSource,TKey,TElement](IEnumerable`1 source, Func`2 keySelector, Func`2 elementSelector, IEqualityComparer`1 comparer)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.CreatePathItems(IEnumerable`1 apiDescriptions, ISchemaRegistry schemaRegistry)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwagger(String documentName, String host, String basePath, String[] schemes)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-07-14 19:40:49.025 +08:00 [INF] Request finished in 262.113ms 500 text/html; charset=utf-8
+2019-07-14 19:44:14.527 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-07-14 19:44:16.549 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-07-14 19:44:16.756 +08:00 [INF] Request finished in 210.3396ms 200 text/html
+2019-07-14 19:44:17.393 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-07-14 19:44:17.597 +08:00 [INF] Request finished in 203.9671ms 200 application/json;charset=utf-8
+2019-07-14 19:45:27.357 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserRegisteredApi application/json-patch+json 144
+2019-07-14 19:45:27.470 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserRegisteredApi (Team)'
+2019-07-14 19:45:27.808 +08:00 [INF] Route matched with {action = "UserRegisteredApi", controller = "Login"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserRegisteredApi(Team.Model.AutoMappers.UserMapper.UserRegisteredMap) on controller Team.Controllers.LoginController (Team).
+2019-07-14 19:45:28.180 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-07-14 19:45:41.213 +08:00 [INF] Executed DbCommand (2,502ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+CREATE DATABASE [Team];
+2019-07-14 19:45:41.894 +08:00 [INF] Executed DbCommand (673ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [Team] SET READ_COMMITTED_SNAPSHOT ON;
+END;
+2019-07-14 19:45:42.079 +08:00 [INF] Executed DbCommand (117ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Children] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(max) NULL,
+    [Account] nvarchar(max) NULL,
+    [RelationShip] int NOT NULL,
+    [SonId] int NOT NULL,
+    [ParentId] int NOT NULL,
+    CONSTRAINT [PK_Children] PRIMARY KEY ([Id])
+);
+2019-07-14 19:45:42.101 +08:00 [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Users] (
+    [Id] int NOT NULL IDENTITY,
+    [Account] nvarchar(max) NOT NULL,
+    [Password] nvarchar(max) NOT NULL,
+    [Name] nvarchar(max) NOT NULL,
+    [Sex] int NOT NULL,
+    [Role] int NOT NULL,
+    [Province] int NOT NULL,
+    [UniversityId] int NOT NULL,
+    [StudentId] nvarchar(max) NULL,
+    [RunTeamId] int NOT NULL,
+    CONSTRAINT [PK_Users] PRIMARY KEY ([Id])
+);
+2019-07-14 19:45:42.123 +08:00 [INF] Executed DbCommand (20ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [LatitudeAndLongitudes] (
+    [Id] int NOT NULL IDENTITY,
+    [Latitude] float NOT NULL,
+    [Longitude] float NOT NULL,
+    [Name] nvarchar(max) NULL,
+    [Phone] nvarchar(max) NULL,
+    [CommunicationId] nvarchar(max) NULL,
+    [UserId] int NOT NULL,
+    CONSTRAINT [PK_LatitudeAndLongitudes] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_LatitudeAndLongitudes_Users_UserId] FOREIGN KEY ([UserId]) REFERENCES [Users] ([Id]) ON DELETE CASCADE
+);
+2019-07-14 19:45:42.146 +08:00 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Runs] (
+    [Id] int NOT NULL IDENTITY,
+    [SportFreeModel] int NOT NULL,
+    [StarTime] datetime2 NOT NULL,
+    [EndTime] datetime2 NOT NULL,
+    [StarPlace] nvarchar(max) NOT NULL,
+    [EndPlace] nvarchar(max) NOT NULL,
+    [Distance] real NOT NULL,
+    [Calories] real NOT NULL,
+    [Speed] real NOT NULL,
+    [UserId] int NOT NULL,
+    CONSTRAINT [PK_Runs] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Runs_Users_UserId] FOREIGN KEY ([UserId]) REFERENCES [Users] ([Id]) ON DELETE CASCADE
+);
+2019-07-14 19:45:42.166 +08:00 [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [RunTeams] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(max) NOT NULL,
+    [CreationTime] datetime2 NOT NULL,
+    [Introduction] nvarchar(max) NULL,
+    [Count] int NOT NULL,
+    [ApplicationStatus] int NOT NULL,
+    [UserId] int NOT NULL,
+    CONSTRAINT [PK_RunTeams] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_RunTeams_Users_UserId] FOREIGN KEY ([UserId]) REFERENCES [Users] ([Id]) ON DELETE CASCADE
+);
+2019-07-14 19:45:42.187 +08:00 [INF] Executed DbCommand (17ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Statisticals] (
+    [Id] int NOT NULL IDENTITY,
+    [SportFreeModel] int NOT NULL,
+    [Distance] real NOT NULL,
+    [Calories] real NOT NULL,
+    [AllTime] real NOT NULL,
+    [UserId] int NOT NULL,
+    CONSTRAINT [PK_Statisticals] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Statisticals_Users_UserId] FOREIGN KEY ([UserId]) REFERENCES [Users] ([Id]) ON DELETE CASCADE
+);
+2019-07-14 19:45:42.208 +08:00 [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [TeamLists] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(max) NULL,
+    [CreationTime] datetime2 NOT NULL,
+    [Introduction] nvarchar(max) NULL,
+    [Count] int NOT NULL,
+    [UserId] int NOT NULL,
+    CONSTRAINT [PK_TeamLists] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_TeamLists_Users_UserId] FOREIGN KEY ([UserId]) REFERENCES [Users] ([Id]) ON DELETE CASCADE
+);
+2019-07-14 19:45:42.231 +08:00 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Teams] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(max) NULL,
+    [CreationTime] datetime2 NOT NULL,
+    [AgreedTime] datetime2 NOT NULL,
+    [Address] nvarchar(max) NOT NULL,
+    [Introduction] nvarchar(max) NULL,
+    [AllCount] int NOT NULL,
+    [Count] int NOT NULL,
+    [Sport] int NOT NULL,
+    [UserId] int NOT NULL,
+    CONSTRAINT [PK_Teams] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Teams_Users_UserId] FOREIGN KEY ([UserId]) REFERENCES [Users] ([Id]) ON DELETE CASCADE
+);
+2019-07-14 19:45:42.250 +08:00 [INF] Executed DbCommand (17ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [RunApplicants] (
+    [Id] int NOT NULL IDENTITY,
+    [UserId] int NOT NULL,
+    [Name] nvarchar(max) NULL,
+    [Sex] int NOT NULL,
+    [ApplicationDate] datetime2 NOT NULL,
+    [RunTeamId] int NOT NULL,
+    CONSTRAINT [PK_RunApplicants] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_RunApplicants_RunTeams_RunTeamId] FOREIGN KEY ([RunTeamId]) REFERENCES [RunTeams] ([Id]) ON DELETE CASCADE
+);
+2019-07-14 19:45:42.271 +08:00 [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [RunParticipantses] (
+    [Id] int NOT NULL IDENTITY,
+    [UserId] int NOT NULL,
+    [Name] nvarchar(max) NULL,
+    [Sex] int NOT NULL,
+    [ApplicationDate] datetime2 NOT NULL,
+    [RunTeamId] int NOT NULL,
+    CONSTRAINT [PK_RunParticipantses] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_RunParticipantses_RunTeams_RunTeamId] FOREIGN KEY ([RunTeamId]) REFERENCES [RunTeams] ([Id]) ON DELETE CASCADE
+);
+2019-07-14 19:45:42.292 +08:00 [INF] Executed DbCommand (17ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [RunTeamRecords] (
+    [Id] int NOT NULL IDENTITY,
+    [DateTime] date NOT NULL,
+    [Distance] real NOT NULL,
+    [Calories] real NOT NULL,
+    [RunTeamId] int NOT NULL,
+    CONSTRAINT [PK_RunTeamRecords] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_RunTeamRecords_RunTeams_RunTeamId] FOREIGN KEY ([RunTeamId]) REFERENCES [RunTeams] ([Id]) ON DELETE CASCADE
+);
+2019-07-14 19:45:42.313 +08:00 [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [RunTeamWeekChartBuffers] (
+    [Id] int NOT NULL IDENTITY,
+    [TeamName] nvarchar(max) NULL,
+    [Introduction] nvarchar(max) NULL,
+    [Distance] real NOT NULL,
+    [RunTeamId] int NOT NULL,
+    CONSTRAINT [PK_RunTeamWeekChartBuffers] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_RunTeamWeekChartBuffers_RunTeams_RunTeamId] FOREIGN KEY ([RunTeamId]) REFERENCES [RunTeams] ([Id]) ON DELETE CASCADE
+);
+2019-07-14 19:45:42.335 +08:00 [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [RunTimeDailyChartses] (
+    [Id] int NOT NULL IDENTITY,
+    [Ranking] int NOT NULL,
+    [TeamName] nvarchar(max) NULL,
+    [Introduction] nvarchar(max) NULL,
+    [Distance] real NOT NULL,
+    [RunTeamId] int NOT NULL,
+    CONSTRAINT [PK_RunTimeDailyChartses] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_RunTimeDailyChartses_RunTeams_RunTeamId] FOREIGN KEY ([RunTeamId]) REFERENCES [RunTeams] ([Id]) ON DELETE CASCADE
+);
+2019-07-14 19:45:42.354 +08:00 [INF] Executed DbCommand (17ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [RunTimeWeekChartses] (
+    [Id] int NOT NULL IDENTITY,
+    [Ranking] int NOT NULL,
+    [TeamName] nvarchar(max) NULL,
+    [Introduction] nvarchar(max) NULL,
+    [Distance] real NOT NULL,
+    [RunTeamId] int NOT NULL,
+    CONSTRAINT [PK_RunTimeWeekChartses] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_RunTimeWeekChartses_RunTeams_RunTeamId] FOREIGN KEY ([RunTeamId]) REFERENCES [RunTeams] ([Id]) ON DELETE CASCADE
+);
+2019-07-14 19:45:42.380 +08:00 [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Participantses] (
+    [Id] int NOT NULL IDENTITY,
+    [UserId] int NOT NULL,
+    [Name] nvarchar(max) NOT NULL,
+    [Sex] int NOT NULL,
+    [TeamId] int NOT NULL,
+    CONSTRAINT [PK_Participantses] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Participantses_Teams_TeamId] FOREIGN KEY ([TeamId]) REFERENCES [Teams] ([Id]) ON DELETE CASCADE
+);
+2019-07-14 19:45:42.534 +08:00 [INF] Executed DbCommand (150ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [IX_LatitudeAndLongitudes_UserId] ON [LatitudeAndLongitudes] ([UserId]);
+2019-07-14 19:45:42.556 +08:00 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Participantses_TeamId] ON [Participantses] ([TeamId]);
+2019-07-14 19:45:42.575 +08:00 [INF] Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_RunApplicants_RunTeamId] ON [RunApplicants] ([RunTeamId]);
+2019-07-14 19:45:42.597 +08:00 [INF] Executed DbCommand (17ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_RunParticipantses_RunTeamId] ON [RunParticipantses] ([RunTeamId]);
+2019-07-14 19:45:42.618 +08:00 [INF] Executed DbCommand (17ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Runs_UserId] ON [Runs] ([UserId]);
+2019-07-14 19:45:42.637 +08:00 [INF] Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_RunTeamRecords_RunTeamId] ON [RunTeamRecords] ([RunTeamId]);
+2019-07-14 19:45:42.656 +08:00 [INF] Executed DbCommand (17ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [IX_RunTeams_UserId] ON [RunTeams] ([UserId]);
+2019-07-14 19:45:42.677 +08:00 [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_RunTeamWeekChartBuffers_RunTeamId] ON [RunTeamWeekChartBuffers] ([RunTeamId]);
+2019-07-14 19:45:42.697 +08:00 [INF] Executed DbCommand (17ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_RunTimeDailyChartses_RunTeamId] ON [RunTimeDailyChartses] ([RunTeamId]);
+2019-07-14 19:45:42.717 +08:00 [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_RunTimeWeekChartses_RunTeamId] ON [RunTimeWeekChartses] ([RunTeamId]);
+2019-07-14 19:45:42.738 +08:00 [INF] Executed DbCommand (17ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Statisticals_UserId] ON [Statisticals] ([UserId]);
+2019-07-14 19:45:42.756 +08:00 [INF] Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_TeamLists_UserId] ON [TeamLists] ([UserId]);
+2019-07-14 19:45:42.776 +08:00 [INF] Executed DbCommand (17ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Teams_UserId] ON [Teams] ([UserId]);
+2019-07-14 19:45:43.166 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserRegisteredApi (Team) - Validation state: "Valid"
+2019-07-14 19:45:43.340 +08:00 [INF] Executed DbCommand (72ms) [Parameters=[@__account_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE [x].[Account] = @__account_0
+2019-07-14 19:45:43.788 +08:00 [INF] Executed action Team.Controllers.LoginController.UserRegisteredApi (Team) in 15975.836000000001ms
+2019-07-14 19:45:43.791 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserRegisteredApi (Team)'
+2019-07-14 19:45:43.798 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+System.FormatException: Input string was not in a correct format.
+   at System.Number.StringToNumber(ReadOnlySpan`1 str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(ReadOnlySpan`1 s, NumberStyles style, NumberFormatInfo info)
+   at System.Int32.Parse(String s)
+   at Team.Controllers.LoginController.UserRegisteredApi(UserRegisteredMap userRegistered) in D:\Microsoft VS2017\Word\.net core API\Team\Team\Controllers\LoginController.cs:line 75
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-07-14 19:45:44.037 +08:00 [INF] Request finished in 16680.3856ms 500 text/html; charset=utf-8
+2019-07-14 19:46:27.258 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserRegisteredApi application/json-patch+json 141
+2019-07-14 19:47:11.578 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserRegisteredApi (Team)'
+2019-07-14 19:47:11.580 +08:00 [INF] Route matched with {action = "UserRegisteredApi", controller = "Login"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserRegisteredApi(Team.Model.AutoMappers.UserMapper.UserRegisteredMap) on controller Team.Controllers.LoginController (Team).
+2019-07-14 19:47:11.584 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-07-14 19:47:11.886 +08:00 [INF] Executed DbCommand (281ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-07-14 19:47:11.909 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserRegisteredApi (Team) - Validation state: "Valid"
+2019-07-14 19:47:11.953 +08:00 [INF] Executed DbCommand (41ms) [Parameters=[@__account_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE [x].[Account] = @__account_0
+2019-07-14 19:47:12.015 +08:00 [INF] Executed action Team.Controllers.LoginController.UserRegisteredApi (Team) in 433.0273ms
+2019-07-14 19:47:12.019 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserRegisteredApi (Team)'
+2019-07-14 19:47:12.020 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at Team.Controllers.LoginController.UserRegisteredApi(UserRegisteredMap userRegistered) in D:\Microsoft VS2017\Word\.net core API\Team\Team\Controllers\LoginController.cs:line 75
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-07-14 19:47:12.044 +08:00 [INF] Request finished in 44786.0323ms 500 text/html; charset=utf-8
+2019-07-14 19:47:41.052 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserRegisteredApi application/json-patch+json 141
+2019-07-14 19:47:44.705 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserRegisteredApi (Team)'
+2019-07-14 19:47:44.706 +08:00 [INF] Route matched with {action = "UserRegisteredApi", controller = "Login"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserRegisteredApi(Team.Model.AutoMappers.UserMapper.UserRegisteredMap) on controller Team.Controllers.LoginController (Team).
+2019-07-14 19:47:44.707 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-07-14 19:47:44.770 +08:00 [INF] Executed DbCommand (61ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-07-14 19:47:44.787 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserRegisteredApi (Team) - Validation state: "Valid"
+2019-07-14 19:47:44.815 +08:00 [INF] Executed DbCommand (25ms) [Parameters=[@__account_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE [x].[Account] = @__account_0
+2019-07-14 19:47:44.866 +08:00 [INF] Executed action Team.Controllers.LoginController.UserRegisteredApi (Team) in 159.4367ms
+2019-07-14 19:47:44.870 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserRegisteredApi (Team)'
+2019-07-14 19:47:44.872 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at Team.Controllers.LoginController.UserRegisteredApi(UserRegisteredMap userRegistered) in D:\Microsoft VS2017\Word\.net core API\Team\Team\Controllers\LoginController.cs:line 75
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-07-14 19:47:44.898 +08:00 [INF] Request finished in 3845.649ms 500 text/html; charset=utf-8
+2019-07-14 19:50:21.790 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-07-14 19:50:21.928 +08:00 [INF] Executed DbCommand (33ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-07-14 19:50:40.570 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-07-14 19:50:40.694 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-07-14 19:50:40.887 +08:00 [INF] Executed DbCommand (156ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [__EFMigrationsHistory] (
+    [MigrationId] nvarchar(150) NOT NULL,
+    [ProductVersion] nvarchar(32) NOT NULL,
+    CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+);
+2019-07-14 19:50:40.888 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-07-14 19:50:40.889 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2019-07-14 19:50:40.893 +08:00 [INF] Applying migration '20190714115021_Initial'.
+2019-07-14 19:50:41.284 +08:00 [ERR] Failed executing DbCommand (344ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Children] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(max) NULL,
+    [Account] nvarchar(max) NULL,
+    [RelationShip] int NOT NULL,
+    [SonId] int NOT NULL,
+    [ParentId] int NOT NULL,
+    CONSTRAINT [PK_Children] PRIMARY KEY ([Id])
+);
+System.Data.SqlClient.SqlException (0x80131904): 数据库中已存在名为 'Children' 的对象。
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite, String methodName)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.Execute(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues)
+ClientConnectionId:e1d3eb12-b0b3-4352-b6e0-c6a92767d790
+Error Number:2714,State:6,Class:16
+2019-07-14 19:50:49.515 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-07-14 19:50:51.469 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-07-14 19:50:51.661 +08:00 [INF] Request finished in 195.138ms 200 text/html
+2019-07-14 19:50:52.264 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-07-14 19:50:52.456 +08:00 [INF] Request finished in 191.3178ms 200 application/json;charset=utf-8
+2019-07-14 19:51:07.630 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserRegisteredApi application/json-patch+json 144
+2019-07-14 19:51:07.709 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserRegisteredApi (Team)'
+2019-07-14 19:51:07.835 +08:00 [INF] Route matched with {action = "UserRegisteredApi", controller = "Login"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserRegisteredApi(Team.Model.AutoMappers.UserMapper.UserRegisteredMap) on controller Team.Controllers.LoginController (Team).
+2019-07-14 19:51:08.376 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserRegisteredApi (Team) - Validation state: "Valid"
+2019-07-14 19:51:08.725 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-07-14 19:51:08.994 +08:00 [INF] Executed DbCommand (40ms) [Parameters=[@__account_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE [x].[Account] = @__account_0
+2019-07-14 19:51:09.216 +08:00 [INF] Executed action Team.Controllers.LoginController.UserRegisteredApi (Team) in 1374.44ms
+2019-07-14 19:51:09.222 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserRegisteredApi (Team)'
+2019-07-14 19:51:09.229 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+System.FormatException: Input string was not in a correct format.
+   at System.Number.StringToNumber(ReadOnlySpan`1 str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(ReadOnlySpan`1 s, NumberStyles style, NumberFormatInfo info)
+   at System.Int32.Parse(String s)
+   at Team.Controllers.LoginController.UserRegisteredApi(UserRegisteredMap userRegistered) in D:\Microsoft VS2017\Word\.net core API\Team\Team\Controllers\LoginController.cs:line 75
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-07-14 19:51:09.341 +08:00 [INF] Request finished in 1710.9028ms 500 text/html; charset=utf-8
+2019-07-14 19:53:14.419 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserRegisteredApi application/json-patch+json 144
+2019-07-14 19:53:14.459 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserRegisteredApi (Team)'
+2019-07-14 19:53:14.461 +08:00 [INF] Route matched with {action = "UserRegisteredApi", controller = "Login"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserRegisteredApi(Team.Model.AutoMappers.UserMapper.UserRegisteredMap) on controller Team.Controllers.LoginController (Team).
+2019-07-14 19:53:14.496 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserRegisteredApi (Team) - Validation state: "Valid"
+2019-07-14 19:53:14.499 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-07-14 19:53:14.553 +08:00 [INF] Executed DbCommand (48ms) [Parameters=[@__account_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE [x].[Account] = @__account_0
+2019-07-14 19:53:14.613 +08:00 [INF] Executed action Team.Controllers.LoginController.UserRegisteredApi (Team) in 149.5961ms
+2019-07-14 19:53:14.615 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserRegisteredApi (Team)'
+2019-07-14 19:53:14.616 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+System.FormatException: Input string was not in a correct format.
+   at System.Number.StringToNumber(ReadOnlySpan`1 str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(ReadOnlySpan`1 s, NumberStyles style, NumberFormatInfo info)
+   at System.Int32.Parse(String s)
+   at Team.Controllers.LoginController.UserRegisteredApi(UserRegisteredMap userRegistered) in D:\Microsoft VS2017\Word\.net core API\Team\Team\Controllers\LoginController.cs:line 75
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-07-14 19:53:14.648 +08:00 [INF] Request finished in 228.9189ms 500 text/html; charset=utf-8
+2019-07-14 19:54:37.962 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserRegisteredApi application/json-patch+json 150
+2019-07-14 19:54:37.964 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserRegisteredApi (Team)'
+2019-07-14 19:54:37.964 +08:00 [INF] Route matched with {action = "UserRegisteredApi", controller = "Login"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserRegisteredApi(Team.Model.AutoMappers.UserMapper.UserRegisteredMap) on controller Team.Controllers.LoginController (Team).
+2019-07-14 19:54:37.986 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserRegisteredApi (Team) - Validation state: "Valid"
+2019-07-14 19:54:37.989 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-07-14 19:54:38.017 +08:00 [INF] Executed DbCommand (27ms) [Parameters=[@__account_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE [x].[Account] = @__account_0
+2019-07-14 19:54:38.620 +08:00 [INF] Executed DbCommand (416ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32), @p6='?' (DbType = Int32), @p7='?' (Size = 4000), @p8='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Users] ([Account], [Name], [Password], [Province], [Role], [RunTeamId], [Sex], [StudentId], [UniversityId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8);
+SELECT [Id]
+FROM [Users]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2019-07-14 19:54:38.682 +08:00 [INF] Executed DbCommand (51ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [LatitudeAndLongitudes] ([CommunicationId], [Latitude], [Longitude], [Name], [Phone], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT [Id]
+FROM [LatitudeAndLongitudes]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2019-07-14 19:54:38.704 +08:00 [INF] Executed DbCommand (17ms) [Parameters=[@p0='?' (DbType = Single), @p1='?' (DbType = Single), @p2='?' (DbType = Single), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Statisticals] ([AllTime], [Calories], [Distance], [SportFreeModel], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4);
+SELECT [Id]
+FROM [Statisticals]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2019-07-14 19:54:38.722 +08:00 [INF] Executed DbCommand (14ms) [Parameters=[@p0='?' (DbType = Single), @p1='?' (DbType = Single), @p2='?' (DbType = Single), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Statisticals] ([AllTime], [Calories], [Distance], [SportFreeModel], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4);
+SELECT [Id]
+FROM [Statisticals]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2019-07-14 19:54:38.753 +08:00 [INF] string 注册成功
+2019-07-14 19:54:38.757 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserRegisteredApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 766.17490000000009ms.
+2019-07-14 19:54:38.765 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-07-14 19:54:38.772 +08:00 [INF] Executed action Team.Controllers.LoginController.UserRegisteredApi (Team) in 804.4774ms
+2019-07-14 19:54:38.774 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserRegisteredApi (Team)'
+2019-07-14 19:54:38.775 +08:00 [INF] Request finished in 813.2664ms 200 application/json; charset=utf-8
+2019-07-14 19:55:01.775 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/Login/UserUpLoadCommunicationIdAsync?communicationId=1235473423434234  
+2019-07-14 19:55:01.792 +08:00 [INF] Successfully validated the token.
+2019-07-14 19:55:01.796 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserUpLoadCommunicationIdAsync (Team)'
+2019-07-14 19:55:01.908 +08:00 [INF] Route matched with {action = "UserUpLoadCommunicationIdAsync", controller = "Login"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserUpLoadCommunicationIdAsync(System.String) on controller Team.Controllers.LoginController (Team).
+2019-07-14 19:55:01.917 +08:00 [INF] Authorization was successful.
+2019-07-14 19:55:01.941 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserUpLoadCommunicationIdAsync (Team) - Validation state: "Valid"
+2019-07-14 19:55:01.948 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-07-14 19:55:02.005 +08:00 [INF] Executed DbCommand (40ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[Id], [s].[CommunicationId], [s].[Latitude], [s].[Longitude], [s].[Name], [s].[Phone], [s].[UserId]
+FROM [LatitudeAndLongitudes] AS [s]
+WHERE [s].[UserId] = @__userId_0
+2019-07-14 19:55:02.139 +08:00 [INF] Executed DbCommand (120ms) [Parameters=[@p6='?' (DbType = Int32), @p0='?' (Size = 4000), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [LatitudeAndLongitudes] SET [CommunicationId] = @p0, [Latitude] = @p1, [Longitude] = @p2, [Name] = @p3, [Phone] = @p4, [UserId] = @p5
+WHERE [Id] = @p6;
+SELECT @@ROWCOUNT;
+2019-07-14 19:55:02.146 +08:00 [INF] 用户 1 上传通信Id成功
+2019-07-14 19:55:02.147 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserUpLoadCommunicationIdAsync (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 201.98520000000002ms.
+2019-07-14 19:55:02.149 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-07-14 19:55:02.150 +08:00 [INF] Executed action Team.Controllers.LoginController.UserUpLoadCommunicationIdAsync (Team) in 240.43220000000002ms
+2019-07-14 19:55:02.152 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserUpLoadCommunicationIdAsync (Team)'
+2019-07-14 19:55:02.153 +08:00 [INF] Request finished in 378.804ms 200 application/json; charset=utf-8
+2019-07-14 19:56:29.737 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserRegisteredApi application/json-patch+json 151
+2019-07-14 19:56:29.740 +08:00 [INF] Successfully validated the token.
+2019-07-14 19:56:29.743 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserRegisteredApi (Team)'
+2019-07-14 19:56:29.745 +08:00 [INF] Route matched with {action = "UserRegisteredApi", controller = "Login"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserRegisteredApi(Team.Model.AutoMappers.UserMapper.UserRegisteredMap) on controller Team.Controllers.LoginController (Team).
+2019-07-14 19:56:29.766 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserRegisteredApi (Team) - Validation state: "Valid"
+2019-07-14 19:56:29.769 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-07-14 19:56:29.948 +08:00 [INF] Executed DbCommand (177ms) [Parameters=[@__account_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE [x].[Account] = @__account_0
+2019-07-14 19:56:29.981 +08:00 [INF] Executed DbCommand (28ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32), @p6='?' (DbType = Int32), @p7='?' (Size = 4000), @p8='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Users] ([Account], [Name], [Password], [Province], [Role], [RunTeamId], [Sex], [StudentId], [UniversityId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8);
+SELECT [Id]
+FROM [Users]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2019-07-14 19:56:30.036 +08:00 [INF] Executed DbCommand (51ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [LatitudeAndLongitudes] ([CommunicationId], [Latitude], [Longitude], [Name], [Phone], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT [Id]
+FROM [LatitudeAndLongitudes]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2019-07-14 19:56:30.060 +08:00 [INF] Executed DbCommand (21ms) [Parameters=[@p0='?' (DbType = Single), @p1='?' (DbType = Single), @p2='?' (DbType = Single), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Statisticals] ([AllTime], [Calories], [Distance], [SportFreeModel], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4);
+SELECT [Id]
+FROM [Statisticals]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2019-07-14 19:56:30.079 +08:00 [INF] Executed DbCommand (13ms) [Parameters=[@p0='?' (DbType = Single), @p1='?' (DbType = Single), @p2='?' (DbType = Single), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Statisticals] ([AllTime], [Calories], [Distance], [SportFreeModel], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4);
+SELECT [Id]
+FROM [Statisticals]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2019-07-14 19:56:30.091 +08:00 [INF] string1 注册成功
+2019-07-14 19:56:30.093 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserRegisteredApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 324.1773ms.
+2019-07-14 19:56:30.095 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-07-14 19:56:30.096 +08:00 [INF] Executed action Team.Controllers.LoginController.UserRegisteredApi (Team) in 348.6162ms
+2019-07-14 19:56:30.105 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserRegisteredApi (Team)'
+2019-07-14 19:56:30.106 +08:00 [INF] Request finished in 368.7199ms 200 application/json; charset=utf-8
+2019-07-14 19:56:47.952 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/LAL/ObtainAll?latitude=0&longitude=0  
+2019-07-14 19:56:47.954 +08:00 [INF] Successfully validated the token.
+2019-07-14 19:56:47.955 +08:00 [INF] Executing endpoint 'Team.Controllers.LALController.ObtainAll (Team)'
+2019-07-14 19:56:47.961 +08:00 [INF] Route matched with {action = "ObtainAll", controller = "LAL"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ObtainAll(Double, Double) on controller Team.Controllers.LALController (Team).
+2019-07-14 19:56:47.964 +08:00 [INF] Authorization was successful.
+2019-07-14 19:56:47.983 +08:00 [INF] Executing action method Team.Controllers.LALController.ObtainAll (Team) - Validation state: "Valid"
+2019-07-14 19:56:47.988 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-07-14 19:56:48.128 +08:00 [INF] Executed DbCommand (124ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[CommunicationId], [s].[Latitude], [s].[Longitude], [s].[Name], [s].[Phone], [s].[UserId]
+FROM [LatitudeAndLongitudes] AS [s]
+WHERE [s].[UserId] <> @__userId_0
+ORDER BY [s].[Id] DESC
+2019-07-14 19:56:48.135 +08:00 [INF] Executed action method Team.Controllers.LALController.ObtainAll (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 148.9609ms.
+2019-07-14 19:56:48.136 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-07-14 19:56:48.140 +08:00 [INF] Executed action Team.Controllers.LALController.ObtainAll (Team) in 176.6894ms
+2019-07-14 19:56:48.143 +08:00 [INF] Executed endpoint 'Team.Controllers.LALController.ObtainAll (Team)'
+2019-07-14 19:56:48.145 +08:00 [INF] Request finished in 192.5957ms 200 application/json; charset=utf-8
+2019-07-14 20:31:37.121 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-07-14 20:31:38.912 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-07-14 20:31:39.118 +08:00 [INF] Request finished in 209.3994ms 200 text/html
+2019-07-14 20:31:39.749 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-07-14 20:31:39.932 +08:00 [INF] Request finished in 182.5817ms 200 application/json;charset=utf-8
+2019-07-14 20:31:46.224 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserLoginApi application/json-patch+json 49
+2019-07-14 20:31:46.305 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-07-14 20:31:46.434 +08:00 [INF] Route matched with {action = "UserLoginApi", controller = "Login"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserLoginApi(Team.Model.AutoMappers.UserMapper.UserLoginMap) on controller Team.Controllers.LoginController (Team).
+2019-07-14 20:31:46.967 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoginApi (Team) - Validation state: "Valid"
+2019-07-14 20:31:47.201 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-07-14 20:31:47.559 +08:00 [INF] Executed DbCommand (91ms) [Parameters=[@__account_0='?' (Size = 4000), @__password_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE ([x].[Account] = @__account_0) AND ([x].[Password] = @__password_1)
+2019-07-14 20:31:47.629 +08:00 [INF] 用户 1登陆成功
+2019-07-14 20:31:47.634 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserLoginApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 657.70400000000006ms.
+2019-07-14 20:31:47.647 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-07-14 20:31:47.658 +08:00 [INF] Executed action Team.Controllers.LoginController.UserLoginApi (Team) in 1217.886ms
+2019-07-14 20:31:47.661 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-07-14 20:31:47.667 +08:00 [INF] Request finished in 1443.1837ms 200 application/json; charset=utf-8
+2019-07-14 20:32:12.047 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserUpdateApi application/json-patch+json 118
+2019-07-14 20:32:12.058 +08:00 [INF] Successfully validated the token.
+2019-07-14 20:32:12.068 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserUpdateApi (Team)'
+2019-07-14 20:32:12.089 +08:00 [INF] Route matched with {action = "UserUpdateApi", controller = "Login"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserUpdateApi(Team.Model.AutoMappers.UserMapper.UserUpdateMap) on controller Team.Controllers.LoginController (Team).
+2019-07-14 20:32:12.103 +08:00 [INF] Authorization was successful.
+2019-07-14 20:32:12.137 +08:00 [INF] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2019-07-14 20:32:12.145 +08:00 [INF] Executed action Team.Controllers.LoginController.UserUpdateApi (Team) in 49.092600000000004ms
+2019-07-14 20:32:12.148 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserUpdateApi (Team)'
+2019-07-14 20:32:12.150 +08:00 [INF] Request finished in 103.6514ms 400 application/problem+json; charset=utf-8
+2019-07-14 20:32:42.561 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserUpdateApi application/json-patch+json 122
+2019-07-14 20:32:42.566 +08:00 [INF] Successfully validated the token.
+2019-07-14 20:32:42.568 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserUpdateApi (Team)'
+2019-07-14 20:32:42.571 +08:00 [INF] Route matched with {action = "UserUpdateApi", controller = "Login"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserUpdateApi(Team.Model.AutoMappers.UserMapper.UserUpdateMap) on controller Team.Controllers.LoginController (Team).
+2019-07-14 20:32:42.575 +08:00 [INF] Authorization was successful.
+2019-07-14 20:32:42.595 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserUpdateApi (Team) - Validation state: "Valid"
+2019-07-14 20:32:42.605 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-07-14 20:32:43.041 +08:00 [INF] Executed DbCommand (379ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE [x].[Id] = @__userId_0
+2019-07-14 20:32:43.048 +08:00 [INF] 用户 1 修改个人资料成功
+2019-07-14 20:32:43.049 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserUpdateApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 451.6139ms.
+2019-07-14 20:32:43.059 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-07-14 20:32:43.061 +08:00 [INF] Executed action Team.Controllers.LoginController.UserUpdateApi (Team) in 486.7422ms
+2019-07-14 20:32:43.063 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserUpdateApi (Team)'
+2019-07-14 20:32:43.064 +08:00 [INF] Request finished in 503.0287ms 200 application/json; charset=utf-8
+2019-07-14 20:32:48.278 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserUpdateApi application/json-patch+json 119
+2019-07-14 20:32:48.281 +08:00 [INF] Successfully validated the token.
+2019-07-14 20:32:48.284 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserUpdateApi (Team)'
+2019-07-14 20:32:48.287 +08:00 [INF] Route matched with {action = "UserUpdateApi", controller = "Login"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserUpdateApi(Team.Model.AutoMappers.UserMapper.UserUpdateMap) on controller Team.Controllers.LoginController (Team).
+2019-07-14 20:32:48.295 +08:00 [INF] Authorization was successful.
+2019-07-14 20:32:48.316 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserUpdateApi (Team) - Validation state: "Valid"
+2019-07-14 20:32:48.321 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-07-14 20:32:48.348 +08:00 [INF] Executed DbCommand (23ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE [x].[Id] = @__userId_0
+2019-07-14 20:32:48.354 +08:00 [INF] 用户 1 修改个人资料成功
+2019-07-14 20:32:48.355 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserUpdateApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 34.6486ms.
+2019-07-14 20:32:48.357 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-07-14 20:32:48.359 +08:00 [INF] Executed action Team.Controllers.LoginController.UserUpdateApi (Team) in 64.2592ms
+2019-07-14 20:32:48.360 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserUpdateApi (Team)'
+2019-07-14 20:32:48.362 +08:00 [INF] Request finished in 83.8911ms 200 application/json; charset=utf-8
+2019-07-14 20:32:53.149 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/Login/UserForUpdateApi  
+2019-07-14 20:32:53.151 +08:00 [INF] Successfully validated the token.
+2019-07-14 20:32:53.152 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserForUpdateApi (Team)'
+2019-07-14 20:32:53.156 +08:00 [INF] Route matched with {action = "UserForUpdateApi", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UserForUpdateApi() on controller Team.Controllers.LoginController (Team).
+2019-07-14 20:32:53.161 +08:00 [INF] Authorization was successful.
+2019-07-14 20:32:53.180 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserForUpdateApi (Team) - Validation state: "Valid"
+2019-07-14 20:32:53.185 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-07-14 20:32:53.211 +08:00 [INF] Executed DbCommand (24ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE [x].[Id] = @__userId_0
+2019-07-14 20:32:53.229 +08:00 [INF] 用户 1 获取对应修改信息成功！
+2019-07-14 20:32:53.231 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserForUpdateApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 47.4634ms.
+2019-07-14 20:32:53.234 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-07-14 20:32:53.238 +08:00 [INF] Executed action Team.Controllers.LoginController.UserForUpdateApi (Team) in 76.5937ms
+2019-07-14 20:32:53.243 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserForUpdateApi (Team)'
+2019-07-14 20:32:53.244 +08:00 [INF] Request finished in 95.5292ms 200 application/json; charset=utf-8
+2019-07-14 20:34:07.019 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-07-14 20:34:08.800 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-07-14 20:34:08.960 +08:00 [INF] Request finished in 161.2232ms 200 text/html
+2019-07-14 20:34:09.678 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-07-14 20:34:09.853 +08:00 [INF] Request finished in 174.8949ms 200 application/json;charset=utf-8
+2019-07-14 20:34:15.144 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserLoginApi application/json-patch+json 49
+2019-07-14 20:34:15.230 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-07-14 20:34:15.361 +08:00 [INF] Route matched with {action = "UserLoginApi", controller = "Login"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserLoginApi(Team.Model.AutoMappers.UserMapper.UserLoginMap) on controller Team.Controllers.LoginController (Team).
+2019-07-14 20:34:15.887 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoginApi (Team) - Validation state: "Valid"
+2019-07-14 20:34:16.126 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-07-14 20:34:16.385 +08:00 [INF] Executed DbCommand (36ms) [Parameters=[@__account_0='?' (Size = 4000), @__password_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE ([x].[Account] = @__account_0) AND ([x].[Password] = @__password_1)
+2019-07-14 20:34:16.458 +08:00 [INF] 用户 1登陆成功
+2019-07-14 20:34:16.465 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserLoginApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 567.7835ms.
+2019-07-14 20:34:16.477 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-07-14 20:34:16.488 +08:00 [INF] Executed action Team.Controllers.LoginController.UserLoginApi (Team) in 1120.0449ms
+2019-07-14 20:34:16.492 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-07-14 20:34:16.498 +08:00 [INF] Request finished in 1354.2913ms 200 application/json; charset=utf-8
+2019-07-14 20:34:36.889 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserUpdateApi application/json-patch+json 119
+2019-07-14 20:34:36.916 +08:00 [INF] Successfully validated the token.
+2019-07-14 20:34:36.927 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserUpdateApi (Team)'
+2019-07-14 20:34:36.932 +08:00 [INF] Route matched with {action = "UserUpdateApi", controller = "Login"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserUpdateApi(Team.Model.AutoMappers.UserMapper.UserUpdateMap) on controller Team.Controllers.LoginController (Team).
+2019-07-14 20:34:36.947 +08:00 [INF] Authorization was successful.
+2019-07-14 20:34:36.979 +08:00 [INF] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2019-07-14 20:34:36.985 +08:00 [INF] Executed action Team.Controllers.LoginController.UserUpdateApi (Team) in 47.8348ms
+2019-07-14 20:34:36.988 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserUpdateApi (Team)'
+2019-07-14 20:34:36.990 +08:00 [INF] Request finished in 100.6767ms 400 application/problem+json; charset=utf-8
+2019-07-14 20:34:42.942 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserUpdateApi application/json-patch+json 119
+2019-07-14 20:34:42.944 +08:00 [INF] Successfully validated the token.
+2019-07-14 20:34:42.946 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserUpdateApi (Team)'
+2019-07-14 20:34:42.947 +08:00 [INF] Route matched with {action = "UserUpdateApi", controller = "Login"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserUpdateApi(Team.Model.AutoMappers.UserMapper.UserUpdateMap) on controller Team.Controllers.LoginController (Team).
+2019-07-14 20:34:42.950 +08:00 [INF] Authorization was successful.
+2019-07-14 20:34:42.981 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserUpdateApi (Team) - Validation state: "Valid"
+2019-07-14 20:34:42.988 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-07-14 20:34:43.045 +08:00 [INF] Executed DbCommand (43ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE [x].[Id] = @__userId_0
+2019-07-14 20:34:43.434 +08:00 [INF] Executed DbCommand (263ms) [Parameters=[@p9='?' (DbType = Int32), @p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32), @p6='?' (DbType = Int32), @p7='?' (Size = 4000), @p8='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [Users] SET [Account] = @p0, [Name] = @p1, [Password] = @p2, [Province] = @p3, [Role] = @p4, [RunTeamId] = @p5, [Sex] = @p6, [StudentId] = @p7, [UniversityId] = @p8
+WHERE [Id] = @p9;
+SELECT @@ROWCOUNT;
+2019-07-14 20:34:43.461 +08:00 [INF] 用户 1 修改个人资料成功
+2019-07-14 20:34:43.463 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserUpdateApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 479.92350000000005ms.
+2019-07-14 20:34:43.465 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-07-14 20:34:43.466 +08:00 [INF] Executed action Team.Controllers.LoginController.UserUpdateApi (Team) in 516.6518ms
+2019-07-14 20:34:43.467 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserUpdateApi (Team)'
+2019-07-14 20:34:43.471 +08:00 [INF] Request finished in 529.0206ms 200 application/json; charset=utf-8
+2019-07-14 20:34:47.569 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/Login/UserForUpdateApi  
+2019-07-14 20:34:47.572 +08:00 [INF] Successfully validated the token.
+2019-07-14 20:34:47.574 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserForUpdateApi (Team)'
+2019-07-14 20:34:47.577 +08:00 [INF] Route matched with {action = "UserForUpdateApi", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UserForUpdateApi() on controller Team.Controllers.LoginController (Team).
+2019-07-14 20:34:47.579 +08:00 [INF] Authorization was successful.
+2019-07-14 20:34:47.597 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserForUpdateApi (Team) - Validation state: "Valid"
+2019-07-14 20:34:47.599 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-07-14 20:34:47.627 +08:00 [INF] Executed DbCommand (23ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE [x].[Id] = @__userId_0
+2019-07-14 20:34:47.643 +08:00 [INF] 用户 1 获取对应修改信息成功！
+2019-07-14 20:34:47.645 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserForUpdateApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 46.3258ms.
+2019-07-14 20:34:47.647 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-07-14 20:34:47.651 +08:00 [INF] Executed action Team.Controllers.LoginController.UserForUpdateApi (Team) in 71.7795ms
+2019-07-14 20:34:47.655 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserForUpdateApi (Team)'
+2019-07-14 20:34:47.658 +08:00 [INF] Request finished in 88.5344ms 200 application/json; charset=utf-8
+2019-07-14 20:40:17.002 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-07-14 20:40:18.424 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-07-14 20:40:18.687 +08:00 [INF] Request finished in 264.8185ms 200 text/html
+2019-07-14 20:40:19.268 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-07-14 20:40:19.455 +08:00 [INF] Request finished in 187.2408ms 200 application/json;charset=utf-8
+2019-07-14 20:40:23.922 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserLoginApi application/json-patch+json 49
+2019-07-14 20:40:24.004 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-07-14 20:40:24.030 +08:00 [INF] Route matched with {action = "UserLoginApi", controller = "Login"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserLoginApi(Team.Model.AutoMappers.UserMapper.UserLoginMap) on controller Team.Controllers.LoginController (Team).
+2019-07-14 20:40:24.666 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoginApi (Team) - Validation state: "Valid"
+2019-07-14 20:40:24.902 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-07-14 20:40:25.168 +08:00 [INF] Executed DbCommand (38ms) [Parameters=[@__account_0='?' (Size = 4000), @__password_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE ([x].[Account] = @__account_0) AND ([x].[Password] = @__password_1)
+2019-07-14 20:40:25.238 +08:00 [INF] 用户 1登陆成功
+2019-07-14 20:40:25.244 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserLoginApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 568.842ms.
+2019-07-14 20:40:25.256 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-07-14 20:40:25.268 +08:00 [INF] Executed action Team.Controllers.LoginController.UserLoginApi (Team) in 1233.665ms
+2019-07-14 20:40:25.271 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-07-14 20:40:25.278 +08:00 [INF] Request finished in 1355.6593ms 200 application/json; charset=utf-8
+2019-07-14 20:41:01.388 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserUpdateApi application/json-patch+json 119
+2019-07-14 20:41:01.431 +08:00 [INF] Successfully validated the token.
+2019-07-14 20:41:01.437 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserUpdateApi (Team)'
+2019-07-14 20:41:01.444 +08:00 [INF] Route matched with {action = "UserUpdateApi", controller = "Login"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserUpdateApi(Team.Model.AutoMappers.UserMapper.UserUpdateMap) on controller Team.Controllers.LoginController (Team).
+2019-07-14 20:41:01.456 +08:00 [INF] Authorization was successful.
+2019-07-14 20:41:01.485 +08:00 [INF] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2019-07-14 20:41:01.493 +08:00 [INF] Executed action Team.Controllers.LoginController.UserUpdateApi (Team) in 45.2436ms
+2019-07-14 20:41:01.497 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserUpdateApi (Team)'
+2019-07-14 20:41:01.498 +08:00 [INF] Request finished in 110.1328ms 400 application/problem+json; charset=utf-8
+2019-07-14 20:41:06.342 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserUpdateApi application/json-patch+json 119
+2019-07-14 20:41:06.345 +08:00 [INF] Successfully validated the token.
+2019-07-14 20:41:06.346 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserUpdateApi (Team)'
+2019-07-14 20:41:06.347 +08:00 [INF] Route matched with {action = "UserUpdateApi", controller = "Login"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserUpdateApi(Team.Model.AutoMappers.UserMapper.UserUpdateMap) on controller Team.Controllers.LoginController (Team).
+2019-07-14 20:41:06.350 +08:00 [INF] Authorization was successful.
+2019-07-14 20:41:06.378 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserUpdateApi (Team) - Validation state: "Valid"
+2019-07-14 20:41:06.384 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-07-14 20:41:06.548 +08:00 [INF] Executed DbCommand (148ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE [x].[Id] = @__userId_0
+2019-07-14 20:41:06.586 +08:00 [INF] Executed DbCommand (24ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[Id], [s].[CommunicationId], [s].[Latitude], [s].[Longitude], [s].[Name], [s].[Phone], [s].[UserId]
+FROM [LatitudeAndLongitudes] AS [s]
+WHERE [s].[UserId] = @__userId_0
+2019-07-14 20:41:06.750 +08:00 [INF] Executed DbCommand (88ms) [Parameters=[@p6='?' (DbType = Int32), @p0='?' (Size = 4000), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [LatitudeAndLongitudes] SET [CommunicationId] = @p0, [Latitude] = @p1, [Longitude] = @p2, [Name] = @p3, [Phone] = @p4, [UserId] = @p5
+WHERE [Id] = @p6;
+SELECT @@ROWCOUNT;
+2019-07-14 20:41:06.797 +08:00 [INF] Executed DbCommand (25ms) [Parameters=[@p9='?' (DbType = Int32), @p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32), @p6='?' (DbType = Int32), @p7='?' (Size = 4000), @p8='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [Users] SET [Account] = @p0, [Name] = @p1, [Password] = @p2, [Province] = @p3, [Role] = @p4, [RunTeamId] = @p5, [Sex] = @p6, [StudentId] = @p7, [UniversityId] = @p8
+WHERE [Id] = @p9;
+SELECT @@ROWCOUNT;
+2019-07-14 20:41:06.812 +08:00 [INF] 用户 1 修改个人资料成功
+2019-07-14 20:41:06.814 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserUpdateApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 433.65680000000003ms.
+2019-07-14 20:41:06.818 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-07-14 20:41:06.821 +08:00 [INF] Executed action Team.Controllers.LoginController.UserUpdateApi (Team) in 471.4547ms
+2019-07-14 20:41:06.825 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserUpdateApi (Team)'
+2019-07-14 20:41:06.828 +08:00 [INF] Request finished in 486.5144ms 200 application/json; charset=utf-8
+2019-07-14 20:41:16.032 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/Login/UserForUpdateApi  
+2019-07-14 20:41:16.034 +08:00 [INF] Successfully validated the token.
+2019-07-14 20:41:16.036 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserForUpdateApi (Team)'
+2019-07-14 20:41:16.039 +08:00 [INF] Route matched with {action = "UserForUpdateApi", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UserForUpdateApi() on controller Team.Controllers.LoginController (Team).
+2019-07-14 20:41:16.042 +08:00 [INF] Authorization was successful.
+2019-07-14 20:41:16.060 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserForUpdateApi (Team) - Validation state: "Valid"
+2019-07-14 20:41:16.063 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-07-14 20:41:16.092 +08:00 [INF] Executed DbCommand (25ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE [x].[Id] = @__userId_0
+2019-07-14 20:41:16.110 +08:00 [INF] 用户 1 获取对应修改信息成功！
+2019-07-14 20:41:16.111 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserForUpdateApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 48.3885ms.
+2019-07-14 20:41:16.114 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-07-14 20:41:16.119 +08:00 [INF] Executed action Team.Controllers.LoginController.UserForUpdateApi (Team) in 77.056400000000011ms
+2019-07-14 20:41:16.123 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserForUpdateApi (Team)'
+2019-07-14 20:41:16.126 +08:00 [INF] Request finished in 94.3402ms 200 application/json; charset=utf-8
+2019-07-14 20:41:23.201 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-07-14 20:41:23.206 +08:00 [INF] Request finished in 4.7477ms 200 text/html
+2019-07-14 20:41:24.006 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-07-14 20:41:24.022 +08:00 [INF] Request finished in 16.2413ms 200 application/json;charset=utf-8
+2019-07-14 20:41:43.847 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserRegisteredApi application/json-patch+json 145
+2019-07-14 20:41:43.849 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserRegisteredApi (Team)'
+2019-07-14 20:41:43.865 +08:00 [INF] Route matched with {action = "UserRegisteredApi", controller = "Login"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserRegisteredApi(Team.Model.AutoMappers.UserMapper.UserRegisteredMap) on controller Team.Controllers.LoginController (Team).
+2019-07-14 20:41:43.914 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserRegisteredApi (Team) - Validation state: "Valid"
+2019-07-14 20:41:43.919 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-07-14 20:41:43.968 +08:00 [INF] Executed DbCommand (42ms) [Parameters=[@__account_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE [x].[Account] = @__account_0
+2019-07-14 20:41:43.972 +08:00 [INF] 注册失败，string1 账号已被注册！
+2019-07-14 20:41:43.972 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserRegisteredApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 55.878ms.
+2019-07-14 20:41:43.974 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-07-14 20:41:43.975 +08:00 [INF] Executed action Team.Controllers.LoginController.UserRegisteredApi (Team) in 100.5665ms
+2019-07-14 20:41:43.976 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserRegisteredApi (Team)'
+2019-07-14 20:41:43.977 +08:00 [INF] Request finished in 129.9165ms 409 application/json; charset=utf-8
+2019-07-14 20:41:52.947 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserRegisteredApi application/json-patch+json 146
+2019-07-14 20:41:52.950 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserRegisteredApi (Team)'
+2019-07-14 20:41:52.951 +08:00 [INF] Route matched with {action = "UserRegisteredApi", controller = "Login"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserRegisteredApi(Team.Model.AutoMappers.UserMapper.UserRegisteredMap) on controller Team.Controllers.LoginController (Team).
+2019-07-14 20:41:52.974 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserRegisteredApi (Team) - Validation state: "Valid"
+2019-07-14 20:41:52.976 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-07-14 20:41:53.004 +08:00 [INF] Executed DbCommand (26ms) [Parameters=[@__account_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE [x].[Account] = @__account_0
+2019-07-14 20:41:53.093 +08:00 [INF] Executed action Team.Controllers.LoginController.UserRegisteredApi (Team) in 138.78810000000001ms
+2019-07-14 20:41:53.095 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserRegisteredApi (Team)'
+2019-07-14 20:41:53.098 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+System.FormatException: Input string was not in a correct format.
+   at System.Number.StringToNumber(ReadOnlySpan`1 str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(ReadOnlySpan`1 s, NumberStyles style, NumberFormatInfo info)
+   at System.Int32.Parse(String s)
+   at Team.Controllers.LoginController.UserRegisteredApi(UserRegisteredMap userRegistered) in D:\Microsoft VS2017\Word\.net core API\Team\Team\Controllers\LoginController.cs:line 75
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-07-14 20:41:53.207 +08:00 [INF] Request finished in 260.1845ms 500 text/html; charset=utf-8
+2019-07-14 20:42:26.671 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserRegisteredApi application/json-patch+json 152
+2019-07-14 20:42:26.675 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserRegisteredApi (Team)'
+2019-07-14 20:42:26.677 +08:00 [INF] Route matched with {action = "UserRegisteredApi", controller = "Login"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserRegisteredApi(Team.Model.AutoMappers.UserMapper.UserRegisteredMap) on controller Team.Controllers.LoginController (Team).
+2019-07-14 20:42:26.697 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserRegisteredApi (Team) - Validation state: "Valid"
+2019-07-14 20:42:26.699 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-07-14 20:42:26.724 +08:00 [INF] Executed DbCommand (23ms) [Parameters=[@__account_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE [x].[Account] = @__account_0
+2019-07-14 20:42:26.808 +08:00 [INF] Executed DbCommand (30ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32), @p6='?' (DbType = Int32), @p7='?' (Size = 4000), @p8='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Users] ([Account], [Name], [Password], [Province], [Role], [RunTeamId], [Sex], [StudentId], [UniversityId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8);
+SELECT [Id]
+FROM [Users]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2019-07-14 20:42:26.830 +08:00 [INF] Executed DbCommand (15ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [LatitudeAndLongitudes] ([CommunicationId], [Latitude], [Longitude], [Name], [Phone], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT [Id]
+FROM [LatitudeAndLongitudes]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2019-07-14 20:42:27.030 +08:00 [INF] Executed DbCommand (193ms) [Parameters=[@p0='?' (DbType = Single), @p1='?' (DbType = Single), @p2='?' (DbType = Single), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Statisticals] ([AllTime], [Calories], [Distance], [SportFreeModel], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4);
+SELECT [Id]
+FROM [Statisticals]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2019-07-14 20:42:27.051 +08:00 [INF] Executed DbCommand (15ms) [Parameters=[@p0='?' (DbType = Single), @p1='?' (DbType = Single), @p2='?' (DbType = Single), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Statisticals] ([AllTime], [Calories], [Distance], [SportFreeModel], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4);
+SELECT [Id]
+FROM [Statisticals]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2019-07-14 20:42:27.061 +08:00 [INF] string11 注册成功
+2019-07-14 20:42:27.065 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserRegisteredApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 366.3761ms.
+2019-07-14 20:42:27.067 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-07-14 20:42:27.068 +08:00 [INF] Executed action Team.Controllers.LoginController.UserRegisteredApi (Team) in 389.34090000000003ms
+2019-07-14 20:42:27.070 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserRegisteredApi (Team)'
+2019-07-14 20:42:27.071 +08:00 [INF] Request finished in 399.9364ms 200 application/json; charset=utf-8
+2019-07-14 20:42:42.536 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/LAL/ObtainAll?latitude=0&longitude=0  
+2019-07-14 20:42:42.539 +08:00 [INF] Successfully validated the token.
+2019-07-14 20:42:42.541 +08:00 [INF] Executing endpoint 'Team.Controllers.LALController.ObtainAll (Team)'
+2019-07-14 20:42:42.546 +08:00 [INF] Route matched with {action = "ObtainAll", controller = "LAL"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ObtainAll(Double, Double) on controller Team.Controllers.LALController (Team).
+2019-07-14 20:42:42.548 +08:00 [INF] Authorization was successful.
+2019-07-14 20:42:42.568 +08:00 [INF] Executing action method Team.Controllers.LALController.ObtainAll (Team) - Validation state: "Valid"
+2019-07-14 20:42:42.572 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-07-14 20:42:42.611 +08:00 [INF] Executed DbCommand (24ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[CommunicationId], [s].[Latitude], [s].[Longitude], [s].[Name], [s].[Phone], [s].[UserId]
+FROM [LatitudeAndLongitudes] AS [s]
+WHERE [s].[UserId] <> @__userId_0
+ORDER BY [s].[Id] DESC
+2019-07-14 20:42:42.618 +08:00 [INF] Executed action method Team.Controllers.LALController.ObtainAll (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 48.498000000000005ms.
+2019-07-14 20:42:42.619 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-07-14 20:42:42.625 +08:00 [INF] Executed action Team.Controllers.LALController.ObtainAll (Team) in 76.506700000000009ms
+2019-07-14 20:42:42.627 +08:00 [INF] Executed endpoint 'Team.Controllers.LALController.ObtainAll (Team)'
+2019-07-14 20:42:42.630 +08:00 [INF] Request finished in 94.1452ms 200 application/json; charset=utf-8

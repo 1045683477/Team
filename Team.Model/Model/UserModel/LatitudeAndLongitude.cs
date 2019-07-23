@@ -30,7 +30,13 @@
         /// </summary>
         public string Phone { get; set; }
 
+        /// <summary>
+        /// 通信编号
+        /// </summary>
+        public string CommunicationId { get; set; }
+
         public int UserId { get; set; }
+
         public User User { get; set; }
 
     }

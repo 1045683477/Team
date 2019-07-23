@@ -3,8 +3,10 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Team.AuthHelper.OverWrite;
+using Team.Infrastructure;
 using Team.Infrastructure.IRepositories;
 using Team.Model;
 using Team.Model.AutoMappers.UserMapper;
@@ -23,21 +25,18 @@ namespace Team.Controllers
 
         private readonly ILatitudeAndLongitudeResource _longitudeResource;
         private readonly IJwtHelper _jwtHelper;
-        private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
         private readonly ILogger _logger;
 
         public LALController(
             ILatitudeAndLongitudeResource longitudeResource,
             IJwtHelper jwtHelper,
-            IUnitOfWork unitOfWork,
             IMapper mapper,
             //不加上<LALController>会报错
             ILogger<LALController> logger)
         {
             _longitudeResource = longitudeResource;
             _jwtHelper = jwtHelper;
-            _unitOfWork = unitOfWork;
             _mapper = mapper;
             _logger = logger;
         }
@@ -55,16 +54,6 @@ namespace Team.Controllers
             var jwt = HttpRequest();
             CustomStatusCode code;
             await _longitudeResource.UpLoadingAsync(lAndLUpLoadMapper,jwt.Id);
-            //if (!await _unitOfWork.SaveChanged())
-            //{
-            //    _logger.LogError($"用户 {jwt.Id} 上传经纬度失败");
-            //    code = new CustomStatusCode
-            //    {
-            //        Status = "500",
-            //        Message = $"用户 {jwt.Id} 上传经纬度失败"
-            //    };
-            //    return StatusCode(500, code);
-            //}
             _logger.LogInformation($"用户 {jwt.Id} 上传经纬度成功");
             code = new CustomStatusCode
             {
@@ -75,15 +64,37 @@ namespace Team.Controllers
         }
 
         /// <summary>
-        /// 获取所有用户的经纬度
+        /// 获取所有用户的经纬度,与距离你现在位置距离
         /// </summary>
+        /// <param name="latitude">经度</param>
+        /// <param name="longitude">纬度</param>
         /// <returns></returns>
         [HttpGet("ObtainAll",Name = "ObtainAll")]
-        public IActionResult ObtainAll()
+        public IActionResult ObtainAll(double latitude,double longitude)
         {
-            var all = _longitudeResource.LAndLSearchAll();
+            CustomStatusCode code;
+            var jwt = HttpRequest();
+            var all = _longitudeResource.LAndLSearchAll(jwt.Id);
             var resource = _mapper.Map<IEnumerable<LAndLSearchMapper>>(all);
-            var code = new CustomStatusCode
+
+            if (resource==null)
+            {
+                code = new CustomStatusCode
+                {
+                    Status = 404,
+                    Message = $"获取所有经纬度为空"
+                };
+                return StatusCode(404, code);
+            }
+
+            foreach (var s in resource)
+            {
+                s.Distance = LocationUtils.GetDistance(latitude, longitude, s.Latitude, s.Longitude);
+            }
+
+            resource=resource.OrderBy(x => x.Distance);
+
+            code = new CustomStatusCode
             {
                 Status = 200,
                 Message = $"获取所有经纬度成功",

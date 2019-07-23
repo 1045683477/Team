@@ -167,9 +167,15 @@ namespace Team.Infrastructure.Repositories
         /// <param name="participants"></param>
         public void AgreeWithTheTeam(RunParticipants participants)
         {
+            participants.Id = 0;
             _myContext.RunParticipantses.Add(participants);
             var user=_userRepository.UserSearch(participants.UserId);
             user.RunTeamId = participants.RunTeamId;
+
+            //移除申请名单
+            var applicants = _myContext.RunApplicants.SingleOrDefault(x => x.UserId == participants.UserId);
+            _myContext.RunApplicants.Remove(applicants);
+
         }
 
         /// <summary>
@@ -180,12 +186,11 @@ namespace Team.Infrastructure.Repositories
         /// <returns></returns>
         public void LeaveTheTeam(int userId, int teamId)
         {
-            var user=_myContext.RunParticipantses.SingleOrDefault(x => x.UserId == userId && x.RunTeamId == teamId);
-            if (user!=null)
-            {
-                _myContext.RunParticipantses.Remove(user);
-                _unitOfWork.SaveChanged();
-            }
+            var join = _myContext.RunParticipantses.SingleOrDefault(x => x.UserId == userId && x.RunTeamId == teamId);
+            var user = _myContext.Users.SingleOrDefault(x => x.Id == userId);
+            user.RunTeamId = 0;
+            _myContext.Users.Update(user);
+            _myContext.RunParticipantses.Remove(join);
         }
 
         /// <summary>

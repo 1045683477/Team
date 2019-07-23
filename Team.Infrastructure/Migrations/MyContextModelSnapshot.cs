@@ -19,6 +19,27 @@ namespace Team.Infrastructure.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("Team.Model.Model.ParentModel.Children", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Account");
+
+                    b.Property<string>("Name");
+
+                    b.Property<int>("ParentId");
+
+                    b.Property<int>("RelationShip");
+
+                    b.Property<int>("SonId");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Children");
+                });
+
             modelBuilder.Entity("Team.Model.Model.RunTeamModel.RunApplicant", b =>
                 {
                     b.Property<int>("Id")
@@ -320,6 +341,8 @@ namespace Team.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("CommunicationId");
+
                     b.Property<double>("Latitude");
 
                     b.Property<double>("Longitude");
@@ -361,7 +384,7 @@ namespace Team.Infrastructure.Migrations
 
                     b.Property<int>("Sex");
 
-                    b.Property<int>("StudentId");
+                    b.Property<string>("StudentId");
 
                     b.Property<int>("UniversityId");
 

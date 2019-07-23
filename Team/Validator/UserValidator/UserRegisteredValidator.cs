@@ -39,7 +39,7 @@ namespace Team.Validator.UserValidator
                 .NotEmpty().WithName("大学编号").WithMessage("{PropertyName}不可为空");
 
             //学号
-            RuleFor(x => x.studentId)
+            RuleFor(x => x.StudentId)
                 .NotEmpty().WithName("学号").WithMessage("{PropertyName}不可为空");
         }
     }

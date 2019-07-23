@@ -10,4 +10,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="AutoMappers\ParentMapper\" />
+  </ItemGroup>
+
 </Project>

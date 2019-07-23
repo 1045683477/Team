@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System;
+using Microsoft.EntityFrameworkCore;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
@@ -87,31 +88,24 @@ namespace Team.Infrastructure.Repositories
         /// <param name="userId">用户Id</param>
         /// <param name="userUpdate">修改资料</param>
         /// <returns></returns>
-        public async Task<bool> UserUpdate(int userId, UserUpdateMap userUpdate)
+        public void UserUpdate(int userId, UserUpdateMap userUpdate)
         {
-            SqlParameter[] parameters = new[]
-            {
-                new SqlParameter("Password", userUpdate.Password),
-                new SqlParameter("Name", userUpdate.Name),
-                new SqlParameter("Sex",userUpdate.Sex),
-                new SqlParameter("UniversityId",userUpdate.UniversityId),
-                new SqlParameter("studentId",userUpdate.StudentId),
-                new SqlParameter("Province",userUpdate.Province), 
-                new SqlParameter("Id",userId), 
-            };
-            
-            var update = await _myContext.Database.ExecuteSqlCommandAsync(
-                "update Users set Password=@Password,Name=@Name,Sex=@Sex,UniversityId=@UniversityId,studentId=@studentId where Id=@Id",
-                parameters);
-            await _myContext.Database.ExecuteSqlCommandAsync(
-                "update LatitudeAndLongitude set Name=@Name where Id=@Id",
-                parameters);
-            if (update>0)
-            {
-                return true;
-            }
+            User user =UserSearch(userId);
 
-            return false;
+            user.Password = userUpdate.Password;
+            user.Name = userUpdate.Name;
+            user.Sex = userUpdate.Sex;
+            user.UniversityId = userUpdate.UniversityId;
+            user.StudentId = userUpdate.StudentId;
+            user.Province = userUpdate.Province;
+
+
+            _myContext.Users.Update(user);
+            var lal = (from s in _myContext.LatitudeAndLongitudes
+                where s.UserId == userId
+                select s).FirstOrDefault();
+            lal.Name = userUpdate.Name;
+            _myContext.LatitudeAndLongitudes.Update(lal);
         }
 
         /// <summary>
@@ -143,9 +137,26 @@ namespace Team.Infrastructure.Repositories
         {
             var result = from user in _myContext.Users
                 join team in _myContext.RunTeams on user.Id equals team.UserId
+                         where user.Id==userId
                 select team.Id;
             return result.FirstOrDefault();
             //return _myContext.Users.Include(x=>x.RunTeam).SingleOrDefault(x => x.Id == userId);
+        }
+
+        /// <summary>
+        /// 上传通信 id
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="communicationId"></param>
+        /// <returns></returns>
+        public void UserLoadingCommunicationId(int userId,string communicationId)
+        {
+            LatitudeAndLongitude latitudeAndLongitude=new LatitudeAndLongitude();
+            latitudeAndLongitude = (from s in _myContext.LatitudeAndLongitudes
+                                    where s.UserId == userId
+                                    select s).First();
+            latitudeAndLongitude.CommunicationId = communicationId;
+            _myContext.LatitudeAndLongitudes.Update(latitudeAndLongitude);
         }
     }
 }

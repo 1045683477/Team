@@ -38,6 +38,11 @@
         /// <summary>
         /// 跑步
         /// </summary>
-        Run=6
+        Run=6,
+
+        /// <summary>
+        /// 自定义
+        /// </summary>
+        Custom=7
     }
 }

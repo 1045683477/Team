@@ -1,0 +1,528 @@
+2019-06-21 15:22:50.986 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-06-21 15:22:53.009 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger  
+2019-06-21 15:22:53.221 +08:00 [INF] Request finished in 215.2958ms 301 
+2019-06-21 15:22:53.228 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-06-21 15:22:53.406 +08:00 [INF] Request finished in 178.2156ms 200 text/html
+2019-06-21 15:22:53.467 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui.css  
+2019-06-21 15:22:53.467 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-bundle.js  
+2019-06-21 15:22:53.484 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-standalone-preset.js  
+2019-06-21 15:22:53.543 +08:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2019-06-21 15:22:53.543 +08:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2019-06-21 15:22:53.552 +08:00 [INF] Request finished in 67.4436ms 200 application/javascript
+2019-06-21 15:22:53.552 +08:00 [INF] Request finished in 84.4017ms 200 text/css
+2019-06-21 15:22:53.554 +08:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2019-06-21 15:22:53.557 +08:00 [INF] Request finished in 89.3055ms 200 application/javascript
+2019-06-21 15:22:54.197 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-06-21 15:22:54.282 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/favicon-32x32.png  
+2019-06-21 15:22:54.284 +08:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2019-06-21 15:22:54.287 +08:00 [INF] Request finished in 4.3364ms 200 image/png
+2019-06-21 15:22:54.426 +08:00 [INF] Request finished in 229.7399ms 200 application/json;charset=utf-8
+2019-06-21 15:26:01.191 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/LAL/ObtainAll?latitude=25.794307&longitude=113.114876  
+2019-06-21 15:26:01.298 +08:00 [INF] Executing endpoint 'Team.Controllers.LALController.ObtainAll (Team)'
+2019-06-21 15:26:01.323 +08:00 [INF] Route matched with {action = "ObtainAll", controller = "LAL"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ObtainAll(Double, Double) on controller Team.Controllers.LALController (Team).
+2019-06-21 15:26:01.337 +08:00 [INF] Authorization failed.
+2019-06-21 15:26:01.340 +08:00 [INF] Authorization failed for the request at filter 'Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter'.
+2019-06-21 15:26:01.348 +08:00 [INF] Executing ChallengeResult with authentication schemes ([]).
+2019-06-21 15:26:01.358 +08:00 [INF] AuthenticationScheme: Bearer was challenged.
+2019-06-21 15:26:01.363 +08:00 [INF] Executed action Team.Controllers.LALController.ObtainAll (Team) in 34.3701ms
+2019-06-21 15:26:01.369 +08:00 [INF] Executed endpoint 'Team.Controllers.LALController.ObtainAll (Team)'
+2019-06-21 15:26:01.370 +08:00 [INF] Request finished in 179.4835ms 401 
+2019-06-21 15:26:11.016 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserLoginApi application/json-patch+json 49
+2019-06-21 15:26:11.021 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-06-21 15:26:11.033 +08:00 [INF] Route matched with {action = "UserLoginApi", controller = "Login"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserLoginApi(Team.Model.AutoMappers.UserMapper.UserLoginMap) on controller Team.Controllers.LoginController (Team).
+2019-06-21 15:26:11.576 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-06-21 15:26:12.783 +08:00 [INF] Executed DbCommand (896ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-06-21 15:26:13.227 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoginApi (Team) - Validation state: "Valid"
+2019-06-21 15:26:13.607 +08:00 [INF] Executed DbCommand (241ms) [Parameters=[@__account_0='?' (Size = 4000), @__password_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE ([x].[Account] = @__account_0) AND ([x].[Password] = @__password_1)
+2019-06-21 15:26:13.792 +08:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Team.Infrastructure.DbContext.MyContext'.
+System.InvalidCastException: Unable to cast object of type 'System.Int32' to type 'System.String'.
+   at System.Data.SqlClient.SqlBuffer.get_String()
+   at System.Data.SqlClient.SqlDataReader.GetString(Int32 i)
+   at lambda_method(Closure , DbDataReader )
+   at Microsoft.EntityFrameworkCore.Storage.Internal.TypedRelationalValueBufferFactory.Create(DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncQueryingEnumerable`1.AsyncEnumerator.BufferlessMoveNext(DbContext _, Boolean buffer, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncQueryingEnumerable`1.AsyncEnumerator.MoveNext(CancellationToken cancellationToken)
+   at System.Linq.AsyncEnumerable.SingleOrDefault_[TSource](IAsyncEnumerable`1 source, CancellationToken cancellationToken) in D:\a\1\s\Ix.NET\Source\System.Interactive.Async\Single.cs:line 159
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.TaskResultAsyncEnumerable`1.Enumerator.MoveNext(CancellationToken cancellationToken)
+   at System.Linq.AsyncEnumerable.SelectEnumerableAsyncIterator`2.MoveNextCore(CancellationToken cancellationToken) in D:\a\1\s\Ix.NET\Source\System.Interactive.Async\Select.cs:line 106
+   at System.Linq.AsyncEnumerable.AsyncIterator`1.MoveNext(CancellationToken cancellationToken) in D:\a\1\s\Ix.NET\Source\System.Interactive.Async\AsyncIterator.cs:line 98
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext(CancellationToken cancellationToken)
+System.InvalidCastException: Unable to cast object of type 'System.Int32' to type 'System.String'.
+   at System.Data.SqlClient.SqlBuffer.get_String()
+   at System.Data.SqlClient.SqlDataReader.GetString(Int32 i)
+   at lambda_method(Closure , DbDataReader )
+   at Microsoft.EntityFrameworkCore.Storage.Internal.TypedRelationalValueBufferFactory.Create(DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncQueryingEnumerable`1.AsyncEnumerator.BufferlessMoveNext(DbContext _, Boolean buffer, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncQueryingEnumerable`1.AsyncEnumerator.MoveNext(CancellationToken cancellationToken)
+   at System.Linq.AsyncEnumerable.SingleOrDefault_[TSource](IAsyncEnumerable`1 source, CancellationToken cancellationToken) in D:\a\1\s\Ix.NET\Source\System.Interactive.Async\Single.cs:line 159
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.TaskResultAsyncEnumerable`1.Enumerator.MoveNext(CancellationToken cancellationToken)
+   at System.Linq.AsyncEnumerable.SelectEnumerableAsyncIterator`2.MoveNextCore(CancellationToken cancellationToken) in D:\a\1\s\Ix.NET\Source\System.Interactive.Async\Select.cs:line 106
+   at System.Linq.AsyncEnumerable.AsyncIterator`1.MoveNext(CancellationToken cancellationToken) in D:\a\1\s\Ix.NET\Source\System.Interactive.Async\AsyncIterator.cs:line 98
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext(CancellationToken cancellationToken)
+2019-06-21 15:26:13.816 +08:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Team.Infrastructure.DbContext.MyContext'.
+System.InvalidCastException: Unable to cast object of type 'System.Int32' to type 'System.String'.
+   at System.Data.SqlClient.SqlBuffer.get_String()
+   at System.Data.SqlClient.SqlDataReader.GetString(Int32 i)
+   at lambda_method(Closure , DbDataReader )
+   at Microsoft.EntityFrameworkCore.Storage.Internal.TypedRelationalValueBufferFactory.Create(DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncQueryingEnumerable`1.AsyncEnumerator.BufferlessMoveNext(DbContext _, Boolean buffer, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncQueryingEnumerable`1.AsyncEnumerator.MoveNext(CancellationToken cancellationToken)
+   at System.Linq.AsyncEnumerable.SingleOrDefault_[TSource](IAsyncEnumerable`1 source, CancellationToken cancellationToken) in D:\a\1\s\Ix.NET\Source\System.Interactive.Async\Single.cs:line 159
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.TaskResultAsyncEnumerable`1.Enumerator.MoveNext(CancellationToken cancellationToken)
+   at System.Linq.AsyncEnumerable.SelectEnumerableAsyncIterator`2.MoveNextCore(CancellationToken cancellationToken) in D:\a\1\s\Ix.NET\Source\System.Interactive.Async\Select.cs:line 106
+   at System.Linq.AsyncEnumerable.AsyncIterator`1.MoveNext(CancellationToken cancellationToken) in D:\a\1\s\Ix.NET\Source\System.Interactive.Async\AsyncIterator.cs:line 98
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext(CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.ExecuteSingletonAsyncQuery[TResult](QueryContext queryContext, Func`2 compiledQuery, IDiagnosticsLogger`1 logger, Type contextType)
+System.InvalidCastException: Unable to cast object of type 'System.Int32' to type 'System.String'.
+   at System.Data.SqlClient.SqlBuffer.get_String()
+   at System.Data.SqlClient.SqlDataReader.GetString(Int32 i)
+   at lambda_method(Closure , DbDataReader )
+   at Microsoft.EntityFrameworkCore.Storage.Internal.TypedRelationalValueBufferFactory.Create(DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncQueryingEnumerable`1.AsyncEnumerator.BufferlessMoveNext(DbContext _, Boolean buffer, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncQueryingEnumerable`1.AsyncEnumerator.MoveNext(CancellationToken cancellationToken)
+   at System.Linq.AsyncEnumerable.SingleOrDefault_[TSource](IAsyncEnumerable`1 source, CancellationToken cancellationToken) in D:\a\1\s\Ix.NET\Source\System.Interactive.Async\Single.cs:line 159
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.TaskResultAsyncEnumerable`1.Enumerator.MoveNext(CancellationToken cancellationToken)
+   at System.Linq.AsyncEnumerable.SelectEnumerableAsyncIterator`2.MoveNextCore(CancellationToken cancellationToken) in D:\a\1\s\Ix.NET\Source\System.Interactive.Async\Select.cs:line 106
+   at System.Linq.AsyncEnumerable.AsyncIterator`1.MoveNext(CancellationToken cancellationToken) in D:\a\1\s\Ix.NET\Source\System.Interactive.Async\AsyncIterator.cs:line 98
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext(CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.ExecuteSingletonAsyncQuery[TResult](QueryContext queryContext, Func`2 compiledQuery, IDiagnosticsLogger`1 logger, Type contextType)
+2019-06-21 15:26:14.063 +08:00 [INF] Executed action Team.Controllers.LoginController.UserLoginApi (Team) in 3020.4627ms
+2019-06-21 15:26:14.067 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-06-21 15:26:14.076 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidCastException: Unable to cast object of type 'System.Int32' to type 'System.String'.
+   at System.Data.SqlClient.SqlBuffer.get_String()
+   at System.Data.SqlClient.SqlDataReader.GetString(Int32 i)
+   at lambda_method(Closure , DbDataReader )
+   at Microsoft.EntityFrameworkCore.Storage.Internal.TypedRelationalValueBufferFactory.Create(DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncQueryingEnumerable`1.AsyncEnumerator.BufferlessMoveNext(DbContext _, Boolean buffer, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncQueryingEnumerable`1.AsyncEnumerator.MoveNext(CancellationToken cancellationToken)
+   at System.Linq.AsyncEnumerable.SingleOrDefault_[TSource](IAsyncEnumerable`1 source, CancellationToken cancellationToken) in D:\a\1\s\Ix.NET\Source\System.Interactive.Async\Single.cs:line 159
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.TaskResultAsyncEnumerable`1.Enumerator.MoveNext(CancellationToken cancellationToken)
+   at System.Linq.AsyncEnumerable.SelectEnumerableAsyncIterator`2.MoveNextCore(CancellationToken cancellationToken) in D:\a\1\s\Ix.NET\Source\System.Interactive.Async\Select.cs:line 106
+   at System.Linq.AsyncEnumerable.AsyncIterator`1.MoveNext(CancellationToken cancellationToken) in D:\a\1\s\Ix.NET\Source\System.Interactive.Async\AsyncIterator.cs:line 98
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext(CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.ExecuteSingletonAsyncQuery[TResult](QueryContext queryContext, Func`2 compiledQuery, IDiagnosticsLogger`1 logger, Type contextType)
+   at Team.Infrastructure.Repositories.UserRepository.UserLogin(String account, String password) in D:\Microsoft VS2017\Word\.net core API\Team\Team.Infrastructure\Repositories\UserRepository.cs:line 35
+   at Team.Controllers.LoginController.UserLoginApi(UserLoginMap userLogin) in D:\Microsoft VS2017\Word\.net core API\Team\Team\Controllers\LoginController.cs:line 111
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-06-21 15:26:14.168 +08:00 [INF] Request finished in 3151.4693ms 500 text/html; charset=utf-8
+2019-06-21 15:27:36.203 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-06-21 15:27:48.115 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-06-21 15:27:57.718 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-06-21 15:27:58.004 +08:00 [INF] Executed DbCommand (166ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-06-21 15:27:58.012 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-06-21 15:27:58.048 +08:00 [INF] Executed DbCommand (34ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2019-06-21 15:27:58.052 +08:00 [INF] Applying migration '20190613031627_Initial'.
+2019-06-21 15:27:58.714 +08:00 [ERR] Failed executing DbCommand (607ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Children] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(max) NULL,
+    [Account] nvarchar(max) NULL,
+    [RelationShip] int NOT NULL,
+    [SonId] int NOT NULL,
+    [ParentId] int NOT NULL,
+    CONSTRAINT [PK_Children] PRIMARY KEY ([Id])
+);
+System.Data.SqlClient.SqlException (0x80131904): 数据库中已存在名为 'Children' 的对象。
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite, String methodName)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.Execute(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues)
+ClientConnectionId:e4501335-08e3-4a8b-95b6-d08801110e16
+Error Number:2714,State:6,Class:16
+2019-06-21 15:28:07.825 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-06-21 15:28:09.763 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-06-21 15:28:10.017 +08:00 [INF] Request finished in 260.1173ms 200 text/html
+2019-06-21 15:28:10.784 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-06-21 15:28:11.106 +08:00 [INF] Request finished in 322.419ms 200 application/json;charset=utf-8
+2019-06-21 15:28:16.766 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserLoginApi application/json-patch+json 49
+2019-06-21 15:28:16.849 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-06-21 15:28:16.897 +08:00 [INF] Route matched with {action = "UserLoginApi", controller = "Login"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserLoginApi(Team.Model.AutoMappers.UserMapper.UserLoginMap) on controller Team.Controllers.LoginController (Team).
+2019-06-21 15:28:17.528 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoginApi (Team) - Validation state: "Valid"
+2019-06-21 15:28:17.799 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-06-21 15:28:18.105 +08:00 [INF] Executed DbCommand (51ms) [Parameters=[@__account_0='?' (Size = 4000), @__password_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE ([x].[Account] = @__account_0) AND ([x].[Password] = @__password_1)
+2019-06-21 15:28:18.194 +08:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Team.Infrastructure.DbContext.MyContext'.
+System.InvalidCastException: Unable to cast object of type 'System.Int32' to type 'System.String'.
+   at System.Data.SqlClient.SqlBuffer.get_String()
+   at System.Data.SqlClient.SqlDataReader.GetString(Int32 i)
+   at lambda_method(Closure , DbDataReader )
+   at Microsoft.EntityFrameworkCore.Storage.Internal.TypedRelationalValueBufferFactory.Create(DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncQueryingEnumerable`1.AsyncEnumerator.BufferlessMoveNext(DbContext _, Boolean buffer, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncQueryingEnumerable`1.AsyncEnumerator.MoveNext(CancellationToken cancellationToken)
+   at System.Linq.AsyncEnumerable.SingleOrDefault_[TSource](IAsyncEnumerable`1 source, CancellationToken cancellationToken) in D:\a\1\s\Ix.NET\Source\System.Interactive.Async\Single.cs:line 159
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.TaskResultAsyncEnumerable`1.Enumerator.MoveNext(CancellationToken cancellationToken)
+   at System.Linq.AsyncEnumerable.SelectEnumerableAsyncIterator`2.MoveNextCore(CancellationToken cancellationToken) in D:\a\1\s\Ix.NET\Source\System.Interactive.Async\Select.cs:line 106
+   at System.Linq.AsyncEnumerable.AsyncIterator`1.MoveNext(CancellationToken cancellationToken) in D:\a\1\s\Ix.NET\Source\System.Interactive.Async\AsyncIterator.cs:line 98
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext(CancellationToken cancellationToken)
+System.InvalidCastException: Unable to cast object of type 'System.Int32' to type 'System.String'.
+   at System.Data.SqlClient.SqlBuffer.get_String()
+   at System.Data.SqlClient.SqlDataReader.GetString(Int32 i)
+   at lambda_method(Closure , DbDataReader )
+   at Microsoft.EntityFrameworkCore.Storage.Internal.TypedRelationalValueBufferFactory.Create(DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncQueryingEnumerable`1.AsyncEnumerator.BufferlessMoveNext(DbContext _, Boolean buffer, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncQueryingEnumerable`1.AsyncEnumerator.MoveNext(CancellationToken cancellationToken)
+   at System.Linq.AsyncEnumerable.SingleOrDefault_[TSource](IAsyncEnumerable`1 source, CancellationToken cancellationToken) in D:\a\1\s\Ix.NET\Source\System.Interactive.Async\Single.cs:line 159
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.TaskResultAsyncEnumerable`1.Enumerator.MoveNext(CancellationToken cancellationToken)
+   at System.Linq.AsyncEnumerable.SelectEnumerableAsyncIterator`2.MoveNextCore(CancellationToken cancellationToken) in D:\a\1\s\Ix.NET\Source\System.Interactive.Async\Select.cs:line 106
+   at System.Linq.AsyncEnumerable.AsyncIterator`1.MoveNext(CancellationToken cancellationToken) in D:\a\1\s\Ix.NET\Source\System.Interactive.Async\AsyncIterator.cs:line 98
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext(CancellationToken cancellationToken)
+2019-06-21 15:28:18.217 +08:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Team.Infrastructure.DbContext.MyContext'.
+System.InvalidCastException: Unable to cast object of type 'System.Int32' to type 'System.String'.
+   at System.Data.SqlClient.SqlBuffer.get_String()
+   at System.Data.SqlClient.SqlDataReader.GetString(Int32 i)
+   at lambda_method(Closure , DbDataReader )
+   at Microsoft.EntityFrameworkCore.Storage.Internal.TypedRelationalValueBufferFactory.Create(DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncQueryingEnumerable`1.AsyncEnumerator.BufferlessMoveNext(DbContext _, Boolean buffer, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncQueryingEnumerable`1.AsyncEnumerator.MoveNext(CancellationToken cancellationToken)
+   at System.Linq.AsyncEnumerable.SingleOrDefault_[TSource](IAsyncEnumerable`1 source, CancellationToken cancellationToken) in D:\a\1\s\Ix.NET\Source\System.Interactive.Async\Single.cs:line 159
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.TaskResultAsyncEnumerable`1.Enumerator.MoveNext(CancellationToken cancellationToken)
+   at System.Linq.AsyncEnumerable.SelectEnumerableAsyncIterator`2.MoveNextCore(CancellationToken cancellationToken) in D:\a\1\s\Ix.NET\Source\System.Interactive.Async\Select.cs:line 106
+   at System.Linq.AsyncEnumerable.AsyncIterator`1.MoveNext(CancellationToken cancellationToken) in D:\a\1\s\Ix.NET\Source\System.Interactive.Async\AsyncIterator.cs:line 98
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext(CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.ExecuteSingletonAsyncQuery[TResult](QueryContext queryContext, Func`2 compiledQuery, IDiagnosticsLogger`1 logger, Type contextType)
+System.InvalidCastException: Unable to cast object of type 'System.Int32' to type 'System.String'.
+   at System.Data.SqlClient.SqlBuffer.get_String()
+   at System.Data.SqlClient.SqlDataReader.GetString(Int32 i)
+   at lambda_method(Closure , DbDataReader )
+   at Microsoft.EntityFrameworkCore.Storage.Internal.TypedRelationalValueBufferFactory.Create(DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncQueryingEnumerable`1.AsyncEnumerator.BufferlessMoveNext(DbContext _, Boolean buffer, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncQueryingEnumerable`1.AsyncEnumerator.MoveNext(CancellationToken cancellationToken)
+   at System.Linq.AsyncEnumerable.SingleOrDefault_[TSource](IAsyncEnumerable`1 source, CancellationToken cancellationToken) in D:\a\1\s\Ix.NET\Source\System.Interactive.Async\Single.cs:line 159
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.TaskResultAsyncEnumerable`1.Enumerator.MoveNext(CancellationToken cancellationToken)
+   at System.Linq.AsyncEnumerable.SelectEnumerableAsyncIterator`2.MoveNextCore(CancellationToken cancellationToken) in D:\a\1\s\Ix.NET\Source\System.Interactive.Async\Select.cs:line 106
+   at System.Linq.AsyncEnumerable.AsyncIterator`1.MoveNext(CancellationToken cancellationToken) in D:\a\1\s\Ix.NET\Source\System.Interactive.Async\AsyncIterator.cs:line 98
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext(CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.ExecuteSingletonAsyncQuery[TResult](QueryContext queryContext, Func`2 compiledQuery, IDiagnosticsLogger`1 logger, Type contextType)
+2019-06-21 15:28:18.416 +08:00 [INF] Executed action Team.Controllers.LoginController.UserLoginApi (Team) in 1512.2005000000001ms
+2019-06-21 15:28:18.422 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-06-21 15:28:18.430 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidCastException: Unable to cast object of type 'System.Int32' to type 'System.String'.
+   at System.Data.SqlClient.SqlBuffer.get_String()
+   at System.Data.SqlClient.SqlDataReader.GetString(Int32 i)
+   at lambda_method(Closure , DbDataReader )
+   at Microsoft.EntityFrameworkCore.Storage.Internal.TypedRelationalValueBufferFactory.Create(DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncQueryingEnumerable`1.AsyncEnumerator.BufferlessMoveNext(DbContext _, Boolean buffer, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncQueryingEnumerable`1.AsyncEnumerator.MoveNext(CancellationToken cancellationToken)
+   at System.Linq.AsyncEnumerable.SingleOrDefault_[TSource](IAsyncEnumerable`1 source, CancellationToken cancellationToken) in D:\a\1\s\Ix.NET\Source\System.Interactive.Async\Single.cs:line 159
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.TaskResultAsyncEnumerable`1.Enumerator.MoveNext(CancellationToken cancellationToken)
+   at System.Linq.AsyncEnumerable.SelectEnumerableAsyncIterator`2.MoveNextCore(CancellationToken cancellationToken) in D:\a\1\s\Ix.NET\Source\System.Interactive.Async\Select.cs:line 106
+   at System.Linq.AsyncEnumerable.AsyncIterator`1.MoveNext(CancellationToken cancellationToken) in D:\a\1\s\Ix.NET\Source\System.Interactive.Async\AsyncIterator.cs:line 98
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext(CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.ExecuteSingletonAsyncQuery[TResult](QueryContext queryContext, Func`2 compiledQuery, IDiagnosticsLogger`1 logger, Type contextType)
+   at Team.Infrastructure.Repositories.UserRepository.UserLogin(String account, String password) in D:\Microsoft VS2017\Word\.net core API\Team\Team.Infrastructure\Repositories\UserRepository.cs:line 35
+   at Team.Controllers.LoginController.UserLoginApi(UserLoginMap userLogin) in D:\Microsoft VS2017\Word\.net core API\Team\Team\Controllers\LoginController.cs:line 111
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-06-21 15:28:18.511 +08:00 [INF] Request finished in 1744.939ms 500 text/html; charset=utf-8
+2019-06-21 15:32:09.242 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-06-21 15:32:10.933 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-06-21 15:32:11.132 +08:00 [INF] Request finished in 204.0185ms 200 text/html
+2019-06-21 15:32:11.819 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-06-21 15:32:12.087 +08:00 [INF] Request finished in 267.5274ms 200 application/json;charset=utf-8
+2019-06-21 15:32:17.671 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserLoginApi application/json-patch+json 49
+2019-06-21 15:32:17.754 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-06-21 15:32:17.780 +08:00 [INF] Route matched with {action = "UserLoginApi", controller = "Login"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserLoginApi(Team.Model.AutoMappers.UserMapper.UserLoginMap) on controller Team.Controllers.LoginController (Team).
+2019-06-21 15:32:18.368 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoginApi (Team) - Validation state: "Valid"
+2019-06-21 15:32:18.617 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-06-21 15:32:19.156 +08:00 [INF] Executed DbCommand (272ms) [Parameters=[@__account_0='?' (Size = 4000), @__password_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE ([x].[Account] = @__account_0) AND ([x].[Password] = @__password_1)
+2019-06-21 15:32:19.258 +08:00 [INF] 用户 1登陆成功
+2019-06-21 15:32:19.264 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserLoginApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 885.3542ms.
+2019-06-21 15:32:19.287 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-06-21 15:32:19.307 +08:00 [INF] Executed action Team.Controllers.LoginController.UserLoginApi (Team) in 1520.3912ms
+2019-06-21 15:32:19.311 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-06-21 15:32:19.317 +08:00 [INF] Request finished in 1646.8707ms 200 application/json; charset=utf-8
+2019-06-21 15:32:54.935 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/LAL/UpLoadApi application/json-patch+json 54
+2019-06-21 15:32:54.964 +08:00 [INF] Successfully validated the token.
+2019-06-21 15:32:54.970 +08:00 [INF] Executing endpoint 'Team.Controllers.LALController.UpLoadApiAsync (Team)'
+2019-06-21 15:32:54.977 +08:00 [INF] Route matched with {action = "UpLoadApiAsync", controller = "LAL"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpLoadApiAsync(Team.Model.AutoMappers.UserMapper.LAndLUpLoadMapper) on controller Team.Controllers.LALController (Team).
+2019-06-21 15:32:54.991 +08:00 [INF] Authorization was successful.
+2019-06-21 15:32:55.026 +08:00 [INF] Executing action method Team.Controllers.LALController.UpLoadApiAsync (Team) - Validation state: "Valid"
+2019-06-21 15:32:55.036 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-06-21 15:32:55.425 +08:00 [INF] Executed DbCommand (375ms) [Parameters=[Latitude='?' (DbType = Double), Longitude='?' (DbType = Double), userId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+update LatitudeAndLongitudes set Latitude=@Latitude,Longitude=@Longitude where UserId=@userId
+2019-06-21 15:32:55.430 +08:00 [INF] 用户 1 上传经纬度成功
+2019-06-21 15:32:55.431 +08:00 [INF] Executed action method Team.Controllers.LALController.UpLoadApiAsync (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 402.4416ms.
+2019-06-21 15:32:55.434 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-06-21 15:32:55.438 +08:00 [INF] Executed action Team.Controllers.LALController.UpLoadApiAsync (Team) in 456.7756ms
+2019-06-21 15:32:55.442 +08:00 [INF] Executed endpoint 'Team.Controllers.LALController.UpLoadApiAsync (Team)'
+2019-06-21 15:32:55.443 +08:00 [INF] Request finished in 508.0994ms 200 application/json; charset=utf-8
+2019-06-21 15:33:10.249 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserLoginApi application/json-patch+json 50
+2019-06-21 15:33:10.253 +08:00 [INF] Successfully validated the token.
+2019-06-21 15:33:10.259 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-06-21 15:33:10.261 +08:00 [INF] Route matched with {action = "UserLoginApi", controller = "Login"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserLoginApi(Team.Model.AutoMappers.UserMapper.UserLoginMap) on controller Team.Controllers.LoginController (Team).
+2019-06-21 15:33:10.290 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoginApi (Team) - Validation state: "Valid"
+2019-06-21 15:33:10.292 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-06-21 15:33:10.344 +08:00 [INF] Executed DbCommand (48ms) [Parameters=[@__account_0='?' (Size = 4000), @__password_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE ([x].[Account] = @__account_0) AND ([x].[Password] = @__password_1)
+2019-06-21 15:33:10.349 +08:00 [INF] 用户 2登陆成功
+2019-06-21 15:33:10.350 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserLoginApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 58.0679ms.
+2019-06-21 15:33:10.352 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-06-21 15:33:10.354 +08:00 [INF] Executed action Team.Controllers.LoginController.UserLoginApi (Team) in 89.7016ms
+2019-06-21 15:33:10.355 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-06-21 15:33:10.357 +08:00 [INF] Request finished in 108.3487ms 200 application/json; charset=utf-8
+2019-06-21 15:33:38.134 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/LAL/ObtainAll?latitude=25.794307&longitude=113.114876  
+2019-06-21 15:33:38.138 +08:00 [INF] Successfully validated the token.
+2019-06-21 15:33:38.141 +08:00 [INF] Executing endpoint 'Team.Controllers.LALController.ObtainAll (Team)'
+2019-06-21 15:33:38.148 +08:00 [INF] Route matched with {action = "ObtainAll", controller = "LAL"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ObtainAll(Double, Double) on controller Team.Controllers.LALController (Team).
+2019-06-21 15:33:38.153 +08:00 [INF] Authorization was successful.
+2019-06-21 15:33:38.177 +08:00 [INF] Executing action method Team.Controllers.LALController.ObtainAll (Team) - Validation state: "Valid"
+2019-06-21 15:33:38.188 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-06-21 15:33:38.418 +08:00 [INF] Executed DbCommand (196ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[Latitude], [s].[Longitude], [s].[Name], [s].[Phone], [s].[UserId]
+FROM [LatitudeAndLongitudes] AS [s]
+WHERE [s].[UserId] <> @__userId_0
+ORDER BY [s].[Id] DESC
+2019-06-21 15:33:38.432 +08:00 [INF] Executed action method Team.Controllers.LALController.ObtainAll (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 251.05360000000002ms.
+2019-06-21 15:33:38.435 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-06-21 15:33:38.439 +08:00 [INF] Executed action Team.Controllers.LALController.ObtainAll (Team) in 286.42990000000003ms
+2019-06-21 15:33:38.442 +08:00 [INF] Executed endpoint 'Team.Controllers.LALController.ObtainAll (Team)'
+2019-06-21 15:33:38.443 +08:00 [INF] Request finished in 310.0074ms 200 application/json; charset=utf-8
+2019-06-21 20:37:58.552 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-06-21 20:38:00.548 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-06-21 20:38:00.884 +08:00 [INF] Request finished in 336.9784ms 200 text/html
+2019-06-21 20:38:01.373 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-06-21 20:38:01.623 +08:00 [INF] Request finished in 249.4585ms 200 application/json;charset=utf-8
+2019-06-21 20:38:07.260 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserLoginApi application/json-patch+json 49
+2019-06-21 20:38:07.379 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-06-21 20:38:07.408 +08:00 [INF] Route matched with {action = "UserLoginApi", controller = "Login"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserLoginApi(Team.Model.AutoMappers.UserMapper.UserLoginMap) on controller Team.Controllers.LoginController (Team).
+2019-06-21 20:38:08.103 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoginApi (Team) - Validation state: "Valid"
+2019-06-21 20:38:08.423 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-06-21 20:38:10.290 +08:00 [INF] Executed DbCommand (562ms) [Parameters=[@__account_0='?' (Size = 4000), @__password_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE ([x].[Account] = @__account_0) AND ([x].[Password] = @__password_1)
+2019-06-21 20:38:10.388 +08:00 [INF] 用户 1登陆成功
+2019-06-21 20:38:10.394 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserLoginApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 2276.2143ms.
+2019-06-21 20:38:10.413 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-06-21 20:38:10.425 +08:00 [INF] Executed action Team.Controllers.LoginController.UserLoginApi (Team) in 3011.2014ms
+2019-06-21 20:38:10.429 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-06-21 20:38:10.436 +08:00 [INF] Request finished in 3176.3945ms 200 application/json; charset=utf-8
+2019-06-21 20:38:24.201 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/LAL/ObtainAll  
+2019-06-21 20:38:24.216 +08:00 [INF] Successfully validated the token.
+2019-06-21 20:38:24.224 +08:00 [INF] Executing endpoint 'Team.Controllers.LALController.ObtainAll (Team)'
+2019-06-21 20:38:24.230 +08:00 [INF] Route matched with {action = "ObtainAll", controller = "LAL"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ObtainAll(Double, Double) on controller Team.Controllers.LALController (Team).
+2019-06-21 20:38:24.248 +08:00 [INF] Authorization was successful.
+2019-06-21 20:38:24.276 +08:00 [INF] Executing action method Team.Controllers.LALController.ObtainAll (Team) - Validation state: "Valid"
+2019-06-21 20:38:24.285 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-06-21 20:38:24.426 +08:00 [INF] Executed DbCommand (99ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[Latitude], [s].[Longitude], [s].[Name], [s].[Phone], [s].[UserId]
+FROM [LatitudeAndLongitudes] AS [s]
+WHERE [s].[UserId] <> @__userId_0
+ORDER BY [s].[Id] DESC
+2019-06-21 20:38:24.444 +08:00 [INF] Executed action method Team.Controllers.LALController.ObtainAll (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 165.0127ms.
+2019-06-21 20:38:24.450 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-06-21 20:38:24.456 +08:00 [INF] Executed action Team.Controllers.LALController.ObtainAll (Team) in 217.07090000000002ms
+2019-06-21 20:38:24.459 +08:00 [INF] Executed endpoint 'Team.Controllers.LALController.ObtainAll (Team)'
+2019-06-21 20:38:24.462 +08:00 [INF] Request finished in 261.3662ms 200 application/json; charset=utf-8
+2019-06-21 20:38:43.780 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/LAL/UpLoadApi application/json-patch+json 39
+2019-06-21 20:38:43.782 +08:00 [INF] Successfully validated the token.
+2019-06-21 20:38:43.788 +08:00 [INF] Executing endpoint 'Team.Controllers.LALController.UpLoadApiAsync (Team)'
+2019-06-21 20:38:43.794 +08:00 [INF] Route matched with {action = "UpLoadApiAsync", controller = "LAL"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpLoadApiAsync(Team.Model.AutoMappers.UserMapper.LAndLUpLoadMapper) on controller Team.Controllers.LALController (Team).
+2019-06-21 20:38:43.802 +08:00 [INF] Authorization was successful.
+2019-06-21 20:38:43.831 +08:00 [INF] Executing action method Team.Controllers.LALController.UpLoadApiAsync (Team) - Validation state: "Valid"
+2019-06-21 20:38:43.839 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-06-21 20:38:44.087 +08:00 [INF] Executed DbCommand (244ms) [Parameters=[Latitude='?' (DbType = Double), Longitude='?' (DbType = Double), userId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+update LatitudeAndLongitudes set Latitude=@Latitude,Longitude=@Longitude where UserId=@userId
+2019-06-21 20:38:44.094 +08:00 [INF] 用户 1 上传经纬度成功
+2019-06-21 20:38:44.097 +08:00 [INF] Executed action method Team.Controllers.LALController.UpLoadApiAsync (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 262.60810000000004ms.
+2019-06-21 20:38:44.106 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-06-21 20:38:44.107 +08:00 [INF] Executed action Team.Controllers.LALController.UpLoadApiAsync (Team) in 305.7148ms
+2019-06-21 20:38:44.110 +08:00 [INF] Executed endpoint 'Team.Controllers.LALController.UpLoadApiAsync (Team)'
+2019-06-21 20:38:44.115 +08:00 [INF] Request finished in 334.3728ms 200 application/json; charset=utf-8
+2019-06-21 20:38:54.537 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserLoginApi application/json-patch+json 50
+2019-06-21 20:38:54.543 +08:00 [INF] Successfully validated the token.
+2019-06-21 20:38:54.547 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-06-21 20:38:54.550 +08:00 [INF] Route matched with {action = "UserLoginApi", controller = "Login"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserLoginApi(Team.Model.AutoMappers.UserMapper.UserLoginMap) on controller Team.Controllers.LoginController (Team).
+2019-06-21 20:38:54.580 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserLoginApi (Team) - Validation state: "Valid"
+2019-06-21 20:38:54.584 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-06-21 20:38:54.646 +08:00 [INF] Executed DbCommand (59ms) [Parameters=[@__account_0='?' (Size = 4000), @__password_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE ([x].[Account] = @__account_0) AND ([x].[Password] = @__password_1)
+2019-06-21 20:38:54.651 +08:00 [INF] 用户 2登陆成功
+2019-06-21 20:38:54.652 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserLoginApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 69.018200000000007ms.
+2019-06-21 20:38:54.657 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-06-21 20:38:54.660 +08:00 [INF] Executed action Team.Controllers.LoginController.UserLoginApi (Team) in 105.7119ms
+2019-06-21 20:38:54.662 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserLoginApi (Team)'
+2019-06-21 20:38:54.664 +08:00 [INF] Request finished in 127.2905ms 200 application/json; charset=utf-8
+2019-06-21 20:39:11.553 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/LAL/ObtainAll  
+2019-06-21 20:39:11.556 +08:00 [INF] Successfully validated the token.
+2019-06-21 20:39:11.558 +08:00 [INF] Executing endpoint 'Team.Controllers.LALController.ObtainAll (Team)'
+2019-06-21 20:39:11.562 +08:00 [INF] Route matched with {action = "ObtainAll", controller = "LAL"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ObtainAll(Double, Double) on controller Team.Controllers.LALController (Team).
+2019-06-21 20:39:11.567 +08:00 [INF] Authorization was successful.
+2019-06-21 20:39:11.590 +08:00 [INF] Executing action method Team.Controllers.LALController.ObtainAll (Team) - Validation state: "Valid"
+2019-06-21 20:39:11.594 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-06-21 20:39:11.619 +08:00 [INF] Executed DbCommand (22ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[Latitude], [s].[Longitude], [s].[Name], [s].[Phone], [s].[UserId]
+FROM [LatitudeAndLongitudes] AS [s]
+WHERE [s].[UserId] <> @__userId_0
+ORDER BY [s].[Id] DESC
+2019-06-21 20:39:11.624 +08:00 [INF] Executed action method Team.Controllers.LALController.ObtainAll (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 30.715ms.
+2019-06-21 20:39:11.626 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-06-21 20:39:11.628 +08:00 [INF] Executed action Team.Controllers.LALController.ObtainAll (Team) in 60.8723ms
+2019-06-21 20:39:11.631 +08:00 [INF] Executed endpoint 'Team.Controllers.LALController.ObtainAll (Team)'
+2019-06-21 20:39:11.633 +08:00 [INF] Request finished in 80.1225ms 200 application/json; charset=utf-8
+2019-06-21 20:39:24.049 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/LAL/UpLoadApi application/json-patch+json 37
+2019-06-21 20:39:24.053 +08:00 [INF] Successfully validated the token.
+2019-06-21 20:39:24.055 +08:00 [INF] Executing endpoint 'Team.Controllers.LALController.UpLoadApiAsync (Team)'
+2019-06-21 20:39:24.066 +08:00 [INF] Route matched with {action = "UpLoadApiAsync", controller = "LAL"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpLoadApiAsync(Team.Model.AutoMappers.UserMapper.LAndLUpLoadMapper) on controller Team.Controllers.LALController (Team).
+2019-06-21 20:39:24.072 +08:00 [INF] Authorization was successful.
+2019-06-21 20:39:24.097 +08:00 [INF] Executing action method Team.Controllers.LALController.UpLoadApiAsync (Team) - Validation state: "Valid"
+2019-06-21 20:39:24.100 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-06-21 20:39:24.129 +08:00 [INF] Executed DbCommand (26ms) [Parameters=[Latitude='?' (DbType = Double), Longitude='?' (DbType = Double), userId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+update LatitudeAndLongitudes set Latitude=@Latitude,Longitude=@Longitude where UserId=@userId
+2019-06-21 20:39:24.134 +08:00 [INF] 用户 2 上传经纬度成功
+2019-06-21 20:39:24.135 +08:00 [INF] Executed action method Team.Controllers.LALController.UpLoadApiAsync (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 35.0734ms.
+2019-06-21 20:39:24.137 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-06-21 20:39:24.142 +08:00 [INF] Executed action Team.Controllers.LALController.UpLoadApiAsync (Team) in 69.39800000000001ms
+2019-06-21 20:39:24.145 +08:00 [INF] Executed endpoint 'Team.Controllers.LALController.UpLoadApiAsync (Team)'
+2019-06-21 20:39:24.147 +08:00 [INF] Request finished in 97.335ms 200 application/json; charset=utf-8
+2019-06-21 20:39:38.360 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Login/UserRegisteredApi application/json-patch+json 142
+2019-06-21 20:39:38.363 +08:00 [INF] Successfully validated the token.
+2019-06-21 20:39:38.364 +08:00 [INF] Executing endpoint 'Team.Controllers.LoginController.UserRegisteredApi (Team)'
+2019-06-21 20:39:38.376 +08:00 [INF] Route matched with {action = "UserRegisteredApi", controller = "Login"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserRegisteredApi(Team.Model.AutoMappers.UserMapper.UserRegisteredMap) on controller Team.Controllers.LoginController (Team).
+2019-06-21 20:39:38.429 +08:00 [INF] Executing action method Team.Controllers.LoginController.UserRegisteredApi (Team) - Validation state: "Valid"
+2019-06-21 20:39:38.435 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-06-21 20:39:38.482 +08:00 [INF] Executed DbCommand (35ms) [Parameters=[@__account_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[Account], [x].[Name], [x].[Password], [x].[Province], [x].[Role], [x].[RunTeamId], [x].[Sex], [x].[StudentId], [x].[UniversityId]
+FROM [Users] AS [x]
+WHERE [x].[Account] = @__account_0
+2019-06-21 20:39:39.101 +08:00 [INF] Executed DbCommand (485ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32), @p6='?' (DbType = Int32), @p7='?' (Size = 4000), @p8='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Users] ([Account], [Name], [Password], [Province], [Role], [RunTeamId], [Sex], [StudentId], [UniversityId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8);
+SELECT [Id]
+FROM [Users]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2019-06-21 20:39:39.197 +08:00 [INF] Executed DbCommand (79ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [LatitudeAndLongitudes] ([Latitude], [Longitude], [Name], [Phone], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4);
+SELECT [Id]
+FROM [LatitudeAndLongitudes]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2019-06-21 20:39:39.282 +08:00 [INF] Executed DbCommand (77ms) [Parameters=[@p0='?' (DbType = Single), @p1='?' (DbType = Single), @p2='?' (DbType = Single), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Statisticals] ([AllTime], [Calories], [Distance], [SportFreeModel], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4);
+SELECT [Id]
+FROM [Statisticals]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2019-06-21 20:39:39.317 +08:00 [INF] Executed DbCommand (21ms) [Parameters=[@p0='?' (DbType = Single), @p1='?' (DbType = Single), @p2='?' (DbType = Single), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Statisticals] ([AllTime], [Calories], [Distance], [SportFreeModel], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4);
+SELECT [Id]
+FROM [Statisticals]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2019-06-21 20:39:39.349 +08:00 [INF] string3 注册成功
+2019-06-21 20:39:39.351 +08:00 [INF] Executed action method Team.Controllers.LoginController.UserRegisteredApi (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 919.089ms.
+2019-06-21 20:39:39.364 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-06-21 20:39:39.365 +08:00 [INF] Executed action Team.Controllers.LoginController.UserRegisteredApi (Team) in 983.937ms
+2019-06-21 20:39:39.368 +08:00 [INF] Executed endpoint 'Team.Controllers.LoginController.UserRegisteredApi (Team)'
+2019-06-21 20:39:39.369 +08:00 [INF] Request finished in 1009.2908ms 200 application/json; charset=utf-8
+2019-06-21 20:39:52.572 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/LAL/ObtainAll  
+2019-06-21 20:39:52.575 +08:00 [INF] Successfully validated the token.
+2019-06-21 20:39:52.577 +08:00 [INF] Executing endpoint 'Team.Controllers.LALController.ObtainAll (Team)'
+2019-06-21 20:39:52.580 +08:00 [INF] Route matched with {action = "ObtainAll", controller = "LAL"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ObtainAll(Double, Double) on controller Team.Controllers.LALController (Team).
+2019-06-21 20:39:52.584 +08:00 [INF] Authorization was successful.
+2019-06-21 20:39:52.607 +08:00 [INF] Executing action method Team.Controllers.LALController.ObtainAll (Team) - Validation state: "Valid"
+2019-06-21 20:39:52.610 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-06-21 20:39:52.647 +08:00 [INF] Executed DbCommand (33ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[Latitude], [s].[Longitude], [s].[Name], [s].[Phone], [s].[UserId]
+FROM [LatitudeAndLongitudes] AS [s]
+WHERE [s].[UserId] <> @__userId_0
+ORDER BY [s].[Id] DESC
+2019-06-21 20:39:52.651 +08:00 [INF] Executed action method Team.Controllers.LALController.ObtainAll (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 41.519800000000004ms.
+2019-06-21 20:39:52.658 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-06-21 20:39:52.662 +08:00 [INF] Executed action Team.Controllers.LALController.ObtainAll (Team) in 77.7615ms
+2019-06-21 20:39:52.664 +08:00 [INF] Executed endpoint 'Team.Controllers.LALController.ObtainAll (Team)'
+2019-06-21 20:39:52.666 +08:00 [INF] Request finished in 93.3128ms 200 application/json; charset=utf-8
+2019-06-21 20:40:12.614 +08:00 [INF] User profile is available. Using 'C:\Users\10456\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-06-21 20:40:14.128 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html  
+2019-06-21 20:40:14.285 +08:00 [INF] Request finished in 157.8143ms 200 text/html
+2019-06-21 20:40:14.721 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json  
+2019-06-21 20:40:14.940 +08:00 [INF] Request finished in 219.086ms 200 application/json;charset=utf-8
+2019-06-21 20:40:21.688 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/LAL/ObtainAll  
+2019-06-21 20:40:21.758 +08:00 [INF] Successfully validated the token.
+2019-06-21 20:40:21.791 +08:00 [INF] Executing endpoint 'Team.Controllers.LALController.ObtainAll (Team)'
+2019-06-21 20:40:21.846 +08:00 [INF] Route matched with {action = "ObtainAll", controller = "LAL"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ObtainAll(Double, Double) on controller Team.Controllers.LALController (Team).
+2019-06-21 20:40:21.859 +08:00 [INF] Authorization was successful.
+2019-06-21 20:40:22.370 +08:00 [INF] Executing action method Team.Controllers.LALController.ObtainAll (Team) - Validation state: "Valid"
+2019-06-21 20:40:22.660 +08:00 [INF] Entity Framework Core 2.2.4-servicing-10062 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-06-21 20:40:22.921 +08:00 [INF] Executed DbCommand (38ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[Latitude], [s].[Longitude], [s].[Name], [s].[Phone], [s].[UserId]
+FROM [LatitudeAndLongitudes] AS [s]
+WHERE [s].[UserId] <> @__userId_0
+ORDER BY [s].[Id] DESC
+2019-06-21 20:40:22.964 +08:00 [INF] Executed action method Team.Controllers.LALController.ObtainAll (Team), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 583.0941ms.
+2019-06-21 20:40:22.974 +08:00 [INF] Executing ObjectResult, writing value of type 'Team.Model.CustomStatusCode'.
+2019-06-21 20:40:22.988 +08:00 [INF] Executed action Team.Controllers.LALController.ObtainAll (Team) in 1134.478ms
+2019-06-21 20:40:22.991 +08:00 [INF] Executed endpoint 'Team.Controllers.LALController.ObtainAll (Team)'
+2019-06-21 20:40:22.993 +08:00 [INF] Request finished in 1305.2059ms 200 application/json; charset=utf-8

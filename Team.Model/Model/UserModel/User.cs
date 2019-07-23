@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Team.Model.Model.ParentModel;
 using Team.Model.Model.RunTeamModel;
 using Team.Model.Model.TeamModel;
 
@@ -52,7 +53,9 @@ namespace Team.Model.Model.UserModel
         /// <summary>
         /// 学号
         /// </summary>
-        public int StudentId { get; set; }
+        public string StudentId { get; set; }
+
+        
 
         /// <summary>
         /// 组队
@@ -83,5 +86,6 @@ namespace Team.Model.Model.UserModel
         /// 经纬度
         /// </summary>
         public LatitudeAndLongitude LatitudeAndLongitude { get; set; }
+
     }
 }

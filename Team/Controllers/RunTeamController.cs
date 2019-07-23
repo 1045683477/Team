@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Team.AuthHelper.OverWrite;
 using Team.Infrastructure.IRepositories;
@@ -228,16 +229,6 @@ namespace Team.Controllers
         }
 
         /// <summary>
-        /// 获取所有开放加入战队信息
-        /// </summary>
-        /// <returns></returns>
-        //[HttpGet("SearchAllTeamApi",Name = "SearchAllTeamApi")]
-        //public IActionResult SearchAllTeamApi()
-        //{
-
-        //}
-
-        /// <summary>
         /// 查看某个队伍信息
         /// </summary>
         /// <param name="teamId"></param>
@@ -363,19 +354,21 @@ namespace Team.Controllers
                 _logger.LogInformation($"用户 {user.Id} 申请加入 {teamId} 战队失败，已加入队伍");
                 code = new CustomStatusCode
                 {
-                    Status = "204",
+                    Status = "200",
                     Message = $"用户 {user.Id} 申请加入 {teamId} 战队失败，已加入队伍"
                 };
-                return StatusCode(204, code);
+                return StatusCode(200, code);
             }
 
             //判断申请者队伍是否存在此人
             var listApplicant = _runTeamResource.SearchAllParticipate(teamId);
+
+
             List<int> list = new List<int>();
             int i=0;
             foreach(var l in listApplicant)
             {
-                list[i] = l.Id;
+                list.Add(l.UserId);
                 i++;
             }
             if (list.Contains(user.Id))
@@ -383,10 +376,10 @@ namespace Team.Controllers
                 _logger.LogInformation($"用户 {user.Id} 申请加入 {teamId} 战队失败,已经申请");
                 code = new CustomStatusCode
                 {
-                    Status = "204",
+                    Status = "200",
                     Message = $"用户 {user.Id} 申请加入 {teamId} 战队失败,已经申请"
                 };
-                return StatusCode(204, code);
+                return StatusCode(200, code);
             }
 
             var applicant = new RunApplicant
@@ -439,7 +432,7 @@ namespace Team.Controllers
                 };
                 return StatusCode(404, code);
             }
-            var applicantModel = _mapper.Map<IEquatable<RunApplicantMapper>>(applicantList);
+            var applicantModel = _mapper.Map<IEnumerable<RunApplicantMapper>>(applicantList);
 
             _logger.LogInformation($"用户 {jwt.Id} 查询 {user.RunTeamId} 队伍申请者成功");
 
@@ -512,6 +505,50 @@ namespace Team.Controllers
             };
             return StatusCode(201, code);
 
+        }
+
+        /// <summary>
+        /// 退出跑团队伍
+        /// </summary>
+        /// <returns></returns>
+        [Authorize(Roles = "Client")]
+        [HttpGet("ExitRunTeam",Name = "ExitRunTeam")]
+        public async Task<ObjectResult> ExitRunTeam()
+        {
+            CustomStatusCode code;
+            var jwt = HttpRequest();
+            var teamId = _userRepository.UserSearch(jwt.Id);
+            if (teamId.RunTeamId==0)
+            {
+                _logger.LogError($"用户 {jwt.Id} 推出失败，没有参加队伍");
+                code =new CustomStatusCode
+                {
+                    Status = "404",
+                    Message = $"用户 {jwt.Id} 推出失败，没有参加队伍"
+                };
+                return StatusCode(404, code);
+            }
+
+            _runTeamResource.LeaveTheTeam(jwt.Id,teamId.RunTeamId);
+
+            if (!await _unitOfWork.SaveChanged())
+            {
+                _logger.LogError($"用户 {jwt.Id} 退出 {teamId.RunTeamId} 战队保存失败");
+                code = new CustomStatusCode
+                {
+                    Status = "500",
+                    Message = $"用户 {jwt.Id} 退出 {teamId.RunTeamId} 战队保存失败"
+                };
+                return StatusCode(500, code);
+            }
+
+            _logger.LogInformation($"用户 {jwt.Id} 退出 {teamId.RunTeamId} 战队保存成功");
+            code = new CustomStatusCode
+            {
+                Status = "200",
+                Message = $"用户 {jwt.Id} 退出 {teamId.RunTeamId} 战队保存成功"
+            };
+            return StatusCode(200, code);
         }
 
         /// <summary>

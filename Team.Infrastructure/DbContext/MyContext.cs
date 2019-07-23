@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Team.Model.Model.ParentModel;
 using Team.Model.Model.RunTeamModel;
 using Team.Model.Model.TeamModel;
 using Team.Model.Model.UserModel;
@@ -9,7 +10,7 @@ namespace Team.Infrastructure.DbContext
     {
         public MyContext(DbContextOptions<MyContext> options):base(options)
         {
-            Database.EnsureCreated();
+            //Database.EnsureCreated();
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -231,6 +232,13 @@ namespace Team.Infrastructure.DbContext
                 .OnDelete(DeleteBehavior.Cascade);
 
             #endregion
+
+            #region Children
+
+            modelBuilder.Entity<Children>()
+                .HasKey(x => x.Id);
+
+            #endregion
         }
 
         public DbSet<User> Users { get; set; }
@@ -264,6 +272,12 @@ namespace Team.Infrastructure.DbContext
         #endregion
 
         public DbSet<LatitudeAndLongitude> LatitudeAndLongitudes { get; set; }
-        
+
+
+        #region 家长模式
+
+        public DbSet<Children> Children { get; set; }
+
+        #endregion
     }
 }

@@ -394,6 +394,16 @@
             纬度
             </summary>
         </member>
+        <member name="P:Team.Model.AutoMappers.UserMapper.LAndLSearchMapper.Distance">
+            <summary>
+            距离
+            </summary>
+        </member>
+        <member name="P:Team.Model.AutoMappers.UserMapper.LAndLSearchMapper.CommunicationId">
+            <summary>
+            通信编号
+            </summary>
+        </member>
         <member name="T:Team.Model.AutoMappers.UserMapper.LAndLUpLoadMapper">
             <summary>
             经纬度上传模板
@@ -459,7 +469,7 @@
             大学
             </summary>
         </member>
-        <member name="P:Team.Model.AutoMappers.UserMapper.UserRegisteredMap.studentId">
+        <member name="P:Team.Model.AutoMappers.UserMapper.UserRegisteredMap.StudentId">
             <summary>
             学号
             </summary>
@@ -849,6 +859,31 @@
             外键
             </summary>
         </member>
+        <member name="T:Team.Model.Model.ParentModel.Children">
+            <summary>
+            父母模式模板
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.ParentModel.Children.RelationShip">
+            <summary>
+            关系
+            </summary>
+        </member>
+        <member name="T:Team.Model.Model.ParentModel.RelationShip">
+            <summary>
+            关系
+            </summary>
+        </member>
+        <member name="F:Team.Model.Model.ParentModel.RelationShip.AdoptedFather">
+            <summary>
+            干爹
+            </summary>
+        </member>
+        <member name="F:Team.Model.Model.ParentModel.RelationShip.AdoptedMother">
+            <summary>
+            干妈
+            </summary>
+        </member>
         <member name="T:Team.Model.Model.TeamModel.Participants">
             <summary>
             参加者表
@@ -974,6 +1009,11 @@
             跑步
             </summary>
         </member>
+        <member name="F:Team.Model.Model.TeamModel.Sport.Custom">
+            <summary>
+            自定义
+            </summary>
+        </member>
         <member name="F:Team.Model.Model.TeamModel.SportFreeModel.Running">
             <summary>
             跑步
@@ -1092,6 +1132,11 @@
         <member name="P:Team.Model.Model.UserModel.LatitudeAndLongitude.Phone">
             <summary>
             电话
+            </summary>
+        </member>
+        <member name="P:Team.Model.Model.UserModel.LatitudeAndLongitude.CommunicationId">
+            <summary>
+            通信编号
             </summary>
         </member>
         <member name="F:Team.Model.Model.UserModel.Role.Client">

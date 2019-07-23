@@ -59,6 +59,40 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="T:Team.Controllers.ChildController">
+            <summary>
+            家长模式
+            </summary>
+        </member>
+        <member name="M:Team.Controllers.ChildController.AddChildrenAsyncApi(System.String,Team.Model.Model.ParentModel.RelationShip)">
+            <summary>
+            添加孩子
+            </summary>
+            <param name="account">被绑定者得账号</param>
+            <param name="relationShip">关系</param>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Controllers.ChildController.SearchChildrenLalApi(System.Int32,System.Double,System.Double)">
+            <summary>
+            查看绑定孩子的前十条经纬度与距离
+            </summary>
+            <param name="sonId">孩子Id</param>
+            <param name="latitude">经度</param>
+            <param name="longitude">纬度</param>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Controllers.ChildController.SearchAllChildrenApi">
+            <summary>
+            查询所有绑定的孩子
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Controllers.ChildController.HttpRequest">
+            <summary>
+            解析 header 里面的 token
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:Team.Controllers.LALController">
             <summary>
             经纬度上传
@@ -71,10 +105,12 @@
             <param name="lAndLUpLoadMapper"></param>
             <returns></returns>
         </member>
-        <member name="M:Team.Controllers.LALController.ObtainAll">
+        <member name="M:Team.Controllers.LALController.ObtainAll(System.Double,System.Double)">
             <summary>
-            获取所有用户的经纬度
+            获取所有用户的经纬度,与距离你现在位置距离
             </summary>
+            <param name="latitude">经度</param>
+            <param name="longitude">纬度</param>
             <returns></returns>
         </member>
         <member name="M:Team.Controllers.ListController.SearchDailyList">
@@ -139,6 +175,13 @@
             <summary>
             加载用户头像
             </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Controllers.LoginController.UserUpLoadCommunicationIdAsync(System.String)">
+            <summary>
+            添加通信 ID
+            </summary>
+            <param name="communicationId"></param>
             <returns></returns>
         </member>
         <member name="M:Team.Controllers.LoginController.HttpRequest">
@@ -255,10 +298,24 @@
             <param name="userId">申请者 Id</param>
             <returns></returns>
         </member>
+        <member name="M:Team.Controllers.RunTeamController.ExitRunTeam">
+            <summary>
+            退出跑团队伍
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:Team.Controllers.RunTeamController.HttpRequest">
             <summary>
             解析 header 里面的 token
             </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Team.Controllers.SendController.Send(System.String,System.String)">
+            <summary>
+            发送短信
+            </summary>
+            <param name="cpacha">短信内容</param>
+            <param name="phone">手机号</param>
             <returns></returns>
         </member>
         <member name="M:Team.Controllers.TeamController.TeamCreateApi(Team.Model.AutoMappers.TeamMapper.TeamCreateMap)">
